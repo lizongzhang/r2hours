@@ -1,0 +1,41 @@
+---
+title: ""
+about:
+  template: solana
+  id: ppc
+---
+
+<div style="font-size: 22px; line-height: 2;">
+  <p>
+    🔗 <a href="https://lizongzhang.github.io/deepseekcamp/L9.html" target="_blank">
+    模块九 DeepSeek辅助傻瓜式医学统计</a>
+  </p>
+  <p>
+    🔗 <a href="https://lizongzhang.github.io/deepseekcamp/L10.html" target="_blank">
+    模块十 DeepSeek辅助R语言编程与数据分析</a>
+  </p>
+</div>
+
+
+<a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="stroke.xlsx">点击下载数据文件: stroke.xlsx</a>
+
+
+---
+
+<div style="text-align: center; margin-top: 1em;">
+  <p style="font-size: 22px; color: #044875;">
+    欢迎关注微信公众号“顶刊研习社”、“医课佳”！
+  </p>
+  <img src="img/wechat.png" alt="微信二维码" width="200">
+</div>
+
+---
+
+<div style="text-align: center; margin-top: 1.5em;">
+  <a href="https://space.bilibili.com/590872906" target="_blank">
+    <img src="img/bili_up.jpg" alt="B站头像" width="60">
+  </a>
+</div>
+
+
+

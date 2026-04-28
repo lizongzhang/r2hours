@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+  
+website:
+  title: "DeepSeek临床医学科研训练营"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+    tools:
+      - icon: envelope
+        href: lizongzhang9@qq.com
+  page-footer:
+    right: "Data illuminates insights."
+    left: "&copy; Copyright 2025, 顶刊研习社 & Li Zongzhang"
+format:
+  html:
+    theme: cerulean
+    fontcolor: "#044875"
+    toc: true
+editor: source
+execute:
+  default-language: R
+
+
