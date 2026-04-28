@@ -1,0 +1,153 @@
+---
+title: "第2章"
+---
+
+# 讲义
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[第2章 古典线性回归模型](https://lizongzhang.github.io/emetrics26/chap2slide.html){target="_blank"}
+
+# Eviews实操习题
+
+## 任务1: 教材P32 例2-5
+<details>
+
+数据文件Table 2_14.xls
+
+1. 报告 price, age 和bidders的描述性统计量（均值、中位数、标准差、最大/最小值）。
+
+2. 绘制price的直方图和箱线图，观察price的分布特征。
+
+3. 绘制price与age的散点图，在散点图上添加回归线。
+
+4. 绘制price与bidders的散点图，在散点图上添加回归线。
+
+5. 报告price, age和bidders之间的相关系数矩阵。
+
+6. 估计price和age之间的回归方程，报告回归结果。
+
+7. 估计price和bidders之间的回归方程，报告回归结果。
+
+8. 估计price与age和bidders之间的二元回归方程，并报告回归结果。
+
+9. 修改第3题和第4题中散点的颜色，回归线的颜色和样式。
+
+</details>
+
+## 任务2: 二手车价格分析
+
+<details>
+从某二手车交易平台收集了 30 辆同款型号二手车的交易数据，研究**行驶里程 (Mileage)** 以及 **保养记录次数 (Service_Records)** 如何影响 **二手车售价 (Price)**。
+
+样本容量 $n=30$
+
+| 编号 | Price (万元) | Mileage (万公里) | Service_Records (次) | 编号 | Price (万元) | Mileage (万公里) | Service_Records (次) |
+|---|---|---|---|---|---|---|---|
+| **1** | 18.5 | 1.2 | 3 | **16** | 12.1 | 6.8 | 4 |
+| **2** | 17.2 | 2.5 | 4 | **17** | 11.5 | 7.2 | 3 |
+| **3** | 16.8 | 3.1 | 2 | **18** | 10.8 | 8.5 | 5 |
+| **4** | 15.5 | 4.0 | 5 | **19** | 10.2 | 9.1 | 2 |
+| **5** | 14.9 | 4.8 | 3 | **20** | 9.5 | 10.5 | 4 |
+| **6** | 14.2 | 5.2 | 4 | **21** | 18.0 | 1.5 | 4 |
+| **7** | 13.5 | 6.0 | 6 | **22** | 16.5 | 2.8 | 3 |
+| **8** | 12.8 | 6.5 | 2 | **23** | 15.8 | 3.5 | 5 |
+| **9** | 11.9 | 7.8 | 4 | **24** | 14.5 | 4.5 | 4 |
+| **10** | 10.5 | 9.2 | 5 | **25** | 13.2 | 5.8 | 6 |
+| **11** | 9.8 | 10.1 | 3 | **26** | 12.5 | 6.2 | 3 |
+| **12** | 8.9 | 11.5 | 4 | **27** | 11.2 | 7.5 | 4 |
+| **13** | 8.2 | 12.2 | 2 | **28** | 10.4 | 8.8 | 5 |
+| **14** | 7.5 | 13.5 | 5 | **29** | 9.2 | 11.0 | 2 |
+| **15** | 6.8 | 15.0 | 3 | **30** | 8.5 | 12.5 | 4 |
+
+
+1. **基础统计**
+    - 报告 `Price`, `Mileage` 和 `Service_Records` 的均值、中位数、标准差、最小值、最大值等描述性统计量。
+    - 报告三个变量之间的相关系数矩阵。
+2. **数据分布观察**
+    - 绘制 `Price` 的直方图，观察其分布特征。
+3. **一元线性回归与图形美化**
+    - 绘制 `Price` 与 `Mileage` 的散点图。
+    - **自定义要求**：将散点设置为你喜欢的颜色，添加回归趋势线，并显示回归方程。
+    - 在 EViews 中估计回归方程：
+      $$Price = B_0 + B_1 Mileage + u$$
+    - 绘制 `Price` 与 `Service_Records` 的散点图。
+    - **自定义要求**：将散点设置为你喜欢的颜色，添加回归趋势线，并显示回归方程。
+    - 在 EViews 中估计回归方程：
+      $$Price = B_0 + B_1 Service\_Records + u$$
+4. **二元回归**
+    - 估计二元回归模型：
+      $$Price = B_0 + B_1 Mileage + B_2 Service\_Records + u$$
+5. 比较上述三个回归模型，哪个模型最好？
+
+</details>
+
+---
+
+# Eviews教学视频
+
+## 基础操作与数据管理
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 12 主界面](https://www.bilibili.com/video/BV1gg411m7JP){target="_blank"}
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 12 如何导入Excel文件](https://www.bilibili.com/video/BV1KP411p7WM){target="_blank"}
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews12 如何录入数据](https://www.bilibili.com/video/BV1e24y1o7Ac){target="_blank"}
+
+
+## 数据可视化
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews12 绘制散点图](https://www.bilibili.com/video/BV1Yt4y1P7zf){target="_blank"}
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews12  矩阵散点图和气泡图](https://www.bilibili.com/video/BV1K14y187Hh){target="_blank"}
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews12 如何修改坐标轴字体、添加网格线、设置边框？](https://www.bilibili.com/video/BV1YG411J7Je){target="_blank"}  
+
+
+## 模型估计
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews12  回归方程的估计](https://www.bilibili.com/video/BV1Ge411T7cV){target="_blank"} 
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[Eviews12 如何在散点图上添加回归线和回归方程？](https://www.bilibili.com/video/BV1ge4y1B7Cj){target="_blank"}
+
+# R教学视频
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[lm()函数的运用](https://www.bilibili.com/video/BV1zg411o7Kp){target="_blank"}
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[如何在散点图中添加回归方程](https://www.bilibili.com/video/BV1u841147DK){target="_blank"}
+
+# 习题答案
+
+<details>
+<summary style="cursor: pointer; font-weight: bold;">点击展开</summary>
+
+<p>如果想在新窗口打开 PDF，请点这里： <a href="img/EE4_Ch02_Solutions_Manual.pdf" target="_blank" rel="noopener">在新标签页中查看 PDF</a></p>
+
+<iframe src="img/EE4_Ch02_Solutions_Manual.pdf" width="100%" height="800" style="border: none;" allowfullscreen>
+  <!-- 备用内容（若浏览器不支持 iframe） -->
+  <p>你的浏览器无法嵌入 PDF，请 <a href="img/EE4_Ch02_Solutions_Manual.pdf" target="_blank" rel="noopener">点此下载/查看 PDF</a>.</p>
+</iframe>
+
+</details>
+
+# 数据清洗
+
+<img src="img/download.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="data/wjx_data_clean.xlsx" download>点击下载：问卷星原始数据文件 (Excel)</a>
+
+完成下列任务：
+
+1. 变量重命名：将所有变量名统一修改为简洁的英文。
+
+2. 将 Q1（性别）的代码（1=男，2=女）分别转换为 "male" 和 "female"。
+
+3. 将 Q6（用户类型）的四个分类，根据逻辑合并为“performance”与“lite”两类。。
+
+4. 将Q7品牌偏好的代码1-4转换为有具体含义的品牌类型。
+
+5. 识别并剔除含有明显逻辑错误（如年龄>100）或极端数值（如收入异常）的样本个案。
+
+提交要求：将清洗后的数据用“问卷星_学号_姓名”命名，提交到雨课堂。 
+
+
+
+
+
+<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[问卷星原始数据清洗：编码转换、小类合并，异常值识别](https://www.bilibili.com/video/BV1U4AEztEQC/){target="_blank"}
+

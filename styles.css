@@ -1,60 +1,121 @@
+/* ============================================================ */
+/* 1. 网页通用样式 (针对您的 m1.qmd, index.qmd 等网页)           */
+/* ============================================================ */
+
+/* 全局字体设置 */
+body {
+  font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
+  color: #044875;
+  line-height: 1.6;
+}
+
+/* 一级标题与二级标题通用设置 (海军蓝) */
+h1, .title, h2, h3 {
+  font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
+  color: #004875 !important; 
+  font-weight: bold;
+}
+
+/* 一级标题特定字号 */
+h1, .title {
+  font-size: 1.8rem !important;
+  margin-bottom: 1.5rem;
+}
+
+/* 二级标题特定字号与下划线 */
+h2 {
+  font-size: 1.5rem !important;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 5px;
+  margin-top: 2rem;
+}
+
+/* 引用块样式 */
+blockquote {
+  color: #044875 !important;
+  border-left: 4px solid #004875;
+  padding-left: 15px;
+}
+
+/* ============================================================ */
+/* 2. 幻灯片专属样式 (仅当您制作 Revealjs 幻灯片时生效)          */
+/* ============================================================ */
+
 .reveal {
   font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
   font-size: 30px;
-  line-height: 1.6;
-  color: #044875; 
-}
-
-.reveal h1, .reveal h2, .reveal h3  {
-  font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
-  font-weight: bold;
   color: #044875;
-  line-height: 1.3;
-  text-transform: none !important;
 }
 
-
-.reveal .highlight-text {
-  color: #044875;
-  font-weight: bold;
+.reveal h1, .reveal h2, .reveal h3 {
+  text-transform: none !important; /* 防止强制大写 */
 }
 
+/* ============================================================ */
+/* 3. 水印设置 (推荐使用 SVG 模式，兼容性更好且整洁)             */
+/* ============================================================ */
 
-/* 不要变灰 */
-.reveal blockquote {
-  color: #044875 !important;
-}
-
-.reveal::before {
-  content: "顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 ";
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  font-size: 2em;
-  line-height: 1.5;
-  color: #000;
-  opacity: 0.1;
-  transform: rotate(-45deg);
-  z-index: 0;
-  pointer-events: none;
-  white-space: pre-wrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
-.reveal {
-  background-image: url("data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'>
-      <text x='0' y='150' font-size='30' fill='black' opacity='0.05' transform='rotate(-45, 150, 100)'>
-        顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社 顶刊研习社
-      </text>
-    </svg>
-  ");
+body, .reveal {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><text x='20' y='150' font-size='30' fill='black' opacity='0.05' transform='rotate(-30, 150, 100)' font-family='serif'>顶刊研习社</text></svg>");
   background-repeat: repeat;
+  background-attachment: fixed; /* 滚动时水印固定 */
   
+/* --- 全局超链接样式优化 --- */
+a {
+  color: #0066cc !important;      /* 选用了稍亮一点的商业蓝，比网页默认蓝更沉稳，比海军蓝更醒目 */
+  text-decoration: none;          /* 默认去掉下划线，保持页面清爽 */
+  font-weight: 500;               /* 稍微加粗，增加视觉权重 */
+  transition: all 0.2s ease-in-out; /* 增加平滑颜色过渡效果 */
+}
 
+/* --- 鼠标悬停时的效果 --- */
+a:hover {
+  color: #000080 !important;      /* 鼠标移上去时变回海军蓝，与标题呼应 */
+  text-decoration: underline;     /* 悬停时出现下划线，增强交互暗示 */
+  opacity: 0.8;                   /* 略微变透明，产生点击感 */
+}
+
+/* --- 专门针对首页“核心教学模块”列表的优化 --- */
+/* 如果您在 index.qmd 中给那个 div 加了特定的样式，可以直接增强它的链接 */
+div[style*="font-size: 20px"] p a {
+  border-left: 3px solid transparent;
+  padding-left: 0px;
+}
+
+div[style*="font-size: 20px"] p a:hover {
+  border-left: 3px solid #0066cc; /* 悬停时左侧出现一个小色块，非常像专业文档 */
+  padding-left: 10px;
+}
+
+
+/* --- 导航栏文字颜色专项保护 --- */
+
+/* 1. 针对导航栏中的菜单项和站点标题 */
+.navbar .nav-link, 
+.navbar-title, 
+.navbar-brand,
+.quarto-navigation-tool {
+  color: #ffffff !important;   /* 强制设为纯白 */
+  font-weight: 500;
+}
+
+/* 2. 针对导航栏链接的悬停效果 */
+.navbar .nav-link:hover, 
+.navbar-title:hover,
+.quarto-navigation-tool:hover {
+  color: #ffffff !important;
+  opacity: 0.8;                /* 悬停时略微变淡，产生交互感 */
+  text-decoration: none !important; /* 导航栏通常不需要下划线 */
+}
+
+/* 3. 针对当前激活状态的菜单项（比如你正在 Home 页时） */
+.navbar .nav-link.active {
+  color: #ffffff !important;
+  border-bottom: none !important; /* 强制去掉底部边框（即下划线） */
+  font-weight: bold;              /* 建议用加粗来代替下划线，标识当前所在页面 */
+}
+
+/* 如果悬停时也有下划线，一并去掉 */
+.navbar .nav-link:hover {
+  text-decoration: none !important;
+}

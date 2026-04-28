@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2小时入门R语言</title>
+<title>第2章 – 2小时入门R语言</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -89,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -97,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">模块1 R环境的搭建和配置</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./m2.html"> 
+    <a class="nav-link active" href="./m2.html" aria-current="page"> 
 <span class="menu-text">第2章</span></a>
   </li>  
   <li class="nav-item">
@@ -125,7 +154,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#核心教学模块" id="toc-核心教学模块" class="nav-link active" data-scroll-target="#核心教学模块">核心教学模块</a></li>
+  <li><a href="#讲义" id="toc-讲义" class="nav-link active" data-scroll-target="#讲义">讲义</a></li>
+  <li><a href="#eviews实操习题" id="toc-eviews实操习题" class="nav-link" data-scroll-target="#eviews实操习题">Eviews实操习题</a>
+  <ul class="collapse">
+  <li><a href="#任务1-教材p32-例2-5" id="toc-任务1-教材p32-例2-5" class="nav-link" data-scroll-target="#任务1-教材p32-例2-5">任务1: 教材P32 例2-5</a></li>
+  <li><a href="#任务2-二手车价格分析" id="toc-任务2-二手车价格分析" class="nav-link" data-scroll-target="#任务2-二手车价格分析">任务2: 二手车价格分析</a></li>
+  </ul></li>
+  <li><a href="#eviews教学视频" id="toc-eviews教学视频" class="nav-link" data-scroll-target="#eviews教学视频">Eviews教学视频</a>
+  <ul class="collapse">
+  <li><a href="#基础操作与数据管理" id="toc-基础操作与数据管理" class="nav-link" data-scroll-target="#基础操作与数据管理">基础操作与数据管理</a></li>
+  <li><a href="#数据可视化" id="toc-数据可视化" class="nav-link" data-scroll-target="#数据可视化">数据可视化</a></li>
+  <li><a href="#模型估计" id="toc-模型估计" class="nav-link" data-scroll-target="#模型估计">模型估计</a></li>
+  </ul></li>
+  <li><a href="#r教学视频" id="toc-r教学视频" class="nav-link" data-scroll-target="#r教学视频">R教学视频</a></li>
+  <li><a href="#习题答案" id="toc-习题答案" class="nav-link" data-scroll-target="#习题答案">习题答案</a></li>
+  <li><a href="#数据清洗" id="toc-数据清洗" class="nav-link" data-scroll-target="#数据清洗">数据清洗</a></li>
   </ul>
 </nav>
     </div>
@@ -134,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2小时入门R语言</h1>
+<h1 class="title">第2章</h1>
 </div>
 
 
@@ -151,53 +194,294 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="核心教学模块" class="level2">
-<h2 class="anchored" data-anchor-id="核心教学模块">核心教学模块</h2>
-<p>本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：</p>
-<div style="font-size: 20px; line-height: 2.5; margin-bottom: 2rem;">
-<p>
-📘 <strong><a href="./m1.html">模块 1：R 环境搭建与配置</a></strong>
-</p>
-<p>
-📁 <strong><a href="./m2.html">模块 2：数据导入与对象类型</a></strong>
-</p>
-<p>
-⚙️ <strong><a href="./m3.html">模块 3：对象操作基础</a></strong>
-</p>
-<p>
-🤖 <strong><a href="./m4.html">模块 4：AI 辅助 R 编程与调试</a></strong>
-</p>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-课件与数据下载
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>本课程配套演示数据：<a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="stroke.xlsx">点击下载 stroke.xlsx</a></p>
-</div>
-</div>
+<section id="讲义" class="level1">
+<h1>讲义</h1>
+<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/emetrics26/chap2slide.html" target="_blank">第2章 古典线性回归模型</a></p>
+</section>
+<section id="eviews实操习题" class="level1">
+<h1>Eviews实操习题</h1>
+<section id="任务1-教材p32-例2-5" class="level2">
+<h2 class="anchored" data-anchor-id="任务1-教材p32-例2-5">任务1: 教材P32 例2-5</h2>
+<details>
+<p>数据文件Table 2_14.xls</p>
+<ol type="1">
+<li><p>报告 price, age 和bidders的描述性统计量（均值、中位数、标准差、最大/最小值）。</p></li>
+<li><p>绘制price的直方图和箱线图，观察price的分布特征。</p></li>
+<li><p>绘制price与age的散点图，在散点图上添加回归线。</p></li>
+<li><p>绘制price与bidders的散点图，在散点图上添加回归线。</p></li>
+<li><p>报告price, age和bidders之间的相关系数矩阵。</p></li>
+<li><p>估计price和age之间的回归方程，报告回归结果。</p></li>
+<li><p>估计price和bidders之间的回归方程，报告回归结果。</p></li>
+<li><p>估计price与age和bidders之间的二元回归方程，并报告回归结果。</p></li>
+<li><p>修改第3题和第4题中散点的颜色，回归线的颜色和样式。</p></li>
+</ol>
+</details>
+</section>
+<section id="任务2-二手车价格分析" class="level2">
+<h2 class="anchored" data-anchor-id="任务2-二手车价格分析">任务2: 二手车价格分析</h2>
+<details>
+<p>从某二手车交易平台收集了 30 辆同款型号二手车的交易数据，研究<strong>行驶里程 (Mileage)</strong> 以及 <strong>保养记录次数 (Service_Records)</strong> 如何影响 <strong>二手车售价 (Price)</strong>。</p>
+<p>样本容量 <span class="math inline">\(n=30\)</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>编号</th>
+<th>Price (万元)</th>
+<th>Mileage (万公里)</th>
+<th>Service_Records (次)</th>
+<th>编号</th>
+<th>Price (万元)</th>
+<th>Mileage (万公里)</th>
+<th>Service_Records (次)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td>18.5</td>
+<td>1.2</td>
+<td>3</td>
+<td><strong>16</strong></td>
+<td>12.1</td>
+<td>6.8</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td>17.2</td>
+<td>2.5</td>
+<td>4</td>
+<td><strong>17</strong></td>
+<td>11.5</td>
+<td>7.2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td>16.8</td>
+<td>3.1</td>
+<td>2</td>
+<td><strong>18</strong></td>
+<td>10.8</td>
+<td>8.5</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td>15.5</td>
+<td>4.0</td>
+<td>5</td>
+<td><strong>19</strong></td>
+<td>10.2</td>
+<td>9.1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td>14.9</td>
+<td>4.8</td>
+<td>3</td>
+<td><strong>20</strong></td>
+<td>9.5</td>
+<td>10.5</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>6</strong></td>
+<td>14.2</td>
+<td>5.2</td>
+<td>4</td>
+<td><strong>21</strong></td>
+<td>18.0</td>
+<td>1.5</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><strong>7</strong></td>
+<td>13.5</td>
+<td>6.0</td>
+<td>6</td>
+<td><strong>22</strong></td>
+<td>16.5</td>
+<td>2.8</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>8</strong></td>
+<td>12.8</td>
+<td>6.5</td>
+<td>2</td>
+<td><strong>23</strong></td>
+<td>15.8</td>
+<td>3.5</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>9</strong></td>
+<td>11.9</td>
+<td>7.8</td>
+<td>4</td>
+<td><strong>24</strong></td>
+<td>14.5</td>
+<td>4.5</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>10</strong></td>
+<td>10.5</td>
+<td>9.2</td>
+<td>5</td>
+<td><strong>25</strong></td>
+<td>13.2</td>
+<td>5.8</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td><strong>11</strong></td>
+<td>9.8</td>
+<td>10.1</td>
+<td>3</td>
+<td><strong>26</strong></td>
+<td>12.5</td>
+<td>6.2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><strong>12</strong></td>
+<td>8.9</td>
+<td>11.5</td>
+<td>4</td>
+<td><strong>27</strong></td>
+<td>11.2</td>
+<td>7.5</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><strong>13</strong></td>
+<td>8.2</td>
+<td>12.2</td>
+<td>2</td>
+<td><strong>28</strong></td>
+<td>10.4</td>
+<td>8.8</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><strong>14</strong></td>
+<td>7.5</td>
+<td>13.5</td>
+<td>5</td>
+<td><strong>29</strong></td>
+<td>9.2</td>
+<td>11.0</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><strong>15</strong></td>
+<td>6.8</td>
+<td>15.0</td>
+<td>3</td>
+<td><strong>30</strong></td>
+<td>8.5</td>
+<td>12.5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><strong>基础统计</strong>
+<ul>
+<li>报告 <code>Price</code>, <code>Mileage</code> 和 <code>Service_Records</code> 的均值、中位数、标准差、最小值、最大值等描述性统计量。</li>
+<li>报告三个变量之间的相关系数矩阵。</li>
+</ul></li>
+<li><strong>数据分布观察</strong>
+<ul>
+<li>绘制 <code>Price</code> 的直方图，观察其分布特征。</li>
+</ul></li>
+<li><strong>一元线性回归与图形美化</strong>
+<ul>
+<li>绘制 <code>Price</code> 与 <code>Mileage</code> 的散点图。</li>
+<li><strong>自定义要求</strong>：将散点设置为你喜欢的颜色，添加回归趋势线，并显示回归方程。</li>
+<li>在 EViews 中估计回归方程： <span class="math display">\[Price = B_0 + B_1 Mileage + u\]</span></li>
+<li>绘制 <code>Price</code> 与 <code>Service_Records</code> 的散点图。</li>
+<li><strong>自定义要求</strong>：将散点设置为你喜欢的颜色，添加回归趋势线，并显示回归方程。</li>
+<li>在 EViews 中估计回归方程： <span class="math display">\[Price = B_0 + B_1 Service\_Records + u\]</span></li>
+</ul></li>
+<li><strong>二元回归</strong>
+<ul>
+<li>估计二元回归模型： <span class="math display">\[Price = B_0 + B_1 Mileage + B_2 Service\_Records + u\]</span></li>
+</ul></li>
+<li>比较上述三个回归模型，哪个模型最好？</li>
+</ol>
+</details>
 <hr>
-<div style="text-align: center; margin-top: 2em;">
-<p style="font-size: 22px; color: #044875; font-weight: bold;">
-欢迎关注微信公众号
+</section>
+</section>
+<section id="eviews教学视频" class="level1">
+<h1>Eviews教学视频</h1>
+<section id="基础操作与数据管理" class="level2">
+<h2 class="anchored" data-anchor-id="基础操作与数据管理">基础操作与数据管理</h2>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1gg411m7JP" target="_blank">Eviews 12 主界面</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1KP411p7WM" target="_blank">Eviews 12 如何导入Excel文件</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1e24y1o7Ac" target="_blank">Eviews12 如何录入数据</a></p>
+</section>
+<section id="数据可视化" class="level2">
+<h2 class="anchored" data-anchor-id="数据可视化">数据可视化</h2>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1Yt4y1P7zf" target="_blank">Eviews12 绘制散点图</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1K14y187Hh" target="_blank">Eviews12 矩阵散点图和气泡图</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1YG411J7Je" target="_blank">Eviews12 如何修改坐标轴字体、添加网格线、设置边框？</a></p>
+</section>
+<section id="模型估计" class="level2">
+<h2 class="anchored" data-anchor-id="模型估计">模型估计</h2>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1Ge411T7cV" target="_blank">Eviews12 回归方程的估计</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ge4y1B7Cj" target="_blank">Eviews12 如何在散点图上添加回归线和回归方程？</a></p>
+</section>
+</section>
+<section id="r教学视频" class="level1">
+<h1>R教学视频</h1>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1zg411o7Kp" target="_blank">lm()函数的运用</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1u841147DK" target="_blank">如何在散点图中添加回归方程</a></p>
+</section>
+<section id="习题答案" class="level1">
+<h1>习题答案</h1>
+<details>
+<summary style="cursor: pointer; font-weight: bold;">
+点击展开
+</summary>
+<p>
+如果想在新窗口打开 PDF，请点这里： <a href="img/EE4_Ch02_Solutions_Manual.pdf" target="_blank" rel="noopener">在新标签页中查看 PDF</a>
 </p>
-<p style="font-size: 18px; color: #666;">
-“顶刊研习社”、“医课佳”
+<iframe src="img/EE4_Ch02_Solutions_Manual.pdf" width="100%" height="800" style="border: none;" allowfullscreen="">
+<!-- 备用内容（若浏览器不支持 iframe） -->
+<p>
+你的浏览器无法嵌入 PDF，请 <a href="img/EE4_Ch02_Solutions_Manual.pdf" target="_blank" rel="noopener">点此下载/查看 PDF</a>.
 </p>
-<p><img src="img/wechat.png" alt="微信二维码" width="200" style="margin-top: 10px; border: 1px solid #eee;"></p>
-</div>
-<hr>
-<div style="text-align: center; margin-top: 1.5em; opacity: 0.8;">
-<p style="font-size: 14px; color: #999; margin-bottom: 10px;">
-视频教程同步更新中
-</p>
-<p><a href="https://space.bilibili.com/590872906" target="_blank"> <img src="img/bili_up.jpg" alt="B站头像" width="60" style="border-radius: 50%;"> </a></p>
-</div>
+</iframe>
+</details>
+</section>
+<section id="数据清洗" class="level1">
+<h1>数据清洗</h1>
+<p><img src="img/download.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="data/wjx_data_clean.xlsx" download="">点击下载：问卷星原始数据文件 (Excel)</a></p>
+<p>完成下列任务：</p>
+<ol type="1">
+<li><p>变量重命名：将所有变量名统一修改为简洁的英文。</p></li>
+<li><p>将 Q1（性别）的代码（1=男，2=女）分别转换为 “male” 和 “female”。</p></li>
+<li><p>将 Q6（用户类型）的四个分类，根据逻辑合并为“performance”与“lite”两类。。</p></li>
+<li><p>将Q7品牌偏好的代码1-4转换为有具体含义的品牌类型。</p></li>
+<li><p>识别并剔除含有明显逻辑错误（如年龄&gt;100）或极端数值（如收入异常）的样本个案。</p></li>
+</ol>
+<p>提交要求：将清洗后的数据用“问卷星_学号_姓名”命名，提交到雨课堂。</p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1U4AEztEQC/" target="_blank">问卷星原始数据清洗：编码转换、小类合并，异常值识别</a></p>
 
 
 </section>

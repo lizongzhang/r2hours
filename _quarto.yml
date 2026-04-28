@@ -1,23 +1,30 @@
 project:
   type: website
   output-dir: docs
-  
-website:
-  title: "DeepSeek临床医学科研训练营"
+website:  
+  title: "2小时入门R语言"
   navbar:
+    logo-alt: "顶刊研习社"              
+    logo-href: index.qmd          
+    background: primary
     left:
       - href: index.qmd
         text: Home
+      - m1.qmd
+      - m2.qmd
+      - m3.qmd
+      - m4.qmd
     tools:
       - icon: envelope
         href: lizongzhang9@qq.com
   page-footer:
-    right: "Data illuminates insights."
-    left: "&copy; Copyright 2025, 顶刊研习社 & Li Zongzhang"
+    right: "Logic in Mind, R in Hand"
+    left: "&copy; Copyright 2026, 顶刊研习社"
 format:
   html:
-    theme: cerulean
+    theme: spacelab    
     fontcolor: "#044875"
+    css: styles.css
     toc: true
 editor: source
 execute:

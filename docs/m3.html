@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2小时入门R语言</title>
+<title>第3章 – 2小时入门R语言</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">第2章</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./m3.html"> 
+    <a class="nav-link active" href="./m3.html" aria-current="page"> 
 <span class="menu-text">第3章</span></a>
   </li>  
   <li class="nav-item">
@@ -125,7 +125,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#核心教学模块" id="toc-核心教学模块" class="nav-link active" data-scroll-target="#核心教学模块">核心教学模块</a></li>
+  <li><a href="#第3章-一元回归" id="toc-第3章-一元回归" class="nav-link active" data-scroll-target="#第3章-一元回归">第3章 一元回归</a></li>
+  <li><a href="#eviews操作" id="toc-eviews操作" class="nav-link" data-scroll-target="#eviews操作">Eviews操作</a></li>
+  <li><a href="#eviews习题" id="toc-eviews习题" class="nav-link" data-scroll-target="#eviews习题">Eviews习题</a></li>
+  <li><a href="#r教学视频" id="toc-r教学视频" class="nav-link" data-scroll-target="#r教学视频">R教学视频</a></li>
+  <li><a href="#习题答案" id="toc-习题答案" class="nav-link" data-scroll-target="#习题答案">习题答案</a></li>
+  <li><a href="#习题讲评视频" id="toc-习题讲评视频" class="nav-link" data-scroll-target="#习题讲评视频">习题讲评视频</a></li>
   </ul>
 </nav>
     </div>
@@ -134,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2小时入门R语言</h1>
+<h1 class="title">第3章</h1>
 </div>
 
 
@@ -151,53 +156,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="核心教学模块" class="level2">
-<h2 class="anchored" data-anchor-id="核心教学模块">核心教学模块</h2>
-<p>本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：</p>
-<div style="font-size: 20px; line-height: 2.5; margin-bottom: 2rem;">
+<section id="第3章-一元回归" class="level1">
+<h1>第3章 一元回归</h1>
+<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/emetrics26/chap3slide.html" target="_blank">讲义</a></p>
+</section>
+<section id="eviews操作" class="level1">
+<h1>Eviews操作</h1>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1Fi4y177Tp/" target="_blank">Eviews series的操作</a></p>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ei4y177Zr/" target="_blank">Eviews group的操作</a></p>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ch41197Ad/" target="_blank">Eviews 导入EXCEL文件</a></p>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1t54y1k7Gu/" target="_blank">Eviews 绘制散点图</a></p>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1NT4y1F7V9/" target="_blank">Eviews 估计回归方程</a></p>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1tZ4y1V7Rb/" target="_blank">Eviews 输出结果数值显示格式的设置</a></p>
+<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1kK4y177Ho/" target="_blank">Eviews Jarque-Bera正态检验</a></p>
+</section>
+<section id="eviews习题" class="level1">
+<h1>Eviews习题</h1>
+<ul>
+<li><p>教材P59， 综合实例3.10，报告回归方程估计结果，绘制图3-10，绘制图3-11，图3-12， 图3-13。</p></li>
+<li><p>教材P39， 2.21</p></li>
+</ul>
+</section>
+<section id="r教学视频" class="level1">
+<h1>R教学视频</h1>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1J24y197LB" target="_blank">如何将R的回归分析结果以表格形式输出到WORD文档中？</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV19V4y157KP" target="_blank">R中如何对回归方程的残差进行图形诊断？</a></p>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ft4y1F7cJ" target="_blank">回归方程残差的正态性检验</a></p>
+</section>
+<section id="习题答案" class="level1">
+<h1>习题答案</h1>
+<details>
+<summary style="cursor: pointer; font-weight: bold;">
+点击展开
+</summary>
 <p>
-📘 <strong><a href="./m1.html">模块 1：R 环境搭建与配置</a></strong>
+如果想在新窗口打开 PDF，请点这里： <a href="img/EE4_Ch03_Solutions_Manual.pdf" target="_blank" rel="noopener">在新标签页中查看 PDF</a>
 </p>
+<iframe src="img/EE4_Ch03_Solutions_Manual.pdf" width="100%" height="800" style="border: none;" allowfullscreen="">
+<!-- 备用内容（若浏览器不支持 iframe） -->
 <p>
-📁 <strong><a href="./m2.html">模块 2：数据导入与对象类型</a></strong>
+你的浏览器无法嵌入 PDF，请 <a href="img/EE4_Ch03_Solutions_Manual.pdf" target="_blank" rel="noopener">点此下载/查看 PDF</a>.
 </p>
-<p>
-⚙️ <strong><a href="./m3.html">模块 3：对象操作基础</a></strong>
-</p>
-<p>
-🤖 <strong><a href="./m4.html">模块 4：AI 辅助 R 编程与调试</a></strong>
-</p>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-课件与数据下载
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>本课程配套演示数据：<a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="stroke.xlsx">点击下载 stroke.xlsx</a></p>
-</div>
-</div>
-<hr>
-<div style="text-align: center; margin-top: 2em;">
-<p style="font-size: 22px; color: #044875; font-weight: bold;">
-欢迎关注微信公众号
-</p>
-<p style="font-size: 18px; color: #666;">
-“顶刊研习社”、“医课佳”
-</p>
-<p><img src="img/wechat.png" alt="微信二维码" width="200" style="margin-top: 10px; border: 1px solid #eee;"></p>
-</div>
-<hr>
-<div style="text-align: center; margin-top: 1.5em; opacity: 0.8;">
-<p style="font-size: 14px; color: #999; margin-bottom: 10px;">
-视频教程同步更新中
-</p>
-<p><a href="https://space.bilibili.com/590872906" target="_blank"> <img src="img/bili_up.jpg" alt="B站头像" width="60" style="border-radius: 50%;"> </a></p>
-</div>
+</iframe>
+</details>
+</section>
+<section id="习题讲评视频" class="level1">
+<h1>习题讲评视频</h1>
+<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ey4y1W75g" target="_blank">教材习题3.8+3.10+3.11</a></p>
 
 
 </section>
