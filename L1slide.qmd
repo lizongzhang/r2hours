@@ -20,9 +20,9 @@ format:
       board-canvas-background: "#f0f0f0"
     preview-links: auto
     toc-title: "大纲"
-    css: styles.css
+    css: style.css
     footer: |
-      [R 2小时速成课](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, Li Zongzhang
     include-before-body: 
       - header.html
       - fonts.html

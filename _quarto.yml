@@ -24,7 +24,7 @@ format:
   html:
     theme: spacelab    
     fontcolor: "#044875"
-    css: styles.css
+    css: style.css
     toc: true
 editor: source
 execute:
