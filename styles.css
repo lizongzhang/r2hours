@@ -1,12 +1,11 @@
 /* ============================================================ */
-/* 1. 全局变量与基础设置 (确保字体高度统一)                      */
+/* 1. 全局变量与基础设置                                         */
 /* ============================================================ */
 :root {
   --primary-blue: #044875;      /* 顶刊研习社海军蓝 */
-  --link-blue: #0066cc;         /* 商业链接蓝 */
-  /* 核心：将正文和标题的字体变量统一 */
+  --link-blue: #0066cc;          /* 商业链接蓝 */
   --font-main: "STKaiti", "Noto Serif SC", "KaiTi", serif; 
-  --font-mono: "Fira Code", "Courier New", monospace;
+  --font-mono: "Fira Code", "Consolas", "STKaiti", "KaiTi", monospace;
 }
 
 body, .reveal {
@@ -19,10 +18,8 @@ body, .reveal {
 }
 
 /* ============================================================ */
-/* 2. 统一标题样式 (替换原有的多处标题设置)                     */
+/* 2. 统一标题样式                                              */
 /* ============================================================ */
-
-/* 强制让所有标题（网页+幻灯片）使用与正文完全一致的楷体 */
 h1, .title, h2, h3, h4, 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
   font-family: var(--font-main) !important; 
@@ -32,44 +29,42 @@ h1, .title, h2, h3, h4,
   line-height: 1.2;
 }
 
-为了让封面页更加协调，我们可以通过调整 font-weight（字重）来减细标题，并利用 margin（外边距）来精准控制封面三行（标题、机构名、日期）之间的行距。
-
-请在您的 style.css 中找到相应的模块，并使用以下代码进行替换或更新：
-
-## 修改建议
-将原有的 .reveal .title-slide h1 部分替换为以下更精细的控制代码：
-
-/* ============================================================ */
-/* 封面页（Title Slide）专项优化                                 */
-/* ============================================================ */
-
-/* 调整 L1 标题行的粗细与间距 */
+/* 封面页（Title Slide）优化 */
 .reveal .title-slide h1 {
-  font-size: 2.8em !important; 
-  font-weight: normal !important; /* 将 bold 改为 normal，或者使用 500 达到中等粗细 */
-  line-height: 1.1;
-  margin-bottom: 0.1em !important; /* 调整标题与下一行（顶刊研习社）的距离 */
-  margin-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2 !important;
+  font-weight: normal !important;
+  font-size: 2.2em !important; 
+  margin-bottom: 0.5em !important;
 }
 
-/* 调整封面次要信息（机构名、日期）的行间距 */
+/* 封面标题换行间距控制 */
+.reveal .title-slide h1 br {
+  display: block;
+  content: "";
+  margin-top: 0.3em;
+}
+
+/* 封面次要信息（机构名、作者、日期）间距 */
 .reveal .title-slide p, 
 .reveal .title-slide .subtitle, 
 .reveal .title-slide .author, 
 .reveal .title-slide .date {
-  margin-top: 0.2em !important;   /* 缩减上间距 */
-  margin-bottom: 0.2em !important;/* 缩减下间距 */
-  line-height: 1.2;               /* 紧凑行高 */
-  font-weight: normal;            /* 确保下方文字也不要太粗 */
+  margin-top: 0.2em !important;
+  margin-bottom: 0.2em !important;
+  line-height: 1.2;
+  font-weight: normal;
 }
 
-/* 如果您想让“顶刊研习社”稍微明显一点点，可以单独微调 */
 .reveal .title-slide .subtitle {
   font-size: 1.2em;
-  margin-bottom: 0.4em !important; /* 增加一点与日期的间距 */
+  margin-bottom: 0.4em !important;
 }
 
-/* 统一调整一级标题(分节页)和二级标题(内容页)的下划线 */
+/* 标题下划线：渐变风格 (仅针对 h2 内容页标题) */
 .reveal h1, .reveal h2 {
   border-bottom: none !important;
   position: relative;
@@ -81,14 +76,13 @@ h1, .title, h2, h3, h4,
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%; /* 或者设为 60% 让它更短一些 */
+  width: 100%;
   height: 2px;
-  /* 从品牌蓝渐变到完全透明 */
   background: linear-gradient(to right, var(--primary-blue), rgba(4, 72, 117, 0.05));
 }
 
 /* ============================================================ */
-/* 3. 代码块与表格优化 (R 教学专用)                             */
+/* 3. 代码块与表格优化 (R 教学专用)                              */
 /* ============================================================ */
 .reveal pre code {
   font-size: 1.3em !important;
@@ -111,7 +105,7 @@ h1, .title, h2, h3, h4,
 }
 
 /* ============================================================ */
-/* 4. 导航栏与链接保护 (保持白色文字与交互)                      */
+/* 4. 导航栏与链接保护                                           */
 /* ============================================================ */
 .navbar .nav-link, .navbar-title, .navbar-brand {
   color: #ffffff !important;
@@ -129,36 +123,16 @@ a:hover {
   opacity: 0.8;
 }
 
-/* 之前提到的 HOME 按钮样式 (如果需要可取消注释) */
-/*
-.footer-home {
-  position: fixed;
-  bottom: 40px;
-  right: 20px;
-  z-index: 1000;
-}
-.home-btn {
-  background-color: #007bff;
-  color: white !important;
-  padding: 8px 15px;
-  border-radius: 20px;
-}
-*/
-
-
 /* ============================================================ */
-/* 目录页 (Table of Contents) 风格统一                          */
+/* 5. 目录页 (Table of Contents) 风格统一                        */
 /* ============================================================ */
-
-/* 1. 统一目录标题 (Table of Contents) 的颜色与字体 */
 .reveal #TOC h2 {
   color: var(--primary-blue) !important;
   font-family: var(--font-main) !important;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.8) !important; /* 保持与您喜欢的白线一致 */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8) !important;
   text-align: left !important;
 }
 
-/* 2. 统一目录列表文字颜色 (去掉默认的链接蓝色) */
 .reveal #TOC ul li a, 
 .reveal #TOC ul li {
   color: var(--primary-blue) !important;
@@ -166,10 +140,7 @@ a:hover {
   text-decoration: none !important;
 }
 
-/* 3. 鼠标悬停在目录项上的效果 (可选，增加交互感) */
 .reveal #TOC ul li a:hover {
-  color: var(--link-blue) !important; /* 悬停时稍微变亮，提示可点击 */
+  color: var(--link-blue) !important;
   text-decoration: underline !important;
 }
-
-

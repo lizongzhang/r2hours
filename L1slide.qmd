@@ -1,5 +1,7 @@
 ---
-title: "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机"
+title: |
+  <span style='font-size: 0.5em; opacity: 0.7;'>L1</span><br/>AI时代的R学习观<br/>
+  <span style='font-size: 0.7em; font-weight: normal; opacity: 0.9;'>小白学习R 的最佳时机</span>
 date: today
 author: 
   name: "顶刊研习社"
@@ -17,6 +19,7 @@ format:
       buttons: true
       board-canvas-background: "#f0f0f0"
     preview-links: auto
+    toc-title: "大纲"
     css: styles.css
     footer: |
       [R 2小时速成课](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社
