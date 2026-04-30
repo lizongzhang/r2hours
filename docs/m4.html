@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>第4章 – 2小时入门R语言</title>
+<title>模块4 AI辅助R编程 – 2小时入门R语言</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,19 +94,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m1.html"> 
-<span class="menu-text">模块1 R环境的搭建和配置</span></a>
+<span class="menu-text">模块1 R环境搭建</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m2.html"> 
-<span class="menu-text">第2章</span></a>
+<span class="menu-text">模块2 数据导入与对象类型</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m3.html"> 
-<span class="menu-text">第3章</span></a>
+<span class="menu-text">模块3 对象操作基础</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./m4.html" aria-current="page"> 
-<span class="menu-text">第4章</span></a>
+<span class="menu-text">模块4 AI辅助R编程</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -125,11 +125,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#第4章-多元回归" id="toc-第4章-多元回归" class="nav-link active" data-scroll-target="#第4章-多元回归">第4章 多元回归</a></li>
-  <li><a href="#eviews操作" id="toc-eviews操作" class="nav-link" data-scroll-target="#eviews操作">Eviews操作</a></li>
-  <li><a href="#r教学视频" id="toc-r教学视频" class="nav-link" data-scroll-target="#r教学视频">R教学视频</a></li>
-  <li><a href="#习题答案" id="toc-习题答案" class="nav-link" data-scroll-target="#习题答案">习题答案</a></li>
-  <li><a href="#习题讲评视频" id="toc-习题讲评视频" class="nav-link" data-scroll-target="#习题讲评视频">习题讲评视频</a></li>
+  <li><a href="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" id="toc-l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="nav-link active" data-scroll-target="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</a></li>
   </ul>
 </nav>
     </div>
@@ -138,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">第4章</h1>
+<h1 class="title">模块4 AI辅助R编程</h1>
 </div>
 
 
@@ -155,44 +151,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="第4章-多元回归" class="level1">
-<h1>第4章 多元回归</h1>
-<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/emetrics26/chap4slide.html" target="_blank">讲义</a></p>
-<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/ee4/case1.html" target="_blank">案例</a></p>
-</section>
-<section id="eviews操作" class="level1">
-<h1>Eviews操作</h1>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1Zi4y1j7Xf/" target="_blank">Eviews 多元回归</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1pp4y1k7xx/" target="_blank">Eviews 受限最小二乘</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1tZ4y1V7Rb/" target="_blank">Eviews 输出结果数值显示格式的设置</a></p>
-</section>
-<section id="r教学视频" class="level1">
-<h1>R教学视频</h1>
-<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1tg411a7ut" target="_blank">回归模型的比较——受限模型的F检验</a></p>
-<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1GaouYAEvP/" target="_blank">统计检验/回归模型的结果解释，还在手写吗？report()自动生成</a></p>
-<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1c64y1p7as" target="_blank">R如何快速创建学术论文表1 样本统计特征 tbl_summary()</a></p>
-</section>
-<section id="习题答案" class="level1">
-<h1>习题答案</h1>
-<details>
-<summary style="cursor: pointer; font-weight: bold;">
-点击展开
-</summary>
-<p>
-如果想在新窗口打开 PDF，请点这里： <a href="img/EE4_Ch04_Solutions_Manual.pdf" target="_blank" rel="noopener">在新标签页中查看 PDF</a>
-</p>
-<iframe src="img/EE4_Ch04_Solutions_Manual.pdf" width="100%" height="800" style="border: none;" allowfullscreen="">
-<!-- 备用内容（若浏览器不支持 iframe） -->
-<p>
-你的浏览器无法嵌入 PDF，请 <a href="img/EE4_Ch04_Solutions_Manual.pdf" target="_blank" rel="noopener">点此下载/查看 PDF</a>.
-</p>
-</iframe>
-</details>
-</section>
-<section id="习题讲评视频" class="level1">
-<h1>习题讲评视频</h1>
-<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ey4y1W75g" target="_blank">教材习题4.9+4.11+4.12</a></p>
-<p><img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ey4y1W75g" target="_blank">教材习题4.14+4.18+4.22</a></p>
+<section id="l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="level2">
+<h2 class="anchored" data-anchor-id="l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L1slide.html">L2 讲义</a></p>
+</div>
+<p>Prompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码</p>
+<p>报错信息分析：利用AI解读与定位R错误根源的有效方法</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+资源下载
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="L1.R">点击下载模块1代码文件 :m1.R</a></p>
+</div>
+</div>
 
 
 </section>

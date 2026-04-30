@@ -1,5 +1,5 @@
 ---
-title: "模块1 R环境的搭建和配置"
+title: "模块1 R环境搭建"
 ---
 
 ## L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机
@@ -9,21 +9,25 @@ title: "模块1 R环境的搭建和配置"
   [L1 讲义](https://lizongzhang.github.io/r2hours/L1slide.html)
 </div>
 
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
-  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L1 代码](https://lizongzhang.github.io/r2hours/L1slide.html)
-</div>
-
-::: {.callout-tip}
-## 资源下载
-想要在本地练习？[点击下载 L1 代码文件: L1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
-:::
-
 ## L2 R与RStudio安装演示：关键避坑指南
 
 ## L3 RStudio界面深度解析：四个象限功能
 
-... (后续标题以此类推，均建议使用 ##)
+## L4 全局选项设置：避免代码乱码与关闭工作空间保存提示
+
+## L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖
+
+## L6 R包管理法则：安装、加载及常见“包未找到”错误处理
+
+## L7 R代码初体验：别让这5个“低级坑”劝退你
+
+
+::: {.callout-tip}
+## 资源下载
+[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
+:::
+
+
 
 
 

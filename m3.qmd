@@ -1,58 +1,35 @@
 ---
-title: "第3章"
+title: "模块3 对象操作基础"
 ---
 
-# 第3章 一元回归
+## L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机
 
-<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[讲义](https://lizongzhang.github.io/emetrics26/chap3slide.html){target="_blank"}
-
-
-#  Eviews操作
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews series的操作](https://www.bilibili.com/video/BV1Fi4y177Tp/){target="_blank"}
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews group的操作](https://www.bilibili.com/video/BV1ei4y177Zr/){target="_blank"}
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 导入EXCEL文件](https://www.bilibili.com/video/BV1ch41197Ad/){target="_blank"}
-    
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 绘制散点图](https://www.bilibili.com/video/BV1t54y1k7Gu/){target="_blank"}
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 估计回归方程](https://www.bilibili.com/video/BV1NT4y1F7V9/){target="_blank"} 
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 输出结果数值显示格式的设置](https://www.bilibili.com/video/BV1tZ4y1V7Rb/){target="_blank"}
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews Jarque-Bera正态检验](https://www.bilibili.com/video/BV1kK4y177Ho/){target="_blank"}
-
-#  Eviews习题
-
-- 教材P59， 综合实例3.10，报告回归方程估计结果，绘制图3-10，绘制图3-11，图3-12， 图3-13。
-
-- 教材P39， 2.21
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L2 讲义](https://lizongzhang.github.io/r2hours/L1slide.html)
+</div>
 
 
-# R教学视频
 
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[如何将R的回归分析结果以表格形式输出到WORD文档中？](https://www.bilibili.com/video/BV1J24y197LB){target="_blank"}
 
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[R中如何对回归方程的残差进行图形诊断？](https://www.bilibili.com/video/BV19V4y157KP){target="_blank"}
+美元符号$运算符：精准列提取与简单数据计算
 
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[回归方程残差的正态性检验](https://www.bilibili.com/video/BV1ft4y1F7cJ){target="_blank"}
+索引切片[ , ]：R中行列选择的逻辑与实践
 
-# 习题答案
+代码编写规范：缩进、空格与注释的最佳实践
 
-<details>
-<summary style="cursor: pointer; font-weight: bold;">点击展开</summary>
+处理结果导出：将R数据框输出为Excel或WORD文件
 
-<p>如果想在新窗口打开 PDF，请点这里： <a href="img/EE4_Ch03_Solutions_Manual.pdf" target="_blank" rel="noopener">在新标签页中查看 PDF</a></p>
 
-<iframe src="img/EE4_Ch03_Solutions_Manual.pdf" width="100%" height="800" style="border: none;" allowfullscreen>
-  <!-- 备用内容（若浏览器不支持 iframe） -->
-  <p>你的浏览器无法嵌入 PDF，请 <a href="img/EE4_Ch03_Solutions_Manual.pdf" target="_blank" rel="noopener">点此下载/查看 PDF</a>.</p>
-</iframe>
 
-</details>
 
-# 习题讲评视频
 
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[教材习题3.8+3.10+3.11](https://www.bilibili.com/video/BV1ey4y1W75g){target="_blank"}
+::: {.callout-tip}
+## 资源下载
+[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
+:::
+
+
+
+
 

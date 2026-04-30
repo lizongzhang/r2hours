@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>模块1 R环境的搭建和配置 – 2小时入门R语言</title>
+<title>模块1 R环境搭建 – 2小时入门R语言</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,19 +94,19 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./m1.html" aria-current="page"> 
-<span class="menu-text">模块1 R环境的搭建和配置</span></a>
+<span class="menu-text">模块1 R环境搭建</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m2.html"> 
-<span class="menu-text">第2章</span></a>
+<span class="menu-text">模块2 数据导入与对象类型</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m3.html"> 
-<span class="menu-text">第3章</span></a>
+<span class="menu-text">模块3 对象操作基础</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m4.html"> 
-<span class="menu-text">第4章</span></a>
+<span class="menu-text">模块4 AI辅助R编程</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -128,6 +128,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" id="toc-l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="nav-link active" data-scroll-target="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</a></li>
   <li><a href="#l2-r与rstudio安装演示关键避坑指南" id="toc-l2-r与rstudio安装演示关键避坑指南" class="nav-link" data-scroll-target="#l2-r与rstudio安装演示关键避坑指南">L2 R与RStudio安装演示：关键避坑指南</a></li>
   <li><a href="#l3-rstudio界面深度解析四个象限功能" id="toc-l3-rstudio界面深度解析四个象限功能" class="nav-link" data-scroll-target="#l3-rstudio界面深度解析四个象限功能">L3 RStudio界面深度解析：四个象限功能</a></li>
+  <li><a href="#l4-全局选项设置避免代码乱码与关闭工作空间保存提示" id="toc-l4-全局选项设置避免代码乱码与关闭工作空间保存提示" class="nav-link" data-scroll-target="#l4-全局选项设置避免代码乱码与关闭工作空间保存提示">L4 全局选项设置：避免代码乱码与关闭工作空间保存提示</a></li>
+  <li><a href="#l5-r-project项目管理r工作流的核心实践告别setwd依赖" id="toc-l5-r-project项目管理r工作流的核心实践告别setwd依赖" class="nav-link" data-scroll-target="#l5-r-project项目管理r工作流的核心实践告别setwd依赖">L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖</a></li>
+  <li><a href="#l6-r包管理法则安装加载及常见包未找到错误处理" id="toc-l6-r包管理法则安装加载及常见包未找到错误处理" class="nav-link" data-scroll-target="#l6-r包管理法则安装加载及常见包未找到错误处理">L6 R包管理法则：安装、加载及常见“包未找到”错误处理</a></li>
+  <li><a href="#l7-r代码初体验别让这5个低级坑劝退你" id="toc-l7-r代码初体验别让这5个低级坑劝退你" class="nav-link" data-scroll-target="#l7-r代码初体验别让这5个低级坑劝退你">L7 R代码初体验：别让这5个“低级坑”劝退你</a></li>
   </ul>
 </nav>
     </div>
@@ -136,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">模块1 R环境的搭建和配置</h1>
+<h1 class="title">模块1 R环境搭建</h1>
 </div>
 
 
@@ -158,9 +162,24 @@ ul.task-list li input[type="checkbox"] {
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
 <p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L1slide.html">L1 讲义</a></p>
 </div>
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
-<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L1slide.html">L1 代码</a></p>
-</div>
+</section>
+<section id="l2-r与rstudio安装演示关键避坑指南" class="level2">
+<h2 class="anchored" data-anchor-id="l2-r与rstudio安装演示关键避坑指南">L2 R与RStudio安装演示：关键避坑指南</h2>
+</section>
+<section id="l3-rstudio界面深度解析四个象限功能" class="level2">
+<h2 class="anchored" data-anchor-id="l3-rstudio界面深度解析四个象限功能">L3 RStudio界面深度解析：四个象限功能</h2>
+</section>
+<section id="l4-全局选项设置避免代码乱码与关闭工作空间保存提示" class="level2">
+<h2 class="anchored" data-anchor-id="l4-全局选项设置避免代码乱码与关闭工作空间保存提示">L4 全局选项设置：避免代码乱码与关闭工作空间保存提示</h2>
+</section>
+<section id="l5-r-project项目管理r工作流的核心实践告别setwd依赖" class="level2">
+<h2 class="anchored" data-anchor-id="l5-r-project项目管理r工作流的核心实践告别setwd依赖">L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖</h2>
+</section>
+<section id="l6-r包管理法则安装加载及常见包未找到错误处理" class="level2">
+<h2 class="anchored" data-anchor-id="l6-r包管理法则安装加载及常见包未找到错误处理">L6 R包管理法则：安装、加载及常见“包未找到”错误处理</h2>
+</section>
+<section id="l7-r代码初体验别让这5个低级坑劝退你" class="level2">
+<h2 class="anchored" data-anchor-id="l7-r代码初体验别让这5个低级坑劝退你">L7 R代码初体验：别让这5个“低级坑”劝退你</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -171,16 +190,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>想要在本地练习？<a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="L1.R">点击下载 L1 代码文件: L1.R</a></p>
+<p><a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="L1.R">点击下载模块1代码文件 :m1.R</a></p>
 </div>
 </div>
-</section>
-<section id="l2-r与rstudio安装演示关键避坑指南" class="level2">
-<h2 class="anchored" data-anchor-id="l2-r与rstudio安装演示关键避坑指南">L2 R与RStudio安装演示：关键避坑指南</h2>
-</section>
-<section id="l3-rstudio界面深度解析四个象限功能" class="level2">
-<h2 class="anchored" data-anchor-id="l3-rstudio界面深度解析四个象限功能">L3 RStudio界面深度解析：四个象限功能</h2>
-<p>… (后续标题以此类推，均建议使用 ##)</p>
 
 
 </section>

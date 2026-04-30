@@ -1,121 +1,175 @@
 /* ============================================================ */
-/* 1. 网页通用样式 (针对您的 m1.qmd, index.qmd 等网页)           */
+/* 1. 全局变量与基础设置 (确保字体高度统一)                      */
 /* ============================================================ */
-
-/* 全局字体设置 */
-body {
-  font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
-  color: #044875;
-  line-height: 1.6;
+:root {
+  --primary-blue: #044875;      /* 顶刊研习社海军蓝 */
+  --link-blue: #0066cc;         /* 商业链接蓝 */
+  /* 核心：将正文和标题的字体变量统一 */
+  --font-main: "STKaiti", "Noto Serif SC", "KaiTi", serif; 
+  --font-mono: "Fira Code", "Courier New", monospace;
 }
-
-/* 一级标题与二级标题通用设置 (海军蓝) */
-h1, .title, h2, h3 {
-  font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
-  color: #004875 !important; 
-  font-weight: bold;
-}
-
-/* 一级标题特定字号 */
-h1, .title {
-  font-size: 1.8rem !important;
-  margin-bottom: 1.5rem;
-}
-
-/* 二级标题特定字号与下划线 */
-h2 {
-  font-size: 1.5rem !important;
-  border-bottom: 1px solid #eeeeee;
-  padding-bottom: 5px;
-  margin-top: 2rem;
-}
-
-/* 引用块样式 */
-blockquote {
-  color: #044875 !important;
-  border-left: 4px solid #004875;
-  padding-left: 15px;
-}
-
-/* ============================================================ */
-/* 2. 幻灯片专属样式 (仅当您制作 Revealjs 幻灯片时生效)          */
-/* ============================================================ */
-
-.reveal {
-  font-family: "STKaiti", "Noto Serif SC", "KaiTi", serif;
-  font-size: 30px;
-  color: #044875;
-}
-
-.reveal h1, .reveal h2, .reveal h3 {
-  text-transform: none !important; /* 防止强制大写 */
-}
-
-/* ============================================================ */
-/* 3. 水印设置 (推荐使用 SVG 模式，兼容性更好且整洁)             */
-/* ============================================================ */
 
 body, .reveal {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><text x='20' y='150' font-size='30' fill='black' opacity='0.05' transform='rotate(-30, 150, 100)' font-family='serif'>顶刊研习社</text></svg>");
+  font-family: var(--font-main);
+  color: var(--primary-blue);
+  line-height: 1.6;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><text x='20' y='150' font-size='25' fill='black' opacity='0.12' transform='rotate(-30, 150, 100)' font-family='\"Times New Roman\", STKaiti, KaiTi, serif'>顶刊研习社 TOP JOURNAL CLUB</text></svg>");
   background-repeat: repeat;
-  background-attachment: fixed; /* 滚动时水印固定 */
-  
-/* --- 全局超链接样式优化 --- */
+  background-attachment: fixed;
+}
+
+/* ============================================================ */
+/* 2. 统一标题样式 (替换原有的多处标题设置)                     */
+/* ============================================================ */
+
+/* 强制让所有标题（网页+幻灯片）使用与正文完全一致的楷体 */
+h1, .title, h2, h3, h4, 
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--font-main) !important; 
+  color: var(--primary-blue) !important;
+  font-weight: bold;
+  text-transform: none !important;
+  line-height: 1.2;
+}
+
+为了让封面页更加协调，我们可以通过调整 font-weight（字重）来减细标题，并利用 margin（外边距）来精准控制封面三行（标题、机构名、日期）之间的行距。
+
+请在您的 style.css 中找到相应的模块，并使用以下代码进行替换或更新：
+
+## 修改建议
+将原有的 .reveal .title-slide h1 部分替换为以下更精细的控制代码：
+
+/* ============================================================ */
+/* 封面页（Title Slide）专项优化                                 */
+/* ============================================================ */
+
+/* 调整 L1 标题行的粗细与间距 */
+.reveal .title-slide h1 {
+  font-size: 2.8em !important; 
+  font-weight: normal !important; /* 将 bold 改为 normal，或者使用 500 达到中等粗细 */
+  line-height: 1.1;
+  margin-bottom: 0.1em !important; /* 调整标题与下一行（顶刊研习社）的距离 */
+  margin-top: 0.5em;
+}
+
+/* 调整封面次要信息（机构名、日期）的行间距 */
+.reveal .title-slide p, 
+.reveal .title-slide .subtitle, 
+.reveal .title-slide .author, 
+.reveal .title-slide .date {
+  margin-top: 0.2em !important;   /* 缩减上间距 */
+  margin-bottom: 0.2em !important;/* 缩减下间距 */
+  line-height: 1.2;               /* 紧凑行高 */
+  font-weight: normal;            /* 确保下方文字也不要太粗 */
+}
+
+/* 如果您想让“顶刊研习社”稍微明显一点点，可以单独微调 */
+.reveal .title-slide .subtitle {
+  font-size: 1.2em;
+  margin-bottom: 0.4em !important; /* 增加一点与日期的间距 */
+}
+
+/* 统一调整一级标题(分节页)和二级标题(内容页)的下划线 */
+.reveal h1, .reveal h2 {
+  border-bottom: none !important;
+  position: relative;
+  padding-bottom: 0.3em !important;
+}
+
+.reveal h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* 或者设为 60% 让它更短一些 */
+  height: 2px;
+  /* 从品牌蓝渐变到完全透明 */
+  background: linear-gradient(to right, var(--primary-blue), rgba(4, 72, 117, 0.05));
+}
+
+/* ============================================================ */
+/* 3. 代码块与表格优化 (R 教学专用)                             */
+/* ============================================================ */
+.reveal pre code {
+  font-size: 1.3em !important;
+  line-height: 1.5 !important;
+  font-family: var(--font-mono) !important;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.reveal table {
+  font-size: 0.75em;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.reveal table th {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  padding: 12px;
+}
+
+/* ============================================================ */
+/* 4. 导航栏与链接保护 (保持白色文字与交互)                      */
+/* ============================================================ */
+.navbar .nav-link, .navbar-title, .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
 a {
-  color: #0066cc !important;      /* 选用了稍亮一点的商业蓝，比网页默认蓝更沉稳，比海军蓝更醒目 */
-  text-decoration: none;          /* 默认去掉下划线，保持页面清爽 */
-  font-weight: 500;               /* 稍微加粗，增加视觉权重 */
-  transition: all 0.2s ease-in-out; /* 增加平滑颜色过渡效果 */
+  color: var(--link-blue) !important;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
-/* --- 鼠标悬停时的效果 --- */
 a:hover {
-  color: #000080 !important;      /* 鼠标移上去时变回海军蓝，与标题呼应 */
-  text-decoration: underline;     /* 悬停时出现下划线，增强交互暗示 */
-  opacity: 0.8;                   /* 略微变透明，产生点击感 */
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
-/* --- 专门针对首页“核心教学模块”列表的优化 --- */
-/* 如果您在 index.qmd 中给那个 div 加了特定的样式，可以直接增强它的链接 */
-div[style*="font-size: 20px"] p a {
-  border-left: 3px solid transparent;
-  padding-left: 0px;
+/* 之前提到的 HOME 按钮样式 (如果需要可取消注释) */
+/*
+.footer-home {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 1000;
+}
+.home-btn {
+  background-color: #007bff;
+  color: white !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+*/
+
+
+/* ============================================================ */
+/* 目录页 (Table of Contents) 风格统一                          */
+/* ============================================================ */
+
+/* 1. 统一目录标题 (Table of Contents) 的颜色与字体 */
+.reveal #TOC h2 {
+  color: var(--primary-blue) !important;
+  font-family: var(--font-main) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8) !important; /* 保持与您喜欢的白线一致 */
+  text-align: left !important;
 }
 
-div[style*="font-size: 20px"] p a:hover {
-  border-left: 3px solid #0066cc; /* 悬停时左侧出现一个小色块，非常像专业文档 */
-  padding-left: 10px;
-}
-
-
-/* --- 导航栏文字颜色专项保护 --- */
-
-/* 1. 针对导航栏中的菜单项和站点标题 */
-.navbar .nav-link, 
-.navbar-title, 
-.navbar-brand,
-.quarto-navigation-tool {
-  color: #ffffff !important;   /* 强制设为纯白 */
-  font-weight: 500;
-}
-
-/* 2. 针对导航栏链接的悬停效果 */
-.navbar .nav-link:hover, 
-.navbar-title:hover,
-.quarto-navigation-tool:hover {
-  color: #ffffff !important;
-  opacity: 0.8;                /* 悬停时略微变淡，产生交互感 */
-  text-decoration: none !important; /* 导航栏通常不需要下划线 */
-}
-
-/* 3. 针对当前激活状态的菜单项（比如你正在 Home 页时） */
-.navbar .nav-link.active {
-  color: #ffffff !important;
-  border-bottom: none !important; /* 强制去掉底部边框（即下划线） */
-  font-weight: bold;              /* 建议用加粗来代替下划线，标识当前所在页面 */
-}
-
-/* 如果悬停时也有下划线，一并去掉 */
-.navbar .nav-link:hover {
+/* 2. 统一目录列表文字颜色 (去掉默认的链接蓝色) */
+.reveal #TOC ul li a, 
+.reveal #TOC ul li {
+  color: var(--primary-blue) !important;
+  font-family: var(--font-main) !important;
   text-decoration: none !important;
 }
+
+/* 3. 鼠标悬停在目录项上的效果 (可选，增加交互感) */
+.reveal #TOC ul li a:hover {
+  color: var(--link-blue) !important; /* 悬停时稍微变亮，提示可点击 */
+  text-decoration: underline !important;
+}
+
+

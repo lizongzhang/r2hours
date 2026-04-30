@@ -1,36 +1,149 @@
 ---
-title: "Chapter 1 The Nature and Scope of Econometrics"
-author: "Li Zongzhang"
-date: "`r Sys.Date()`"
-output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
-    toc: yes
-    number_sections: yes
-editor_options:
-  markdown:
+title: "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机"
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    css: styles.css
+    footer: |
+      [R 2小时速成课](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 1
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
     wrap: 72
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,comment="")
+# 1 为何选择 R？ 
+
+## 1.1 统计学的“正统”语言
+* **学术血统**：R 是由统计学家为统计学家开发的专业工具，天然适配科研逻辑。
+* **深度覆盖**：从基础回归到最前沿的计量模型（如 PLS-SEM），拥有超过 20,000 个扩展包支撑。
+* **不可替代性**：在顶级期刊审稿中，基于 R 的分析结果通常意味着更高的学术严谨性与可信度。
+
+## 1.2 极致的视觉表达力
+* **ggplot2 哲学**：基于图形语法，让数据绘图从简单的“画图”升级为逻辑清晰的“图层构建”。
+* **出版级输出**：原生支持高分辨率、CMYK 色彩模式，直接满足高质量学术期刊的投稿标准。
+
+## 1.3 可重复性研究：学术长青的关键
+* **Quarto 动力**：实现代码、原始数据、分析过程与文字描述的“三位一体”集成。
+* **防错机制**：数据一旦更新，全文的结果、表格与图表将自动同步刷新，杜绝人工误差。
+
+# 2 初学者的“至暗时刻” 
+
+## 2.1 陡峭的学习曲线
+* **语法逻辑认知差**：Base R 的繁琐与 Tidyverse 的优雅语法之间存在明显的认知断层。
+* **环境配置困局**：版本冲突、依赖包安装失败常让初学者在写出第一行代码前就产生挫败感。
+* **报错信息的障碍**：
+  > `Error in x[1, ] : subscript out of bounds`
+  > —— 这种生涩的反馈往往让非计算机背景的学习者望而却步。
+
+## 2.2 80% 的时间在“清洗数据”
+* **现实世界的混乱**：原始数据往往伴随着缺失值、格式乱码、非结构化存储等问题。
+* **效率低迷**：核心精力消耗在非研究核心的代码纠错上，严重打击学习积极性。
+
+# 3 AI 如何重塑 R 学习观？
+
+## 3.1 从“打字员”转向“总工程师”
+* **思维转变**：你不再需要死记硬背函数参数，而是专注于解决问题的逻辑架构。
+* **实时翻译官**：AI 能够将你的研究直觉（自然语言）实时转化为精准的 R 代码。
+* **即时报错诊断**：将复杂的错误代码直接反馈给 AI，它不仅能提供修正方案，还能解释错误逻辑。
+
+## 3.2 场景演示：AI 辅助下的数据清理
+:::: {.columns}
+::: {.column width="45%"}
+### 传统方式
+需要熟练记忆 `dplyr` 的多个函数组合及管道符号的使用逻辑。
+:::
+::: {.column .code-column width="55%"}
+### AI 辅助方式
+**Prompt:** "清理数据集：剔除年龄大于60的样本，并将性别列转换为因子类型。"
+
+```r
+# AI 自动生成的整洁代码
+data_clean <- data %>%
+  filter(age <= 60) %>%
+  mutate(gender = as.factor(gender))
+```
+:::
+::::
+
+# 4 AI + R 的融合实战
+
+## 4.1 案例一：快速生成学术级图表
+* **困境**：调整坐标轴细节、添加显著性标注往往需要翻阅数小时的文档。
+* **AI 解法**：直接用自然语言描述你的审美需求。
+
+```r
+# AI 辅助生成的 ggplot2 顶刊风格代码
+library(ggplot2)
+ggplot(data_clean, aes(x=group, y=score, fill=group)) +
+  geom_boxplot(alpha = 0.8) +
+  scale_fill_manual(values = c("#044875", "#4a90e2")) + 
+  theme_minimal() +
+  labs(title = "AI 辅助绘图：不同分组得分对比",
+       x = "实验组别", y = "量表得分")
 ```
 
-
-
-**注意：本讲义供学习交流使用，请勿用于商业用途**
-
-
-
-```{r echo=FALSE, results='asis'}
-
-
-files <- list.files(path = 'img/chap 1', pattern = "png", full.names = TRUE)
- 
-for (f in files) {
-  cat(paste0("![image_label](", f, ")\n"))
-}
+## 4.2 案例二：构建高级统计模型 (PLS-SEM)
+:::: {.columns}
+::: {.column width="50%"}
+* **背景**：在研究“游戏化对创造力”的影响时，构建结构方程模型往往很繁琐。
+* **现在**：描述潜变量与显变量的对应逻辑，AI 生成模型代码。
+:::
+::: {.column .code-column width="50%"}
+```r
+# AI 生成的测量模型框架
+measure_model <- constructs(
+  composite("Creativity", multi_items("CR", 1:5)),
+  composite("Gamification", multi_items("GM", 1:3))
+)
 ```
+:::
+::::
 
+## 4.3 案例三：大规模文献数据自动化
+* **效率飞跃**：结合 R 的抓取能力与 AI 的理解能力，自动提取数千篇文献指标。
+* **深度挖掘**：从“逐篇阅读”进化到“机器预审，人工定论”模式。
 
+# 5 为何现在是最佳时机？
+
+## 5.1 学习重心的战略转移
+* **过去**：学习“如何写出不出错的代码”。
+* **现在**：核心精力回归到学习“如何提出正确的统计问题”。
+* **技术平权**：AI 抹平了代码壁垒，让小白也能更早进入核心分析领域。
+
+## 5.2 24/7 的全天候私人教练
+* **零压力反馈**：AI 不会因重复提问而倦怠，它能变换讲解方式直到你听懂。
+* **原理可视化**：它能将复杂的计量公式即时转化为代码，演示变量变动的动态影响。
+
+# 总结：拥抱变革
+
+## 2 小时：开启你的 R 专家之路
+* **极致实用主义**：只聚焦于解决实际科研问题的核心 20% 技能。
+* **AI 全程护航**：在速成课中，我们将演示如何将 AI 无缝嵌入你的科研流。
+* **结语**：AI 不会取代统计学家，但熟练运用 AI 的学者将拥有巨大优势。
+
+## 互动与 Q&A
+* 访问页脚链接，下载本节课程配套的所有 R 代码与练习数据。
+* **下节预告**：RStudio 深度配置——构建你的 AI 驱动科研实验室。

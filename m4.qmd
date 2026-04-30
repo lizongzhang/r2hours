@@ -1,46 +1,29 @@
 ---
-title: "第4章"
+title: "模块4 AI辅助R编程"
 ---
 
-# 第4章 多元回归
+## L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机
 
-<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[讲义](https://lizongzhang.github.io/emetrics26/chap4slide.html){target="_blank"}
-
-<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[案例](https://lizongzhang.github.io/ee4/case1.html){target="_blank"}
-
-#  Eviews操作
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 多元回归](https://www.bilibili.com/video/BV1Zi4y1j7Xf/){target="_blank"}
-
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 受限最小二乘](https://www.bilibili.com/video/BV1pp4y1k7xx/){target="_blank"}
-    
-<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Eviews 输出结果数值显示格式的设置](https://www.bilibili.com/video/BV1tZ4y1V7Rb/){target="_blank"}  
-
-# R教学视频
-
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[回归模型的比较------受限模型的F检验](https://www.bilibili.com/video/BV1tg411a7ut){target="_blank"}
-
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[统计检验/回归模型的结果解释，还在手写吗？report()自动生成](https://www.bilibili.com/video/BV1GaouYAEvP/){target="_blank"}
-
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[R如何快速创建学术论文表1 样本统计特征 tbl_summary()](https://www.bilibili.com/video/BV1c64y1p7as){target="_blank"}
-
-# 习题答案
-
-<details>
-<summary style="cursor: pointer; font-weight: bold;">点击展开</summary>
-
-<p>如果想在新窗口打开 PDF，请点这里： <a href="img/EE4_Ch04_Solutions_Manual.pdf" target="_blank" rel="noopener">在新标签页中查看 PDF</a></p>
-
-<iframe src="img/EE4_Ch04_Solutions_Manual.pdf" width="100%" height="800" style="border: none;" allowfullscreen>
-  <!-- 备用内容（若浏览器不支持 iframe） -->
-  <p>你的浏览器无法嵌入 PDF，请 <a href="img/EE4_Ch04_Solutions_Manual.pdf" target="_blank" rel="noopener">点此下载/查看 PDF</a>.</p>
-</iframe>
-
-</details>
-
-# 习题讲评视频
-
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[教材习题4.9+4.11+4.12](https://www.bilibili.com/video/BV1ey4y1W75g){target="_blank"}
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L2 讲义](https://lizongzhang.github.io/r2hours/L1slide.html)
+</div>
 
 
-<img src="img/video.png" style="width: 24px; height: 24px;margin-right: 10px">[教材习题4.14+4.18+4.22](https://www.bilibili.com/video/BV1ey4y1W75g){target="_blank"}
+
+Prompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码
+
+报错信息分析：利用AI解读与定位R错误根源的有效方法
+
+
+
+
+::: {.callout-tip}
+## 资源下载
+[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
+:::
+
+
+
+
+

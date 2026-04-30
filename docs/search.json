@@ -161,53 +161,46 @@
     "text": "致谢\n\n医生不必精通统计，但值得拥有一位懂统计、会表达的AI助手。\n\n\n\n\nDeepSeek不是统计学家，却总能说出你心中那句“有理有据”。\n\n\n\n\n把统计分析交给AI，把思考留给科学。\n\n\n\n\n感谢大家的参与！欢迎提问交流！"
   },
   {
-    "objectID": "m4.html",
-    "href": "m4.html",
-    "title": "第4章",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "2小时入门R语言",
     "section": "",
-    "text": "第4章 多元回归\n讲义\n案例\n\n\nEviews操作\nEviews 多元回归\nEviews 受限最小二乘\nEviews 输出结果数值显示格式的设置\n\n\nR教学视频\n回归模型的比较——受限模型的F检验\n统计检验/回归模型的结果解释，还在手写吗？report()自动生成\nR如何快速创建学术论文表1 样本统计特征 tbl_summary()\n\n\n习题答案\n\n\n点击展开\n\n\n如果想在新窗口打开 PDF，请点这里： 在新标签页中查看 PDF\n\n\n&lt;!-- 备用内容（若浏览器不支持 iframe） --&gt;\n&lt;p&gt;\n你的浏览器无法嵌入 PDF，请 &lt;a href=\"img/EE4_Ch04_Solutions_Manual.pdf\" target=\"_blank\" rel=\"noopener\"&gt;点此下载/查看 PDF&lt;/a&gt;.\n&lt;/p&gt;\n\n\n\n\n习题讲评视频\n教材习题4.9+4.11+4.12\n教材习题4.14+4.18+4.22"
+    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n📘 模块1：R环境搭建与配置\n\n\n📁 模块2：数据导入与对象类型\n\n\n⚙️ 模块3：对象操作基础\n\n\n🤖 模块4：AI 辅助 R 编程与调试\n\n\n\n\n\n\n\n\n课件与数据下载\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
   },
   {
-    "objectID": "m3.html",
-    "href": "m3.html",
-    "title": "第3章",
+    "objectID": "index.html#核心教学模块",
+    "href": "index.html#核心教学模块",
+    "title": "2小时入门R语言",
     "section": "",
-    "text": "第3章 一元回归\n讲义\n\n\nEviews操作\nEviews series的操作\nEviews group的操作\nEviews 导入EXCEL文件\nEviews 绘制散点图\nEviews 估计回归方程\nEviews 输出结果数值显示格式的设置\nEviews Jarque-Bera正态检验\n\n\nEviews习题\n\n教材P59， 综合实例3.10，报告回归方程估计结果，绘制图3-10，绘制图3-11，图3-12， 图3-13。\n教材P39， 2.21\n\n\n\nR教学视频\n如何将R的回归分析结果以表格形式输出到WORD文档中？\nR中如何对回归方程的残差进行图形诊断？\n回归方程残差的正态性检验\n\n\n习题答案\n\n\n点击展开\n\n\n如果想在新窗口打开 PDF，请点这里： 在新标签页中查看 PDF\n\n\n&lt;!-- 备用内容（若浏览器不支持 iframe） --&gt;\n&lt;p&gt;\n你的浏览器无法嵌入 PDF，请 &lt;a href=\"img/EE4_Ch03_Solutions_Manual.pdf\" target=\"_blank\" rel=\"noopener\"&gt;点此下载/查看 PDF&lt;/a&gt;.\n&lt;/p&gt;\n\n\n\n\n习题讲评视频\n教材习题3.8+3.10+3.11"
+    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n📘 模块1：R环境搭建与配置\n\n\n📁 模块2：数据导入与对象类型\n\n\n⚙️ 模块3：对象操作基础\n\n\n🤖 模块4：AI 辅助 R 编程与调试\n\n\n\n\n\n\n\n\n课件与数据下载\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
   },
   {
-    "objectID": "m1.html",
-    "href": "m1.html",
-    "title": "模块1 R环境的搭建和配置",
+    "objectID": "projects.html#project-2",
+    "href": "projects.html#project-2",
+    "title": "Projects",
+    "section": "Project 2",
+    "text": "Project 2"
+  },
+  {
+    "objectID": "projects.html#project-3",
+    "href": "projects.html#project-3",
+    "title": "Projects",
+    "section": "Project 3",
+    "text": "Project 3"
+  },
+  {
+    "objectID": "m2.html",
+    "href": "m2.html",
+    "title": "模块2 数据导入与对象类型",
     "section": "",
-    "text": "L1 讲义\n\n\n L1 代码\n\n\n\n\n\n\n\n资源下载\n\n\n\n想要在本地练习？点击下载 L1 代码文件: L1.R"
+    "text": "L2 讲义\n\n使用Import Dataset导入Excel：鼠标操作与背后R代码解析 CSV与文本文件读取：read.csv函数及常见逗号、编码错误处理 数据框结构解析：R中表格数据的行、列与表头认知 向量：R语言最基础的数据存储单元 R核心数据类型：数值型、字符型与逻辑型 因子的特性与应用：分类变量的正确处理方式 数据概览函数：View、head、str、summary的实用技巧\n美元符号$运算符：精准列提取与简单数据计算 索引切片[ , ]：R中行列选择的逻辑与实践 代码编写规范：缩进、空格与注释的最佳实践 处理结果导出：将R数据框输出为Excel或WORD文件\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码 报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
   },
   {
-    "objectID": "m1.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "href": "m1.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "title": "模块1 R环境的搭建和配置",
+    "objectID": "m2.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "href": "m2.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "title": "模块2 数据导入与对象类型",
     "section": "",
-    "text": "L1 讲义\n\n\n L1 代码\n\n\n\n\n\n\n\n资源下载\n\n\n\n想要在本地练习？点击下载 L1 代码文件: L1.R"
-  },
-  {
-    "objectID": "m1.html#l2-r与rstudio安装演示关键避坑指南",
-    "href": "m1.html#l2-r与rstudio安装演示关键避坑指南",
-    "title": "模块1 R环境的搭建和配置",
-    "section": "L2 R与RStudio安装演示：关键避坑指南",
-    "text": "L2 R与RStudio安装演示：关键避坑指南"
-  },
-  {
-    "objectID": "m1.html#l3-rstudio界面深度解析四个象限功能",
-    "href": "m1.html#l3-rstudio界面深度解析四个象限功能",
-    "title": "模块1 R环境的搭建和配置",
-    "section": "L3 RStudio界面深度解析：四个象限功能",
-    "text": "L3 RStudio界面深度解析：四个象限功能\n… (后续标题以此类推，均建议使用 ##)"
-  },
-  {
-    "objectID": "L1slide.html",
-    "href": "L1slide.html",
-    "title": "Chapter 1 The Nature and Scope of Econometrics",
-    "section": "",
-    "text": "注意：本讲义供学习交流使用，请勿用于商业用途"
+    "text": "L2 讲义\n\n使用Import Dataset导入Excel：鼠标操作与背后R代码解析 CSV与文本文件读取：read.csv函数及常见逗号、编码错误处理 数据框结构解析：R中表格数据的行、列与表头认知 向量：R语言最基础的数据存储单元 R核心数据类型：数值型、字符型与逻辑型 因子的特性与应用：分类变量的正确处理方式 数据概览函数：View、head、str、summary的实用技巧\n美元符号$运算符：精准列提取与简单数据计算 索引切片[ , ]：R中行列选择的逻辑与实践 代码编写规范：缩进、空格与注释的最佳实践 处理结果导出：将R数据框输出为Excel或WORD文件\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码 报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
   },
   {
     "objectID": "L10.html#模块十-deepseek辅助r编程与数据分析",
@@ -364,73 +357,269 @@
     "text": "致谢\n\nAI助力，让R语言学习变得简单、高效、充满乐趣！\n\n\nAI助力, 形成编程思维, 独立实践才是用好R的关键。\n\n\n高质量的提问，源自对R的深度使用。\n\n\n\n感谢大家的参与！欢迎提问交流！"
   },
   {
-    "objectID": "m2.html",
-    "href": "m2.html",
-    "title": "第2章",
+    "objectID": "L1slide.html#统计学的正统语言",
+    "href": "L1slide.html#统计学的正统语言",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "1.1 统计学的“正统”语言",
+    "text": "1.1 统计学的“正统”语言\n\n学术血统：R 是由统计学家为统计学家开发的专业工具，天然适配科研逻辑。\n深度覆盖：从基础回归到最前沿的计量模型（如 PLS-SEM），拥有超过 20,000 个扩展包支撑。\n不可替代性：在顶级期刊审稿中，基于 R 的分析结果通常意味着更高的学术严谨性与可信度。"
+  },
+  {
+    "objectID": "L1slide.html#极致的视觉表达力",
+    "href": "L1slide.html#极致的视觉表达力",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "1.2 极致的视觉表达力",
+    "text": "1.2 极致的视觉表达力\n\nggplot2 哲学：基于图形语法，让数据绘图从简单的“画图”升级为逻辑清晰的“图层构建”。\n出版级输出：原生支持高分辨率、CMYK 色彩模式，直接满足高质量学术期刊的投稿标准。"
+  },
+  {
+    "objectID": "L1slide.html#可重复性研究学术长青的关键",
+    "href": "L1slide.html#可重复性研究学术长青的关键",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "1.3 可重复性研究：学术长青的关键",
+    "text": "1.3 可重复性研究：学术长青的关键\n\nQuarto 动力：实现代码、原始数据、分析过程与文字描述的“三位一体”集成。\n防错机制：数据一旦更新，全文的结果、表格与图表将自动同步刷新，杜绝人工误差。"
+  },
+  {
+    "objectID": "L1slide.html#陡峭的学习曲线",
+    "href": "L1slide.html#陡峭的学习曲线",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "2.1 陡峭的学习曲线",
+    "text": "2.1 陡峭的学习曲线\n\n语法逻辑认知差：Base R 的繁琐与 Tidyverse 的优雅语法之间存在明显的认知断层。\n环境配置困局：版本冲突、依赖包安装失败常让初学者在写出第一行代码前就产生挫败感。\n报错信息的障碍： &gt; Error in x[1, ] : subscript out of bounds &gt; —— 这种生涩的反馈往往让非计算机背景的学习者望而却步。"
+  },
+  {
+    "objectID": "L1slide.html#的时间在清洗数据",
+    "href": "L1slide.html#的时间在清洗数据",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "2.2 80% 的时间在“清洗数据”",
+    "text": "2.2 80% 的时间在“清洗数据”\n\n现实世界的混乱：原始数据往往伴随着缺失值、格式乱码、非结构化存储等问题。\n效率低迷：核心精力消耗在非研究核心的代码纠错上，严重打击学习积极性。"
+  },
+  {
+    "objectID": "L1slide.html#从打字员转向总工程师",
+    "href": "L1slide.html#从打字员转向总工程师",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "3.1 从“打字员”转向“总工程师”",
+    "text": "3.1 从“打字员”转向“总工程师”\n\n思维转变：你不再需要死记硬背函数参数，而是专注于解决问题的逻辑架构。\n实时翻译官：AI 能够将你的研究直觉（自然语言）实时转化为精准的 R 代码。\n即时报错诊断：将复杂的错误代码直接反馈给 AI，它不仅能提供修正方案，还能解释错误逻辑。"
+  },
+  {
+    "objectID": "L1slide.html#场景演示ai-辅助下的数据清理",
+    "href": "L1slide.html#场景演示ai-辅助下的数据清理",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "3.2 场景演示：AI 辅助下的数据清理",
+    "text": "3.2 场景演示：AI 辅助下的数据清理\n\n\n传统方式\n需要熟练记忆 dplyr 的多个函数组合及管道符号的使用逻辑。\n\nAI 辅助方式\nPrompt: “清理数据集：剔除年龄大于60的样本，并将性别列转换为因子类型。”\n# AI 自动生成的整洁代码\ndata_clean &lt;- data %&gt;%\n  filter(age &lt;= 60) %&gt;%\n  mutate(gender = as.factor(gender))"
+  },
+  {
+    "objectID": "L1slide.html#案例一快速生成学术级图表",
+    "href": "L1slide.html#案例一快速生成学术级图表",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "4.1 案例一：快速生成学术级图表",
+    "text": "4.1 案例一：快速生成学术级图表\n\n困境：调整坐标轴细节、添加显著性标注往往需要翻阅数小时的文档。\nAI 解法：直接用自然语言描述你的审美需求。\n\n# AI 辅助生成的 ggplot2 顶刊风格代码\nlibrary(ggplot2)\nggplot(data_clean, aes(x=group, y=score, fill=group)) +\n  geom_boxplot(alpha = 0.8) +\n  scale_fill_manual(values = c(\"#044875\", \"#4a90e2\")) + \n  theme_minimal() +\n  labs(title = \"AI 辅助绘图：不同分组得分对比\",\n       x = \"实验组别\", y = \"量表得分\")"
+  },
+  {
+    "objectID": "L1slide.html#案例二构建高级统计模型-pls-sem",
+    "href": "L1slide.html#案例二构建高级统计模型-pls-sem",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "4.2 案例二：构建高级统计模型 (PLS-SEM)",
+    "text": "4.2 案例二：构建高级统计模型 (PLS-SEM)\n\n\n\n背景：在研究“游戏化对创造力”的影响时，构建结构方程模型往往很繁琐。\n现在：描述潜变量与显变量的对应逻辑，AI 生成模型代码。\n\n\n# AI 生成的测量模型框架\nmeasure_model &lt;- constructs(\n  composite(\"Creativity\", multi_items(\"CR\", 1:5)),\n  composite(\"Gamification\", multi_items(\"GM\", 1:3))\n)"
+  },
+  {
+    "objectID": "L1slide.html#案例三大规模文献数据自动化",
+    "href": "L1slide.html#案例三大规模文献数据自动化",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "4.3 案例三：大规模文献数据自动化",
+    "text": "4.3 案例三：大规模文献数据自动化\n\n效率飞跃：结合 R 的抓取能力与 AI 的理解能力，自动提取数千篇文献指标。\n深度挖掘：从“逐篇阅读”进化到“机器预审，人工定论”模式。"
+  },
+  {
+    "objectID": "L1slide.html#学习重心的战略转移",
+    "href": "L1slide.html#学习重心的战略转移",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "5.1 学习重心的战略转移",
+    "text": "5.1 学习重心的战略转移\n\n过去：学习“如何写出不出错的代码”。\n现在：核心精力回归到学习“如何提出正确的统计问题”。\n技术平权：AI 抹平了代码壁垒，让小白也能更早进入核心分析领域。"
+  },
+  {
+    "objectID": "L1slide.html#的全天候私人教练",
+    "href": "L1slide.html#的全天候私人教练",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "5.2 24/7 的全天候私人教练",
+    "text": "5.2 24/7 的全天候私人教练\n\n零压力反馈：AI 不会因重复提问而倦怠，它能变换讲解方式直到你听懂。\n原理可视化：它能将复杂的计量公式即时转化为代码，演示变量变动的动态影响。"
+  },
+  {
+    "objectID": "L1slide.html#小时开启你的-r-专家之路",
+    "href": "L1slide.html#小时开启你的-r-专家之路",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "2 小时：开启你的 R 专家之路",
+    "text": "2 小时：开启你的 R 专家之路\n\n极致实用主义：只聚焦于解决实际科研问题的核心 20% 技能。\nAI 全程护航：在速成课中，我们将演示如何将 AI 无缝嵌入你的科研流。\n结语：AI 不会取代统计学家，但熟练运用 AI 的学者将拥有巨大优势。"
+  },
+  {
+    "objectID": "L1slide.html#互动与-qa",
+    "href": "L1slide.html#互动与-qa",
+    "title": "L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机",
+    "section": "互动与 Q&A",
+    "text": "互动与 Q&A\n\n访问页脚链接，下载本节课程配套的所有 R 代码与练习数据。\n下节预告：RStudio 深度配置——构建你的 AI 驱动科研实验室。"
+  },
+  {
+    "objectID": "m1.html",
+    "href": "m1.html",
+    "title": "模块1 R环境搭建",
     "section": "",
-    "text": "第2章 古典线性回归模型"
+    "text": "L1 讲义"
   },
   {
-    "objectID": "m2.html#任务1-教材p32-例2-5",
-    "href": "m2.html#任务1-教材p32-例2-5",
-    "title": "第2章",
-    "section": "任务1: 教材P32 例2-5",
-    "text": "任务1: 教材P32 例2-5\n\n数据文件Table 2_14.xls\n\n报告 price, age 和bidders的描述性统计量（均值、中位数、标准差、最大/最小值）。\n绘制price的直方图和箱线图，观察price的分布特征。\n绘制price与age的散点图，在散点图上添加回归线。\n绘制price与bidders的散点图，在散点图上添加回归线。\n报告price, age和bidders之间的相关系数矩阵。\n估计price和age之间的回归方程，报告回归结果。\n估计price和bidders之间的回归方程，报告回归结果。\n估计price与age和bidders之间的二元回归方程，并报告回归结果。\n修改第3题和第4题中散点的颜色，回归线的颜色和样式。"
-  },
-  {
-    "objectID": "m2.html#任务2-二手车价格分析",
-    "href": "m2.html#任务2-二手车价格分析",
-    "title": "第2章",
-    "section": "任务2: 二手车价格分析",
-    "text": "任务2: 二手车价格分析\n\n从某二手车交易平台收集了 30 辆同款型号二手车的交易数据，研究行驶里程 (Mileage) 以及 保养记录次数 (Service_Records) 如何影响 二手车售价 (Price)。\n样本容量 \\(n=30\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n编号\nPrice (万元)\nMileage (万公里)\nService_Records (次)\n编号\nPrice (万元)\nMileage (万公里)\nService_Records (次)\n\n\n\n\n1\n18.5\n1.2\n3\n16\n12.1\n6.8\n4\n\n\n2\n17.2\n2.5\n4\n17\n11.5\n7.2\n3\n\n\n3\n16.8\n3.1\n2\n18\n10.8\n8.5\n5\n\n\n4\n15.5\n4.0\n5\n19\n10.2\n9.1\n2\n\n\n5\n14.9\n4.8\n3\n20\n9.5\n10.5\n4\n\n\n6\n14.2\n5.2\n4\n21\n18.0\n1.5\n4\n\n\n7\n13.5\n6.0\n6\n22\n16.5\n2.8\n3\n\n\n8\n12.8\n6.5\n2\n23\n15.8\n3.5\n5\n\n\n9\n11.9\n7.8\n4\n24\n14.5\n4.5\n4\n\n\n10\n10.5\n9.2\n5\n25\n13.2\n5.8\n6\n\n\n11\n9.8\n10.1\n3\n26\n12.5\n6.2\n3\n\n\n12\n8.9\n11.5\n4\n27\n11.2\n7.5\n4\n\n\n13\n8.2\n12.2\n2\n28\n10.4\n8.8\n5\n\n\n14\n7.5\n13.5\n5\n29\n9.2\n11.0\n2\n\n\n15\n6.8\n15.0\n3\n30\n8.5\n12.5\n4\n\n\n\n\n基础统计\n\n报告 Price, Mileage 和 Service_Records 的均值、中位数、标准差、最小值、最大值等描述性统计量。\n报告三个变量之间的相关系数矩阵。\n\n数据分布观察\n\n绘制 Price 的直方图，观察其分布特征。\n\n一元线性回归与图形美化\n\n绘制 Price 与 Mileage 的散点图。\n自定义要求：将散点设置为你喜欢的颜色，添加回归趋势线，并显示回归方程。\n在 EViews 中估计回归方程： \\[Price = B_0 + B_1 Mileage + u\\]\n绘制 Price 与 Service_Records 的散点图。\n自定义要求：将散点设置为你喜欢的颜色，添加回归趋势线，并显示回归方程。\n在 EViews 中估计回归方程： \\[Price = B_0 + B_1 Service\\_Records + u\\]\n\n二元回归\n\n估计二元回归模型： \\[Price = B_0 + B_1 Mileage + B_2 Service\\_Records + u\\]\n\n比较上述三个回归模型，哪个模型最好？"
-  },
-  {
-    "objectID": "m2.html#基础操作与数据管理",
-    "href": "m2.html#基础操作与数据管理",
-    "title": "第2章",
-    "section": "基础操作与数据管理",
-    "text": "基础操作与数据管理\nEviews 12 主界面\nEviews 12 如何导入Excel文件\nEviews12 如何录入数据"
-  },
-  {
-    "objectID": "m2.html#数据可视化",
-    "href": "m2.html#数据可视化",
-    "title": "第2章",
-    "section": "数据可视化",
-    "text": "数据可视化\nEviews12 绘制散点图\nEviews12 矩阵散点图和气泡图\nEviews12 如何修改坐标轴字体、添加网格线、设置边框？"
-  },
-  {
-    "objectID": "m2.html#模型估计",
-    "href": "m2.html#模型估计",
-    "title": "第2章",
-    "section": "模型估计",
-    "text": "模型估计\nEviews12 回归方程的估计\nEviews12 如何在散点图上添加回归线和回归方程？"
-  },
-  {
-    "objectID": "projects.html#project-2",
-    "href": "projects.html#project-2",
-    "title": "Projects",
-    "section": "Project 2",
-    "text": "Project 2"
-  },
-  {
-    "objectID": "projects.html#project-3",
-    "href": "projects.html#project-3",
-    "title": "Projects",
-    "section": "Project 3",
-    "text": "Project 3"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "2小时入门R语言",
+    "objectID": "m1.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "href": "m1.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "title": "模块1 R环境搭建",
     "section": "",
-    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n📘 模块 1：R 环境搭建与配置\n\n\n📁 模块 2：数据导入与对象类型\n\n\n⚙️ 模块 3：对象操作基础\n\n\n🤖 模块 4：AI 辅助 R 编程与调试\n\n\n\n\n\n\n\n\n课件与数据下载\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
+    "text": "L1 讲义"
   },
   {
-    "objectID": "index.html#核心教学模块",
-    "href": "index.html#核心教学模块",
-    "title": "2小时入门R语言",
+    "objectID": "m1.html#l2-r与rstudio安装演示关键避坑指南",
+    "href": "m1.html#l2-r与rstudio安装演示关键避坑指南",
+    "title": "模块1 R环境搭建",
+    "section": "L2 R与RStudio安装演示：关键避坑指南",
+    "text": "L2 R与RStudio安装演示：关键避坑指南"
+  },
+  {
+    "objectID": "m1.html#l3-rstudio界面深度解析四个象限功能",
+    "href": "m1.html#l3-rstudio界面深度解析四个象限功能",
+    "title": "模块1 R环境搭建",
+    "section": "L3 RStudio界面深度解析：四个象限功能",
+    "text": "L3 RStudio界面深度解析：四个象限功能"
+  },
+  {
+    "objectID": "m1.html#l4-全局选项设置避免代码乱码与关闭工作空间保存提示",
+    "href": "m1.html#l4-全局选项设置避免代码乱码与关闭工作空间保存提示",
+    "title": "模块1 R环境搭建",
+    "section": "L4 全局选项设置：避免代码乱码与关闭工作空间保存提示",
+    "text": "L4 全局选项设置：避免代码乱码与关闭工作空间保存提示"
+  },
+  {
+    "objectID": "m1.html#l5-r-project项目管理r工作流的核心实践告别setwd依赖",
+    "href": "m1.html#l5-r-project项目管理r工作流的核心实践告别setwd依赖",
+    "title": "模块1 R环境搭建",
+    "section": "L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖",
+    "text": "L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖"
+  },
+  {
+    "objectID": "m1.html#l6-r包管理法则安装加载及常见包未找到错误处理",
+    "href": "m1.html#l6-r包管理法则安装加载及常见包未找到错误处理",
+    "title": "模块1 R环境搭建",
+    "section": "L6 R包管理法则：安装、加载及常见“包未找到”错误处理",
+    "text": "L6 R包管理法则：安装、加载及常见“包未找到”错误处理"
+  },
+  {
+    "objectID": "m1.html#l7-r代码初体验别让这5个低级坑劝退你",
+    "href": "m1.html#l7-r代码初体验别让这5个低级坑劝退你",
+    "title": "模块1 R环境搭建",
+    "section": "L7 R代码初体验：别让这5个“低级坑”劝退你",
+    "text": "L7 R代码初体验：别让这5个“低级坑”劝退你\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "m3.html",
+    "href": "m3.html",
+    "title": "模块3 对象操作基础",
     "section": "",
-    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n📘 模块 1：R 环境搭建与配置\n\n\n📁 模块 2：数据导入与对象类型\n\n\n⚙️ 模块 3：对象操作基础\n\n\n🤖 模块 4：AI 辅助 R 编程与调试\n\n\n\n\n\n\n\n\n课件与数据下载\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
+    "text": "L2 讲义\n\n美元符号$运算符：精准列提取与简单数据计算\n索引切片[ , ]：R中行列选择的逻辑与实践\n代码编写规范：缩进、空格与注释的最佳实践\n处理结果导出：将R数据框输出为Excel或WORD文件\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "m3.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "href": "m3.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "title": "模块3 对象操作基础",
+    "section": "",
+    "text": "L2 讲义\n\n美元符号$运算符：精准列提取与简单数据计算\n索引切片[ , ]：R中行列选择的逻辑与实践\n代码编写规范：缩进、空格与注释的最佳实践\n处理结果导出：将R数据框输出为Excel或WORD文件\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "m4.html",
+    "href": "m4.html",
+    "title": "模块4 AI辅助R编程",
+    "section": "",
+    "text": "L2 讲义\n\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码\n报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "m4.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "href": "m4.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
+    "title": "模块4 AI辅助R编程",
+    "section": "",
+    "text": "L2 讲义\n\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码\n报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "L1slide_副本.html#生存分析简介",
+    "href": "L1slide_副本.html#生存分析简介",
+    "title": "L1 AI时代的R学习观",
+    "section": "1 生存分析简介",
+    "text": "1 生存分析简介\n1.1 什么是生存分析？\n1.2 为什么要使用生存分析方法？\n1.3 生存分析的核心概念\n1.4 生存分析方法概览\n1.5 为什么选择 R 实现生存分析？"
+  },
+  {
+    "objectID": "L1slide_副本.html#什么是生存分析",
+    "href": "L1slide_副本.html#什么是生存分析",
+    "title": "L1 AI时代的R学习观",
+    "section": "1.1 什么是生存分析？",
+    "text": "1.1 什么是生存分析？\n生存分析研究事件发生的时间及其发生概率。\n生存分析 Survival Analysis：删失数据\n右删失数据 right censoring\n\n右删失数据指由于观察时间结束或其他原因，仅知事件在某时间点尚未发生，而无法获知具体发生时间的数据。\n\n\n研究病人的生存时间\n\n有些病人在研究结束时还活着，只知道他们的生存时间“大于某个值”\n有些病人中途退出了研究，只知道他们的生存时间“大于某个值”"
+  },
+  {
+    "objectID": "L1slide_副本.html#生存分析的优势",
+    "href": "L1slide_副本.html#生存分析的优势",
+    "title": "L1 AI时代的R学习观",
+    "section": "1.2 生存分析的优势",
+    "text": "1.2 生存分析的优势\n生存分析能同时考虑事件发生时间和处理删失数据，精确反映事件的动态过程。\n生存分析\n\n比较不同治疗组事件发生的时间长短。\n估计中位生存时间。\n分析某因素对事件发生时间的加速或延迟效应。"
+  },
+  {
+    "objectID": "L1slide_副本.html#生存分析的核心术语",
+    "href": "L1slide_副本.html#生存分析的核心术语",
+    "title": "L1 AI时代的R学习观",
+    "section": "1.3 生存分析的核心术语",
+    "text": "1.3 生存分析的核心术语\n\n生存时间 Survival Time\n删失数据 Censoring Data\n生存函数 Survival Function, S(t)\n累积分布函数(Cumulative Distribution Function, F(t))\n风险函数 Hazard Function, h(t)"
+  },
+  {
+    "objectID": "L1slide_副本.html#生存函数图像特征",
+    "href": "L1slide_副本.html#生存函数图像特征",
+    "title": "L1 AI时代的R学习观",
+    "section": "生存函数图像特征",
+    "text": "生存函数图像特征\n\n\\(S(t)\\) 随时间递减，\\(h(t)\\) 描述何时“递减得快”。\n若 \\(h(t)\\) 恒定(如指数分布)，\\(S(t)\\) 是指数函数。\n若 \\(h(t)\\) 随时间变化(如Weibull分布)，\\(S(t)\\) 递减速率随时间变化。"
+  },
+  {
+    "objectID": "L1slide_副本.html#生存分析方法",
+    "href": "L1slide_副本.html#生存分析方法",
+    "title": "L1 AI时代的R学习观",
+    "section": "1.4 生存分析方法",
+    "text": "1.4 生存分析方法\n\n非参数模型\n\nKaplan-Meier, Nelson-Aalen, Life Table\n\n半参数模型\n\nCox proportional hazards model\n\n参数模型\n\n加速失效时间模型\n\n机器学习模型"
+  },
+  {
+    "objectID": "L1slide_副本.html#为什么用r进行生存分析",
+    "href": "L1slide_副本.html#为什么用r进行生存分析",
+    "title": "L1 AI时代的R学习观",
+    "section": "1.5 为什么用R进行生存分析？",
+    "text": "1.5 为什么用R进行生存分析？\n\n支持多样化模型，与学术前沿同步\n功能强大的包\n满足学术出版标准，图形可直接用于SCI期刊投稿\n代码的可重复性\n支持与Python、SAS、Stata等软件的数据格式兼容，可读写CSV、Excel、SPSS、SQL等多种格式文件"
+  },
+  {
+    "objectID": "L1slide_副本.html#模型灵活接轨学术前沿",
+    "href": "L1slide_副本.html#模型灵活接轨学术前沿",
+    "title": "L1 AI时代的R学习观",
+    "section": "✅ 模型灵活、接轨学术前沿",
+    "text": "✅ 模型灵活、接轨学术前沿\n\n非参数模型(如 Kaplan-Meier、Nelson-Aalen)；\n半参数模型(Cox 回归、Stratified Cox、Time-dependent Cox)；\n参数模型(Weibull、Exponential、Log-normal 等)；\n加速失效时间模型(AFT)；\n机器学习与深度学习方法(如随机生存森林、DeepSurv)；\n支持删失数据、竞争风险、多状态模型、复发事件等复杂结构。"
+  },
+  {
+    "objectID": "L1slide_副本.html#包丰富兼容性强",
+    "href": "L1slide_副本.html#包丰富兼容性强",
+    "title": "L1 AI时代的R学习观",
+    "section": "✅ 包丰富、兼容性强",
+    "text": "✅ 包丰富、兼容性强\nR 拥有生态完备的生存分析工具包，涵盖建模、可视化、诊断与预测的全过程：\n\nsurvival: 生存分析的核心包，作者 Therneau 教授即为 Cox 模型奠基人；\nsurvminer: 专注于可视化与图表美化；\nrms: 构建回归模型、估计 nomogram；\nflexsurv: 拓展参数模型族，支持自定义分布；\npec、riskRegression: 用于模型评价、比较与预测；\nrandomForestSRC, survivalmodels: 接入机器学习与深度学习模型。\n\n此外，R 与 Python、SAS、Stata 等平台的数据格式高度兼容，可轻松读写 CSV、Excel、SPSS、SAS、SQL、JSON 等多种格式文件。"
+  },
+  {
+    "objectID": "L1slide_副本.html#可视化科学性与美学并重",
+    "href": "L1slide_副本.html#可视化科学性与美学并重",
+    "title": "L1 AI时代的R学习观",
+    "section": "✅ 可视化：科学性与美学并重",
+    "text": "✅ 可视化：科学性与美学并重\nR 的图形系统(尤其是 ggplot2 与 survminer)能兼顾：\n\n科学严谨性：提供风险表(risk table)、置信区间、删失符号、分层比较、调整协变量；\n审美专业性：高分辨率输出、分面展示、支持 LaTeX 数学符号、主题统一；\n投稿级品质：图形可直接用于 SCI 期刊投稿，无需再由图形编辑软件二次加工。\n\n常见输出格式包括 PDF、PNG、SVG、EPS，广泛支持矢量图形与学术出版标准。"
+  },
+  {
+    "objectID": "L1slide_副本.html#代码的可重复性reproducibility",
+    "href": "L1slide_副本.html#代码的可重复性reproducibility",
+    "title": "L1 AI时代的R学习观",
+    "section": "✅ 代码的可重复性(Reproducibility)",
+    "text": "✅ 代码的可重复性(Reproducibility)\n\n支持 R Markdown、Quarto 等文档系统，将文本、公式、代码与图表融合；\n支持版本控制(Git)、自动更新、参数化分析；\n每一步分析都可追溯，保证数据处理和建模过程的透明性；\n与 renv、packrat 等工具协同，确保包版本一致性，适用于课题组协作、期刊审稿再现和同行验证。"
+  },
+  {
+    "objectID": "L1slide_副本.html#总结",
+    "href": "L1slide_副本.html#总结",
+    "title": "L1 AI时代的R学习观",
+    "section": "总结",
+    "text": "总结\n\n\n\n\n\n\n\n概念\n解释\n\n\n\n\n生存时间(T)\n个体从起点到目标事件发生所经历的时间\n\n\n删失(Censoring)\n由于观察限制，事件发生时间未知的样本\n\n\n生存函数 S(t)\n在时间 t 时刻事件尚未发生的概率，即 P(T &gt; t)\n\n\n累积分布函数 F(t)\nP(T ≤ t)，即事件在时间 t 前发生的概率\n\n\n风险函数 h(t)\n在时间 t 时刻，事件尚未发生的个体中事件“立刻”发生的瞬时速率"
   }
 ]
