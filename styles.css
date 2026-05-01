@@ -1,0 +1,146 @@
+/* ============================================================ */
+/* 1. 全局变量与基础设置                                         */
+/* ============================================================ */
+:root {
+  --primary-blue: #044875;      /* 顶刊研习社海军蓝 */
+  --link-blue: #0066cc;          /* 商业链接蓝 */
+  --font-main: "STKaiti", "Noto Serif SC", "KaiTi", serif; 
+  --font-mono: "Fira Code", "Consolas", "STKaiti", "KaiTi", monospace;
+}
+
+body, .reveal {
+  font-family: var(--font-main);
+  color: var(--primary-blue);
+  line-height: 1.6;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'><text x='20' y='150' font-size='25' fill='black' opacity='0.12' transform='rotate(-30, 150, 100)' font-family='\"Times New Roman\", STKaiti, KaiTi, serif'>顶刊研习社 TOP JOURNAL CLUB</text></svg>");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* ============================================================ */
+/* 2. 统一标题样式                                              */
+/* ============================================================ */
+h1, .title, h2, h3, h4, 
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--font-main) !important; 
+  color: var(--primary-blue) !important;
+  font-weight: bold;
+  text-transform: none !important;
+  line-height: 1.2;
+}
+
+/* 封面页（Title Slide）优化 */
+.reveal .title-slide h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2 !important;
+  font-weight: normal !important;
+  font-size: 2.2em !important; 
+  margin-bottom: 0.5em !important;
+}
+
+/* 封面标题换行间距控制 */
+.reveal .title-slide h1 br {
+  display: block;
+  content: "";
+  margin-top: 0.3em;
+}
+
+/* 封面次要信息（机构名、作者、日期）间距 */
+.reveal .title-slide p, 
+.reveal .title-slide .subtitle, 
+.reveal .title-slide .author, 
+.reveal .title-slide .date {
+  margin-top: 0.2em !important;
+  margin-bottom: 0.2em !important;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.reveal .title-slide .subtitle {
+  font-size: 1.2em;
+  margin-bottom: 0.4em !important;
+}
+
+/* 标题下划线：渐变风格 (仅针对 h2 内容页标题) */
+.reveal h1, .reveal h2 {
+  border-bottom: none !important;
+  position: relative;
+  padding-bottom: 0.3em !important;
+}
+
+.reveal h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary-blue), rgba(4, 72, 117, 0.05));
+}
+
+/* ============================================================ */
+/* 3. 代码块与表格优化 (R 教学专用)                              */
+/* ============================================================ */
+.reveal pre code {
+  font-size: 1.3em !important;
+  line-height: 1.5 !important;
+  font-family: var(--font-mono) !important;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.reveal table {
+  font-size: 0.75em;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.reveal table th {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  padding: 12px;
+}
+
+/* ============================================================ */
+/* 4. 导航栏与链接保护                                           */
+/* ============================================================ */
+.navbar .nav-link, .navbar-title, .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+a {
+  color: var(--link-blue) !important;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* ============================================================ */
+/* 5. 目录页 (Table of Contents) 风格统一                        */
+/* ============================================================ */
+.reveal #TOC h2 {
+  color: var(--primary-blue) !important;
+  font-family: var(--font-main) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8) !important;
+  text-align: left !important;
+}
+
+.reveal #TOC ul li a, 
+.reveal #TOC ul li {
+  color: var(--primary-blue) !important;
+  font-family: var(--font-main) !important;
+  text-decoration: none !important;
+}
+
+.reveal #TOC ul li a:hover {
+  color: var(--link-blue) !important;
+  text-decoration: underline !important;
+}

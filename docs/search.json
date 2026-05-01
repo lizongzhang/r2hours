@@ -621,5 +621,47 @@
     "title": "L1 AI时代的R学习观",
     "section": "总结",
     "text": "总结\n\n\n\n\n\n\n\n概念\n解释\n\n\n\n\n生存时间(T)\n个体从起点到目标事件发生所经历的时间\n\n\n删失(Censoring)\n由于观察限制，事件发生时间未知的样本\n\n\n生存函数 S(t)\n在时间 t 时刻事件尚未发生的概率，即 P(T &gt; t)\n\n\n累积分布函数 F(t)\nP(T ≤ t)，即事件在时间 t 前发生的概率\n\n\n风险函数 h(t)\n在时间 t 时刻，事件尚未发生的个体中事件“立刻”发生的瞬时速率"
+  },
+  {
+    "objectID": "L1slide.html#r的优势",
+    "href": "L1slide.html#r的优势",
+    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
+    "section": "1 R的优势",
+    "text": "1 R的优势\n\n免费\n代码的可重复性\n丰富的扩展包，与学术前沿接轨\n\nhttps://cran.r-project.org/web/views\n\n基于动态文档的多格式输出能力\n\n一份源文件，多格式输出（HTML/PDF/Word）\n基于R Markdown/Quarto"
+  },
+  {
+    "objectID": "L1slide.html#初学者的至暗时刻",
+    "href": "L1slide.html#初学者的至暗时刻",
+    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
+    "section": "2 初学者的“至暗时刻”",
+    "text": "2 初学者的“至暗时刻”\n\n思维转换的阵痛\n\n习惯了鼠标点选，面对纯代码界面时学习曲线极其陡峭\n\n边学边忘的挫败\n\n语法繁杂，今天刚敲熟的代码，下周全军覆没\n\n万包林立的迷茫\n\nCRAN上几万个扩展包，实现同一功能有无数种写法，引发“选择困难症”\n\n满屏红字的暴击\n\n面对毫无头绪的 Error 和 Warning，极易丧失学习信心"
+  },
+  {
+    "objectID": "L1slide.html#ai时代如何重塑r学习观",
+    "href": "L1slide.html#ai时代如何重塑r学习观",
+    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
+    "section": "3 AI时代如何重塑R学习观？",
+    "text": "3 AI时代如何重塑R学习观？\n\n升维：从“敲代码”转向“做架构”\n\n明确分析目标与核心R包，将繁琐的语法细节统统交由AI填补。\n\n把关：做AI代码的“审稿人”\n\n提升代码阅读与逻辑验证能力，主导分析流程，拒绝盲目复制运行。\n\n筑基：吃透对象语法的底层逻辑\n\n掌握函数的输入输出规则与数据结构，向AI精准提问与解决报错的关键。\n\n聚焦：对标顶刊水准的科研表达\n\n彻底释放生产力，将精力倾注于出版级的高维可视化与规范化统计制表。"
+  },
+  {
+    "objectID": "L1slide.html#ai-r-的融合实战",
+    "href": "L1slide.html#ai-r-的融合实战",
+    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
+    "section": "4 AI + R 的融合实战",
+    "text": "4 AI + R 的融合实战\n4.0 环境准备（初次使用请运行）\n\n# 运行以下代码安装本节课所需的全部扩展包\ninstall.packages(c(\"tidyverse\", \"gtsummary\", \"ggpubr\", \n                   \"broom\", \"broom.helpers\"))"
+  },
+  {
+    "objectID": "L1slide.html#绘制table-1",
+    "href": "L1slide.html#绘制table-1",
+    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
+    "section": "4.1 绘制Table 1",
+    "text": "4.1 绘制Table 1\n\n\n\n查看R代码\nlibrary(gtsummary)\n\ntrial %&gt;% \n  tbl_summary(\n    by = trt,\n    statistic = list(\n      all_continuous() ~ \"{mean} ({sd})\",\n      all_categorical() ~ \"{n} ({p}%)\"\n    )\n  ) %&gt;% \n  add_p()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nDrug A\nN = 981\nDrug B\nN = 1021\np-value2\n\n\n\n\nAge\n47 (15)\n47 (14)\n0.7\n\n\n    Unknown\n7\n4\n\n\n\n\nMarker Level (ng/mL)\n1.02 (0.89)\n0.82 (0.83)\n0.085\n\n\n    Unknown\n6\n4\n\n\n\n\nT Stage\n\n\n\n\n0.9\n\n\n    T1\n28 (29%)\n25 (25%)\n\n\n\n\n    T2\n25 (26%)\n29 (28%)\n\n\n\n\n    T3\n22 (22%)\n21 (21%)\n\n\n\n\n    T4\n23 (23%)\n27 (26%)\n\n\n\n\nGrade\n\n\n\n\n0.9\n\n\n    I\n35 (36%)\n33 (32%)\n\n\n\n\n    II\n32 (33%)\n36 (35%)\n\n\n\n\n    III\n31 (32%)\n33 (32%)\n\n\n\n\nTumor Response\n28 (29%)\n33 (34%)\n0.5\n\n\n    Unknown\n3\n4\n\n\n\n\nPatient Died\n52 (53%)\n60 (59%)\n0.4\n\n\nMonths to Death/Censor\n20.2 (5.0)\n19.0 (5.5)\n0.14\n\n\n\n1 Mean (SD); n (%)\n\n\n2 Wilcoxon rank sum test; Pearson’s Chi-squared test\n\n\n\n\n\n\n\n\n\n\n困境：调整坐标轴细节、添加显著性标注往往需要翻阅数小时的文档。\nAI 解法：直接用自然语言描述你的审美需求。\n\n# AI 辅助生成的 ggplot2 顶刊风格代码\nlibrary(ggplot2)\nggplot(data_clean, aes(x=group, y=score, fill=group)) +\n  geom_boxplot(alpha = 0.8) +\n  scale_fill_manual(values = c(\"#044875\", \"#4a90e2\")) + \n  theme_minimal() +\n  labs(title = \"AI 辅助绘图：不同分组得分对比\",\n       x = \"实验组别\", y = \"量表得分\")"
+  },
+  {
+    "objectID": "L1slide.html#为何现在是学习r的最佳时机",
+    "href": "L1slide.html#为何现在是学习r的最佳时机",
+    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
+    "section": "5 为何现在是学习R的最佳时机？",
+    "text": "5 为何现在是学习R的最佳时机？\n\n范式转移：从“调试代码”转向“设计问题”\n\n过去：深陷语法纠错，耗费大量科研精力。\n现在：回归研究本质，聚焦学术问题凝练。\n\n技术平权：彻底抹平传统编程壁垒\n\nAI 降低准入门槛，助力初学者驾驭复杂模型分析。\n\n零压反馈：拥有永不倦怠的“专属私教”\n\nAI 提供即时讲解，将报错转化为学习的恍然大悟。"
   }
 ]
