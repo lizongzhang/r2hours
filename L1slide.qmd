@@ -1,7 +1,5 @@
 ---
-title: |
-  <span style='font-size: 0.5em; opacity: 0.7;'>L1</span><br/>AI时代的R学习观<br/>
-  <span style='font-size: 0.7em; font-weight: normal; opacity: 0.9;'>小白学习R 的最佳时机</span>
+title: 重构：AI时代的R学习观
 date: today
 author: 
   name: "顶刊研习社"
@@ -49,15 +47,15 @@ library(tidyverse)
 
 ## 1 R的优势 
 
-- 免费
+- 开源免费的生态
 
-- 代码的可重复性
+- 极强的可重复性
 
 - 丰富的扩展包，与学术前沿接轨
 
     - https://cran.r-project.org/web/views
 
--  基于动态文档的多格式输出能力
+-  强大的多格式输出能力
 
     - 一份源文件，多格式输出（HTML/PDF/Word）
   
@@ -93,14 +91,14 @@ library(tidyverse)
 
 - 筑基：吃透对象语法的底层逻辑
 
-    - 掌握函数的输入输出规则与数据结构，向AI精准提问与解决报错的关键。
+    - 掌握函数的输入输出规则与数据结构，这是向AI精准提问与解决报错的关键。
 
 - 聚焦：对标顶刊水准的科研表达
 
     - 彻底释放生产力，将精力倾注于出版级的高维可视化与规范化统计制表。
 
 
-## 4 AI + R 的融合实战
+## 4 R初体验：出版级科研图表的极简生成
 
 ### 4.0 环境准备（初次使用请运行）
 
@@ -116,7 +114,7 @@ install.packages(c("tidyverse", "gtsummary", "ggpubr",
 
 ---
 
-### 4.1 人口统计学与临床特征表(Demographic and Clinical Characteristics Table)
+### 4.1 人口统计学与临床特征表 (Demographic and Clinical Characteristics Table)
 
 ::: {style="height: 450px; overflow-y: auto;"}
 
@@ -125,6 +123,7 @@ install.packages(c("tidyverse", "gtsummary", "ggpubr",
 #| message: false
 #| warning: false
 
+library(tidyverse)
 library(gtsummary)
 trial %>% 
   tbl_summary(
@@ -140,7 +139,7 @@ trial %>%
 
 ---
 
-### 4.2 结局指标对比(Outcomes Comparison)
+### 4.2 结局指标对比 (Outcomes Comparison)
 
 ::: {style="height: 500px; overflow-y: auto;"}
 
@@ -149,6 +148,7 @@ trial %>%
 #| message: false
 #| warning: false
 
+library(tidyverse)
 library(gtsummary)
 trial %>% 
   select(trt, age, marker, response) %>%
@@ -192,7 +192,7 @@ ggboxplot(iris, x = "Species", y = "Sepal.Length",
 
 ---
 
-### 4.4 回归结果的表格化输出2
+### 4.4 回归结果的表格化输出
 
 ```{r}
 #| echo: true
@@ -202,6 +202,7 @@ ggboxplot(iris, x = "Species", y = "Sepal.Length",
 library(broom)
 library(gtsummary)
 library(tidyverse)
+
 trial %>% 
   glm(response ~ age + stage, ., family = binomial()) %>% 
   tbl_regression()
