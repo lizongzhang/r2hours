@@ -144,3 +144,11 @@ a:hover {
   color: var(--link-blue) !important;
   text-decoration: underline !important;
 }
+
+
+/* 强制将页码颜色设置为幻灯片当前的正文字体颜色 */
+.reveal .slide-number,
+.reveal .slide-number a {
+    color: var(--r-main-color) !important;
+    background-color: transparent !important; /* 可选：确保页码背后没有半透明底色块干扰 */
+}
