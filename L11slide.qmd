@@ -1,0 +1,304 @@
+---
+title: L11<br>因子`Factor`的底层逻辑<br>掌控分类变量的秩序
+date: today
+author: 
+  name: "顶刊研习社"
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    #code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+
+library(tidyverse)
+
+```
+
+::: {.callout-important title="请务必先运行下方代码"}
+
+在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。
+
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-fold: false
+
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+---
+
+本节使用的数据集：mpg
+
+> `mpg` 来自 `ggplot2` 包，记录了 234 款汽车的燃油效率数据。
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| message: false
+data(mpg)
+str(mpg)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+# class和 drv 都是字符串
+class(mpg$class)
+class(mpg$drv)
+unique(mpg$class)
+unique(mpg$drv)
+```
+
+---
+
+## 1 字符串 vs 因子
+
+| | 字符串 character | 因子 factor |
+|---|---|---|
+| 用途 | 自由文本、不固定的内容 | 有限的固定类别 |
+| 图表类别顺序 | 按字母顺序，不可控 | 由 levels 定义，可控 |
+| 回归分析 | 参照组不可控 | 可手动指定参照组 |
+
+---
+
+## 2 什么时候需要转成因子？
+
+::: {.callout-tip}
+变量的取值是**有限的固定类别**，且需要**控制类别顺序**、  
+用于**绘图**或**回归分析**时，就应该转成因子。
+:::
+
+- ✅ `class`（车型）：绘图时希望 x 轴按我们定义的顺序排列
+
+- ✅ `drv`（驱动方式）：回归时需要明确指定哪种驱动方式为参照组
+
+---
+
+## 3 创建因子
+
+### `factor()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 将 class 转为因子class_f, 并追加到mpg数据框中
+mpg$class_f <- factor(mpg$class)
+# 因子的level的排序，默认按字母顺序排
+levels(mpg$class_f)
+```
+
+---
+
+### `levels = `
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 将 drv转为因子，按照油耗由低到高，手动指定levels 顺序和标签
+mpg$drv_f <- factor(mpg$drv,levels = c("f", "r", "4"),
+                    labels = c("front", "rear", "4-wheel"))
+levels(mpg$drv_f)
+table(mpg$drv_f)
+```
+
+- `levels` 控制**类别的顺序**，`labels` 控制**类别的显示名称**。
+
+---
+
+## 4 因子用于绘图：控制类别顺序
+
+```{r}
+#| echo: true
+#| layout-ncol: 2
+#| code-fold: true
+# 字符串：x 轴按字母顺序，类别顺序混乱
+boxplot(hwy ~ drv, data = mpg,
+        col = c("#8DA0CB", "#FC8D62", "#66C2A5"))
+# 因子：x 轴按 levels 定义的顺序（前驱 → 后驱 → 四驱）
+boxplot(hwy ~ drv_f, data = mpg,
+        col = c("#8DA0CB", "#FC8D62", "#66C2A5"))
+```
+
+---
+
+## 5 因子用于回归：控制参照组
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# drv 为字符串时：参照组由字母顺序决定
+# "4" 字母排最前，自动成为参照组
+model1 <- lm(hwy ~ drv, data = mpg)
+summary(model1)$coefficients
+```
+:::{callout-note}
+字符串的levels的排序是由字母顺序决定的，参照组是**不可控的**
+:::
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+# drv_f 为因子时：levels 第一个元素"前驱"为参照组
+model2 <- lm(hwy ~ drv_f, data = mpg)
+summary(model2)$coefficients
+```
+
+:::{callout-note}
+因子的levels可以自定义参照组。
+系数: **后驱** / **四驱** 相对于**前驱**的高速油耗差异（mpg）。  
+:::
+
+---
+
+## 5 `forcats` 包
+
+- `forcats` 是tidyverse中专门处理因子的包。
+
+- 提供了一系列以 `fct_` 开头的函数，比 base R 更简洁直观。
+
+---
+
+### `fct_reorder()` — 按另一个变量的值排序
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 按各车型高速油耗的中位数，从低到高排列 class
+mpg$class_f <- fct_reorder(mpg$class_f, mpg$hwy, median)
+levels(mpg$class_f)
+table(mpg$class_f)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 排序后绘图，类别顺序直接反映油耗高低，一目了然
+ggplot(mpg, aes(x = class, y = hwy)) +
+  geom_boxplot(aes(fill = class)) +
+  theme_minimal()
+```
+
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 排序后绘图，类别顺序直接反映油耗高低，一目了然
+ggplot(mpg, aes(x = class_f, y = hwy)) +
+  geom_boxplot(aes(fill = class_f)) +
+  theme_minimal()
+```
+
+---
+
+### `fct_rev()` — 反转类别顺序
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 反转顺序（从高到低）
+mpg$class_f_rev <- fct_rev(mpg$class_f)
+levels(mpg$class_f_rev)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 水平翻转后，最高油耗的车型显示在最上方，便于阅读
+ggplot(mpg, aes(x = fct_rev(class_f), y = hwy)) +
+  geom_boxplot(aes(fill = class_f)) +
+  coord_flip() +
+  theme_minimal()
+```
+
+---
+
+### `fct_lump_n()` — 合并低频类别
+
+```{r}
+#| echo: true
+#| code-fold: false
+# manufacturer 有 15 个品牌，太多了
+table(mpg$manufacturer)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 只保留频次最多的5个品牌，其余合并为 "Other"
+mpg$mfr_lumped <- fct_lump_n(mpg$manufacturer, n = 5)
+table(mpg$mfr_lumped)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+ggplot(mpg, aes(x = fct_reorder(mfr_lumped, hwy, median),
+                y = hwy)) +
+  geom_boxplot(aes(fill = mfr_lumped)) +
+  theme_minimal()
+```
+
+---
+
+## 7 小结
+
+| 函数 | 用途 |
+|---|---|
+| `factor(x, levels=..., labels=...)` | 创建因子，指定顺序和标签 |
+| `fct_relevel()` | 手动将指定类别移到最前 |
+| `fct_reorder()` | 按另一个变量的值排序 |
+| `fct_rev()` | 反转类别顺序 |
+| `fct_recode()` | 重命名类别标签 |
+| `fct_lump_n()` | 保留前 n 个高频类别，其余合并为 Other |
+| `fct_drop()` | 删除无数据的类别 |
+| `levels()` | 查看类别 |
+| `relevel()` | 更改回归参照组（base R）|

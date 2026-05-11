@@ -1,681 +1,996 @@
 [
   {
-    "objectID": "L9.html#模块九-deepseek辅助傻瓜式医学统计",
-    "href": "L9.html#模块九-deepseek辅助傻瓜式医学统计",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "模块九 DeepSeek辅助傻瓜式医学统计",
-    "text": "模块九 DeepSeek辅助傻瓜式医学统计\n\n9.1 DeepSeek辅助统计理念快速入门\n9.2 DeepSeek辅助医学统计学习和运用\n9.3 DeepSeek辅助医学统计写作\n9.4 统计再也不怕"
+    "objectID": "L15slide.html#ggstatsplot优势",
+    "href": "L15slide.html#ggstatsplot优势",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "1 ggstatsplot优势",
+    "text": "1 ggstatsplot优势\n\n\n\n传统做法\nggstatsplot\n\n\n\n\n画图和检验分开写\n一个函数同时完成\n\n\n需要手动选择检验方法\n根据数据自动选择\n\n\n效应量需要另外计算\n图上直接显示\n\n\n结果整合费时费力\n图形即报告"
   },
   {
-    "objectID": "L9.html#deepseek辅助统计理念快速入门",
-    "href": "L9.html#deepseek辅助统计理念快速入门",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1 DeepSeek辅助统计理念快速入门",
-    "text": "9.1 DeepSeek辅助统计理念快速入门\n\n9.1.1 与DeepSeek协作：重塑统计学习与科研方式\n9.1.2 DeepSeek如何助力统计学习？\n9.1.3 从学习者到提问者：如何高效对话？"
+    "objectID": "L15slide.html#分组比较ggbetweenstats",
+    "href": "L15slide.html#分组比较ggbetweenstats",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "2 分组比较：ggbetweenstats()",
+    "text": "2 分组比较：ggbetweenstats()\n\n\n查看R代码\n# 三种鸢尾花的花萼长度比较\nggbetweenstats(\n  data  = iris,\n  x     = Species,\n  y     = Sepal.Length,\n  title = \"三种鸢尾花的花萼长度比较\"\n)"
   },
   {
-    "objectID": "L9.html#与deepseek协作重塑统计学习与科研方式",
-    "href": "L9.html#与deepseek协作重塑统计学习与科研方式",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1.1 与DeepSeek协作：重塑统计学习与科研方式",
-    "text": "9.1.1 与DeepSeek协作：重塑统计学习与科研方式\n\n不知道该用什么统计方法？\n看不懂输出结果\n为写论文而发愁\n\n💡 理念重塑: 从“工具”到“伙伴”:\n\n“我不会统计方法” ➡️ “我会提问”\n“我不会用SPSS/R” ➡ “在AI辅助下我能”\n“我写不好论文中的统计部分” ➡ “我能借助 AI表达、优化”"
+    "objectID": "L15slide.html#相关分析ggscatterstats",
+    "href": "L15slide.html#相关分析ggscatterstats",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "3 相关分析：ggscatterstats()",
+    "text": "3 相关分析：ggscatterstats()\n\n\n查看R代码\n# 花瓣长度与花瓣宽度的相关关系\nggscatterstats(\n  data  = iris,\n  x     = Petal.Length,\n  y     = Petal.Width,\n  title = \"花瓣长度与花瓣宽度的相关关系\"\n)"
   },
   {
-    "objectID": "L9.html#prompt驱动的可解释统计协作",
-    "href": "L9.html#prompt驱动的可解释统计协作",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1.1 Prompt驱动的“可解释统计协作”",
-    "text": "9.1.1 Prompt驱动的“可解释统计协作”\nDeepSeek: “提示词”(Prompt)驱动的大语言模型(LLM)。\n核心优势：与临床研究者进行“可解释的统计对话”。\n\n\n\n🚀 能力维度\nDeepSeek 如何支持统计协作\n\n\n\n\n🧩 认知支持\n说明统计术语、检验条件、适用场景\n\n\n📊 结果解读\n解读OR/HR、Logistic或Cox模型\n\n\n📈 图表表达\n解读KM曲线、森林图等\n\n\n✍️ 文本重构\n输出期刊风格的统计分析段落\n\n\n💬 多轮互动\nPrompt→输出→提问→优化写作\n\n\n📦 Prompt积累\n构建个人“统计分析提示词库”，复用迁移"
+    "objectID": "L15slide.html#单变量分布gghistostats",
+    "href": "L15slide.html#单变量分布gghistostats",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "4 单变量分布：gghistostats()",
+    "text": "4 单变量分布：gghistostats()\n\n\n\n\n\n\nTip\n\n\n查看单个连续变量的分布，并检验它是否与某个假设值存在显著差异（单样本 t 检验）。\n\n\n\n\n\n查看R代码\n# 鸢尾花花萼长度的分布\ngghistostats(\n  data     = iris,\n  x        = Sepal.Length,\n  color   = \"steelblue\",\n  title    = \"花萼长度的分布\",\n  xlab     = \"花萼长度（cm）\",\n  test.value = 5.8   # 检验均值是否显著不同于 5.8\n)"
   },
   {
-    "objectID": "L9.html#deepseek如何助力统计学习",
-    "href": "L9.html#deepseek如何助力统计学习",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1.2 DeepSeek如何助力统计学习？",
-    "text": "9.1.2 DeepSeek如何助力统计学习？\n\n重构统计学习方式\n\n互动式\n针对性\n不要撒网式学习"
+    "objectID": "L15slide.html#分类变量ggbarstats",
+    "href": "L15slide.html#分类变量ggbarstats",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "5 分类变量：ggbarstats()",
+    "text": "5 分类变量：ggbarstats()\n\n\n\n\n\n\nTip\n\n\n展示两个分类变量之间的关系，自动进行卡方检验（χ²检验）。\n\n\n\n\n\n查看R代码\nlibrary(tidyverse)\nmtcars &lt;- mtcars |&gt; \n  mutate(am = factor(am, \n                     levels = c(0, 1), \n                     labels = c(\"自动\", \"手动\")))\n\n# 气缸数与变速箱类型的关系\nggbarstats(\n  data  = mtcars,\n  x     = cyl,\n  y     = am,\n  title = \"气缸数和变速箱类型分布\",\n  xlab  = \"气缸数\",\n  legend.title = \"变速箱\"\n)"
   },
   {
-    "objectID": "L9.html#deepseek如何助力统计学习-1",
-    "href": "L9.html#deepseek如何助力统计学习-1",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1.2 DeepSeek如何助力统计学习？",
-    "text": "9.1.2 DeepSeek如何助力统计学习？\n\n统计学习的重心\n\n基础知识(本科课程已涵盖)\n\n变量类型: 定性(无序/有序), 定量(离散/连续)\n参数估计: 置信水平，置信区间\n假设检验: 双/单侧检验，显著性水平, p值, 临界值, 检验统计量\n\n方法选择\n结果解读"
+    "objectID": "L15slide.html#相关系数矩阵ggcorrmat",
+    "href": "L15slide.html#相关系数矩阵ggcorrmat",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "6 相关系数矩阵：ggcorrmat()",
+    "text": "6 相关系数矩阵：ggcorrmat()\n\n\n查看R代码\n# mtcars 主要性能指标的相关矩阵\nggcorrmat(\n  data     = mtcars,\n  cor.vars = c(mpg, hp, wt, disp, qsec),\n  title    = \"汽车主要性能指标的相关矩阵\"\n)\n\n\n\n\n\n\n\n\n\nTip\n\n\n颜色越深表示相关系数绝对值越大，打叉（×）的格子表示相关不显著（p ≥ 0.05）。"
   },
   {
-    "objectID": "L9.html#重构统计学习方式从被动学习到主动建构",
-    "href": "L9.html#重构统计学习方式从被动学习到主动建构",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1.2 重构统计学习方式：从被动学习到主动建构",
-    "text": "9.1.2 重构统计学习方式：从被动学习到主动建构\n💡 不再是“学完了才能用”，而是“在用中学习，在问中学”\n📕️ 传统模式：教科书主导，学生被动接受\n\n教材编什么，读者学什么\n\n顺着教材目录走，忽视了统计思维的培养、“统计写作”能力的训练\n\n🚀 DeepSeek模式：需求驱动，Prompt引导学习\n\n先有问题，后找方法\n不再强调公式/计算/软件操作，而是围绕科研任务主动构建统计能力\n\n\n📌 统计学习的未来，不是依靠更全面系统的教材，而是善于利用AI工具的引导。"
+    "objectID": "L15slide.html#分面组合grouped_-系列函数",
+    "href": "L15slide.html#分面组合grouped_-系列函数",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "7 分面组合：grouped_ 系列函数",
+    "text": "7 分面组合：grouped_ 系列函数\n\n\n\n\n\n\nTip\n\n\n按某个分组变量，自动拆分成多个子图，每个子图独立做统计检验。\n\n\n\n\n\n查看R代码\n# 按变速箱类型分组，分别比较不同气缸数的油耗\ngrouped_ggscatterstats(\n  data         = mtcars,\n  x            = wt,\n  y            = mpg,\n  grouping.var = am,\n  title.prefix = \"变速箱：\"\n)"
   },
   {
-    "objectID": "L9.html#从统计学习者到提问专家如何与-deepseek-高效对话",
-    "href": "L9.html#从统计学习者到提问专家如何与-deepseek-高效对话",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1.3 从统计学习者到提问专家：如何与 DeepSeek 高效对话？",
-    "text": "9.1.3 从统计学习者到提问专家：如何与 DeepSeek 高效对话？\n\nDeepSeek可以回答”如何做”\n选择方法, 解释结果, 润色语言\nDeepSeek无法判断统计分析结论的“临床或现实意义”\n① 它不了解临床语境\n\n无法判断1.2 mmHg 的血压差异是否有意义\n无法判断术后感染降低 3% 是否值得改变用药\n无法判断效果大小对患者是否“可感知”\n\n② 它无法识别研究的局限\n\n样本的代表性\n数据质量\n研究全貌"
+    "objectID": "L15slide.html#常见问题",
+    "href": "L15slide.html#常见问题",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "8 常见问题",
+    "text": "8 常见问题\n问题1：看不懂图上的统计符号\n\nggbetweenstats(data = iris, x = Species, y = Sepal.Width)"
   },
   {
-    "objectID": "L9.html#小结从工具到能力构建ai辅助统计思维",
-    "href": "L9.html#小结从工具到能力构建ai辅助统计思维",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.1 小结：从工具到能力，构建AI辅助统计思维",
-    "text": "9.1 小结：从工具到能力，构建AI辅助统计思维\n\n统计学习不只是掌握方法，更是形成解决问题的思维方式。\nDeepSeek不只是工具，更可以成为统计学习与科研写作的智能伙伴。\n借助 AI，可以加速理解、提升效率，但不能替代判断与思考。\n真正有效的统计学习，应注重：\n\n明确目标（用AI解决具体问题）；\n精准提问（提升与AI对话质量）；\n灵活应用（将建议转化为科研能力）。\n\n\n\n📌 从“学习统计”到“用统计解决问题”"
+    "objectID": "L15slide.html#小结",
+    "href": "L15slide.html#小结",
+    "title": "L15ggstatsplot统计检验的可视化",
+    "section": "9 小结",
+    "text": "9 小结\n\n\n\n函数\n用途\n自动检验\n\n\n\n\nggbetweenstats()\n分组比较（连续变量）\nt 检验 / ANOVA\n\n\nggscatterstats()\n两变量相关\n相关系数检验\n\n\ngghistostats()\n单变量分布\n单样本 t 检验\n\n\nggbarstats()\n分类变量关联\n卡方检验\n\n\nggcorrmat()\n多变量相关矩阵\n相关显著性\n\n\ngrouped_ggbetweenstats()\n分组后各自比较\n同上，按组\n\n\ngrouped_ggscatterstats()\n分组后各自相关\n同上，按组"
   },
   {
-    "objectID": "L9.html#deepseek辅助医学统计的学习和运用",
-    "href": "L9.html#deepseek辅助医学统计的学习和运用",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.2 DeepSeek辅助医学统计的学习和运用",
-    "text": "9.2 DeepSeek辅助医学统计的学习和运用\n\n9.2.1 医学统计方法全景图\n9.2.2 DeepSeek如何辅助方法选择？\n9.2.3 DeepSeek如何辅助结果解读？"
+    "objectID": "L4slide.html#描述统计",
+    "href": "L4slide.html#描述统计",
+    "title": "L46分钟完成全链路统计分析",
+    "section": "1 描述统计",
+    "text": "1 描述统计\nfive-number summary（五数概括）\n\n\n查看R代码\n# 描述性统计量\nsummary(mtcars)\n\n\n      mpg             cyl             disp             hp       \n Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  \n 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  \n Median :19.20   Median :6.000   Median :196.3   Median :123.0  \n Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  \n 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  \n Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  \n      drat             wt             qsec             vs        \n Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  \n 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  \n Median :3.695   Median :3.325   Median :17.71   Median :0.0000  \n Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  \n 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  \n Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  \n       am              gear            carb      \n Min.   :0.0000   Min.   :3.000   Min.   :1.000  \n 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  \n Median :0.0000   Median :4.000   Median :2.000  \n Mean   :0.4062   Mean   :3.688   Mean   :2.812  \n 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  \n Max.   :1.0000   Max.   :5.000   Max.   :8.000"
   },
   {
-    "objectID": "L9.html#医学统计方法全景图",
-    "href": "L9.html#医学统计方法全景图",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.2.1 医学统计方法全景图",
-    "text": "9.2.1 医学统计方法全景图"
+    "objectID": "L4slide.html#可视化",
+    "href": "L4slide.html#可视化",
+    "title": "L46分钟完成全链路统计分析",
+    "section": "2 可视化",
+    "text": "2 可视化\nhistogram（直方图）\n\n\n查看R代码\nhist(mtcars$mpg, \n     col = \"lightblue\", \n     border = \"white\", \n     main = \"Distribution of Miles Per Gallon\",\n     xlab = \"Miles/(US) gallon\",\n     ylab = \"Frequency\",\n     ylim = c(0, 14),\n     las = 1)"
   },
   {
-    "objectID": "L9.html#deepseek如何辅助选择统计方法",
-    "href": "L9.html#deepseek如何辅助选择统计方法",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.2.2 DeepSeek如何辅助选择统计方法？",
-    "text": "9.2.2 DeepSeek如何辅助选择统计方法？\n✅ 研究目的: 描述/推断/比较/预测/因果推断\n✅ 数据结构: 横截面/纵向/分层/RCT/生存数据等\n✅ 变量类型: 定性变量(无序/有序), 定量变量(离散/连续)\n✅ 变量地位：结局变量/自变量/协变量\n✅ 变量分布：正态/非正态/泊松分布等\n✅ 样本容量"
+    "objectID": "L4slide.html#统计检验",
+    "href": "L4slide.html#统计检验",
+    "title": "L46分钟完成全链路统计分析",
+    "section": "3 统计检验",
+    "text": "3 统计检验\n独立性检验\n\n\n查看R代码\nfisher.test(table(mtcars$cyl, mtcars$am))\n\n\n\n    Fisher's Exact Test for Count Data\n\ndata:  table(mtcars$cyl, mtcars$am)\np-value = 0.009105\nalternative hypothesis: two.sided"
   },
   {
-    "objectID": "L9.html#deepseek辅助深入学习统计方法",
-    "href": "L9.html#deepseek辅助深入学习统计方法",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.2.3 deepseek辅助深入学习统计方法",
-    "text": "9.2.3 deepseek辅助深入学习统计方法\n\n追问统计分析过程细节\n追问检验方法的细节\n追问图形工具的细节\n追问如何评估模型拟合效果"
+    "objectID": "L4slide.html#线性回归",
+    "href": "L4slide.html#线性回归",
+    "title": "L46分钟完成全链路统计分析",
+    "section": "4 线性回归",
+    "text": "4 线性回归\n\n\n查看R代码\nmodel1 &lt;- lm(mpg ~ wt + cyl + am, data = mtcars)\nsummary(model1)\n\n\n\nCall:\nlm(formula = mpg ~ wt + cyl + am, data = mtcars)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.1735 -1.5340 -0.5386  1.5864  6.0812 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  39.4179     2.6415  14.923 7.42e-15 ***\nwt           -3.1251     0.9109  -3.431  0.00189 ** \ncyl          -1.5102     0.4223  -3.576  0.00129 ** \nam            0.1765     1.3045   0.135  0.89334    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.612 on 28 degrees of freedom\nMultiple R-squared:  0.8303,    Adjusted R-squared:  0.8122 \nF-statistic: 45.68 on 3 and 28 DF,  p-value: 6.51e-11"
   },
   {
-    "objectID": "L9.html#小结deepseek辅助医学统计的学习和运用",
-    "href": "L9.html#小结deepseek辅助医学统计的学习和运用",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.2 小结：DeepSeek辅助医学统计的学习和运用",
-    "text": "9.2 小结：DeepSeek辅助医学统计的学习和运用\n\n将“临床问题”转换为“统计问题”\n\n提问句式：研究目的 + 研究对象 + 自变量 + 因变量 + 特殊说明\n\n追问统计分析过程的细节\n\n方法/模型，还可以做哪些检验或者绘制可视化图形？请参考学术文献的主流做法，回答上述问题。\n\n追问检验方法的细节\n追问图形工具的细节\n追问如何评估模型拟合效果\n关于输出结果的解读\n\n统计学意义：P值、效应量、置信区间\n临床学意义：临床相关性、实际应用价值\n\n优化统计分析的建议\n\n样本数据、选用的变量、估计方法是否存在局限性？请提出改进建议"
+    "objectID": "L3slide.html#rstudio主界面",
+    "href": "L3slide.html#rstudio主界面",
+    "title": "RStudio窗口与基础绘图",
+    "section": "1 RStudio主界面",
+    "text": "1 RStudio主界面"
   },
   {
-    "objectID": "L9.html#deepseek辅助医学统计写作",
-    "href": "L9.html#deepseek辅助医学统计写作",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.3 DeepSeek辅助医学统计写作",
-    "text": "9.3 DeepSeek辅助医学统计写作\n\n9.3.1 医学统计写作的挑战\n9.3.2 如何向DeepSeek寻求写作帮助？\n9.3.3 多轮对话优化文字段落"
+    "objectID": "L3slide.html#source-脚本代码窗口",
+    "href": "L3slide.html#source-脚本代码窗口",
+    "title": "RStudio窗口与基础绘图",
+    "section": "2 Source 脚本/代码窗口",
+    "text": "2 Source 脚本/代码窗口\n执行代码\n\nWindows: Ctrl + Enter\nMac: Command + Enter\n\n\n\n\n\n\n\n\n注意\n\n\n直接按下 Enter 键只会将光标移至下一行，而不会运行当前命令。"
   },
   {
-    "objectID": "L9.html#医学统计写作的挑战",
-    "href": "L9.html#医学统计写作的挑战",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.3.1 医学统计写作的挑战",
-    "text": "9.3.1 医学统计写作的挑战\n\n统计分析部分的重要性\n高水平期刊对统计分析的准确性和表达逻辑要求极高\n常见困扰\n\n不熟悉统计方法的选择与表述\n难以准确表述结果的意义\n英语表达能力限制写作效率"
+    "objectID": "L3slide.html#console控制台",
+    "href": "L3slide.html#console控制台",
+    "title": "RStudio窗口与基础绘图",
+    "section": "3 Console控制台",
+    "text": "3 Console控制台\n\n\n\n\n\n\n\n\n注意\n\n\n在控制台直接修改代码无法保存至脚本文件。"
   },
   {
-    "objectID": "L9.html#如何向deepseek寻求写作帮助",
-    "href": "L9.html#如何向deepseek寻求写作帮助",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.3.2 如何向DeepSeek寻求写作帮助？",
-    "text": "9.3.2 如何向DeepSeek寻求写作帮助？\n🎯 提问句式\n\n输入说明 以下是***结果 / 回归输出 / 表格 / 图形\n目的说明 “请撰写一段医学论文中‘统计分析结果’部分的英文描述\n风格指定 “风格参考JAMA / The Lancet/中华医学杂志\n语言指定 “语言简洁、专业、英文/中文撰写；避免解释性语言"
+    "objectID": "L3slide.html#environment-history-环境与历史",
+    "href": "L3slide.html#environment-history-环境与历史",
+    "title": "RStudio窗口与基础绘图",
+    "section": "4 Environment & History 环境与历史",
+    "text": "4 Environment & History 环境与历史"
   },
   {
-    "objectID": "L9.html#多轮对话优化文字段落",
-    "href": "L9.html#多轮对话优化文字段落",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.3.3 多轮对话优化文字段落",
-    "text": "9.3.3 多轮对话优化文字段落\n\n第一轮生成后继续补充显著性解释、控制混杂变量说明。\n提升质量与防止AI写作痕迹\n核对数据与描述是否匹配。"
+    "objectID": "L3slide.html#filesplotspackagehelp",
+    "href": "L3slide.html#filesplotspackagehelp",
+    "title": "RStudio窗口与基础绘图",
+    "section": "5 Files/Plots/Package/Help",
+    "text": "5 Files/Plots/Package/Help\nFiles"
   },
   {
-    "objectID": "L9.html#多轮对话优化",
-    "href": "L9.html#多轮对话优化",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.3.3 多轮对话优化",
-    "text": "9.3.3 多轮对话优化\n\n明确传达研究设计类型、变量信息、分析目的、统计方法或输出；\n指定写作风格（如参考 BMJ / JAMA / 中华医学杂志）；\n要求其输出语言风格客观、精炼、符合医学统计写作规范。"
+    "objectID": "L3slide.html#基础绘图plot",
+    "href": "L3slide.html#基础绘图plot",
+    "title": "RStudio窗口与基础绘图",
+    "section": "6 基础绘图:plot()",
+    "text": "6 基础绘图:plot()\n矩阵散点图\n\n\n查看R代码\ndata(mtcars)\nplot(mtcars)"
   },
   {
-    "objectID": "L9.html#小结-deepseek辅助医学统计写作",
-    "href": "L9.html#小结-deepseek辅助医学统计写作",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.3 小结 DeepSeek辅助医学统计写作",
-    "text": "9.3 小结 DeepSeek辅助医学统计写作\n\n建立自己的提示词库\n\n方法提示词：适用条件/数据结构/样本容量/估计结果解释/需要做的检验/可视化工具\n写作提示词：数据/方法/结果/讨论\n\n建立自己的范文库\n\n高水平期刊的同类研究的范文的数据/方法/结果/讨论的写法\n\n不要忙于统计分析，而疏于写作\n\n边分析边写作：每完成一部分统计分析，就立即转化为文字，避免遗忘。\n初稿不求完美：先写出雏形，然后借助AI逐步润色。\n\n\n💡 统计写作不是“最后一步”，而是每一步统计分析的记录、反馈与构建。"
+    "objectID": "L9slide.html#什么是数据框",
+    "href": "L9slide.html#什么是数据框",
+    "title": "L9数据框常用操作",
+    "section": "1 什么是数据框？",
+    "text": "1 什么是数据框？\n\n数据框（data.frame）是 R 中最常用的数据结构，类似于 Excel 表格。\n行代表观测（observation），列代表变量（variable）。\n每列可以是不同的类型（数值、字符、逻辑值……），但同一列内类型必须一致。"
   },
   {
-    "objectID": "L9.html#统计再也不怕",
-    "href": "L9.html#统计再也不怕",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "9.4 统计再也不怕",
-    "text": "9.4 统计再也不怕\n\n构建“AI+统计”的信心\n用Prompt实践训练，让统计更“傻瓜”、更“可控”\n“统计不再可怕，AI与你同行”"
+    "objectID": "L9slide.html#快速查看数据head-和-tail",
+    "href": "L9slide.html#快速查看数据head-和-tail",
+    "title": "L9数据框常用操作",
+    "section": "2 快速查看数据：head() 和 tail()",
+    "text": "2 快速查看数据：head() 和 tail()\nhead() — 查看前几行\n\n# 默认显示前 6 行\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
   },
   {
-    "objectID": "L9.html#模块九-总结",
-    "href": "L9.html#模块九-总结",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "模块九 总结",
-    "text": "模块九 总结\n\n✅ DeepSeek如何助力统计方法的学习？\n✅ DeepSeek如何助力统计方法的运用？\n✅ DeepSeek如何助力写出医学论文中的统计方法/结果/讨论段落的写作？"
+    "objectID": "L9slide.html#查看数据结构str",
+    "href": "L9slide.html#查看数据结构str",
+    "title": "L9数据框常用操作",
+    "section": "3 查看数据结构：str()",
+    "text": "3 查看数据结构：str()\nstr() 是初学者最应该养成习惯的函数，拿到数据第一件事就应该运行它。\n\n💡 str() 一次性告诉你：\n\n数据框有多少行和多少列\n每列的变量名和数据类型\n每列的前几个值"
   },
   {
-    "objectID": "L9.html#致谢",
-    "href": "L9.html#致谢",
-    "title": "模块九DeepSeek辅助傻瓜式医学统计",
-    "section": "致谢",
-    "text": "致谢\n\n医生不必精通统计，但值得拥有一位懂统计、会表达的AI助手。\n\n\n\n\nDeepSeek不是统计学家，却总能说出你心中那句“有理有据”。\n\n\n\n\n把统计分析交给AI，把思考留给科学。\n\n\n\n\n感谢大家的参与！欢迎提问交流！"
+    "objectID": "L9slide.html#描述性统计summary",
+    "href": "L9slide.html#描述性统计summary",
+    "title": "L9数据框常用操作",
+    "section": "4 描述性统计：summary()",
+    "text": "4 描述性统计：summary()\n\nsummary(mtcars)\n\n      mpg             cyl             disp             hp       \n Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  \n 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  \n Median :19.20   Median :6.000   Median :196.3   Median :123.0  \n Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  \n 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  \n Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  \n      drat             wt             qsec             vs        \n Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  \n 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  \n Median :3.695   Median :3.325   Median :17.71   Median :0.0000  \n Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  \n 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  \n Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  \n       am              gear            carb      \n Min.   :0.0000   Min.   :3.000   Min.   :1.000  \n 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  \n Median :0.0000   Median :4.000   Median :2.000  \n Mean   :0.4062   Mean   :3.688   Mean   :2.812  \n 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  \n Max.   :1.0000   Max.   :5.000   Max.   :8.000"
+  },
+  {
+    "objectID": "L9slide.html#用-访问某一列",
+    "href": "L9slide.html#用-访问某一列",
+    "title": "L9数据框常用操作",
+    "section": "4 用 $ 访问某一列",
+    "text": "4 用 $ 访问某一列\n$ 是访问数据框列的最直接方式，返回该列的向量。\n\n# 提取 mpg 列\nmtcars$mpg\n\n [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4\n[16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7\n[31] 15.0 21.4"
+  },
+  {
+    "objectID": "L9slide.html#用-按位置或名称索引",
+    "href": "L9slide.html#用-按位置或名称索引",
+    "title": "L9数据框常用操作",
+    "section": "5 用 [ ] 按位置或名称索引",
+    "text": "5 用 [ ] 按位置或名称索引\n数据框是二维的，所以 [ ] 里要写两个维度：[行, 列]。\n\n# [行索引, 列索引]\n# 逗号左边 = 行，右边 = 列\n# 留空表示\"全部\"\n\n# 第 1 行，第 2 列\nmtcars[1, 2]\n\n[1] 6"
+  },
+  {
+    "objectID": "L9slide.html#常见报错场景",
+    "href": "L9slide.html#常见报错场景",
+    "title": "L9数据框常用操作",
+    "section": "6 常见报错场景",
+    "text": "6 常见报错场景\n索引超出范围\n\n# mtcars 只有 32 行\nmtcars[100, ]   # 返回 NA 行，不报错但结果异常\n\n   mpg cyl disp hp drat wt qsec vs am gear carb\nNA  NA  NA   NA NA   NA NA   NA NA NA   NA   NA\n\n# 列索引超出范围则报错\nmtcars[1, 100]\n\nNULL"
+  },
+  {
+    "objectID": "L9slide.html#小结",
+    "href": "L9slide.html#小结",
+    "title": "L9数据框常用操作",
+    "section": "7 小结",
+    "text": "7 小结\n\n\n\n操作\n函数/语法\n用途\n\n\n\n\n查看前几行\nhead(df, n)\n快速浏览数据\n\n\n查看后几行\ntail(df, n)\n检查数据末尾\n\n\n查看结构\nstr(df)\n变量名、类型、前几个值\n\n\n描述统计\nsummary(df)\n各列统计摘要\n\n\n访问列\ndf$列名\n最常用\n\n\n按位置索引\ndf[行, 列]\n灵活提取子集\n\n\n按条件筛选\ndf[df$列 &gt; 值, ]\n逻辑筛选行\n\n\n行列数\nnrow() ncol() dim()\n了解数据规模\n\n\n列名\nnames(df)\n查看或修改列名"
+  },
+  {
+    "objectID": "L18slide.html#ai-能帮你做什么",
+    "href": "L18slide.html#ai-能帮你做什么",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "AI 能帮你做什么？",
+    "text": "AI 能帮你做什么？\n学 R 最大的门槛不是统计知识，而是：\n\n“我知道我想做什么，但不知道怎么用 R 写出来。”\n\nAI 恰好可以填补这个空缺：\n\n\n\n你的需求\nAI 能做的\n\n\n\n\n不会写代码\n根据描述直接生成代码\n\n\n代码报错了\n解释错误原因并修复\n\n\n看不懂别人的代码\n逐行解释代码含义\n\n\n想换一种写法\n提供替代方案\n\n\n不知道用哪个函数\n推荐合适的函数和包"
+  },
+  {
+    "objectID": "L18slide.html#常用的-ai-工具",
+    "href": "L18slide.html#常用的-ai-工具",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "常用的 AI 工具",
+    "text": "常用的 AI 工具\n\n\n\n工具\n地址\n特点\n\n\n\n\nChatGPT\nchat.openai.com\n最流行，中英文均可\n\n\nClaude\nclaude.ai\n代码能力强，解释清晰\n\n\nGemini\ngemini.google.com\n与 Google 生态整合\n\n\nGitHub Copilot\n集成在 RStudio 中\n边写边自动补全代码\n\n\n通义千问\ntongyi.aliyun.com\n中文友好，免费\n\n\nDeepSeek\nchat.deepseek.com\n中文友好，代码能力强\n\n\n\n\n💡 对于 R 学习者，推荐优先使用 ChatGPT 或 DeepSeek，\n两者对 R 代码的理解都非常准确，且支持中文提问。"
+  },
+  {
+    "objectID": "L18slide.html#让-ai-生成代码",
+    "href": "L18slide.html#让-ai-生成代码",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "1 让 AI 生成代码",
+    "text": "1 让 AI 生成代码\n基本原则：描述要具体\n\n\n\n\n\n\n好的提问 = 数据描述 + 想要的结果 + 格式要求\n\n\n“我有一个数据框，有 mpg（油耗）和 cyl（气缸数）两列，\n请用 ggplot2 画一个箱线图，x 轴是气缸数，y 轴是油耗，\n不同气缸数用不同颜色填充，用 theme_minimal() 主题。”"
+  },
+  {
+    "objectID": "L18slide.html#让-ai-解释报错",
+    "href": "L18slide.html#让-ai-解释报错",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "2 让 AI 解释报错",
+    "text": "2 让 AI 解释报错\n报错是学 R 最令人沮丧的时刻，AI 可以成为你的”随身翻译”。\n如何把报错告诉 AI？\n\n\n\n\n\n\n三步提问法\n\n\n\n把完整的报错信息粘贴给 AI\n把出错的代码也一并贴上\n说明你想做��么"
+  },
+  {
+    "objectID": "L18slide.html#让-ai-解释代码",
+    "href": "L18slide.html#让-ai-解释代码",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "3 让 AI 解释代码",
+    "text": "3 让 AI 解释代码\n看到别人的代码看不懂？直接让 AI 逐行解释。\n你的提问：\n请逐行解释下面这段 R 代码的含义：\n\nmtcars |&gt;\n  filter(cyl == 4) |&gt;\n  mutate(kpl = mpg * 0.425) |&gt;\n  group_by(am) |&gt;\n  summarise(\n    n        = n(),\n    kpl_mean = mean(kpl) |&gt; round(2)\n  )"
+  },
+  {
+    "objectID": "L18slide.html#让-ai-修改和优化代码",
+    "href": "L18slide.html#让-ai-修改和优化代码",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "4 让 AI 修改和优化代码",
+    "text": "4 让 AI 修改和优化代码\n有了能跑的代码之后，可以继续让 AI 帮你改。\n常见的追问方式：\n上面的代码能正常运行，请帮我：\n1. 把图的主题改为 theme_minimal()\n2. 把图例放到图的底部\n3. x 轴的文字旋转 45 度\n\n# AI 根据追问修改后的代码\nggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +\n  geom_boxplot() +\n  scale_fill_manual(values = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\")) +\n  labs(x = \"气缸数\", y = \"油耗（mpg）\", fill = \"气缸数\") +\n  theme_minimal() +\n  theme(\n    legend.position  = \"bottom\",               # 图例放底部\n    axis.text.x      = element_text(angle = 45, hjust = 1)  # x轴旋转\n  )"
+  },
+  {
+    "objectID": "L18slide.html#提示词模板",
+    "href": "L18slide.html#提示词模板",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "5 提示词模板",
+    "text": "5 提示词模板\n初学者可以套用以下模板，快速得到高质量的回答："
+  },
+  {
+    "objectID": "L18slide.html#正确使用-ai-的姿势",
+    "href": "L18slide.html#正确使用-ai-的姿势",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "6 正确使用 AI 的姿势",
+    "text": "6 正确使用 AI 的姿势\n\n\n\n\n\n\nAI 也会犯错！\n\n\n\nAI 生成的代码不总是正确的，有时会用不存在的函数，\n或者给出语法错误的代码。\n必须自己运行验证，不能无脑复制粘贴。\n如果代码跑不通，把报错再次告诉 AI，\n通常 2～3 轮对话就能解决问题。"
+  },
+  {
+    "objectID": "L18slide.html#在-rstudio-中直接使用-ai",
+    "href": "L18slide.html#在-rstudio-中直接使用-ai",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "7 在 RStudio 中直接使用 AI",
+    "text": "7 在 RStudio 中直接使用 AI\nGitHub Copilot（需订阅）\n\n在 RStudio 中安装 GitHub Copilot 插件\n写代码时 AI 自动提示下一行（按 Tab 接受建议）\n适合有一定基础、希望提速的用户\n\n直接在网页 AI 中写代码\n最简单的工作流：\n\n1. 在 ChatGPT / DeepSeek 中描述需求\n2. 复制 AI 给出的代码\n3. 粘贴到 RStudio 中运行\n4. 报错了？把错误贴回去问 AI\n5. 重复直到代码跑通"
+  },
+  {
+    "objectID": "L18slide.html#小结",
+    "href": "L18slide.html#小结",
+    "title": "L15 用 AI 辅助 R 学习与代码生成",
+    "section": "小结",
+    "text": "小结\nAI 辅助 R 学习的工作流\n描述需求（具体！）\n    ↓\nAI 生成代码\n    ↓\n复制到 RStudio 运行\n    ↓\n报错了？→ 把报错贴给 AI → 修复 → 再运行\n    ↓\n代码跑通 → 逐行理解代码含义\n    ↓\n需要修改？→ 追问 AI → 继续迭代"
+  },
+  {
+    "objectID": "L13slide.html#准备工作",
+    "href": "L13slide.html#准备工作",
+    "title": "L13外部数据文件的导入",
+    "section": "准备工作",
+    "text": "准备工作\n加载包\n设置工作目录\n导入数据前，首先要确认工作目录（Working Directory）。工作目录是 R 查找文件的默认位置。\n\n\n[1] \"/Users/lzz/github_teaching/r2hours\"\n\n\n\n\n\n\n\n\nTip\n\n\n推荐做法：使用 RStudio Project（项目）\n在 RStudio 中新建项目（File → New Project），项目所在文件夹会自动成为工作目录。将数据文件放在项目文件夹内，之后读取文件只需写文件名，无需写完整路径。"
+  },
+  {
+    "objectID": "L13slide.html#导入-excel-文件",
+    "href": "L13slide.html#导入-excel-文件",
+    "title": "L13外部数据文件的导入",
+    "section": "导入 Excel 文件",
+    "text": "导入 Excel 文件\n读取第一张工作表\n指定工作表\n跳过表头行\n有些 Excel 文件顶部有标题说明行，不是真正的变量名行，需要跳过。\n指定读取行数\n指定缺失值的标记符号\n有些数据用 \"NA\"、\"—\"、\"999\" 等表示缺失，需要告诉 R 将其识别为缺失值。\n\n\n\n\n\n\nNote\n\n\n查看工作表名称\n不确定 Excel 文件有哪些工作表时，可以先用 excel_sheets() 查看："
+  },
+  {
+    "objectID": "L13slide.html#导入-csv-文件",
+    "href": "L13slide.html#导入-csv-文件",
+    "title": "L13外部数据文件的导入",
+    "section": "导入 CSV 文件",
+    "text": "导入 CSV 文件\nCSV（Comma-Separated Values）是最常见的数据交换格式。\n基本用法\nread_csv() 读取完成后会在控制台打印每列的变量名和数据类型，方便核查。\n处理中文乱码\n如果 CSV 文件来自中文 Windows 系统（编码为 GBK），读取后可能出现乱码，需要指定编码：\n指定缺失值标记\n手动指定列的数据类型\nread_csv() 会自动猜测每列的数据类型，但有时猜错（例如把编码为数字的分类变量识别成数值型）。可以用 col_types 手动指定：\n\n\n\n\n\n\nTip\n\n\nread_csv() vs read.csv()\n\n\n\n函数\n来自\n输出\n推荐\n\n\n\n\nread_csv()\nreadr（tidyverse）\ntibble\n✅ 推荐\n\n\nread.csv()\nbase R\ndata.frame\n可用\n\n\n\n推荐使用 read_csv()：速度更快，不会自动把字符串转换为因子，列名保持原样。"
+  },
+  {
+    "objectID": "L13slide.html#导入-txt-文件",
+    "href": "L13slide.html#导入-txt-文件",
+    "title": "L13外部数据文件的导入",
+    "section": "导入 txt 文件",
+    "text": "导入 txt 文件\ntxt 文件通常是以特定符号分隔的纯文本数据。\n制表符分隔（最常见）\n自定义分隔符\n处理中文乱码\n与 CSV 相同，若 txt 文件来自中文 Windows，需指定编码："
+  },
+  {
+    "objectID": "L13slide.html#从剪贴板导入数据",
+    "href": "L13slide.html#从剪贴板导入数据",
+    "title": "L13外部数据文件的导入",
+    "section": "从剪贴板导入数据",
+    "text": "从剪贴板导入数据\n从网页、Word 或 Excel 中复制了一段表格数据，可以直接从剪贴板读取，无需保存为文件。"
+  },
+  {
+    "objectID": "L13slide.html#导入后的基本核查",
+    "href": "L13slide.html#导入后的基本核查",
+    "title": "L13外部数据文件的导入",
+    "section": "导入后的基本核查",
+    "text": "导入后的基本核查\n数据导入后，第一步应该核查数据是否正确读取。"
+  },
+  {
+    "objectID": "L13slide.html#典型报错及处理",
+    "href": "L13slide.html#典型报错及处理",
+    "title": "L13外部数据文件的导入",
+    "section": "典型报错及处理",
+    "text": "典型报错及处理\n报错：找不到文件\nError in file(file, \"rt\") : cannot open the connection\n原因： 文件路径不对，或文件不在工作目录中。\n解决方法："
+  },
+  {
+    "objectID": "L13slide.html#常用函数速查",
+    "href": "L13slide.html#常用函数速查",
+    "title": "L13外部数据文件的导入",
+    "section": "常用函数速查",
+    "text": "常用函数速查\n\n\n\n文件类型\n函数\n所属包\n\n\n\n\nExcel（.xlsx / .xls）\nread_excel()\nreadxl\n\n\nCSV（逗号分隔）\nread_csv()\nreadr\n\n\ntxt（制表符分隔）\nread_tsv()\nreadr\n\n\ntxt（自定义分隔符）\nread_delim()\nreadr\n\n\n剪贴板\nread_delim(clipboard(), delim = \"\\t\")\nreadr"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n📘 模块1：R环境搭建与配置\n\n\n📁 模块2：数据导入与对象类型\n\n\n⚙️ 模块3：对象操作基础\n\n\n🤖 模块4：AI 辅助 R 编程与调试\n\n\n\n\n\n\n\n\n课件与数据下载\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
+    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n🛠️ 模块1 准备工作\n\n\n🚀 模块2 快速起步\n\n\n🧭 模块3 构建R语言底层逻辑\n\n\n💹️ 模块4 数据分析实战\n\n\n🌀 模块5 AI赋能\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
   },
   {
     "objectID": "index.html#核心教学模块",
     "href": "index.html#核心教学模块",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n📘 模块1：R环境搭建与配置\n\n\n📁 模块2：数据导入与对象类型\n\n\n⚙️ 模块3：对象操作基础\n\n\n🤖 模块4：AI 辅助 R 编程与调试\n\n\n\n\n\n\n\n\n课件与数据下载\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
+    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n🛠️ 模块1 准备工作\n\n\n🚀 模块2 快速起步\n\n\n🧭 模块3 构建R语言底层逻辑\n\n\n💹️ 模块4 数据分析实战\n\n\n🌀 模块5 AI赋能\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
   },
   {
-    "objectID": "projects.html#project-2",
-    "href": "projects.html#project-2",
-    "title": "Projects",
-    "section": "Project 2",
-    "text": "Project 2"
+    "objectID": "L7slide.html#痛点剖析绝对路径的死亡陷阱",
+    "href": "L7slide.html#痛点剖析绝对路径的死亡陷阱",
+    "title": "L7 项目的创建和管理",
+    "section": "1 痛点剖析：绝对路径的“死亡陷阱”",
+    "text": "1 痛点剖析：绝对路径的“死亡陷阱”\n\n新手的“常规操作”\n\n新手通常会使用绝对路径设置工作目录：\nWindows系统桌面路径setwd(\"C:/Users/Administrator/Desktop/Paper2026/Data\")\nMac系统桌面路径setwd(\"/Users/您的Mac用户名/Desktop/Paper2026/Data\")\n\n为什么这是灾难？\n\n协作崩溃：当您将代码发给合作者，他们的电脑里根本没有这个特定用户名的文件夹，代码直接报错运行中断。\n跨平台失效：Mac 系统根本没有 C:/ 盘的概念。\n换电脑失效：半年后您自己换了新电脑，原来所有的代码路径都需要逐一手动修改。"
   },
   {
-    "objectID": "projects.html#project-3",
-    "href": "projects.html#project-3",
-    "title": "Projects",
-    "section": "Project 3",
-    "text": "Project 3"
+    "objectID": "L7slide.html#降维打击project-的生态思维",
+    "href": "L7slide.html#降维打击project-的生态思维",
+    "title": "L7 项目的创建和管理",
+    "section": "2 降维打击：Project 的生态思维",
+    "text": "2 降维打击：Project 的生态思维\n\n什么是 RStudio Project (.Rproj)？\n\n它就像一个标准化的“集装箱”。\n无论这个集装箱被扔到C盘、U 盘还是合作者的电脑，或Mac电脑上，集装箱内部的相对位置永远保持不变。\n\n核心优势\n\n锚点效应：双击 .Rproj文件启动RStudio，它会自动将该文件夹设定为工作目录。\n隔离污染：每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。"
   },
   {
-    "objectID": "m2.html",
-    "href": "m2.html",
-    "title": "模块2 数据导入与对象类型",
-    "section": "",
-    "text": "L2 讲义\n\n使用Import Dataset导入Excel：鼠标操作与背后R代码解析 CSV与文本文件读取：read.csv函数及常见逗号、编码错误处理 数据框结构解析：R中表格数据的行、列与表头认知 向量：R语言最基础的数据存储单元 R核心数据类型：数值型、字符型与逻辑型 因子的特性与应用：分类变量的正确处理方式 数据概览函数：View、head、str、summary的实用技巧\n美元符号$运算符：精准列提取与简单数据计算 索引切片[ , ]：R中行列选择的逻辑与实践 代码编写规范：缩进、空格与注释的最佳实践 处理结果导出：将R数据框输出为Excel或WORD文件\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码 报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "objectID": "L7slide.html#实战部署创建与文件管理",
+    "href": "L7slide.html#实战部署创建与文件管理",
+    "title": "L7 项目的创建和管理",
+    "section": "3 实战部署：创建与文件管理",
+    "text": "3 实战部署：创建与文件管理"
   },
   {
-    "objectID": "m2.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "href": "m2.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "title": "模块2 数据导入与对象类型",
-    "section": "",
-    "text": "L2 讲义\n\n使用Import Dataset导入Excel：鼠标操作与背后R代码解析 CSV与文本文件读取：read.csv函数及常见逗号、编码错误处理 数据框结构解析：R中表格数据的行、列与表头认知 向量：R语言最基础的数据存储单元 R核心数据类型：数值型、字符型与逻辑型 因子的特性与应用：分类变量的正确处理方式 数据概览函数：View、head、str、summary的实用技巧\n美元符号$运算符：精准列提取与简单数据计算 索引切片[ , ]：R中行列选择的逻辑与实践 代码编写规范：缩进、空格与注释的最佳实践 处理结果导出：将R数据框输出为Excel或WORD文件\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码 报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
-  },
-  {
-    "objectID": "L10.html#模块十-deepseek辅助r编程与数据分析",
-    "href": "L10.html#模块十-deepseek辅助r编程与数据分析",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "模块十 DeepSeek辅助R编程与数据分析",
-    "text": "模块十 DeepSeek辅助R编程与数据分析\n\n10.1 DeepSeek辅助R语言快速入门\n10.2 R语言编程特点\n10.3 R语言接入AI\n10.4 DeepSeek辅助R语言统计分析\n10.5 DeepSeek辅助R语言学习"
-  },
-  {
-    "objectID": "L10.html#deepseek辅助r语言快速入门",
-    "href": "L10.html#deepseek辅助r语言快速入门",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.1 DeepSeek辅助R语言快速入门",
-    "text": "10.1 DeepSeek辅助R语言快速入门\n\n10.1.1 为什么用DeepSeek学R？\n10.1.2 人人都能用R了！一个简单的示例\n10.1.3 DeepSeek教不会什么？这几点你得自己掌握"
-  },
-  {
-    "objectID": "L10.html#为什么用deepseek学r",
-    "href": "L10.html#为什么用deepseek学r",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.1.1 为什么用DeepSeek学R",
-    "text": "10.1.1 为什么用DeepSeek学R\n\nR语言是一门强大但语法灵活的编程语言，对初学者有一定门槛。\nDeepSeek具备自然语言理解与代码生成能力：\n\n快速生成代码\n解释代码, 报错寻因, 解读结果\n扩展功能包、实现复杂流程\n\n进入“AI辅助编程”时代，将改变R语言的学习方式，从”查命令”转为”提问题”。"
-  },
-  {
-    "objectID": "L10.html#人人都能用r了一个简单的示例",
-    "href": "L10.html#人人都能用r了一个简单的示例",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.1.2 人人都能用R了！一个简单的示例",
-    "text": "10.1.2 人人都能用R了！一个简单的示例\n\n🧭 提示语: 用iris数据，进行方差分析，给出R代码。"
-  },
-  {
-    "objectID": "L10.html#deepseek教不会什么这几点你得自己掌握",
-    "href": "L10.html#deepseek教不会什么这几点你得自己掌握",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.1.3 DeepSeek教不会什么？这几点你得自己掌握",
-    "text": "10.1.3 DeepSeek教不会什么？这几点你得自己掌握\n\nRStudio主界面\n如何高效管理文件？\n\n项目project\n\n在写R代码的实践中积累的“经验”\n\n📚 如何读懂 R 的帮助文档\n📚 如何写一段”漂亮聪明”的代码\n\n简洁/可复制性\n美观/易读(代码注释、分节)\n\n📚 如何用最少的代码完成最多的任务\n\n编程思维的形成\n学习高手写的代码"
-  },
-  {
-    "objectID": "L10.html#r语言编程特点优势",
-    "href": "L10.html#r语言编程特点优势",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.2 R语言编程特点–优势",
-    "text": "10.2 R语言编程特点–优势\n\n免费\n可重复性\n扩展包\n\n按任务浏览R包：https://cran.r-project.org/web/views/\nR包下载排行榜: https://www.r-pkg.org/\n\n学术前沿"
-  },
-  {
-    "objectID": "L10.html#r语言编程特点挑战",
-    "href": "L10.html#r语言编程特点挑战",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.2 R语言编程特点–挑战",
-    "text": "10.2 R语言编程特点–挑战\n\n入门难\n代码容易忘\n\n注释/R自带的提示性键入\n\n包太多/难以选择\n\n问DeepSeek：R中能做XXX的有哪些包？比较这些包？哪个更好用？\n🎯 专为 R 用户定制的搜索引擎 https://rseek.org\n\n📚 快速找到函数用法、R 包文档、代码示例\n✅ 搜索结果只与 R 有关，不混杂其他语言\n\n\n报错\n\nAI可以帮你分析报错信息"
-  },
-  {
-    "objectID": "L10.html#r语言接入ai",
-    "href": "L10.html#r语言接入ai",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.3 R语言接入AI",
-    "text": "10.3 R语言接入AI\n\nRStudio插件{gptstudio}\n\n需要设置API key(新用户5美元额度，之后按token计费)/科学上网/响应速度不稳定\n不推荐\n\nGithub Copilot\n\n由GitHub和OpenAI合作开发, 2021年6月发布\n2023年9月接入RStudio\n代码自动完成\n自动生成注释\n适应性学习"
-  },
-  {
-    "objectID": "L10.html#deepseek辅助r语言统计分析",
-    "href": "L10.html#deepseek辅助r语言统计分析",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4 DeepSeek辅助R语言统计分析",
-    "text": "10.4 DeepSeek辅助R语言统计分析\n10.4.1 先看看R能做什么？\n10.4.2 绘图\n10.4.3 检验\n10.4.4 建模\n10.4.5 表格化输出\n10.4.6 如何让DeepSeek分析自己的数据？"
-  },
-  {
-    "objectID": "L10.html#先看看r能做什么",
-    "href": "L10.html#先看看r能做什么",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4.1 先看看R能做什么？",
-    "text": "10.4.1 先看看R能做什么？\n\n🧭 提示语：利用iris数据，可以开展哪些统计分析，写出R代码。"
-  },
-  {
-    "objectID": "L10.html#绘图",
-    "href": "L10.html#绘图",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4.2 绘图",
-    "text": "10.4.2 绘图\n\n🧭 绘图提示语\n\n\n用R绘制iris的箱线图\n按species定性变量分组，绘制petal.length的箱线图。\n按species分组，绘制箱线图，用ggplot2绘制。\n让上述多个个图形显示在同一窗口。\n绘制具有学术期刊风格的分组箱线图。\n用ggpubr绘制分组箱线图。"
-  },
-  {
-    "objectID": "L10.html#检验",
-    "href": "L10.html#检验",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4.3 检验",
-    "text": "10.4.3 检验\n检验：目的/数据容量/数据类型和分布/原假设和备择假设/局限/结论\n\n🧭 提示语\n\n\n按species分组，检验不同组别的petal.length的均值是否相等？。\n该数据满足ANOVA检验的适用条件吗？\n每个组别内的petal.length观测值是否近似正态分布？\n如何进行方差齐性检验是什么？\nbartlett.test()函数的结果如何看？\n若不同组别之间的petal.length观测值方差不等，还能用ANOVA检验吗？\nWelch’s ANOVA的命令是什么？"
-  },
-  {
-    "objectID": "L10.html#建模",
-    "href": "L10.html#建模",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4.4 建模",
-    "text": "10.4.4 建模\n模型：目的/数据容量/数据类型和分布/估计结果的解释/可视化工具/评估\n\n🧭 提示语\n\n\n描述判别函数适合的研究场景？\n利用iris数据，开展判别分析，写出R代码，并添加注释。\n判别分析中需要做哪些检验？\n判别分析中有哪些可视化工具？\n如何评估判别分析模型？\n有哪些前沿方法可以替代判别分析？R中有哪些包可以实现这类前沿方法？"
-  },
-  {
-    "objectID": "L10.html#表格化输出",
-    "href": "L10.html#表格化输出",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4.5 表格化输出",
-    "text": "10.4.5 表格化输出\n\n🧭 提示语\n\n\n利用iris数据，如何输出学术论文中的表1（描述性统计表）？\n利用mpg数据，如何输出学术论文中的回归估计结果的表格？\n利用survival包中的数据lung，输出学术论文中的基线特征表？\n利用survival包中的数据lung，用表格报告Cox比例风险模型的估计结果？\n用别的更简便的方法吗？用专门的包实现表格化输出吗？"
-  },
-  {
-    "objectID": "L10.html#如何让deepseek分析自己的数据",
-    "href": "L10.html#如何让deepseek分析自己的数据",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.4.6 如何让DeepSeek分析自己的数据？",
-    "text": "10.4.6 如何让DeepSeek分析自己的数据？\n\n生成模拟数据\n\n\n🧭 提示语: 我有实验组和对照组各10人的服药后7天，14天和21天的血压数据，可以开展什么统计分析，来判断药物是否有效？\n\n\n🧭 提示语: 请在R中生成上述模拟数据，及实现Repeated Measures ANOVA的代码？\n\n\n数据脱敏\n\n数据扰动: 给定量变量增加一个5%的随机扰动\n\n=C2 * (1 + (RAND() - 0.5) * 0.1) (Excel公式)\n\n随机抽样 30% ~ 70%： =rand() 然后排序 (Excel)\n点击下载数据脱敏练习文件: stroke.xlsx"
-  },
-  {
-    "objectID": "L10.html#deepseek辅助r语言学习",
-    "href": "L10.html#deepseek辅助r语言学习",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.5 DeepSeek辅助R语言学习",
-    "text": "10.5 DeepSeek辅助R语言学习\n10.5.1 理解消化代码\n10.5.2 代码细节的追问\n10.5.3 解决报错\n10.5.4 简化/美化代码\n10.5.5 整理代码/重复利用"
-  },
-  {
-    "objectID": "L10.html#理解消化代码",
-    "href": "L10.html#理解消化代码",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.5.1 理解消化代码",
-    "text": "10.5.1 理解消化代码\n\n逐行阅读代码并理解每个函数\n逐步运行代码, 理解输出结果\n理解复杂符号，如管道符, [[]], 占位符.等\n测试不同的参数"
-  },
-  {
-    "objectID": "L10.html#代码细节的追问",
-    "href": "L10.html#代码细节的追问",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.5.2 代码细节的追问",
-    "text": "10.5.2 代码细节的追问\n\n让DeepSeek辅助理解函数帮助\n赋值符&lt;- 和 等于= 的区别？\n%&gt;% 和 ｜&gt; 的区别？"
-  },
-  {
-    "objectID": "L10.html#解决报错",
-    "href": "L10.html#解决报错",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.5.3 解决报错",
-    "text": "10.5.3 解决报错\n\n典型报错错：“未找到函数”、“对象未定义”、“无法读取文件”等\n\n查看环境：确保对象存在\n加载相关包\n\n函数输入的参数的类型错误\n复制Console中的代码及报错, 发送给DeepSeek"
-  },
-  {
-    "objectID": "L10.html#简化美化代码",
-    "href": "L10.html#简化美化代码",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "10.5.4 简化/美化代码",
-    "text": "10.5.4 简化/美化代码\n\n使用适当的命名\n\n可以包含字母, 数字,下划线_和小圆点., 但不能以数字开头，不能有中划线-，特殊符号$,@等\n\n避免使用不必要的中间变量\n\n管道符\n\n避免重复代码\n\n优化数据结构/循环语句\n\n格式化和缩进\n把代码发送给AI，简化我的代码？"
-  },
-  {
-    "objectID": "L10.html#模块十-总结",
-    "href": "L10.html#模块十-总结",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "模块十 总结",
-    "text": "模块十 总结\n\nDeepSeek如何助力R语言统计分析？\nDeepSeek如何助力R语言学习？\nGithub Copilot如何接入RStudio？\nDeepSeek不擅长教的，需要你主动学习的"
-  },
-  {
-    "objectID": "L10.html#致谢",
-    "href": "L10.html#致谢",
-    "title": "模块十DeepSeek辅助R编程与数据分析",
-    "section": "致谢",
-    "text": "致谢\n\nAI助力，让R语言学习变得简单、高效、充满乐趣！\n\n\nAI助力, 形成编程思维, 独立实践才是用好R的关键。\n\n\n高质量的提问，源自对R的深度使用。\n\n\n\n感谢大家的参与！欢迎提问交流！"
-  },
-  {
-    "objectID": "L1slide.html#统计学的正统语言",
-    "href": "L1slide.html#统计学的正统语言",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "1.1 统计学的“正统”语言",
-    "text": "1.1 统计学的“正统”语言\n\n学术血统：R 是由统计学家为统计学家开发的专业工具，天然适配科研逻辑。\n深度覆盖：从基础回归到最前沿的计量模型（如 PLS-SEM），拥有超过 20,000 个扩展包支撑。\n不可替代性：在顶级期刊审稿中，基于 R 的分析结果通常意味着更高的学术严谨性与可信度。"
-  },
-  {
-    "objectID": "L1slide.html#极致的视觉表达力",
-    "href": "L1slide.html#极致的视觉表达力",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "1.2 极致的视觉表达力",
-    "text": "1.2 极致的视觉表达力\n\nggplot2 哲学：基于图形语法，让数据绘图从简单的“画图”升级为逻辑清晰的“图层构建”。\n出版级输出：原生支持高分辨率、CMYK 色彩模式，直接满足高质量学术期刊的投稿标准。"
-  },
-  {
-    "objectID": "L1slide.html#可重复性研究学术长青的关键",
-    "href": "L1slide.html#可重复性研究学术长青的关键",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "1.3 可重复性研究：学术长青的关键",
-    "text": "1.3 可重复性研究：学术长青的关键\n\nQuarto 动力：实现代码、原始数据、分析过程与文字描述的“三位一体”集成。\n防错机制：数据一旦更新，全文的结果、表格与图表将自动同步刷新，杜绝人工误差。"
-  },
-  {
-    "objectID": "L1slide.html#陡峭的学习曲线",
-    "href": "L1slide.html#陡峭的学习曲线",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "2.1 陡峭的学习曲线",
-    "text": "2.1 陡峭的学习曲线\n\n语法逻辑认知差：Base R 的繁琐与 Tidyverse 的优雅语法之间存在明显的认知断层。\n环境配置困局：版本冲突、依赖包安装失败常让初学者在写出第一行代码前就产生挫败感。\n报错信息的障碍： &gt; Error in x[1, ] : subscript out of bounds &gt; —— 这种生涩的反馈往往让非计算机背景的学习者望而却步。"
-  },
-  {
-    "objectID": "L1slide.html#的时间在清洗数据",
-    "href": "L1slide.html#的时间在清洗数据",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "2.2 80% 的时间在“清洗数据”",
-    "text": "2.2 80% 的时间在“清洗数据”\n\n现实世界的混乱：原始数据往往伴随着缺失值、格式乱码、非结构化存储等问题。\n效率低迷：核心精力消耗在非研究核心的代码纠错上，严重打击学习积极性。"
-  },
-  {
-    "objectID": "L1slide.html#从打字员转向总工程师",
-    "href": "L1slide.html#从打字员转向总工程师",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "3.1 从“打字员”转向“总工程师”",
-    "text": "3.1 从“打字员”转向“总工程师”\n\n思维转变：你不再需要死记硬背函数参数，而是专注于解决问题的逻辑架构。\n实时翻译官：AI 能够将你的研究直觉（自然语言）实时转化为精准的 R 代码。\n即时报错诊断：将复杂的错误代码直接反馈给 AI，它不仅能提供修正方案，还能解释错误逻辑。"
-  },
-  {
-    "objectID": "L1slide.html#场景演示ai-辅助下的数据清理",
-    "href": "L1slide.html#场景演示ai-辅助下的数据清理",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "3.2 场景演示：AI 辅助下的数据清理",
-    "text": "3.2 场景演示：AI 辅助下的数据清理\n\n\n传统方式\n需要熟练记忆 dplyr 的多个函数组合及管道符号的使用逻辑。\n\nAI 辅助方式\nPrompt: “清理数据集：剔除年龄大于60的样本，并将性别列转换为因子类型。”\n# AI 自动生成的整洁代码\ndata_clean &lt;- data %&gt;%\n  filter(age &lt;= 60) %&gt;%\n  mutate(gender = as.factor(gender))"
-  },
-  {
-    "objectID": "L1slide.html#案例一快速生成学术级图表",
-    "href": "L1slide.html#案例一快速生成学术级图表",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "4.1 案例一：快速生成学术级图表",
-    "text": "4.1 案例一：快速生成学术级图表\n\n困境：调整坐标轴细节、添加显著性标注往往需要翻阅数小时的文档。\nAI 解法：直接用自然语言描述你的审美需求。\n\n# AI 辅助生成的 ggplot2 顶刊风格代码\nlibrary(ggplot2)\nggplot(data_clean, aes(x=group, y=score, fill=group)) +\n  geom_boxplot(alpha = 0.8) +\n  scale_fill_manual(values = c(\"#044875\", \"#4a90e2\")) + \n  theme_minimal() +\n  labs(title = \"AI 辅助绘图：不同分组得分对比\",\n       x = \"实验组别\", y = \"量表得分\")"
-  },
-  {
-    "objectID": "L1slide.html#案例二构建高级统计模型-pls-sem",
-    "href": "L1slide.html#案例二构建高级统计模型-pls-sem",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "4.2 案例二：构建高级统计模型 (PLS-SEM)",
-    "text": "4.2 案例二：构建高级统计模型 (PLS-SEM)\n\n\n\n背景：在研究“游戏化对创造力”的影响时，构建结构方程模型往往很繁琐。\n现在：描述潜变量与显变量的对应逻辑，AI 生成模型代码。\n\n\n# AI 生成的测量模型框架\nmeasure_model &lt;- constructs(\n  composite(\"Creativity\", multi_items(\"CR\", 1:5)),\n  composite(\"Gamification\", multi_items(\"GM\", 1:3))\n)"
-  },
-  {
-    "objectID": "L1slide.html#案例三大规模文献数据自动化",
-    "href": "L1slide.html#案例三大规模文献数据自动化",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "4.3 案例三：大规模文献数据自动化",
-    "text": "4.3 案例三：大规模文献数据自动化\n\n效率飞跃：结合 R 的抓取能力与 AI 的理解能力，自动提取数千篇文献指标。\n深度挖掘：从“逐篇阅读”进化到“机器预审，人工定论”模式。"
-  },
-  {
-    "objectID": "L1slide.html#学习重心的战略转移",
-    "href": "L1slide.html#学习重心的战略转移",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "5.1 学习重心的战略转移",
-    "text": "5.1 学习重心的战略转移\n\n过去：学习“如何写出不出错的代码”。\n现在：核心精力回归到学习“如何提出正确的统计问题”。\n技术平权：AI 抹平了代码壁垒，让小白也能更早进入核心分析领域。"
-  },
-  {
-    "objectID": "L1slide.html#的全天候私人教练",
-    "href": "L1slide.html#的全天候私人教练",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "5.2 24/7 的全天候私人教练",
-    "text": "5.2 24/7 的全天候私人教练\n\n零压力反馈：AI 不会因重复提问而倦怠，它能变换讲解方式直到你听懂。\n原理可视化：它能将复杂的计量公式即时转化为代码，演示变量变动的动态影响。"
-  },
-  {
-    "objectID": "L1slide.html#小时开启你的-r-专家之路",
-    "href": "L1slide.html#小时开启你的-r-专家之路",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "2 小时：开启你的 R 专家之路",
-    "text": "2 小时：开启你的 R 专家之路\n\n极致实用主义：只聚焦于解决实际科研问题的核心 20% 技能。\nAI 全程护航：在速成课中，我们将演示如何将 AI 无缝嵌入你的科研流。\n结语：AI 不会取代统计学家，但熟练运用 AI 的学者将拥有巨大优势。"
-  },
-  {
-    "objectID": "L1slide.html#互动与-qa",
-    "href": "L1slide.html#互动与-qa",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "互动与 Q&A",
-    "text": "互动与 Q&A\n\n访问页脚链接，下载本节课程配套的所有 R 代码与练习数据。\n下节预告：RStudio 深度配置——构建你的 AI 驱动科研实验室。"
-  },
-  {
-    "objectID": "m1.html",
-    "href": "m1.html",
-    "title": "模块1 R环境搭建",
-    "section": "",
-    "text": "L1 讲义"
-  },
-  {
-    "objectID": "m1.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "href": "m1.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "title": "模块1 R环境搭建",
-    "section": "",
-    "text": "L1 讲义"
-  },
-  {
-    "objectID": "m1.html#l2-r与rstudio安装演示关键避坑指南",
-    "href": "m1.html#l2-r与rstudio安装演示关键避坑指南",
-    "title": "模块1 R环境搭建",
-    "section": "L2 R与RStudio安装演示：关键避坑指南",
-    "text": "L2 R与RStudio安装演示：关键避坑指南"
-  },
-  {
-    "objectID": "m1.html#l3-rstudio界面深度解析四个象限功能",
-    "href": "m1.html#l3-rstudio界面深度解析四个象限功能",
-    "title": "模块1 R环境搭建",
-    "section": "L3 RStudio界面深度解析：四个象限功能",
-    "text": "L3 RStudio界面深度解析：四个象限功能"
-  },
-  {
-    "objectID": "m1.html#l4-全局选项设置避免代码乱码与关闭工作空间保存提示",
-    "href": "m1.html#l4-全局选项设置避免代码乱码与关闭工作空间保存提示",
-    "title": "模块1 R环境搭建",
-    "section": "L4 全局选项设置：避免代码乱码与关闭工作空间保存提示",
-    "text": "L4 全局选项设置：避免代码乱码与关闭工作空间保存提示"
-  },
-  {
-    "objectID": "m1.html#l5-r-project项目管理r工作流的核心实践告别setwd依赖",
-    "href": "m1.html#l5-r-project项目管理r工作流的核心实践告别setwd依赖",
-    "title": "模块1 R环境搭建",
-    "section": "L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖",
-    "text": "L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖"
-  },
-  {
-    "objectID": "m1.html#l6-r包管理法则安装加载及常见包未找到错误处理",
-    "href": "m1.html#l6-r包管理法则安装加载及常见包未找到错误处理",
-    "title": "模块1 R环境搭建",
-    "section": "L6 R包管理法则：安装、加载及常见“包未找到”错误处理",
-    "text": "L6 R包管理法则：安装、加载及常见“包未找到”错误处理"
-  },
-  {
-    "objectID": "m1.html#l7-r代码初体验别让这5个低级坑劝退你",
-    "href": "m1.html#l7-r代码初体验别让这5个低级坑劝退你",
-    "title": "模块1 R环境搭建",
-    "section": "L7 R代码初体验：别让这5个“低级坑”劝退你",
-    "text": "L7 R代码初体验：别让这5个“低级坑”劝退你\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "objectID": "L7slide.html#高保真-svg-矢量图导出",
+    "href": "L7slide.html#高保真-svg-矢量图导出",
+    "title": "L7 项目的创建和管理",
+    "section": "4 高保真 SVG 矢量图导出",
+    "text": "4 高保真 SVG 矢量图导出\n\n为什么是 SVG？\n\n常见的 PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。\nSVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。\n\n使用 ggsave() 自动化导出\n\n\n# install.packages(\"svglite\")\nlibrary(tidyverse)\nlibrary(svglite)\n\npic1 &lt;- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, \n                      color = Species)) +\n  geom_point(size = 3, alpha = 0.8) +\n  theme_minimal()\n\nggsave(filename = \"output/fig1_sepal_scatter.svg\", \n       plot = pic1,  width = 8,  height = 6)"
   },
   {
     "objectID": "m3.html",
     "href": "m3.html",
-    "title": "模块3 对象操作基础",
+    "title": "模块3 构建R语言底层逻辑",
     "section": "",
-    "text": "L2 讲义\n\n美元符号$运算符：精准列提取与简单数据计算\n索引切片[ , ]：R中行列选择的逻辑与实践\n代码编写规范：缩进、空格与注释的最佳实践\n处理结果导出：将R数据框输出为Excel或WORD文件\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L8 讲义"
   },
   {
-    "objectID": "m3.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "href": "m3.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "title": "模块3 对象操作基础",
+    "objectID": "m3.html#l8-r中的向量思维彻底搞懂c函数",
+    "href": "m3.html#l8-r中的向量思维彻底搞懂c函数",
+    "title": "模块3 构建R语言底层逻辑",
     "section": "",
-    "text": "L2 讲义\n\n美元符号$运算符：精准列提取与简单数据计算\n索引切片[ , ]：R中行列选择的逻辑与实践\n代码编写规范：缩进、空格与注释的最佳实践\n处理结果导出：将R数据框输出为Excel或WORD文件\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L8 讲义"
   },
   {
-    "objectID": "m4.html",
-    "href": "m4.html",
-    "title": "模块4 AI辅助R编程",
+    "objectID": "m3.html#l9-数据框常用操作",
+    "href": "m3.html#l9-数据框常用操作",
+    "title": "模块3 构建R语言底层逻辑",
+    "section": "L9 数据框常用操作",
+    "text": "L9 数据框常用操作\n\n L9 讲义"
+  },
+  {
+    "objectID": "m3.html#l10-缺失值na的处理",
+    "href": "m3.html#l10-缺失值na的处理",
+    "title": "模块3 构建R语言底层逻辑",
+    "section": "L10 缺失值NA的处理",
+    "text": "L10 缺失值NA的处理\n\n L10 讲义"
+  },
+  {
+    "objectID": "m3.html#l11-因子factor的底层逻辑掌控分类变量的秩序",
+    "href": "m3.html#l11-因子factor的底层逻辑掌控分类变量的秩序",
+    "title": "模块3 构建R语言底层逻辑",
+    "section": "L11 因子Factor的底层逻辑:掌控分类变量的秩序",
+    "text": "L11 因子Factor的底层逻辑:掌控分类变量的秩序\n\n L11 讲义"
+  },
+  {
+    "objectID": "m3.html#l12-管道符数据管理的高效工具",
+    "href": "m3.html#l12-管道符数据管理的高效工具",
+    "title": "模块3 构建R语言底层逻辑",
+    "section": "L12 管道符：数据管理的高效工具",
+    "text": "L12 管道符：数据管理的高效工具\n\n L12 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "L17slide.html#代码不执行只按了-enter",
+    "href": "L17slide.html#代码不执行只按了-enter",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "1 代码不执行——只按了 Enter",
+    "text": "1 代码不执行——只按了 Enter\n赋值符号 &lt;-\n在 R 中，给对象赋值使用 &lt;-，而不是 =。\n&lt;- 由”小于号”和”减号”组成，推荐用快捷键一次打出：\n\n\n\n操作系统\n赋值符号快捷键\n\n\n\n\nWindows\nAlt + -\n\n\nMac\nOption + -\n\n\n\n执行后，右上角 Environment 面板会出现 apple = 5 和 banana = 10，说明赋值成功。"
+  },
+  {
+    "objectID": "L17slide.html#报错找不到对象代码顺序错了",
+    "href": "L17slide.html#报错找不到对象代码顺序错了",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "2 报错”找不到对象”——代码顺序错了",
+    "text": "2 报错”找不到对象”——代码顺序错了\nError: object 'price' not found\n原因：调用了一个还没有赋值的对象。R 按顺序执行代码，必须先赋值，才能使用。\n\n\n[1] 80\n\n\n\n\n\n\n\n\nTip\n\n\n排查”找不到对象”的方法：\n查看 Environment 面板，如果该对象不在列表中，说明赋值代码还没有被执行。\n需要先运行赋值语句，再运行使用该对象的代码。"
+  },
+  {
+    "objectID": "L17slide.html#大小写不通用",
+    "href": "L17slide.html#大小写不通用",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "3 大小写不通用",
+    "text": "3 大小写不通用\nR 严格区分大小写，price 和 Price 是两个完全不同的对象。\n\n\n[1] 80\n\n\n\n\n\n\n\n\nWarning\n\n\n变量名、函数名，一个字母的大小写差别就会报错。养成习惯，命名时保持一致。"
+  },
+  {
+    "objectID": "L17slide.html#输入法陷阱中文标点",
+    "href": "L17slide.html#输入法陷阱中文标点",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "4 输入法陷阱——中文标点",
+    "text": "4 输入法陷阱——中文标点\n\nR 中所有标点符号（括号、逗号、引号等）必须在英文输入法状态下输入。\n中文标点和英文标点外形相似，但 R 无法识别中文标点。\n\n\n\n[1] 3.14159"
+  },
+  {
+    "objectID": "L17slide.html#控制台出现-号代码没写完",
+    "href": "L17slide.html#控制台出现-号代码没写完",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "5 控制台出现 + 号——代码没写完",
+    "text": "5 控制台出现 + 号——代码没写完\n什么情况会出现 +？\n当你在 Source 窗口写了一行未完成的代码（例如只写了 8 + 10 +，后面的数字还没有输入），就按了 Ctrl + Enter，Console 的提示符会从 &gt; 变成 +：\n&gt; 8 + 10 +\n+\n这个 + 表示 R 认为你的代码还没有结束，正在等待后续输入。"
+  },
+  {
+    "objectID": "L17slide.html#总结",
+    "href": "L17slide.html#总结",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "6 总结",
+    "text": "6 总结\n\n\n\n#\n错误\n原因\n解决方法\n\n\n\n\n1\n代码不执行\n只按了 Enter\n改用 Ctrl + Enter\n\n\n2\n找不到对象\n对象还没赋值就使用\n先执行赋值语句，再使用\n\n\n3\n大小写报错\nR 严格区分大小写\n保持变量名大小写一致\n\n\n4\n标点报错\n误用了中文标点\n全程保持英文输入法\n\n\n5\nConsole 出现 +\n代码未写完就执行\n按 Esc 退出后重新写"
+  },
+  {
+    "objectID": "m1.html",
+    "href": "m1.html",
+    "title": "模块1 准备",
     "section": "",
-    "text": "L2 讲义\n\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码\n报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L1 讲义"
   },
   {
-    "objectID": "m4.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "href": "m4.html#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机",
-    "title": "模块4 AI辅助R编程",
+    "objectID": "m1.html#l1-重塑ai时代的r学习观",
+    "href": "m1.html#l1-重塑ai时代的r学习观",
+    "title": "模块1 准备",
     "section": "",
-    "text": "L2 讲义\n\nPrompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码\n报错信息分析：利用AI解读与定位R错误根源的有效方法\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L1 讲义"
   },
   {
-    "objectID": "L1slide_副本.html#生存分析简介",
-    "href": "L1slide_副本.html#生存分析简介",
-    "title": "L1 AI时代的R学习观",
-    "section": "1 生存分析简介",
-    "text": "1 生存分析简介\n1.1 什么是生存分析？\n1.2 为什么要使用生存分析方法？\n1.3 生存分析的核心概念\n1.4 生存分析方法概览\n1.5 为什么选择 R 实现生存分析？"
+    "objectID": "m1.html#l2-r与rstudio的安装与配置",
+    "href": "m1.html#l2-r与rstudio的安装与配置",
+    "title": "模块1 准备",
+    "section": "L2 R与RStudio的安装与配置",
+    "text": "L2 R与RStudio的安装与配置\n\n L1 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
   },
   {
-    "objectID": "L1slide_副本.html#什么是生存分析",
-    "href": "L1slide_副本.html#什么是生存分析",
-    "title": "L1 AI时代的R学习观",
-    "section": "1.1 什么是生存分析？",
-    "text": "1.1 什么是生存分析？\n生存分析研究事件发生的时间及其发生概率。\n生存分析 Survival Analysis：删失数据\n右删失数据 right censoring\n\n右删失数据指由于观察时间结束或其他原因，仅知事件在某时间点尚未发生，而无法获知具体发生时间的数据。\n\n\n研究病人的生存时间\n\n有些病人在研究结束时还活着，只知道他们的生存时间“大于某个值”\n有些病人中途退出了研究，只知道他们的生存时间“大于某个值”"
+    "objectID": "L11slide.html#字符串-vs-因子",
+    "href": "L11slide.html#字符串-vs-因子",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "1 字符串 vs 因子",
+    "text": "1 字符串 vs 因子\n\n\n\n\n字符串 character\n因子 factor\n\n\n\n\n用途\n自由文本、不固定的内容\n有限的固定类别\n\n\n图表类别顺序\n按字母顺序，不可控\n由 levels 定义，可控\n\n\n回归分析\n参照组不可控\n可手动指定参照组"
   },
   {
-    "objectID": "L1slide_副本.html#生存分析的优势",
-    "href": "L1slide_副本.html#生存分析的优势",
-    "title": "L1 AI时代的R学习观",
-    "section": "1.2 生存分析的优势",
-    "text": "1.2 生存分析的优势\n生存分析能同时考虑事件发生时间和处理删失数据，精确反映事件的动态过程。\n生存分析\n\n比较不同治疗组事件发生的时间长短。\n估计中位生存时间。\n分析某因素对事件发生时间的加速或延迟效应。"
+    "objectID": "L11slide.html#什么时候需要转成因子",
+    "href": "L11slide.html#什么时候需要转成因子",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "2 什么时候需要转成因子？",
+    "text": "2 什么时候需要转成因子？\n\n\n\n\n\n\nTip\n\n\n变量的取值是有限的固定类别，且需要控制类别顺序、\n用于绘图或回归分析时，就应该转成因子。\n\n\n\n\n✅ class（车型）：绘图时希望 x 轴按我们定义的顺序排列\n✅ drv（驱动方式）：回归时需要明确指定哪种驱动方式为参照组"
   },
   {
-    "objectID": "L1slide_副本.html#生存分析的核心术语",
-    "href": "L1slide_副本.html#生存分析的核心术语",
-    "title": "L1 AI时代的R学习观",
-    "section": "1.3 生存分析的核心术语",
-    "text": "1.3 生存分析的核心术语\n\n生存时间 Survival Time\n删失数据 Censoring Data\n生存函数 Survival Function, S(t)\n累积分布函数(Cumulative Distribution Function, F(t))\n风险函数 Hazard Function, h(t)"
+    "objectID": "L11slide.html#创建因子",
+    "href": "L11slide.html#创建因子",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "3 创建因子",
+    "text": "3 创建因子\nfactor()\n\n# 将 class 转为因子class_f, 并追加到mpg数据框中\nmpg$class_f &lt;- factor(mpg$class)\n# 因子的level的排序，默认按字母顺序排\nlevels(mpg$class_f)\n\n[1] \"2seater\"    \"compact\"    \"midsize\"    \"minivan\"    \"pickup\"    \n[6] \"subcompact\" \"suv\""
   },
   {
-    "objectID": "L1slide_副本.html#生存函数图像特征",
-    "href": "L1slide_副本.html#生存函数图像特征",
-    "title": "L1 AI时代的R学习观",
-    "section": "生存函数图像特征",
-    "text": "生存函数图像特征\n\n\\(S(t)\\) 随时间递减，\\(h(t)\\) 描述何时“递减得快”。\n若 \\(h(t)\\) 恒定(如指数分布)，\\(S(t)\\) 是指数函数。\n若 \\(h(t)\\) 随时间变化(如Weibull分布)，\\(S(t)\\) 递减速率随时间变化。"
+    "objectID": "L11slide.html#因子用于绘图控制类别顺序",
+    "href": "L11slide.html#因子用于绘图控制类别顺序",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "4 因子用于绘图：控制类别顺序",
+    "text": "4 因子用于绘图：控制类别顺序\n\n查看R代码\n# 字符串：x 轴按字母顺序，类别顺序混乱\nboxplot(hwy ~ drv, data = mpg,\n        col = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\"))\n# 因子：x 轴按 levels 定义的顺序（前驱 → 后驱 → 四驱）\nboxplot(hwy ~ drv_f, data = mpg,\n        col = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\"))"
   },
   {
-    "objectID": "L1slide_副本.html#生存分析方法",
-    "href": "L1slide_副本.html#生存分析方法",
-    "title": "L1 AI时代的R学习观",
-    "section": "1.4 生存分析方法",
-    "text": "1.4 生存分析方法\n\n非参数模型\n\nKaplan-Meier, Nelson-Aalen, Life Table\n\n半参数模型\n\nCox proportional hazards model\n\n参数模型\n\n加速失效时间模型\n\n机器学习模型"
+    "objectID": "L11slide.html#因子用于回归控制参照组",
+    "href": "L11slide.html#因子用于回归控制参照组",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "5 因子用于回归：控制参照组",
+    "text": "5 因子用于回归：控制参照组\n\n# drv 为字符串时：参照组由字母顺序决定\n# \"4\" 字母排最前，自动成为参照组\nmodel1 &lt;- lm(hwy ~ drv, data = mpg)\nsummary(model1)$coefficients\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 19.174757  0.4036737 47.500634 3.396345e-121\ndrvf         8.985620  0.5668272 15.852486  8.578919e-39\ndrvr         1.825243  0.9134093  1.998275  4.685929e-02\n\n\n\n字符串的levels的排序是由字母顺序决定的，参照组是不可控的"
   },
   {
-    "objectID": "L1slide_副本.html#为什么用r进行生存分析",
-    "href": "L1slide_副本.html#为什么用r进行生存分析",
-    "title": "L1 AI时代的R学习观",
-    "section": "1.5 为什么用R进行生存分析？",
-    "text": "1.5 为什么用R进行生存分析？\n\n支持多样化模型，与学术前沿同步\n功能强大的包\n满足学术出版标准，图形可直接用于SCI期刊投稿\n代码的可重复性\n支持与Python、SAS、Stata等软件的数据格式兼容，可读写CSV、Excel、SPSS、SQL等多种格式文件"
+    "objectID": "L11slide.html#forcats-包",
+    "href": "L11slide.html#forcats-包",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "5 forcats 包",
+    "text": "5 forcats 包\n\nforcats 是tidyverse中专门处理因子的包。\n提供了一系列以 fct_ 开头的函数，比 base R 更简洁直观。"
   },
   {
-    "objectID": "L1slide_副本.html#模型灵活接轨学术前沿",
-    "href": "L1slide_副本.html#模型灵活接轨学术前沿",
-    "title": "L1 AI时代的R学习观",
-    "section": "✅ 模型灵活、接轨学术前沿",
-    "text": "✅ 模型灵活、接轨学术前沿\n\n非参数模型(如 Kaplan-Meier、Nelson-Aalen)；\n半参数模型(Cox 回归、Stratified Cox、Time-dependent Cox)；\n参数模型(Weibull、Exponential、Log-normal 等)；\n加速失效时间模型(AFT)；\n机器学习与深度学习方法(如随机生存森林、DeepSurv)；\n支持删失数据、竞争风险、多状态模型、复发事件等复杂结构。"
-  },
-  {
-    "objectID": "L1slide_副本.html#包丰富兼容性强",
-    "href": "L1slide_副本.html#包丰富兼容性强",
-    "title": "L1 AI时代的R学习观",
-    "section": "✅ 包丰富、兼容性强",
-    "text": "✅ 包丰富、兼容性强\nR 拥有生态完备的生存分析工具包，涵盖建模、可视化、诊断与预测的全过程：\n\nsurvival: 生存分析的核心包，作者 Therneau 教授即为 Cox 模型奠基人；\nsurvminer: 专注于可视化与图表美化；\nrms: 构建回归模型、估计 nomogram；\nflexsurv: 拓展参数模型族，支持自定义分布；\npec、riskRegression: 用于模型评价、比较与预测；\nrandomForestSRC, survivalmodels: 接入机器学习与深度学习模型。\n\n此外，R 与 Python、SAS、Stata 等平台的数据格式高度兼容，可轻松读写 CSV、Excel、SPSS、SAS、SQL、JSON 等多种格式文件。"
-  },
-  {
-    "objectID": "L1slide_副本.html#可视化科学性与美学并重",
-    "href": "L1slide_副本.html#可视化科学性与美学并重",
-    "title": "L1 AI时代的R学习观",
-    "section": "✅ 可视化：科学性与美学并重",
-    "text": "✅ 可视化：科学性与美学并重\nR 的图形系统(尤其是 ggplot2 与 survminer)能兼顾：\n\n科学严谨性：提供风险表(risk table)、置信区间、删失符号、分层比较、调整协变量；\n审美专业性：高分辨率输出、分面展示、支持 LaTeX 数学符号、主题统一；\n投稿级品质：图形可直接用于 SCI 期刊投稿，无需再由图形编辑软件二次加工。\n\n常见输出格式包括 PDF、PNG、SVG、EPS，广泛支持矢量图形与学术出版标准。"
-  },
-  {
-    "objectID": "L1slide_副本.html#代码的可重复性reproducibility",
-    "href": "L1slide_副本.html#代码的可重复性reproducibility",
-    "title": "L1 AI时代的R学习观",
-    "section": "✅ 代码的可重复性(Reproducibility)",
-    "text": "✅ 代码的可重复性(Reproducibility)\n\n支持 R Markdown、Quarto 等文档系统，将文本、公式、代码与图表融合；\n支持版本控制(Git)、自动更新、参数化分析；\n每一步分析都可追溯，保证数据处理和建模过程的透明性；\n与 renv、packrat 等工具协同，确保包版本一致性，适用于课题组协作、期刊审稿再现和同行验证。"
-  },
-  {
-    "objectID": "L1slide_副本.html#总结",
-    "href": "L1slide_副本.html#总结",
-    "title": "L1 AI时代的R学习观",
-    "section": "总结",
-    "text": "总结\n\n\n\n\n\n\n\n概念\n解释\n\n\n\n\n生存时间(T)\n个体从起点到目标事件发生所经历的时间\n\n\n删失(Censoring)\n由于观察限制，事件发生时间未知的样本\n\n\n生存函数 S(t)\n在时间 t 时刻事件尚未发生的概率，即 P(T &gt; t)\n\n\n累积分布函数 F(t)\nP(T ≤ t)，即事件在时间 t 前发生的概率\n\n\n风险函数 h(t)\n在时间 t 时刻，事件尚未发生的个体中事件“立刻”发生的瞬时速率"
+    "objectID": "L11slide.html#小结",
+    "href": "L11slide.html#小结",
+    "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
+    "section": "7 小结",
+    "text": "7 小结\n\n\n\n函数\n用途\n\n\n\n\nfactor(x, levels=..., labels=...)\n创建因子，指定顺序和标签\n\n\nfct_relevel()\n手动将指定类别移到最前\n\n\nfct_reorder()\n按另一个变量的值排序\n\n\nfct_rev()\n反转类别顺序\n\n\nfct_recode()\n重命名类别标签\n\n\nfct_lump_n()\n保留前 n 个高频类别，其余合并为 Other\n\n\nfct_drop()\n删除无数据的类别\n\n\nlevels()\n查看类别\n\n\nrelevel()\n更改回归参照组（base R）"
   },
   {
     "objectID": "L1slide.html#r的优势",
     "href": "L1slide.html#r的优势",
-    "title": "重构：AI时代的R学习观",
+    "title": "重构AI时代的R学习观",
     "section": "1 R的优势",
     "text": "1 R的优势\n\n开源免费的生态\n极强的可重复性\n丰富的扩展包，与学术前沿接轨\n\nhttps://cran.r-project.org/web/views\n\n强大的多格式输出能力\n\n一份源文件，多格式输出（HTML/PDF/Word）\n基于R Markdown/Quarto"
   },
   {
     "objectID": "L1slide.html#初学者的至暗时刻",
     "href": "L1slide.html#初学者的至暗时刻",
-    "title": "重构：AI时代的R学习观",
+    "title": "重构AI时代的R学习观",
     "section": "2 初学者的“至暗时刻”",
     "text": "2 初学者的“至暗时刻”\n\n思维转换的阵痛\n\n习惯了鼠标点选，面对纯代码界面时学习曲线极其陡峭\n\n边学边忘的挫败\n\n语法繁杂，今天刚敲熟的代码，下周全军覆没\n\n万包林立的迷茫\n\nCRAN上几万个扩展包，实现同一功能有无数种写法，引发“选择困难症”\n\n满屏红字的暴击\n\n面对毫无头绪的 Error 和 Warning，极易丧失学习信心"
   },
   {
     "objectID": "L1slide.html#ai时代如何重塑r学习观",
     "href": "L1slide.html#ai时代如何重塑r学习观",
-    "title": "重构：AI时代的R学习观",
+    "title": "重构AI时代的R学习观",
     "section": "3 AI时代如何重塑R学习观？",
     "text": "3 AI时代如何重塑R学习观？\n\n升维：从“敲代码”转向“做架构”\n\n锚定分析目标与核心R包，语法细节交由AI。\n\n把关：做AI代码的“审稿人”\n\n提升逻辑验证能力，主导流程，拒绝盲目运行。\n\n筑基：吃透对象语法的底层逻辑\n\n掌握数据结构与输入输出，实现精准提问与排障。\n\n聚焦：对标顶刊水准的科研表达\n\n释放生产力，专注出版级高级可视化与规范制表。"
   },
   {
-    "objectID": "L1slide.html#ai-r-的融合实战",
-    "href": "L1slide.html#ai-r-的融合实战",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "4 AI + R 的融合实战",
-    "text": "4 AI + R 的融合实战\n4.0 环境准备（初次使用请运行）\n\n# 运行以下代码安装本节课所需的全部扩展包\ninstall.packages(c(\"tidyverse\", \"gtsummary\", \"ggpubr\", \n                   \"broom\", \"broom.helpers\"))"
-  },
-  {
-    "objectID": "L1slide.html#绘制table-1",
-    "href": "L1slide.html#绘制table-1",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "4.1 绘制Table 1",
-    "text": "4.1 绘制Table 1\n\n\n\n查看R代码\nlibrary(gtsummary)\n\ntrial %&gt;% \n  tbl_summary(\n    by = trt,\n    statistic = list(\n      all_continuous() ~ \"{mean} ({sd})\",\n      all_categorical() ~ \"{n} ({p}%)\"\n    )\n  ) %&gt;% \n  add_p()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nDrug A\nN = 981\nDrug B\nN = 1021\np-value2\n\n\n\n\nAge\n47 (15)\n47 (14)\n0.7\n\n\n    Unknown\n7\n4\n\n\n\n\nMarker Level (ng/mL)\n1.02 (0.89)\n0.82 (0.83)\n0.085\n\n\n    Unknown\n6\n4\n\n\n\n\nT Stage\n\n\n\n\n0.9\n\n\n    T1\n28 (29%)\n25 (25%)\n\n\n\n\n    T2\n25 (26%)\n29 (28%)\n\n\n\n\n    T3\n22 (22%)\n21 (21%)\n\n\n\n\n    T4\n23 (23%)\n27 (26%)\n\n\n\n\nGrade\n\n\n\n\n0.9\n\n\n    I\n35 (36%)\n33 (32%)\n\n\n\n\n    II\n32 (33%)\n36 (35%)\n\n\n\n\n    III\n31 (32%)\n33 (32%)\n\n\n\n\nTumor Response\n28 (29%)\n33 (34%)\n0.5\n\n\n    Unknown\n3\n4\n\n\n\n\nPatient Died\n52 (53%)\n60 (59%)\n0.4\n\n\nMonths to Death/Censor\n20.2 (5.0)\n19.0 (5.5)\n0.14\n\n\n\n1 Mean (SD); n (%)\n\n\n2 Wilcoxon rank sum test; Pearson’s Chi-squared test\n\n\n\n\n\n\n\n\n\n\n困境：调整坐标轴细节、添加显著性标注往往需要翻阅数小时的文档。\nAI 解法：直接用自然语言描述你的审美需求。\n\n# AI 辅助生成的 ggplot2 顶刊风格代码\nlibrary(ggplot2)\nggplot(data_clean, aes(x=group, y=score, fill=group)) +\n  geom_boxplot(alpha = 0.8) +\n  scale_fill_manual(values = c(\"#044875\", \"#4a90e2\")) + \n  theme_minimal() +\n  labs(title = \"AI 辅助绘图：不同分组得分对比\",\n       x = \"实验组别\", y = \"量表得分\")"
+    "objectID": "L1slide.html#r初体验出版级科研图表的极简生成",
+    "href": "L1slide.html#r初体验出版级科研图表的极简生成",
+    "title": "重构AI时代的R学习观",
+    "section": "4 R初体验：出版级科研图表的极简生成",
+    "text": "4 R初体验：出版级科研图表的极简生成\n4.0 环境准备\n4.1 人口统计学与临床特征表\n4.2 结局指标对比\n4.3 组间对比可视化\n4.4 回归结果的表格化输出"
   },
   {
     "objectID": "L1slide.html#为何现在是学习r的最佳时机",
     "href": "L1slide.html#为何现在是学习r的最佳时机",
-    "title": "重构：AI时代的R学习观",
+    "title": "重构AI时代的R学习观",
     "section": "5 为何现在是学习R的最佳时机？",
     "text": "5 为何现在是学习R的最佳时机？\n\n范式转移：从“调试代码”转向“设计问题”\n\n过去：深陷语法纠错，耗费大量科研精力。\n现在：回归研究本质，聚焦学术问题凝练。\n\n技术平权：彻底抹平传统编程壁垒\n\nAI 降低准入门槛，助力初学者驾驭复杂模型分析。\n\n零压反馈：拥有永不倦怠的“专属私教”\n\nAI 提供即时讲解，将报错转化为学习的恍然大悟。"
   },
   {
-    "objectID": "L1slide.html#出版级科研图表的极简复现",
-    "href": "L1slide.html#出版级科研图表的极简复现",
-    "title": "L1AI时代的R学习观 小白学习R 的最佳时机",
-    "section": "4 出版级科研图表的极简复现",
-    "text": "4 出版级科研图表的极简复现\n4.0 环境准备（初次使用请运行）\n\n# 运行以下代码安装本节课所需的全部扩展包\ninstall.packages(c(\"tidyverse\", \"gtsummary\", \"ggpubr\", \n                   \"broom\", \"broom.helpers\"))"
+    "objectID": "L10slide.html#什么是-na",
+    "href": "L10slide.html#什么是-na",
+    "title": "L10缺失值NA的处理",
+    "section": "1 什么是 NA？",
+    "text": "1 什么是 NA？\n\nNA（Not Available）是 R 中表示缺失值的专用符号。\n它不是数字 0，不是空字符串 \"\"，也不是 NULL，它代表”这个值本来应该有，但我们不知道它是什么”。\n现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误……\n\n\n# NA 有不同的\"类型\"，但通常统一写作 NA\nNA          # 逻辑型 NA（默认）\n\n[1] NA\n\nNA_real_    # 数值型 NA\n\n[1] NA\n\nNA_integer_ # 整数型 NA\n\n[1] NA\n\nNA_character_ # 字符型 NA\n\n[1] NA\n\n# NA 的类型判断\nis.na(NA)\n\n[1] TRUE"
   },
   {
-    "objectID": "L1slide.html#r初体验出版级科研图表的极简生成",
-    "href": "L1slide.html#r初体验出版级科研图表的极简生成",
-    "title": "重构：AI时代的R学习观",
-    "section": "4 R初体验：出版级科研图表的极简生成",
-    "text": "4 R初体验：出版级科研图表的极简生成\n4.0 环境准备\n4.1 人口统计学与临床特征表\n4.2 结局指标对比\n4.3 组间对比可视化\n4.4 回归结果的表格化输出"
+    "objectID": "L10slide.html#构造含-na-的演示数据框",
+    "href": "L10slide.html#构造含-na-的演示数据框",
+    "title": "L10缺失值NA的处理",
+    "section": "2 构造含 NA 的演示数据框",
+    "text": "2 构造含 NA 的演示数据框\n\n💡 本节使用一个手动构造的小数据框演示，方便观察 NA 的行为。\n\n\ndf &lt;- data.frame(\n  name   = c(\"张三\", \"李四\", \"王五\", \"赵六\", \"钱七\", \"周九\", \"吴十\"),\n  age    = c(22, NA, 25, 21, NA, 28, 24),\n  score  = c(88.5, 92.0, NA, 55.5, 85.0, 91.0, 78.5),\n  passed = c(TRUE, TRUE, NA, FALSE, TRUE, TRUE, TRUE)\n)\n\ndf\n\n  name age score passed\n1 张三  22  88.5   TRUE\n2 李四  NA  92.0   TRUE\n3 王五  25    NA     NA\n4 赵六  21  55.5  FALSE\n5 钱七  NA  85.0   TRUE\n6 周九  28  91.0   TRUE\n7 吴十  24  78.5   TRUE"
+  },
+  {
+    "objectID": "L10slide.html#检测-na",
+    "href": "L10slide.html#检测-na",
+    "title": "L10缺失值NA的处理",
+    "section": "3 检测 NA",
+    "text": "3 检测 NA\nis.na() — 逐元素判断是否为 NA\n\n# 对整个数据框，返回同形状的逻辑矩阵\nis.na(df)\n\n      name   age score passed\n[1,] FALSE FALSE FALSE  FALSE\n[2,] FALSE  TRUE FALSE  FALSE\n[3,] FALSE FALSE  TRUE   TRUE\n[4,] FALSE FALSE FALSE  FALSE\n[5,] FALSE  TRUE FALSE  FALSE\n[6,] FALSE FALSE FALSE  FALSE\n[7,] FALSE FALSE FALSE  FALSE"
+  },
+  {
+    "objectID": "L10slide.html#na让计算结果报错",
+    "href": "L10slide.html#na让计算结果报错",
+    "title": "L10缺失值NA的处理",
+    "section": "4 NA让计算结果报错",
+    "text": "4 NA让计算结果报错\n均值、求和等聚合函数返回 NA\n\n# age 列含有 NA，mean() 直接返回 NA\nmean(df$age)\n\n[1] NA\n\nsum(df$age)\n\n[1] NA\n\nmax(df$age)\n\n[1] NA\n\nmin(df$age)\n\n[1] NA\n\n\n\n⚠️ 这不是报错，R 正常运行了，但结果是 NA。\n初学者常以为代码写错了，其实是数据中存在缺失值。"
+  },
+  {
+    "objectID": "L10slide.html#处理-na-的常用方法",
+    "href": "L10slide.html#处理-na-的常用方法",
+    "title": "L10缺失值NA的处理",
+    "section": "4 处理 NA 的常用方法",
+    "text": "4 处理 NA 的常用方法\n方法1：删除含 NA 的行 — na.omit()\n\n# 删除任意列含 NA 的行\ndf_clean &lt;- na.omit(df)\ndf_clean\n\n  name age score passed\n1 张三  22  88.5   TRUE\n4 赵六  21  55.5  FALSE\n6 周九  28  91.0   TRUE\n7 吴十  24  78.5   TRUE\n\n\n\n⚠️ na.omit() 只要某行任意一列有 NA，就整行删除。\n数据列多时可能损失大量样本，需谨慎使用。"
+  },
+  {
+    "objectID": "L10slide.html#实战用真实数据集检查-na",
+    "href": "L10slide.html#实战用真实数据集检查-na",
+    "title": "L10缺失值NA的处理",
+    "section": "5 实战：用真实数据集检查 NA",
+    "text": "5 实战：用真实数据集检查 NA\n\n# R 内置的 airquality 数据集含有缺失值\ndata(airquality)\n\n# 第一步：str() 了解结构\nstr(airquality)\n\n'data.frame':   153 obs. of  6 variables:\n $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...\n $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...\n $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...\n $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...\n $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...\n $ Day    : int  1 2 3 4 5 6 7 8 9 10 ..."
+  },
+  {
+    "objectID": "L10slide.html#小结",
+    "href": "L10slide.html#小结",
+    "title": "L10缺失值NA的处理",
+    "section": "6 小结",
+    "text": "6 小结\n遇到 NA 时\n① 检测  →  is.na() / colSums(is.na()) / summary()\n② 定位  →  哪些列？缺多少？什么规律？\n③ 决策  →  删除？填补？保留？\n④ 处理  →  na.omit() / !is.na() / replace() / ifelse()\n⑤ 验证  →  再次运行 colSums(is.na()) 确认处理结果"
+  },
+  {
+    "objectID": "global_options.html#编码正义告别中文乱码",
+    "href": "global_options.html#编码正义告别中文乱码",
+    "title": "L4 全局选项设置",
+    "section": "1 编码正义：告别中文乱码",
+    "text": "1 编码正义：告别中文乱码\n\n乱码的本质\n\nWindows 默认使用 GBK 编码，而 macOS 和 Linux 默认使用 UTF-8。\n当你在不同系统间交换代码或读取带中文的数据时，这种“方言差异”会导致字符显示异常。\n\n架构师的底线：全平台统一 UTF-8\n\n路径：Tools -&gt; Global Options -&gt; Code -&gt; Saving\n在 Default text encoding 中点击 Change...，选择 UTF-8。\n\n\n\n\n\n\n\n\n\n核心准则\n\n\n设置 UTF-8 是 R 语言国际化的第一步。一旦设定，未来无论是处理网页抓取还是导出出版级图表，都能最大限度避免字符冲突。"
+  },
+  {
+    "objectID": "global_options.html#环境净化为什么要关闭工作空间保存",
+    "href": "global_options.html#环境净化为什么要关闭工作空间保存",
+    "title": "L4 全局选项设置",
+    "section": "2 环境净化：为什么要关闭工作空间保存？",
+    "text": "2 环境净化：为什么要关闭工作空间保存？\n\n小白的习惯 vs 架构师的准则\n\n小白：希望下次打开 RStudio 时，上次定义的变量还在。\n架构师：追求“可重复性（Reproducibility）”。每次启动都应该是干净的空白状态。\n\n自动保存的危害\n\n隐藏的错误：你可能会无意中使用了一个月前定义的旧变量，导致现在的分析逻辑产生不可察觉的偏差。\n启动缓慢：如果内存中存了大型数据集，自动加载会让 RStudio 变得极度臃肿。"
+  },
+  {
+    "objectID": "global_options.html#实战操作彻底关闭保存提示",
+    "href": "global_options.html#实战操作彻底关闭保存提示",
+    "title": "L4 全局选项设置",
+    "section": "3 实战操作：彻底关闭保存提示",
+    "text": "3 实战操作：彻底关闭保存提示\n\n配置路径\n\n路径：Tools -&gt; Global Options -&gt; General -&gt; Basic\n\n关键选项修改\n\n取消勾选：Restore .RData into workspace at startup（启动时不恢复旧数据）。\n设置选项：Save workspace to .RData on exit 改为 Never（退出时绝不保存）。\n取消勾选：Always save history（防止历史命令干扰）。\n\n\n\n\n\n\n\n\n\n职业素养\n\n\n“代码即一切”。只要你有脚本，数据可以随时重新生成。依赖保存的工作空间是业余选手的表现。"
+  },
+  {
+    "objectID": "global_options.html#自动化设置告别冗长的控制台",
+    "href": "global_options.html#自动化设置告别冗长的控制台",
+    "title": "L4 全局选项设置",
+    "section": "4 自动化设置：告别冗长的控制台",
+    "text": "4 自动化设置：告别冗长的控制台\n\n软排版优化\n\n路径：Tools -&gt; Global Options -&gt; Code -&gt; Display\n勾选：Show margin (80)。\n原理：在编辑器中显示一条 80 字符的纵向虚线。这提醒你：一行代码不宜过长，方便他人阅读与后期打印。\n\n自动保存配置\n\n勾选：Auto-save idle editors。\n确保在软件意外崩溃时，你的代码修改不会付诸东流。"
+  },
+  {
+    "objectID": "global_options.html#项目启动的丝滑感",
+    "href": "global_options.html#项目启动的丝滑感",
+    "title": "L4 全局选项设置",
+    "section": "5 项目启动的丝滑感",
+    "text": "5 项目启动的丝滑感\n\n软链接：一键直达工作目录\n\n路径：Tools -&gt; Global Options -&gt; General -&gt; Basic\n在 Default working directory 中设置一个你专门存放科研项目的总文件夹。\n\nUI 缩放：适配各种显示屏\n\n如果你觉得字体太小或界面太挤，可以在 Appearance 中调节 Zoom 比例（推荐 125% 或 150% 用于教学展示）。"
+  },
+  {
+    "objectID": "global_options.html#结语工欲善其事必先利其器",
+    "href": "global_options.html#结语工欲善其事必先利其器",
+    "title": "L4 全局选项设置",
+    "section": "6 结语：工欲善其事，必先利其器",
+    "text": "6 结语：工欲善其事，必先利其器\n\n本讲核心闭环：\n\n统一编码 (UTF-8)：消除跨平台交流障碍；\n净化环境 (Never Save)：确保研究的可重复性；\n视觉微调：营造舒适的编码长跑环境。\n\n\n\n\n\n\n\n\n\n本讲作业\n\n\n\n检查并确认你的 Default text encoding 是否已改为 UTF-8。\n尝试关闭 RStudio，确认它不再弹出“是否保存工作空间”的烦人对话框。"
+  },
+  {
+    "objectID": "m2.html",
+    "href": "m2.html",
+    "title": "模块2 快速起步",
+    "section": "",
+    "text": "L3 讲义"
+  },
+  {
+    "objectID": "m2.html#l3-rstudio界面与基础绘图",
+    "href": "m2.html#l3-rstudio界面与基础绘图",
+    "title": "模块2 快速起步",
+    "section": "",
+    "text": "L3 讲义"
+  },
+  {
+    "objectID": "m2.html#l4-6分钟完成全链路统计分析",
+    "href": "m2.html#l4-6分钟完成全链路统计分析",
+    "title": "模块2 快速起步",
+    "section": "L4 6分钟完成全链路统计分析",
+    "text": "L4 6分钟完成全链路统计分析\n\n L4 讲义"
+  },
+  {
+    "objectID": "m2.html#l5-r包的安装和加载",
+    "href": "m2.html#l5-r包的安装和加载",
+    "title": "模块2 快速起步",
+    "section": "L5 R包的安装和加载",
+    "text": "L5 R包的安装和加载\n\n L5 讲义"
+  },
+  {
+    "objectID": "m2.html#l6-r语言自学力-高效查阅帮助文档",
+    "href": "m2.html#l6-r语言自学力-高效查阅帮助文档",
+    "title": "模块2 快速起步",
+    "section": "L6 R语言自学力: 高效查阅帮助文档",
+    "text": "L6 R语言自学力: 高效查阅帮助文档\n\n L6 讲义"
+  },
+  {
+    "objectID": "m2.html#l7-项目的创建和管理",
+    "href": "m2.html#l7-项目的创建和管理",
+    "title": "模块2 快速起步",
+    "section": "L7 项目的创建和管理",
+    "text": "L7 项目的创建和管理\n\n L7 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块2代码文件 :m1.R"
+  },
+  {
+    "objectID": "L16slide.html#保存数据框",
+    "href": "L16slide.html#保存数据框",
+    "title": "L16 保存输出结果",
+    "section": "1 保存数据框",
+    "text": "1 保存数据框\n保存为CSV格式\n\n# 整理一份汇总数据\nsummary_df &lt;- mtcars |&gt;\n  group_by(cyl) |&gt;\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg) |&gt; round(1),\n    hp_mean  = mean(hp)  |&gt; round(1)\n  )"
+  },
+  {
+    "objectID": "L16slide.html#保存图片",
+    "href": "L16slide.html#保存图片",
+    "title": "L16 保存输出结果",
+    "section": "2 保存图片",
+    "text": "2 保存图片\nggsave()\n\n# 先画一张图\np &lt;- ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  scale_color_manual(values = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\")) +\n  labs(title = \"发动机排量与高速油耗\",\n       x     = \"排量（升）\",\n       y     = \"高速油耗（mpg）\",\n       color = \"驱动方式\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "L16slide.html#将表格导出到-word",
+    "href": "L16slide.html#将表格导出到-word",
+    "title": "L16 保存输出结果",
+    "section": "3 将表格导出到 Word",
+    "text": "3 将表格导出到 Word\n表1 描述性统计量\n\nlibrary(modelsummary)\ndatasummary(mpg + cyl + disp + hp + drat + wt ~ \n                   N + Mean + SD + Median + Min + Max, \n                   data = mtcars, \n                   fmt = 3, \n                   output = 'flextable')  |&gt; \n  theme_apa() |&gt;              # 应用标准 APA 格式\n  autofit() |&gt;                # 自动调整列宽\n  font(fontname = \"Times New Roman\", part = \"all\") |&gt; \n  save_as_docx(path = \"output/Table1_APA_Style.docx\")"
+  },
+  {
+    "objectID": "L16slide.html#常见报错",
+    "href": "L16slide.html#常见报错",
+    "title": "L16 保存输出结果",
+    "section": "4 常见报错",
+    "text": "4 常见报错\n报错1：路径中的反斜杠问题（Windows 用户）\n\n# Windows 复制来的路径用反斜杠，R 中会报错\n# write.csv(df, file = \"C:\\Users\\name\\Desktop\\output.csv\")"
+  },
+  {
+    "objectID": "L16slide.html#小结",
+    "href": "L16slide.html#小结",
+    "title": "L16 保存输出结果",
+    "section": "5 小结",
+    "text": "5 小结\n\n\n\n输出内容\n推荐函数\n常用格式\n\n\n\n\n数据框 → CSV\nwrite.csv()\n.csv\n\n\n数据框 → Excel\nwrite.xlsx()\n.xlsx\n\n\nggplot 图片\nggsave()\n.png .svg .pdf\n\n\n表格 → Word\nflextable\n.docx"
+  },
+  {
+    "objectID": "L6slide.html#为什么要学习r的帮助文档",
+    "href": "L6slide.html#为什么要学习r的帮助文档",
+    "title": "L6R语言自学力高效查阅帮助文档",
+    "section": "1 为什么要学习R的帮助文档？",
+    "text": "1 为什么要学习R的帮助文档？\n\n最权威、最准确的R使用指南\n很多专业函数在网络上很难找到教程\nAI 有时也会给出错误或过时的答案\n掌握帮助文档 = 掌握自学R的能力"
+  },
+  {
+    "objectID": "L6slide.html#查看帮助文档的几种方式",
+    "href": "L6slide.html#查看帮助文档的几种方式",
+    "title": "L6R语言自学力高效查阅帮助文档",
+    "section": "2 查看帮助文档的几种方式",
+    "text": "2 查看帮助文档的几种方式\n\n光标放在函数名上，按F1(Win)/ Fn + F1(Mac), 快速打开帮助。\n在帮助窗口右上角可以搜索关键词"
+  },
+  {
+    "objectID": "L6slide.html#帮助文档的结构",
+    "href": "L6slide.html#帮助文档的结构",
+    "title": "L6R语言自学力高效查阅帮助文档",
+    "section": "3 帮助文档的结构",
+    "text": "3 帮助文档的结构\n\n\n\n\n\n\n\n\n部分\n内容含义\n阅读优先级\n\n\n\n\nTitle\n函数简短标题\n★☆☆\n\n\nDescription\n函数功能描述\n★★★\n\n\nUsage\n函数调用格式（语法）\n★★★★★\n\n\nArguments\n每个参数的详细解释（最重要！）\n★★★★★\n\n\nDetails\n详细计算方法和注意事项\n★★★★\n\n\nValue\n函数返回的结果类型\n★★★★\n\n\nSee Also\n相关推荐函数（超级实用）\n★★★★★\n\n\nExamples\n官方示例代码（最推荐看的部分）\n★★★★★"
+  },
+  {
+    "objectID": "L6slide.html#理解函数的输入和输出",
+    "href": "L6slide.html#理解函数的输入和输出",
+    "title": "L6R语言自学力高效查阅帮助文档",
+    "section": "4 理解函数的输入和输出",
+    "text": "4 理解函数的输入和输出\n\n输入（Input）\n\nUsage：快速了解函数的基本调用格式\nArguments：详细查看每个参数的含义、类型和默认值\n\n输出（Output）\n\nValue：函数运行后返回什么类型的结果，如数值、数据框、图形对象等。\n\n\n\n\n\n\n\n\n\n输入输出的核心概念\n\n\n真正理解一个函数，不是记住所有参数，而是弄清楚：它需要什么输入？会产生什么输出？\n\n\n\n\n\n\n查看R代码\nmpg_hist &lt;- hist(mtcars$mpg, \n                 breaks = \"Sturges\", \n                 col = \"lightgray\", \n                 main = \"MPG Distribution\", \n                 xlab = \"Miles Per Gallon\")"
+  },
+  {
+    "objectID": "L6slide.html#阅读帮助文档的实用技巧",
+    "href": "L6slide.html#阅读帮助文档的实用技巧",
+    "title": "L6R语言自学力高效查阅帮助文档",
+    "section": "5 阅读帮助文档的实用技巧",
+    "text": "5 阅读帮助文档的实用技巧\n数据集也有帮助文档\n\n\n查看R代码\n?mtcars"
+  },
+  {
+    "objectID": "m4.html",
+    "href": "m4.html",
+    "title": "模块4 数据分析实战",
+    "section": "",
+    "text": "L12 讲义"
+  },
+  {
+    "objectID": "m4.html#l13-外部数据文件的导入",
+    "href": "m4.html#l13-外部数据文件的导入",
+    "title": "模块4 数据分析实战",
+    "section": "",
+    "text": "L12 讲义"
+  },
+  {
+    "objectID": "m4.html#l14-数据可视化",
+    "href": "m4.html#l14-数据可视化",
+    "title": "模块4 数据分析实战",
+    "section": "L14 数据可视化",
+    "text": "L14 数据可视化\n\n L14 讲义"
+  },
+  {
+    "objectID": "m4.html#l15-ggstatsplot-统计检验的可视化",
+    "href": "m4.html#l15-ggstatsplot-统计检验的可视化",
+    "title": "模块4 数据分析实战",
+    "section": "L15 ggstatsplot统计检验的可视化",
+    "text": "L15 ggstatsplot统计检验的可视化\n\n L16 讲义"
+  },
+  {
+    "objectID": "m4.html#l16-保存输出结果",
+    "href": "m4.html#l16-保存输出结果",
+    "title": "模块4 数据分析实战",
+    "section": "L16 保存输出结果",
+    "text": "L16 保存输出结果\n\n L17 讲义"
+  },
+  {
+    "objectID": "m4.html#l17-初学者最容易犯的5个低级错误",
+    "href": "m4.html#l17-初学者最容易犯的5个低级错误",
+    "title": "模块4 数据分析实战",
+    "section": "L17 初学者最容易犯的5个低级错误",
+    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+  },
+  {
+    "objectID": "m5.html",
+    "href": "m5.html",
+    "title": "模块5 AI赋能",
+    "section": "",
+    "text": "L18 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块5代码文件 :m5.R"
+  },
+  {
+    "objectID": "m5.html#l18-ai辅助r学习和编程",
+    "href": "m5.html#l18-ai辅助r学习和编程",
+    "title": "模块5 AI赋能",
+    "section": "",
+    "text": "L18 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块5代码文件 :m5.R"
+  },
+  {
+    "objectID": "L12slide.html#什么是管道符",
+    "href": "L12slide.html#什么是管道符",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "1 什么是管道符？",
+    "text": "1 什么是管道符？\n\n管道符 pipe operator: |&gt;把左边的结果自动传递给右边函数的第一个参数。\n管道符快捷键\n\nWin: shift + control + M\nmacOS: Cmd + Shift + M"
+  },
+  {
+    "objectID": "L12slide.html#为什么用管道符",
+    "href": "L12slide.html#为什么用管道符",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "2 为什么用管道符？",
+    "text": "2 为什么用管道符？\n不用管道符，多步操作只能靠嵌套或中间变量：\n\n# 嵌套写法：层层包裹，阅读困难\nresult1 &lt;- round(mean(mtcars$hp), 1)\n# 中间变量写法：代码冗长\nhp_mean  &lt;- mean(mtcars$hp)\nresult2  &lt;- round(hp_mean, 1)\nresult1\n\n[1] 146.7\n\nresult2\n\n[1] 146.7"
+  },
+  {
+    "objectID": "L12slide.html#和-的区别",
+    "href": "L12slide.html#和-的区别",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "3 |> 和 %>% 的区别",
+    "text": "3 |&gt; 和 %&gt;% 的区别\n\n# |&gt;  是 R 4.1+ 内置的原生管道符，无需加载任何包\nmtcars$hp |&gt; mean() |&gt; round(1)\n\n[1] 146.7\n\n# %&gt;% 来自 magrittr 包，加载 dplyr 或 tidyverse 后可用\n# 两者在绝大多数场景下效果完全相同\nmtcars$hp %&gt;% mean() %&gt;% round(1)\n\n[1] 146.7\n\n\n\n\n\n\n\n\nTip\n\n\n\n💡 推荐初学者统一使用 |&gt;，不需要额外加载包。"
+  },
+  {
+    "objectID": "L12slide.html#数据管理常用操作",
+    "href": "L12slide.html#数据管理常用操作",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "4 数据管理常用操作",
+    "text": "4 数据管理常用操作\n筛选行：filter()\n\n# 筛选出 4 缸的车\nmtcars |&gt;\n  filter(cyl == 4)\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nDatsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nMerc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2"
+  },
+  {
+    "objectID": "L12slide.html#串联所有的步骤",
+    "href": "L12slide.html#串联所有的步骤",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "5 串联所有的步骤",
+    "text": "5 串联所有的步骤\n管道符真正的价值在于把多个步骤一气呵成地串联：\n\n# 目标：找出手动挡车中，各气缸数的平均油耗（从高到低排列）\nmtcars |&gt;\n  filter(am == 1) |&gt;                          # 第1步：只保留手动挡\n  mutate(cyl = factor(cyl)) |&gt;               # 第2步：气缸数转为因子\n  group_by(cyl) |&gt;                           # 第3步：按气缸数分组\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg) |&gt; round(1)         # 第4步：计算平均油耗\n  ) |&gt;\n  arrange(desc(mpg_mean))                    # 第5步：从高到低排列\n\n# A tibble: 3 × 3\n  cyl       n mpg_mean\n  &lt;fct&gt; &lt;int&gt;    &lt;dbl&gt;\n1 4         8     28.1\n2 6         3     20.6\n3 8         2     15.4"
+  },
+  {
+    "objectID": "L12slide.html#常见报错",
+    "href": "L12slide.html#常见报错",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "常见报错",
+    "text": "常见报错\n报错1：管道符后忘记写函数\n\n# 管道符后面必须接一个函数，不能接数据框\nmtcars |&gt; cyl\n\nError in cyl: The pipe operator requires a function call as RHS (&lt;input&gt;:2:11)"
+  },
+  {
+    "objectID": "L12slide.html#小结",
+    "href": "L12slide.html#小结",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "6 小结",
+    "text": "6 小结\n\n\n\n函数\n用途\n\n\n\n\nfilter()\n按条件筛选行\n\n\nselect()\n选择保留的列\n\n\nmutate()\n追加新列或修改已有列\n\n\ncase_when()\n多条件重新编码（配合 mutate() 使用）\n\n\narrange()\n按某列排序（desc() 降序）\n\n\ngroup_by()\n按变量分组\n\n\nsummarise()\n对每组计算汇总统计量\n\n\nungroup()\n清除分组标记"
+  },
+  {
+    "objectID": "L8slide.html#c函数的作用",
+    "href": "L8slide.html#c函数的作用",
+    "title": "L8R中的向量思维彻底搞懂c()函数",
+    "section": "1 c()函数的作用",
+    "text": "1 c()函数的作用\n\n把多个值组合成一个向量（combine/concatenate）。\nR 是向量化的世界：\n\n标量（单一数值）在 R 中其实是长度为 1 的向量。\n绝大多数函数（如 mean(), plot()）期望接收一个打包好的“向量包”，而不是散装的数字。。"
+  },
+  {
+    "objectID": "L8slide.html#基础用法",
+    "href": "L8slide.html#基础用法",
+    "title": "L8R中的向量思维彻底搞懂c()函数",
+    "section": "2 基础用法",
+    "text": "2 基础用法\n创建向量\n\n# 创建数值向量\nweights &lt;- c(60, 72, 55, 88)\n\n# 创建字符串向量\nvars &lt;- c(\"mpg\", \"wt\", \"hp\")"
+  },
+  {
+    "objectID": "L8slide.html#容易漏写c的典型场景",
+    "href": "L8slide.html#容易漏写c的典型场景",
+    "title": "L8R中的向量思维彻底搞懂c()函数",
+    "section": "3 容易漏写c()的典型场景",
+    "text": "3 容易漏写c()的典型场景\n创建向量\n\n# x &lt;- 1, 2, 3 # 报错\n\nx &lt;- c(1, 2, 3)"
+  },
+  {
+    "objectID": "L8slide.html#总结无处不在的c函数",
+    "href": "L8slide.html#总结无处不在的c函数",
+    "title": "L8R中的向量思维彻底搞懂c()函数",
+    "section": "4 总结：无处不在的c()函数",
+    "text": "4 总结：无处不在的c()函数\n\n绘图颜色：col = c(\"red\", \"blue\")\n坐标范围：ylim = c(0, 100)\n多行提取：mtcars[c(1:5), ]\n批量安装包：install.packages(c(\"dplyr\", \"ggplot2\"))\n\n记住：在 R 里，凡是“超过一个”的东西，90% 都要用 c() 盒装起来！"
+  },
+  {
+    "objectID": "L2slide.html#核心认知引擎与仪表盘",
+    "href": "L2slide.html#核心认知引擎与仪表盘",
+    "title": "R与RStudio的安装与配置",
+    "section": "1 核心认知：引擎与仪表盘",
+    "text": "1 核心认知：引擎与仪表盘\n\nR：底层的计算引擎\n\n负责所有数据处理、统计分析和图形绘制的核心计算。\n界面简陋（纯命令行），对人类极其不友好。\n\nRStudio：豪华的仪表盘 (IDE)\n\n它是 R 的集成开发环境 (Integrated Development Environment)。\n提供代码高亮、对象查看、图形预览、一键导出等可视化操作。"
+  },
+  {
+    "objectID": "L2slide.html#安装前最致命的排雷",
+    "href": "L2slide.html#安装前最致命的排雷",
+    "title": "R与RStudio的安装与配置",
+    "section": "2 安装前最致命的“排雷”",
+    "text": "2 安装前最致命的“排雷”\n\n\n\n\n\n\n\nWindows 用户的头号杀手：中文路径\n\n\n绝对不要把 R 或 RStudio 安装在包含中文的文件夹下！ 如果您的 Windows 电脑用户名是中文（如 C:\\Users\\张三），日后在安装高阶 R 包时，极易遭遇无法解析的乱码报错。\n\n\n\n\n\n防御策略（Windows）\n\n保持默认安装路径（通常是 C:\\Program Files\\R）。\n确保系统用户名纯英文。如果已经是中文，建议更改环境变量或新建英文账户。"
+  },
+  {
+    "objectID": "L2slide.html#系统的编译环境",
+    "href": "L2slide.html#系统的编译环境",
+    "title": "R与RStudio的安装与配置",
+    "section": "3 系统的编译环境",
+    "text": "3 系统的编译环境\n\n为什么别人的代码能跑，我的会报错？\n\n许多出版级的高级 R 包（如涉及复杂统计模型的包）底层是由 C++ 编写的，需要您电脑里有“翻译官”才能安装。\n\nWindows 用户必备：Rtools\n\n它不是 R 包，而是一个独立的软件，必须去 CRAN 官网额外下载安装。\nhttps://cran.r-project.org/bin/windows/Rtools/\n注意：安装过程中建议保持默认路径，且不要在路径中使用空格或中文字符。"
+  },
+  {
+    "objectID": "L2slide.html#全局设置",
+    "href": "L2slide.html#全局设置",
+    "title": "R与RStudio的安装与配置",
+    "section": "4 全局设置",
+    "text": "4 全局设置\n\nR 的官方仓库 (CRAN)服务器在国外。如果不做配置，安装大体积R包时极易因超时而中断。\n解决方案：将下载通道切换至国内大学（如清华、中科大）的镜像站。\n\n# 这是一个模拟报错的展示\n&gt; install.packages(\"ggplot2\")\n\n[错误提示如下]\nWarning: Timeout of 60 seconds was reached\nError: download of package 'ggplot2' failed"
+  },
+  {
+    "objectID": "L5slide.html#什么是-r-包",
+    "href": "L5slide.html#什么是-r-包",
+    "title": "L5 R包的安装和加载",
+    "section": "1 什么是 R 包？",
+    "text": "1 什么是 R 包？\n\n别人提前写好的一组 R 函数和工具，你装上就能直接用。\n真正让R强大的，其实是：数以万计的R包。\nCRAN Task Views: https://cran.r-project.org/web/views/\nMETACRAN Search and browse all CRAN/R packages: https://www.r-pkg.org/"
+  },
+  {
+    "objectID": "L5slide.html#如何安装r包",
+    "href": "L5slide.html#如何安装r包",
+    "title": "L5 R包的安装和加载",
+    "section": "2 如何安装R包",
+    "text": "2 如何安装R包\n\nCRAN (官方)\n\n最稳定、经过官方审核。\n命令：install.packages(\"tidyverse\")\n\nGitHub (开发者)\n\n最新功能、未正式发布版。\n命令：remotes::install_github(\"作者名/包名\")\n\nBioconductor\n\n专注于基因组数据分析和生物信息学。"
+  },
+  {
+    "objectID": "L5slide.html#加载-r-包",
+    "href": "L5slide.html#加载-r-包",
+    "title": "L5 R包的安装和加载",
+    "section": "3 加载 R 包",
+    "text": "3 加载 R 包\n\n包安装在硬盘，加载则进入内存 (RAM)。\n只有加载了包，R 才能调用包内的函数。\n加载 (Load)：library(psych) 将工具箱搬入内存 (RAM)。\n显式调用 (Direct Call)：无需搬运，直接指定来源。"
+  },
+  {
+    "objectID": "L5slide.html#常见报错",
+    "href": "L5slide.html#常见报错",
+    "title": "L5 R包的安装和加载",
+    "section": "4 常见报错",
+    "text": "4 常见报错\n包不存在\n\nthere is no package called 'xxx'\n原因诊断：\n\n包还没安装。\n包名拼写错误（注意 R 严格区分大小写）"
+  },
+  {
+    "objectID": "L14slide.html#为什么用-ggplot2",
+    "href": "L14slide.html#为什么用-ggplot2",
+    "title": "L14数据可视化",
+    "section": "1 为什么用 ggplot2？",
+    "text": "1 为什么用 ggplot2？\n\nggplot2 是 R 中最流行的可视化包，背后有一套完整的理论体系： 图形语法（Grammar of Graphics）。\n不需要记住每种图的专用函数，只需要掌握一套统一的语法， 就能画出散点图、折线图、柱状图、箱线图……\n\n\n\n\n\n\n\nTip\n\n\nggplot2 的核心理念：一张图 = 数据 + 映射（aes） + 几何图形（geom）"
+  },
+  {
+    "objectID": "L14slide.html#图层的理念",
+    "href": "L14slide.html#图层的理念",
+    "title": "L14数据可视化",
+    "section": "2 图层的理念",
+    "text": "2 图层的理念\nggplot2 用 + 把多个图层叠加在一起，就像在画布上一层一层地添加元素。"
+  },
+  {
+    "objectID": "L14slide.html#理解-aes",
+    "href": "L14slide.html#理解-aes",
+    "title": "L14数据可视化",
+    "section": "3 理解 aes()",
+    "text": "3 理解 aes()\naes() 是 aesthetics（美学映射） 的缩写， 它的作用是把数据中的变量映射到图形的视觉属性上。\n\n\n\n视觉属性\n含义\n示例\n\n\n\n\nx\nx 轴位置\nx = displ\n\n\ny\ny 轴位置\ny = hwy\n\n\ncolor\n点/线的颜色\ncolor = drv\n\n\nfill\n填充颜色\nfill = class\n\n\nsize\n点的大小\nsize = cyl\n\n\nshape\n点的形状\nshape = drv"
+  },
+  {
+    "objectID": "L14slide.html#可视化",
+    "href": "L14slide.html#可视化",
+    "title": "L14数据可视化",
+    "section": "3 可视化",
+    "text": "3 可视化\n\ngeom_point()：散点图\n\ngeom_boxplot()：箱线图\n\ngeom_bar()：柱状图（自动统计频次）\n\ngeom_col()：柱状图（已有汇总数据）\n\ngeom_histogram()：直方图\n\ngeom_density()：密度图"
+  },
+  {
+    "objectID": "L14slide.html#分面facet_wrap",
+    "href": "L14slide.html#分面facet_wrap",
+    "title": "L14数据可视化",
+    "section": "4 分面：facet_wrap()",
+    "text": "4 分面：facet_wrap()\n\n\n\n\n\n\nTip\n\n\n分面（facet）：把一张图按某个变量拆分成多个小图， 适合同时比较多个组别的规律。"
+  },
+  {
+    "objectID": "L14slide.html#标题与主题",
+    "href": "L14slide.html#标题与主题",
+    "title": "L14数据可视化",
+    "section": "5 标题与主题",
+    "text": "5 标题与主题\n\n\n查看R代码\n# labs() 设置所有文字标签\n# theme_*() 控制整体外观风格\nggplot(mpg, aes(x = displ, y = hwy, color = drv)) +\n  geom_point(alpha = 0.7) +\n  scale_color_manual(values = c(\"#8DA0CB\",\"#FC8D62\",\"#66C2A5\"),\n                     labels  = c(\"四驱\", \"前驱\", \"后驱\")) +\n  labs(title    = \"发动机排量与高速油耗\",\n       subtitle = \"按驱动方式分组\",\n       caption  = \"数据来源：ggplot2::mpg\",\n       x        = \"发动机排量（升）\",\n       y        = \"高速油耗（mpg）\",\n       color    = \"驱动方式\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "L14slide.html#常见报错",
+    "href": "L14slide.html#常见报错",
+    "title": "L14数据可视化",
+    "section": "6 常见报错",
+    "text": "6 常见报错\n报错1：用 + 还是 |&gt;？\n\n# ggplot2 的图层之间必须用 +，不能用管道符 |&gt;\n# ggplot(mpg, aes(x = displ, y = hwy)) |&gt;\n#   geom_point()"
+  },
+  {
+    "objectID": "L14slide.html#小结",
+    "href": "L14slide.html#小结",
+    "title": "L14数据可视化",
+    "section": "7 小结",
+    "text": "7 小结\nggplot2 核心结构\nggplot(数据, aes(x = ..., y = ..., color = ...)) +\n  geom_图形类型() +\n  labs(title = ..., x = ..., y = ...) +\n  theme_minimal()"
   }
 ]

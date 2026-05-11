@@ -1,24 +1,49 @@
 ---
-title: "模块3 对象操作基础"
+title: "模块3 构建R语言底层逻辑"
 ---
 
-## L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机
+## L8 R中的向量思维彻底搞懂`c()`函数
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L2 讲义](https://lizongzhang.github.io/r2hours/L1slide.html)
+  [L8 讲义](https://lizongzhang.github.io/r2hours/L8slide.html){target="_blank"}
+</div>
+
+## L9 数据框常用操作
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L9 讲义](https://lizongzhang.github.io/r2hours/L9slide.html){target="_blank"}
+</div>
+
+## L10 缺失值`NA`的处理
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L10 讲义](https://lizongzhang.github.io/r2hours/L10slide.html){target="_blank"}
+</div>
+
+## L11 因子`Factor`的底层逻辑:掌控分类变量的秩序
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L11 讲义](https://lizongzhang.github.io/r2hours/L11slide.html){target="_blank"}
+</div>
+
+## L12 管道符：数据管理的高效工具
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L12 讲义](https://lizongzhang.github.io/r2hours/L12slide.html){target="_blank"}
 </div>
 
 
 
 
-美元符号$运算符：精准列提取与简单数据计算
 
-索引切片[ , ]：R中行列选择的逻辑与实践
 
-代码编写规范：缩进、空格与注释的最佳实践
 
-处理结果导出：将R数据框输出为Excel或WORD文件
+
 
 
 
@@ -26,7 +51,7 @@ title: "模块3 对象操作基础"
 
 ::: {.callout-tip}
 ## 资源下载
-[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
+[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="m3.R"}
 :::
 
 

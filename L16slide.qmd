@@ -1,0 +1,378 @@
+---
+title: L16 保存输出结果
+date: today
+author: 
+  name: "顶刊研习社"
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(modelsummary)
+library(flextable)
+library(officer)
+```
+
+
+
+在开始本节之前，请确保您已安装并加载以下的包：
+
+::: {.callout-tip}
+
+tidyverse: 用于数据清洗、转换与可视化。
+
+modelsummary: 用于快速生成专业的统计模型汇总表。
+
+flextable: 用于创建可高度自定义的表格（支持导出到 Word/PPT）。
+
+officer: 用于通过代码直接操作 Word 或 PowerPoint 文档。
+
+openxlsx：导出数据到Excel文档。
+:::
+
+---
+
+::: {.callout-tip}
+- 📊 **数据框** → 保存为 CSV / Excel
+- 📈 **图片** → 保存为 PNG / SVG / PDF
+- 📋 **表格** → 导出到 Word 文档
+:::
+
+---
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-fold: true
+#| code-summary: "点击查看安装与加载代码"
+
+# 批量安装缺失的包（如果已经安装过，此步可跳过）
+install.packages(c("tidyverse", "modelsummary", "flextable", "officer","openxlsx"))
+
+# 加载包
+library(tidyverse)
+library(modelsummary)
+library(flextable)
+library(officer)
+library(openxlsx)
+```
+
+---
+
+工作目录：先确认文件保存在哪里
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| eval: false
+
+# 查看当前工作目录
+getwd()
+```
+
+:::{.callout-tip}
+所有保存操作默认输出到工作目录。强烈建议使用 **RStudio Project** 管理文件，这样工作目录始终是项目根目录，路径不会因电脑不同而出错。
+
+也可以在文件路径中写明子文件夹，例如 "output/my_plot.png"
+:::
+---
+
+## 1 保存数据框
+
+### 保存为CSV格式
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 整理一份汇总数据
+summary_df <- mtcars |>
+  group_by(cyl) |>
+  summarise(
+    n        = n(),
+    mpg_mean = mean(mpg) |> round(1),
+    hp_mean  = mean(hp)  |> round(1)
+  )
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+summary_df
+# 保存为 CSV（最通用的格式）
+write.csv(summary_df,
+          file      = "output/summary_df.csv",
+          row.names = FALSE)   # 不保存行号
+```
+
+:::{.callout-tip}
+`row.names = FALSE` 几乎是必写的参数，否则 CSV 会多出一列难看的行号（1, 2, 3…）。
+:::
+
+---
+
+### 保存为xlsx格式
+
+```{r}
+#| echo: true
+#| code-fold: false
+library(openxlsx)
+write.xlsx(summary_df,
+           file      = "output/summary_df.xlsx",
+           sheetName = "汇总表",
+           overwrite = TRUE)
+```
+
+
+---
+
+## 2 保存图片
+
+### `ggsave()` 
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 先画一张图
+p <- ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_manual(values = c("#8DA0CB", "#FC8D62", "#66C2A5")) +
+  labs(title = "发动机排量与高速油耗",
+       x     = "排量（升）",
+       y     = "高速油耗（mpg）",
+       color = "驱动方式") +
+  theme_minimal()
+```
+
+---
+
+### 保存为PNG
+
+```{r}
+#| echo: true
+#| code-fold: false
+p
+# 保存为 PNG（适合插入 Word / PPT）
+ggsave(filename = "output/scat_disp_hwy.png",
+       plot     = p,
+       width    = 8,      # 宽度，单位：英寸
+       height   = 5,      # 高度，单位：英寸
+       dpi      = 300)    # 分辨率（300 dpi 适合印刷）
+```
+
+::: {.callout-tip}
+`dpi = 300` 是学术期刊的最低要求，普通屏幕显示用 `dpi = 96` 即可，文件更小。
+:::
+
+---
+
+### 保存为 SVG
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 保存为 SVG（矢量图，放大不失真，适合期刊投稿）
+ggsave(filename = "output/scat_disp_hwy.svg",
+       plot     = p,
+       width    = 8,
+       height   = 5)
+```
+
+---
+
+### 保存为pdf
+
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 保存为 PDF（也是矢量图，适合 LaTeX 和期刊）
+ggsave(filename = "output/scat_disp_hwy.pdf",
+       plot     = p,
+       width    = 8,
+       height   = 5)
+```
+
+---
+
+### PNG vs SVG vs PDF：如何选择？
+
+| 格式 | 类型 | 适合场景 |
+|---|---|---|
+| PNG | 位图 | Word、PPT、网页，dpi ≥ 300 |
+| SVG | 矢量图 | 网页、可编辑图形，放大不失真 |
+| PDF | 矢量图 | 期刊投稿、LaTeX 文档 |
+
+::: {.callout-tip}
+**期刊投稿**首选 **PDF 或 SVG**，放大后线条依然清晰；**Word 文档**用 **PNG**（300 dpi），兼容性最好。
+:::
+
+---
+
+## 3 将表格导出到 Word
+
+### 表1 描述性统计量
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| message: false
+#| warning: false
+library(modelsummary)
+datasummary(mpg + cyl + disp + hp + drat + wt ~ 
+                   N + Mean + SD + Median + Min + Max, 
+                   data = mtcars, 
+                   fmt = 3, 
+                   output = 'flextable')  |> 
+  theme_apa() |>              # 应用标准 APA 格式
+  autofit() |>                # 自动调整列宽
+  font(fontname = "Times New Roman", part = "all") |> 
+  save_as_docx(path = "output/Table1_APA_Style.docx")
+```
+
+
+---
+
+### 回归模型估计结果
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| message: false
+#| warning: false
+# 估计模型
+m1 <- lm(mpg ~ wt, data = mtcars)
+m2 <- lm(mpg ~ wt + hp, data = mtcars)
+m3 <- lm(mpg ~ wt + hp + cyl, data = mtcars)
+
+# 将模型放入一个列表
+models <- list(
+  "Model 1" = m1,
+  "Model 2" = m2,
+  "Model 3" = m3
+)
+```
+
+---
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+#| code-fold: false
+# 一行代码生成回归表
+modelsummary(models, 
+             fmt = 3,                 # 保留三位小数
+             stars = TRUE,            # 自动添加显著性星号 (* p<0.1, ** p<0.05, *** p<0.01)
+             output = "flextable") |> # 转换为可美化的格式
+  theme_apa()  |>                      # 应用 APA 三线表风格
+  autofit()  |>  
+  save_as_docx(path = "output/Table2_Regression_Results.docx")
+```
+
+
+## 4 常见报错
+
+### 报错1：路径中的反斜杠问题（Windows 用户）
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# Windows 复制来的路径用反斜杠，R 中会报错
+# write.csv(df, file = "C:\Users\name\Desktop\output.csv")
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 解决方法1：用正斜杠替换反斜杠
+# write.csv(df, file = "C:/Users/name/Desktop/output.csv")
+
+# 解决方法2：用双反斜杠
+# write.csv(df, file = "C:\\Users\\name\\Desktop\\output.csv")
+
+# 最佳方法：使用 RStudio Project，用相对路径
+# write.csv(df, file = "output/output.csv")
+```
+
+---
+
+### 报错2：文件被Excel或Word占用
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 如果 output.xlsx 正在被 Excel 打开，写入会报错：
+# Error in file(file, "wb") : cannot open the connection
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 解决方法：关闭 Excel / Word 中对应的文件，再重新运行代码
+# 或者换一个文件名
+write.xlsx(summary_df, "output/summary_df_v2.xlsx", overwrite = TRUE)
+```
+
+
+:::{.callout-tip}
+这是 Windows 用户最常遇到的报错原因是 Excel/Word 锁定了文件，R 无法写入。
+:::
+
+
+---
+
+## 5 小结
+
+| 输出内容 | 推荐函数 | 常用格式 |
+|---|---|---|
+| 数据框 → CSV | `write.csv()` | `.csv` |
+| 数据框 → Excel | `write.xlsx()` | `.xlsx` |
+| ggplot 图片 | `ggsave()` | `.png` `.svg` `.pdf` |
+| 表格 → Word | `flextable`| `.docx` |
+
+

@@ -1,0 +1,239 @@
+---
+title: "L8<br>R中的向量思维<br>彻底搞懂`c()`函数" 
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## 1 `c()`函数的作用
+
+- 把多个值组合成一个向量（combine/concatenate）。
+
+- **R 是向量化的世界**：
+    
+    - 标量（单一数值）在 R 中其实是**长度为 1 的向量**。
+    
+    - 绝大多数函数（如 `mean()`, `plot()`）期望接收一个打包好的“向量包”，而不是散装的数字。。
+
+## 2 基础用法
+
+
+
+### 创建向量
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 创建数值向量
+weights <- c(60, 72, 55, 88)
+
+# 创建字符串向量
+vars <- c("mpg", "wt", "hp")
+
+```
+
+---
+
+### 向量类型优先级转换
+
+- 逻辑型 < 整数型 < 数值型 < 字符型
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 逻辑值遇到数值，TRUE/FALSE 变成 1/0
+c(TRUE, FALSE, 3)
+
+# 数值遇到字符，数值变成字符串
+c(1, 2, "three")
+
+# 三种类型混合，全部变成字符串
+c(TRUE, 1L, 3.14, "hello")
+```
+
+
+---
+
+`c() `永远只返回一维向量。
+
+```{r}
+#| echo: true
+#| code-fold: false
+a <- c(1, 2, 3)
+b <- c(4, 5, 6)
+
+# `c() `合并两个向量，不会产生嵌套，结果仍是一维向量
+c(a, b)
+
+# 等价于
+c(1, 2, 3, 4, 5, 6)
+```
+
+
+## 3 容易漏写`c()`的典型场景
+
+### 创建向量
+
+```{r}
+#| echo: true
+#| code-fold: false
+ 
+# x <- 1, 2, 3 # 报错
+
+x <- c(1, 2, 3)
+```
+
+---
+
+### 索引
+
+在提取多个位置的元素时，漏写 `c()` 会改变代码的本质逻辑。
+
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 这实际上提取的是第 1 行、第 2 列的一个数值
+# mtcars[1, 2]
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 提取第 1 行和第 2 行的所有列
+mtcars[c(1, 2), ]
+```
+
+
+---
+
+
+```{r}
+#| echo: true
+#| code-fold: false
+vec <- c("A", "B", "C", "D")
+
+# vec[1, 2, 3]  # ❌ 错误：R 认为你在传 3 个不同的坐标
+
+# 正确：提取第 1、2、3 个元素
+vec[c(1, 2, 3)]
+```
+
+---
+
+### 参数传递多个值
+
+```{r}
+#| echo: true
+#| code-fold: false
+plot(as.factor(mtcars$cyl), mtcars$mpg,
+     col = c("#8DA0CB", "#FC8D62", "#66C2A5"), #三种颜色用c()组合成一个向量
+     border = "gray40",
+     las = 1,
+     ylim = c(0, 40), #调整Y轴刻度范围, 也需要用`c()`
+     main = "MPG Distribution by Engine Cylinders",
+     xlab = "Number of Cylinders",
+     ylab = "Miles/(US) gallon",
+     font.main = 2
+)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# sapply(mtcars, function(x) Mean = mean(x), Sd = sd(x)) #报错
+
+sapply(mtcars, function(x) c(Mean = mean(x), Sd = sd(x)))
+```
+
+---
+
+### 逻辑判断 %in%
+
+- %in% 用于判断一个元素是否存在于一个向量中。
+
+- 当你需要判断一个值是否属于多个可能的值时，必须使用 `c()` 来组合这些值成一个向量。
+
+```{r}
+#| echo: true
+#| code-fold: false
+x <- 1
+
+# x %in% 1, 2, 3    #报错
+x %in% c(1, 2, 3)
+```
+
+----
+
+提取：4缸或6缸的汽车。
+
+```{r}
+#| echo: true
+#| code-fold: false
+mtcars[mtcars$cyl %in% c(4, 6), ]
+```
+
+----
+
+### 不要把变量命名为 `c`
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 尽量避免这种写法
+c <- 10 
+x <- c(c, 20, 30) # 虽然能运行，但极易混淆
+```
+
+
+## 4 总结：无处不在的`c()`函数
+
+- 绘图颜色：`col = c("red", "blue")`
+
+- 坐标范围：`ylim = c(0, 100)`
+
+- 多行提取：`mtcars[c(1:5), ]`
+
+- 批量安装包：`install.packages(c("dplyr", "ggplot2"))`
+
+记住：在 R 里，凡是“超过一个”的东西，90% 都要用 c() 盒装起来！
+
+
+
+
+

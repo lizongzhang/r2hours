@@ -1,19 +1,43 @@
 ---
-title: "模块4 AI辅助R编程"
+title: "模块4 数据分析实战"
 ---
 
-## L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机
+## L13 外部数据文件的导入
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L2 讲义](https://lizongzhang.github.io/r2hours/L1slide.html)
+  [L12 讲义](https://lizongzhang.github.io/r2hours/L12slide.html){target="_blank"}
+</div>
+
+## L14 数据可视化
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L14 讲义](https://lizongzhang.github.io/r2hours/L14slide.html){target="_blank"}
 </div>
 
 
+## L15 `ggstatsplot`<br>统计检验的可视化
 
-Prompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L16 讲义](https://lizongzhang.github.io/r2hours/L16slide.html){target="_blank"}
+</div>
 
-报错信息分析：利用AI解读与定位R错误根源的有效方法
+## L16 保存输出结果
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L17 讲义](https://lizongzhang.github.io/r2hours/L17slide.html){target="_blank"}
+</div>
+
+## L17 初学者最容易犯的5个低级错误
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L17 讲义](https://lizongzhang.github.io/r2hours/L11slide.html){target="_blank"}
+</div>
+
 
 
 

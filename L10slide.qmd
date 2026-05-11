@@ -1,0 +1,448 @@
+---
+title: "L10<br>缺失值`NA`的处理"
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## 1 什么是 NA？
+
+- `NA`（Not Available）是 R 中表示**缺失值**的专用符号。
+
+- 它不是数字 `0`，不是空字符串 `""`，也不是 `NULL`，它代表"**这个值本来应该有，但我们不知道它是什么**"。
+
+- 现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误……
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# NA 有不同的"类型"，但通常统一写作 NA
+NA          # 逻辑型 NA（默认）
+NA_real_    # 数值型 NA
+NA_integer_ # 整数型 NA
+NA_character_ # 字符型 NA
+
+# NA 的类型判断
+is.na(NA)
+```
+
+---
+
+## 2 构造含 NA 的演示数据框
+
+> 💡 本节使用一个手动构造的小数据框演示，方便观察 NA 的行为。
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+df <- data.frame(
+  name   = c("张三", "李四", "王五", "赵六", "钱七", "周九", "吴十"),
+  age    = c(22, NA, 25, 21, NA, 28, 24),
+  score  = c(88.5, 92.0, NA, 55.5, 85.0, 91.0, 78.5),
+  passed = c(TRUE, TRUE, NA, FALSE, TRUE, TRUE, TRUE)
+)
+
+df
+```
+
+---
+
+## 3 检测 NA
+
+### `is.na()` — 逐元素判断是否为 NA
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 对整个数据框，返回同形状的逻辑矩阵
+is.na(df)
+```
+
+---
+
+### 统计每列有多少个 NA
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# colSums() 对逻辑矩阵按列求和，TRUE 计为 1
+colSums(is.na(df))
+```
+
+### 统计每行有多少个 NA
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+rowSums(is.na(df))
+```
+
+---
+
+### 快速查看整体缺失情况
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 缺失值总数
+sum(is.na(df))
+
+# 缺失值比例（按列）
+colMeans(is.na(df))
+```
+
+> 💡 `colMeans(is.na(df))` 是一行代码摸清每列缺失率的常用技巧。
+
+---
+
+## 4 NA让计算结果报错
+
+### 均值、求和等聚合函数返回 NA
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# age 列含有 NA，mean() 直接返回 NA
+mean(df$age)
+sum(df$age)
+max(df$age)
+min(df$age)
+```
+
+> ⚠️ 这**不是报错**，R 正常运行了，但结果是 `NA`。  
+> 初学者常以为代码写错了，其实是数据中存在缺失值。
+
+---
+
+### 解决方法：加上 `na.rm = TRUE`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# na.rm = TRUE 表示"计算前先忽略 NA"
+mean(df$age,  na.rm = TRUE)
+sum(df$age,   na.rm = TRUE)
+max(df$age,   na.rm = TRUE)
+min(df$age,   na.rm = TRUE)
+```
+
+> 💡 `na.rm` 是 **NA remove** 的缩写，几乎所有数值聚合函数都支持这个参数：
+> `mean()` `sum()` `max()` `min()` `sd()` `var()` `median()` `range()` ……
+
+---
+
+> ⚠️ 永远不能用 `x == NA` 判断某个值是否缺失，必须用 `is.na(x)`！
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+x <- NA
+
+x == NA    # 错误：返回 NA，不是 TRUE
+is.na(x)   # 正确：返回 TRUE
+```
+
+---
+
+### `cor()` 相关系数矩阵报错
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 含 NA 的列直接计算相关系数，返回 NA
+cor(df$age, df$score)
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 解决方法：指定 use 参数
+cor(df$age, df$score, use = "complete.obs")
+```
+
+> 💡 `use = "complete.obs"` 表示只用两列都不缺失的行来计算。
+
+---
+
+### 线性回归 `lm()` 默认删除含 NA 的行
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# lm() 不报错，但会自动删掉含 NA 的行
+model <- lm(score ~ age, data = df)
+summary(model)
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 查看实际参与建模的观测数
+nobs(model)        # 实际使用的行数
+nrow(df)           # 原始数据行数
+```
+
+> ⚠️ `lm()` 悄悄删了含 NA 的行，**不报错不提醒**，样本量可能已经大幅缩水！
+> 建模前务必先检查缺失情况。
+
+---
+
+### `table()` 默认不统计 NA
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 默认不显示 NA 的频次
+table(df$passed)
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 加上 useNA = "ifany" 才会显示 NA 的数量
+table(df$passed, useNA = "ifany")
+
+# useNA = "always" 无论有没有 NA 都显示
+table(df$passed, useNA = "always")
+```
+
+---
+
+### `which()` 与 NA 的陷阱
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 想找 age > 21 的行号
+which(df$age > 21)
+
+# which() 会自动忽略 NA，不报错
+# 但筛选时如果直接用逻辑向量，NA 会被保留为"不确定行"
+df[df$age > 21, ]       # 含 NA 行也会出现（以 NA 行形式）
+```
+
+---
+
+用 which() 避免 NA 行混入结果
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 正确写法：用 which() 避免 NA 行混入结果
+df[which(df$age > 21), ]
+```
+
+---
+
+## 4 处理 NA 的常用方法
+
+### 方法1：删除含 NA 的行 — `na.omit()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 删除任意列含 NA 的行
+df_clean <- na.omit(df)
+df_clean
+```
+
+> ⚠️ `na.omit()` 只要某行**任意一列**有 NA，就整行删除。  
+> 数据列多时可能损失大量样本，需谨慎使用。
+
+---
+
+### 方法2：只删除特定列含 NA 的行
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 只删除 age 列为 NA 的行
+df_age_clean <- df[!is.na(df$age), ]
+df_age_clean
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 同时要求 age 和 score 都不缺失
+df_both_clean <- df[!is.na(df$age) & !is.na(df$score), ]
+df_both_clean
+```
+
+---
+
+### 方法3：用指定值填补 NA — `replace()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 用均值填补 age 列的 NA（均值插补）
+age_mean <- mean(df$age, na.rm = TRUE)
+
+df$age_filled <- replace(df$age, is.na(df$age), age_mean)
+
+df[, c("age", "age_filled")]
+```
+
+---
+
+### 方法4：用 `ifelse()` 填补
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 将 score 列的 NA 填补为 0
+df$score_filled <- ifelse(is.na(df$score), 0, df$score)
+
+df[, c("score", "score_filled")]
+```
+
+---
+
+### 方法5：`complete.cases()` — 筛选完整行
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 返回每行是否"完整"（无任何 NA）的逻辑向量
+complete.cases(df)
+
+# 用于筛选完整行（等价于 na.omit，但更灵活）
+df[complete.cases(df), ]
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 也可以只针对某几列判断完整性
+df[complete.cases(df[, c("age", "score")]), ]
+```
+
+---
+
+## 5 实战：用真实数据集检查 NA
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# R 内置的 airquality 数据集含有缺失值
+data(airquality)
+
+# 第一步：str() 了解结构
+str(airquality)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 第二步：检查缺失情况
+colSums(is.na(airquality))
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 第三步：描述统计（summary 会自动显示 NA 的数量）
+summary(airquality)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 第四步：计算含 NA 列的均值，记得加 na.rm = TRUE
+mean(airquality$Ozone, na.rm = TRUE)
+mean(airquality$Solar.R, na.rm = TRUE)
+```
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 第五步：删除含 NA 的行后再建模
+air_clean <- na.omit(airquality)
+nrow(airquality)    # 原始行数
+nrow(air_clean)     # 清洗后行数
+
+model <- lm(Ozone ~ Solar.R + Wind + Temp, data = air_clean)
+summary(model)
+```
+
+---
+
+## 6 小结
+
+### 遇到 NA 时
+
+```
+① 检测  →  is.na() / colSums(is.na()) / summary()
+② 定位  →  哪些列？缺多少？什么规律？
+③ 决策  →  删除？填补？保留？
+④ 处理  →  na.omit() / !is.na() / replace() / ifelse()
+⑤ 验证  →  再次运行 colSums(is.na()) 确认处理结果
+```
+
+
+

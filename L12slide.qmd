@@ -1,0 +1,477 @@
+---
+title: "L12<br>掌握管道符实现高效数据管理"
+date: today
+author: 
+  name: "顶刊研习社"
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+本节使用R自带的数据集：mtcars
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| message: false
+library(tidyverse)
+head(mtcars)
+```
+---
+
+本节重点关注以下几列：
+
+| 变量 | 含义 | 取值 |
+|---|---|---|
+| `mpg` | 油耗（英里/加仑）| 数值 |
+| `cyl` | 气缸数 | 4 / 6 / 8 |
+| `hp` | 马力 | 数值 |
+| `wt` | 车重（千磅）| 数值 |
+| `am` | 变速箱类型 | 0（自动）/ 1（手动）|
+
+---
+
+## 1 什么是管道符？
+
+- 管道符 pipe operator:  `|>`把**左边的结果**自动传递给**右边函数的第一个参数**。
+
+- 管道符快捷键
+
+    - Win: shift + control + M
+
+    - macOS: Cmd + Shift + M
+
+---    
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 没有管道符：从内到外嵌套，要从右往左读
+round(mean(sqrt(mtcars$hp)), 2)
+# 有管道符：从左到右，像在读一个步骤清单
+mtcars$hp |> sqrt() |> mean() |> round(2)
+```
+:::{callout-tip}
+`x |> f()` 等价于 `f(x)`  
+`x |> f() |> g()` 等价于 `g(f(x))`
+:::
+
+---
+
+## 2 为什么用管道符？
+
+不用管道符，多步操作只能靠**嵌套**或**中间变量**：
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 嵌套写法：层层包裹，阅读困难
+result1 <- round(mean(mtcars$hp), 1)
+# 中间变量写法：代码冗长
+hp_mean  <- mean(mtcars$hp)
+result2  <- round(hp_mean, 1)
+result1
+result2
+```
+
+---
+
+用管道符，步骤清晰，**从上到下、从左到右**地读：
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 管道符写法：每一步做什么，一目了然
+result <- mtcars$hp |> mean() |> round(1)
+result
+```
+
+::: {.callout-tip}
+代码要让人读懂，不只是让机器执行。  
+管道符让代码的**逻辑顺序**与**书写顺序**保持一致。
+:::
+
+---
+
+## 3 `|>` 和 `%>%` 的区别
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# |>  是 R 4.1+ 内置的原生管道符，无需加载任何包
+mtcars$hp |> mean() |> round(1)
+
+# %>% 来自 magrittr 包，加载 dplyr 或 tidyverse 后可用
+# 两者在绝大多数场景下效果完全相同
+mtcars$hp %>% mean() %>% round(1)
+```
+
+:::{.callout-tip}
+> 💡 推荐初学者统一使用 `|>`，不需要额外加载包。
+:::
+
+---
+
+- 默认情况下，RStudio中的管道符对应的是 %>%。
+
+- 如果你想使用 R 4.1+ 的原生管道符 |>，需要按以下步骤设置：
+
+    - 点击菜单栏的 Tools -> Global Options...
+
+    - 在左侧选择 Code。
+
+    - 在 Editing 选项卡中，找到并勾选：
+
+        - "Use native pipe operator, |> (requires R 4.1+)"
+
+        - 点击 OK。
+
+        - 设置完成后，再次按下 Ctrl/Cmd + Shift + M，就会自动输入 |> 了
+
+---        
+
+## 4 数据管理常用操作
+
+### 筛选行：`filter()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 筛选出 4 缸的车
+mtcars |>
+  filter(cyl == 4)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 多条件筛选：4 缸且手动挡
+mtcars |>
+  filter(cyl == 4, am == 1)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 油耗大于 25 或马力大于 200
+mtcars |>
+  filter(mpg > 25 | hp > 200)
+```
+
+---
+
+### 选择列：`select()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 只保留需要的列
+mtcars |>
+  select(mpg, cyl, hp, wt, am) |>
+  head(5)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 去掉不需要的列（在列名前加 -）
+mtcars |>
+  select(-qsec, -vs, -gear, -carb) |>
+  head(5)
+```
+
+---
+
+### 追加变量：`mutate()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 追加一列：将油耗从 mpg 换算为 km/L
+mtcars |>
+  mutate(kpl = mpg * 0.425) |>
+  select(mpg, kpl) |>
+  head(5)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 同时追加多列
+mtcars |>
+  mutate(
+    kpl    = mpg * 0.425,          # 油耗换算
+    wt_kg  = wt * 453.6            # 车重换算为千克
+  ) |>
+  select(mpg, kpl, wt, wt_kg) |>
+  head(5)
+```
+
+---
+
+### 重新编码：`mutate()` + `case_when()`
+
+`case_when()` 是 `ifelse()` 的升级版，可以处理**多个条件**。
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 将连续的 mpg 重新编码为"低/中/高"油耗分组
+mtcars |>
+  mutate(
+    mpg_group = case_when(
+      mpg < 18             ~ "低油耗",
+      mpg >= 18 & mpg < 25 ~ "中油耗",
+      mpg >= 25            ~ "高油耗"
+    )
+  ) |>
+  select(mpg, mpg_group) |>
+  head(8)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 将 am（0/1）重新编码为有意义的标签
+mtcars |>
+  mutate(
+    am_label = case_when(
+      am == 0 ~ "自动挡",
+      am == 1 ~ "手动挡"
+    )
+  ) |>
+  select(am, am_label) |>
+  head(8)
+```
+
+:::{callout-tip}
+`case_when()` 的语法：`条件 ~ "赋值"`，从上到下逐条匹配，匹配到第一个成立的条件就停止。
+:::
+
+---
+
+### 排序：`arrange()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 按油耗从低到高排列
+mtcars |>
+  select(mpg, cyl, hp) |>
+  arrange(mpg) |>
+  head(5)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 按油耗从高到低排列（加 desc()）
+mtcars |>
+  select(mpg, cyl, hp) |>
+  arrange(desc(mpg)) |>
+  head(5)
+```
+
+---
+
+### 分组汇总：`group_by()` + `summarise()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 按气缸数分组，计算各组的平均油耗和平均马力
+mtcars |>
+  group_by(cyl) |>
+  summarise(
+    n        = n(),
+    mpg_mean = mean(mpg)  |> round(1),
+    hp_mean  = mean(hp)   |> round(1)
+  )
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 按气缸数和变速箱类型双重分组
+mtcars |>
+  mutate(am_label = ifelse(am == 0, "自动挡", "手动挡")) |>
+  group_by(cyl, am_label) |>
+  summarise(
+    n        = n(),
+    mpg_mean = mean(mpg) |> round(1),
+    .groups  = "drop"
+  )
+```
+
+---
+
+## 5 串联所有的步骤
+
+管道符真正的价值在于把多个步骤**一气呵成**地串联：
+
+```{r}
+#| echo: true
+#| code-fold: false
+# 目标：找出手动挡车中，各气缸数的平均油耗（从高到低排列）
+mtcars |>
+  filter(am == 1) |>                          # 第1步：只保留手动挡
+  mutate(cyl = factor(cyl)) |>               # 第2步：气缸数转为因子
+  group_by(cyl) |>                           # 第3步：按气缸数分组
+  summarise(
+    n        = n(),
+    mpg_mean = mean(mpg) |> round(1)         # 第4步：计算平均油耗
+  ) |>
+  arrange(desc(mpg_mean))                    # 第5步：从高到低排列
+```
+
+---
+
+::: {.callout-tip}
+如何写好管道符代码
+
+- 每个 `|>` 后**换行**，保持一步一行的格式
+- 用**缩进**对齐，让结构清晰
+- 每一行加**注释**说明这一步做什么
+- 中间可以随时插入 `head()` 或 `str()` 检查结果
+:::
+
+---
+
+## 常见报错
+
+### 报错1：管道符后忘记写函数
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 管道符后面必须接一个函数，不能接数据框
+mtcars |> cyl
+```
+
+---
+
+### 报错2：`|>` 写成了 `>`
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 少写了一个 |，变成了比较运算符
+# mtcars > head()   # 完全不同的含义
+
+# 正确
+mtcars |> head()
+```
+
+---
+
+### 报错3：`group_by()` 后忘记 `summarise()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# group_by() 本身不改变数据，只是"打了标记"
+# 忘记接 summarise()，数据看起来没有变化
+mtcars |>
+  group_by(cyl) |>
+  head(3)         # 看起来正常，但其实还带着分组标记
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 不需要分组时，记得用 ungroup() 清除分组标记
+mtcars |>
+  group_by(cyl) |>
+  mutate(mpg_centered = mpg - mean(mpg)) |>
+  ungroup() |>
+  select(cyl, mpg, mpg_centered) |>
+  head(5)
+```
+
+---
+
+## 6 小结
+
+| 函数 | 用途 |
+|---|---|
+| `filter()` | 按条件筛选**行** |
+| `select()` | 选择保留的**列** |
+| `mutate()` | 追加新列或修改已有列 |
+| `case_when()` | 多条件重新编码（配合 `mutate()` 使用）|
+| `arrange()` | 按某列排序（`desc()` 降序）|
+| `group_by()` | 按变量分组 |
+| `summarise()` | 对每组计算汇总统计量 |
+| `ungroup()` | 清除分组标记 |
+
+---
+
+::: {.callout-warning}
+1. **`|>`** 后面必须接函数，每步换行，保持代码可读性
+
+2. **`case_when()`** 从上到下逐条匹配，  
+   条件之间有重叠时，**顺序很重要**
+
+3. **`group_by()`** 之后记得 `summarise()` 或 `ungroup()`，  
+   否则分组标记会悄悄影响后续所有操作
+:::

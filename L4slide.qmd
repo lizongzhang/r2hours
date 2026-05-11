@@ -1,0 +1,206 @@
+---
+title: "L4<br>6分钟完成全链路统计分析"
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+只使用**基础R（Base R）**，不加载任何额外包，在6分钟左右完成一次**完整统计分析流程**，快速感受R的强大与简洁。
+
+- 描述性统计
+- 数据可视化
+- 独立性检验
+- t检验
+- 方差分析（ANOVA）
+- 线性回归
+
+---
+
+## 1 描述统计
+
+### five-number summary（五数概括）
+
+```{r}
+#| echo: true
+# 描述性统计量
+summary(mtcars)
+```
+
+---
+
+### descriptive statistics（描述性统计）
+
+```{r}
+#| echo: true
+sapply(mtcars, 
+       function(x) c(Mean = mean(x), Sd = sd(x), Median = median(x), Min = min(x), Max = max(x)))
+
+```
+
+---
+
+## 2 可视化
+
+### histogram（直方图）
+
+```{r}
+#| echo: true
+hist(mtcars$mpg, 
+     col = "lightblue", 
+     border = "white", 
+     main = "Distribution of Miles Per Gallon",
+     xlab = "Miles/(US) gallon",
+     ylab = "Frequency",
+     ylim = c(0, 14),
+     las = 1)
+
+```
+
+---
+
+### 条形图
+
+```{r}
+#| echo: true
+plot(as.factor(mtcars$cyl), as.factor(mtcars$am), 
+     col = c("lightblue", "salmon"), 
+     main = "Cylinders vs Transmission",
+     xlab = "Cylinders", 
+     ylab = "Transmission (0=Auto, 1=Manual)")
+
+```
+
+---
+
+### 分组箱线图
+
+
+```{r}
+#| echo: true
+plot(as.factor(mtcars$am), mtcars$mpg,
+     col = c("lightblue", "salmon"),
+     cex = 1.5,
+     main = "Transmission Type & MPG",
+     xlab = "Transmission (0 = automatic, 1 = manual)",
+     ylab = "Miles/(US) gallon",
+     las = 1
+)
+
+```
+
+---
+
+### 分组箱线图
+
+
+```{r}
+#| echo: true
+plot(as.factor(mtcars$cyl), mtcars$mpg,
+     col = c("#8DA0CB", "#FC8D62", "#66C2A5"), 
+     cex = 1.5,
+     main = "MPG by Number of Cylinders",
+     xlab = "Number of Cylinders",
+     ylab = "Miles/(US) gallon",
+     las = 1,
+     horizontal = TRUE
+)
+
+```
+
+---
+
+### 散点图
+
+
+```{r}
+#| echo: true
+plot(mtcars$wt, mtcars$mpg,
+     col = "lightblue", 
+     pch = 19,
+     cex = 1.5,
+     main = "Weight & MPG",
+     xlab = "Weight (1000 lbs)",
+     ylab = "Miles/(US) gallon"
+)
+```
+
+
+---
+
+## 3 统计检验
+
+### 独立性检验
+
+```{r}
+#| echo: true
+fisher.test(table(mtcars$cyl, mtcars$am))
+
+
+```
+
+---
+
+### t检验
+
+```{r}
+#| echo: true
+t.test(mtcars$mpg ~ mtcars$am)
+
+
+```
+
+---
+
+### 方差分析（ANOVA）
+
+```{r}
+#| echo: true
+aov_result <- aov(mpg ~ as.factor(cyl), data = mtcars)
+summary(aov_result)
+
+```
+
+---
+
+
+## 4 线性回归
+
+```{r}
+#| echo: true
+model1 <- lm(mpg ~ wt + cyl + am, data = mtcars)
+summary(model1)
+
+```
+
+---
+

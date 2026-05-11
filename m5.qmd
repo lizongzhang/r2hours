@@ -1,0 +1,22 @@
+---
+title: "模块5 AI赋能"
+---
+
+## L18 AI辅助R学习和编程
+
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L18 讲义](https://lizongzhang.github.io/r2hours/L18slide.html){target="_blank"}
+</div>
+
+
+
+::: {.callout-tip}
+## 资源下载
+[点击下载模块5代码文件 :m5.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="m5.R"}
+:::
+
+
+
+
+

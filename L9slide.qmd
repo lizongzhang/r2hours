@@ -1,0 +1,492 @@
+---
+title: "L9<br>数据框常用操作"
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## 1 什么是数据框？
+
+- 数据框（`data.frame`）是 R 中最常用的数据结构，类似于 Excel 表格。
+- **行**代表观测（observation），**列**代表变量（variable）。
+- 每列可以是不同的类型（数值、字符、逻辑值……），但同一列内类型必须一致。
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 手动创建一个数据框
+df <- data.frame(
+  name    = c("张三", "李四", "王五", "赵六"),
+  age     = c(22, 25, 21, 23),
+  score   = c(88.5, 92.0, 75.5, 85.0),
+  passed  = c(TRUE, TRUE, FALSE, TRUE)
+)
+
+df
+```
+
+---
+
+> 💡 本节使用 R 内置数据集 `mtcars` 演示，无需加载任何包。
+> 运行 `?mtcars` 可查看变量说明。
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 查看 mtcars 的变量说明
+# ?mtcars
+head(mtcars)
+```
+
+---
+
+## 2 快速查看数据：head() 和 tail()
+
+### `head()` — 查看前几行
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 默认显示前 6 行
+head(mtcars)
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 指定显示前 3 行
+head(mtcars, 3)
+```
+
+---
+
+### `tail()` — 查看后几行
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 默认显示后 6 行
+tail(mtcars)
+```
+
+---
+
+## 3 查看数据结构：str()
+
+`str()` 是初学者最应该养成习惯的函数，拿到数据第一件事就应该运行它。
+
+> 💡 `str()` 一次性告诉你：
+>
+> - 数据框有多少**行**和多少**列**
+> - 每列的**变量名**和**数据类型**
+> - 每列的**前几个值**
+
+---
+
+### 数据结构概览`str()`
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+str(mtcars)
+```
+
+---
+
+### 行数和列数
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 行数和列数
+nrow(mtcars)
+ncol(mtcars)
+dim(mtcars)      # 同时返回行数和列数
+```
+
+---
+
+### 列名和行名
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 列名
+names(mtcars)       # 等价于 colnames(mtcars)
+
+# 行名
+rownames(mtcars) |> head(5)
+```
+
+
+
+---
+
+## 4 描述性统计：summary()
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+summary(mtcars)
+```
+
+---
+
+### 只对某几列做 summary()
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+summary(mtcars[, c("mpg", "hp", "wt")])
+```
+
+---
+
+## 4 用 `$` 访问某一列
+
+`$` 是访问数据框列的最直接方式，返回该列的**向量**。
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 提取 mpg 列
+mtcars$mpg
+```
+
+---
+
+### `$` 的常见用法
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 计算某列的均值
+mean(mtcars$mpg)
+
+# 查看某列的唯一值
+unique(mtcars$cyl)
+
+# 统计某列的频次
+table(mtcars$cyl)
+```
+
+---
+
+### 用 `$` 新增某列
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+df <- head(mtcars, 5)   # 取前5行演示
+
+# 新增一列：将 mpg 换算成 km/L（1 mpg ≈ 0.425 km/L）
+df$kpl <- df$mpg * 0.425
+
+df[, c("mpg", "kpl")]
+```
+
+---
+
+### 用 `$` 删除某列
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+df$kpl <- NULL   # 赋值为 NULL 即删除该列
+
+names(df)
+```
+
+:::{caution}
+⚠️ `df$不存在的列名`不会报错，只会返回`NULL`，这是常见的隐蔽错误！
+:::
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+mtcars$xyz   # 返回 NULL，不报错
+```
+
+---
+
+### 修改列名
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+df <- head(mtcars, 3)
+
+# 修改全部列名
+# names(df) <- c("新名1", "新名2", ...)
+
+# 只修改某一列的列名（推荐）
+names(df)[names(df) == "mpg"] <- "miles_per_gallon"
+
+names(df)
+```
+
+---
+
+## 5 用 `[ ]` 按位置或名称索引
+
+数据框是**二维**的，所以 `[ ]` 里要写**两个**维度：`[行, 列]`。
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# [行索引, 列索引]
+# 逗号左边 = 行，右边 = 列
+# 留空表示"全部"
+
+# 第 1 行，第 2 列
+mtcars[1, 2]
+```
+
+---
+
+### 提取多行多列
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 第 1~3 行，第 1~3 列
+mtcars[1:3, 1:3]
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 第 1 行和第 3 行，所有列（逗号右边留空）
+mtcars[c(1, 3), ]
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 所有行，只要 mpg 和 hp 列（逗号左边留空）
+mtcars[, c("mpg", "hp")] |> head(3)
+```
+
+---
+
+### 用列名提取
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 用列名字符串索引
+mtcars[1:5, "mpg"]
+
+# 等价于
+mtcars$mpg[1:5]
+```
+
+---
+
+### 用逻辑条件筛选行
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 筛选 mpg > 25 的行
+mtcars[mtcars$mpg > 25, ]
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 多条件：mpg > 20 且 cyl == 4
+mtcars[mtcars$mpg > 20 & mtcars$cyl == 4, ]
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# cyl 为 4 或 6（用 %in% + c()）
+mtcars[mtcars$cyl %in% c(4, 6), ] |> head(4)
+```
+
+
+---
+
+## 6 常见报错场景
+
+### 索引超出范围
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# mtcars 只有 32 行
+mtcars[100, ]   # 返回 NA 行，不报错但结果异常
+
+# 列索引超出范围则报错
+mtcars[1, 100]
+```
+
+---
+
+### 二维索引用在向量上
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+x <- c(10, 20, 30, 40, 50)
+
+# 向量只有一维，不能用 [行, 列] 的写法
+x[1, 3]
+```
+
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 正确：向量只用一个索引
+x[c(1, 3)]
+```
+
+---
+
+### 列名拼写错误
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# 列名拼错，$ 不报错，返回 NULL
+mtcars$MPG        # 注意：R 列名区分大小写
+mtcars$mileage    # 不存在的列名
+```
+
+> ⚠️ R **区分大小写**，`mpg` 和 `MPG` 是完全不同的列名。
+> 用 `names(df)` 先确认列名再操作！
+
+---
+
+### 筛选时忘写数据框名
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 错误：条件里 mpg 没有指定来自哪个数据框
+# mtcars[mpg > 25, ]
+
+# 正确
+mtcars[mtcars$mpg > 25, ] |> head(3)
+```
+
+---
+
+### 行列索引顺序写反
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 想取第 1~3 列，但写成了行的位置
+# mtcars[, 1:3] 是正确的
+
+# 写反了：把列索引放在行的位置
+mtcars[1:3, ]   # 这是取前3行，不是前3列
+```
+
+---
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| error: true
+
+# 正确取前3列
+mtcars[, 1:3] |> head(3)
+```
+
+---
+
+## 7 小结
+
+| 操作 | 函数/语法 | 用途 |
+|---|---|---|
+| 查看前几行 | `head(df, n)` | 快速浏览数据 |
+| 查看后几行 | `tail(df, n)` | 检查数据末尾 |
+| 查看结构 | `str(df)` | 变量名、类型、前几个值 |
+| 描述统计 | `summary(df)` | 各列统计摘要 |
+| 访问列 | `df$列名` | 最常用 |
+| 按位置索引 | `df[行, 列]` | 灵活提取子集 |
+| 按条件筛选 | `df[df$列 > 值, ]` | 逻辑筛选行 |
+| 行列数 | `nrow()` `ncol()` `dim()` | 了解数据规模 |
+| 列名 | `names(df)` | 查看或修改列名 |
+

@@ -14,6 +14,7 @@ website:
       - m2.qmd
       - m3.qmd
       - m4.qmd
+      - m5.qmd
     tools:
       - icon: envelope
         href: lizongzhang9@qq.com

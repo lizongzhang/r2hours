@@ -1,0 +1,148 @@
+---
+title: R与RStudio的安装与配置
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+
+library(tidyverse)
+
+```
+
+
+## 1 核心认知：引擎与仪表盘
+
+- **R：底层的计算引擎**
+
+    - 负责所有数据处理、统计分析和图形绘制的核心计算。
+    
+    - 界面简陋（纯命令行），对人类极其不友好。
+
+- **RStudio：豪华的仪表盘 (IDE)**
+
+    - 它是 R 的集成开发环境 (Integrated Development Environment)。
+    
+    - 提供代码高亮、对象查看、图形预览、一键导出等可视化操作。
+
+---
+
+- **黄金法则**
+
+    - **先装 R，后装 RStudio**，不可颠倒。
+    
+    - 日常写代码，**永远只打开 RStudio**，让底层的 R 默默工作即可。
+
+
+## 2 安装前最致命的“排雷”
+
+::: {.callout-warning title="Windows 用户的头号杀手：中文路径"}
+**绝对不要把 R 或 RStudio 安装在包含中文的文件夹下！**
+如果您的 Windows 电脑用户名是中文（如 `C:\Users\张三`），日后在安装高阶 R 包时，极易遭遇无法解析的乱码报错。
+:::
+
+- **防御策略（Windows）**
+    - 保持默认安装路径（通常是 `C:\Program Files\R`）。
+    
+    - 确保系统用户名纯英文。如果已经是中文，建议更改环境变量或新建英文账户。
+
+---
+
+- **防御策略（macOS）**
+
+    - 无中文路径困扰，直接一路“继续”即可。
+    
+
+## 3 系统的编译环境
+
+- **为什么别人的代码能跑，我的会报错？**
+
+    - 许多出版级的高级 R 包（如涉及复杂统计模型的包）底层是由 C++ 编写的，需要您电脑里有“翻译官”才能安装。
+
+- **Windows 用户必备：Rtools**
+
+    - 它不是 R 包，而是一个独立的软件，必须去 CRAN 官网额外下载安装。
+    
+    - https://cran.r-project.org/bin/windows/Rtools/
+    
+    - 注意：安装过程中建议保持默认路径，且不要在路径中使用空格或中文字符。
+---
+
+- **macOS 用户必备：Xcode Command Line Tools**
+
+    - 打开 Mac 终端 (Terminal)，输入 `xcode-select --install` 回车。
+    
+    - 苹果系统的原生开发者工具箱
+
+
+## 4 全局设置
+
+- R 的官方仓库 (CRAN)服务器在国外。如果不做配置，安装大体积R包时极易因超时而中断。
+    
+- 解决方案：将下载通道切换至国内大学（如清华、中科大）的镜像站。
+
+```{.r .code-overflow-wrap}
+# 这是一个模拟报错的展示
+> install.packages("ggplot2")
+
+[错误提示如下]
+Warning: Timeout of 60 seconds was reached
+Error: download of package 'ggplot2' failed
+```
+
+
+---
+
+- **RStudio 中的可视化配置**
+    - 路径：`Tools` -> `Global Options` -> `Packages`
+    - 点击 `Change...`，选择离你最近的 `China` 节点，点击 `Apply`。
+
+
+---
+
+- **配置路径**
+    - 路径：`Tools` -> `Global Options` -> `General` -> `Basic`
+
+- **关键选项修改**
+    1. 取消勾选：**Restore .RData into workspace at startup**（启动时不恢复旧数据）。
+    2. 设置选项：**Save workspace to .RData on exit** 改为 **Never**（退出时绝不保存）。
+    
+::: {.callout-tip title="职业素养"}
+“代码即一切”。只要你有脚本，数据可以随时重新生成。依赖保存的工作空间是业余选手的表
+:::
+
+----

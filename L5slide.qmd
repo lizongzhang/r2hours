@@ -1,0 +1,244 @@
+---
+title: L5 R包的安装和加载
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+
+library(tidyverse)
+
+```
+
+
+## 1 什么是 R 包？
+
+- 别人提前写好的一组 R 函数和工具，你装上就能直接用。
+
+- 真正让R强大的，其实是：数以万计的R包。
+
+- CRAN Task Views: https://cran.r-project.org/web/views/
+
+- METACRAN Search and browse all CRAN/R packages: https://www.r-pkg.org/
+
+---
+
+## 2 如何安装R包
+
+- **CRAN (官方)**
+    - 最稳定、经过官方审核。
+    - **命令**：`install.packages("tidyverse")`
+
+- **GitHub (开发者)**
+    - 最新功能、未正式发布版。
+    - **命令**：`remotes::install_github("作者名/包名")`
+
+- **Bioconductor**
+    - 专注于基因组数据分析和生物信息学。
+
+---
+
+### 从CRAN安装
+
+```{r}
+#| eval: false
+#| echo: true
+install.packages("tidyverse")
+```
+
+::: {.callout-tip title="建议"}
+优先使用 CRAN 版本以确保科研结果的可复现性，仅在需要最新前沿功能时才考虑 GitHub。
+:::
+
+---
+
+### 从GitHub安装
+
+```{r}
+#| eval: false
+#| echo: true
+install.packages("remotes") # 只需安装一次
+remotes::install_github("dill/emoGG")
+library(emoGG)
+```
+
+---
+
+### 从Bioconductor安装
+
+```{r}
+#| eval: false
+#| echo: true
+# 第1步：安装Bioconductor管理器（只需一次）
+install.packages("BiocManager")
+
+# 第2步：安装DESeq2 包（差异表达分析）
+BiocManager::install("DESeq2")
+
+```
+
+::: {.callout-tip title="注意"}
+Bioconductor 的包必须通过`BiocManager::install()`安装，不能用 `install.packages()`安装。
+:::
+
+---
+
+
+## 3 加载 R 包
+
+- 包安装在硬盘，加载则进入**内存 (RAM)**。
+
+- 只有加载了包，R 才能调用包内的函数。
+
+- **加载 (Load)**：`library(psych)` 将工具箱搬入内存 (RAM)。
+
+- **显式调用 (Direct Call)**：无需搬运，直接指定来源。
+
+---
+
+两种加载方式
+
+```{r}
+#| echo: true
+library(psych)                    # 加载包
+psych::describe(mtcars)           # 推荐写法：明确包名
+```
+
+
+---
+
+## 4 常见报错
+
+### 包不存在
+
+- `there is no package called 'xxx'`
+
+- **原因诊断**：
+
+    - 包还没安装。
+    - 包名拼写错误（注意 R 严格区分大小写）
+    
+---
+
+### 连接超时或镜像问题
+
+- `Warning: unable to access index for repository`
+
+    - R 默认连接国外的 CRAN 镜像站，网速受限。
+
+    - `Tools` -> `Global Options` -> `Packages` -> `Primary CRAN repository`。
+
+---
+
+### had non-zero exit status
+
+- 缺乏必要的编译环境（C++ 编译器缺失或版本不匹配）。
+
+    - Windows，请下载并安装与您 R 版本匹配的 Rtools。
+
+    - Mac，终端中运行 xcode-select --install 安装命令行开发工具。
+
+
+---
+
+### package ‘xxx’ is not available for this version of R
+
+- 您尝试安装的包已经被 CRAN 移除，或者它要求的 R 语言版本比您电脑上当前的 R 版本更新。
+
+- 尝试更新 R 语言的基础版本，或者去包的官方主页查看历史版本的安装说明。
+
+
+---
+
+### 缺少依赖包(Dependencies)
+
+- `package 'xxx' could not be loaded` 且提示缺少 `yyy`。
+
+    - 复杂的 R 包依赖于其他包（Dependency）。
+    
+    - 安装时要求安装所有依赖：`install.packages("xxx", dependencies = TRUE)`
+    
+    - 当遇到提示缺少依赖包时，先安装缺失的包，再重新安装主包。
+
+---
+
+### 函数名冲突
+
+- 在两个不同的包中，有两个函数同名（如 `select()`），加载后会产生冲突。 
+- R 会默认使用最后加载的包中的函数，可能导致报错或结果异常。
+
+
+```{r}
+#| eval: false
+#| echo: true
+library(dplyr)
+library(MASS)        #后加载的MASS遮盖(Mask)了dplyr包的select函数
+# 报错：unused argument (mpg, wt) —— 因为 MASS::select 不支持这种语法
+select(mtcars, mpg, wt)
+# 明确使用dplyr的select
+dplyr::select(mtcars, mpg, wt)     
+```
+
+---
+
+#### 查看当前冲突的函数
+
+```{r}
+#| echo: true
+
+conflicts()
+```
+
+---
+
+### 不要滥用install.packages
+
+- 避免在脚本中直接写 install.packages() 导致重复安装。
+
+- pacman 包提供了更智能的安装和加载功能，可以一次性检查、安装和加载多个包，避免重复安装和加载。
+
+```r
+# 安装 pacman（只需一次）
+if (!require("pacman")) install.packages("pacman")
+
+# 一键检查、安装、加载
+pacman::p_load(tidyverse, ggplot2, psych, corrplot)
+```
+
+:::{.callout-note}
+pacman::p_load() 是目前最受欢迎的“聪明加载”方式。
+:::

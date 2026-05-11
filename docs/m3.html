@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>模块3 对象操作基础 – 2小时入门R语言</title>
+<title>模块3 构建R语言底层逻辑 – 2小时入门R语言</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,19 +94,23 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m1.html"> 
-<span class="menu-text">模块1 R环境搭建</span></a>
+<span class="menu-text">模块1 准备</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m2.html"> 
-<span class="menu-text">模块2 数据导入与对象类型</span></a>
+<span class="menu-text">模块2 快速起步</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./m3.html" aria-current="page"> 
-<span class="menu-text">模块3 对象操作基础</span></a>
+<span class="menu-text">模块3 构建R语言底层逻辑</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m4.html"> 
-<span class="menu-text">模块4 AI辅助R编程</span></a>
+<span class="menu-text">模块4 数据分析实战</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./m5.html"> 
+<span class="menu-text">模块5 AI赋能</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -125,7 +129,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" id="toc-l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="nav-link active" data-scroll-target="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</a></li>
+  <li><a href="#l8-r中的向量思维彻底搞懂c函数" id="toc-l8-r中的向量思维彻底搞懂c函数" class="nav-link active" data-scroll-target="#l8-r中的向量思维彻底搞懂c函数">L8 R中的向量思维彻底搞懂<code>c()</code>函数</a></li>
+  <li><a href="#l9-数据框常用操作" id="toc-l9-数据框常用操作" class="nav-link" data-scroll-target="#l9-数据框常用操作">L9 数据框常用操作</a></li>
+  <li><a href="#l10-缺失值na的处理" id="toc-l10-缺失值na的处理" class="nav-link" data-scroll-target="#l10-缺失值na的处理">L10 缺失值<code>NA</code>的处理</a></li>
+  <li><a href="#l11-因子factor的底层逻辑掌控分类变量的秩序" id="toc-l11-因子factor的底层逻辑掌控分类变量的秩序" class="nav-link" data-scroll-target="#l11-因子factor的底层逻辑掌控分类变量的秩序">L11 因子<code>Factor</code>的底层逻辑:掌控分类变量的秩序</a></li>
+  <li><a href="#l12-管道符数据管理的高效工具" id="toc-l12-管道符数据管理的高效工具" class="nav-link" data-scroll-target="#l12-管道符数据管理的高效工具">L12 管道符：数据管理的高效工具</a></li>
   </ul>
 </nav>
     </div>
@@ -134,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">模块3 对象操作基础</h1>
+<h1 class="title">模块3 构建R语言底层逻辑</h1>
 </div>
 
 
@@ -151,15 +159,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="level2">
-<h2 class="anchored" data-anchor-id="l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</h2>
+<section id="l8-r中的向量思维彻底搞懂c函数" class="level2">
+<h2 class="anchored" data-anchor-id="l8-r中的向量思维彻底搞懂c函数">L8 R中的向量思维彻底搞懂<code>c()</code>函数</h2>
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L1slide.html">L2 讲义</a></p>
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L8slide.html" target="_blank">L8 讲义</a></p>
 </div>
-<p>美元符号$运算符：精准列提取与简单数据计算</p>
-<p>索引切片[ , ]：R中行列选择的逻辑与实践</p>
-<p>代码编写规范：缩进、空格与注释的最佳实践</p>
-<p>处理结果导出：将R数据框输出为Excel或WORD文件</p>
+</section>
+<section id="l9-数据框常用操作" class="level2">
+<h2 class="anchored" data-anchor-id="l9-数据框常用操作">L9 数据框常用操作</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L9slide.html" target="_blank">L9 讲义</a></p>
+</div>
+</section>
+<section id="l10-缺失值na的处理" class="level2">
+<h2 class="anchored" data-anchor-id="l10-缺失值na的处理">L10 缺失值<code>NA</code>的处理</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L10slide.html" target="_blank">L10 讲义</a></p>
+</div>
+</section>
+<section id="l11-因子factor的底层逻辑掌控分类变量的秩序" class="level2">
+<h2 class="anchored" data-anchor-id="l11-因子factor的底层逻辑掌控分类变量的秩序">L11 因子<code>Factor</code>的底层逻辑:掌控分类变量的秩序</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L11slide.html" target="_blank">L11 讲义</a></p>
+</div>
+</section>
+<section id="l12-管道符数据管理的高效工具" class="level2">
+<h2 class="anchored" data-anchor-id="l12-管道符数据管理的高效工具">L12 管道符：数据管理的高效工具</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L12slide.html" target="_blank">L12 讲义</a></p>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -170,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="L1.R">点击下载模块1代码文件 :m1.R</a></p>
+<p><a href="https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx" download="m3.R">点击下载模块1代码文件 :m1.R</a></p>
 </div>
 </div>
 

@@ -1,0 +1,388 @@
+---
+title: "L13<br>外部数据文件的导入"
+date: today
+author: 
+  name: "顶刊研习社"
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    #code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## 准备工作
+
+### 加载包
+
+```{r}
+library(tidyverse)  # 包含 readr（读取 CSV/txt）
+library(readxl)     # 读取 Excel 文件
+```
+
+### 设置工作目录
+
+导入数据前，首先要确认**工作目录**（Working Directory）。工作目录是 R 查找文件的默认位置。
+
+```{r}
+# 查看当前工作目录
+getwd()
+```
+
+```{r}
+#| eval: false
+
+# 修改工作目录（将路径替换为你自己的路径）
+setwd("C:/Users/yourname/Documents/myproject")
+```
+
+::: {.callout-tip}
+**推荐做法：使用 RStudio Project（项目）**
+
+在 RStudio 中新建项目（File → New Project），项目所在文件夹会自动成为工作目录。将数据文件放在项目文件夹内，之后读取文件只需写文件名，无需写完整路径。
+:::
+
+---
+
+## 导入 Excel 文件
+
+### 读取第一张工作表
+
+```{r}
+#| eval: false
+
+library(readxl)
+
+mydata <- read_excel("data.xlsx")
+```
+
+### 指定工作表
+
+```{r}
+#| eval: false
+
+# 用工作表名称指定
+mydata <- read_excel("data.xlsx", sheet = "Sheet2")
+
+# 用工作表序号指定（第2张）
+mydata <- read_excel("data.xlsx", sheet = 2)
+```
+
+### 跳过表头行
+
+有些 Excel 文件顶部有标题说明行，不是真正的变量名行，需要跳过。
+
+```{r}
+#| eval: false
+
+# 跳过前 2 行，从第 3 行开始读取
+mydata <- read_excel("data.xlsx", skip = 2)
+```
+
+### 指定读取行数
+
+```{r}
+#| eval: false
+
+# 只读取前 100 行数据
+mydata <- read_excel("data.xlsx", n_max = 100)
+```
+
+### 指定缺失值的标记符号
+
+有些数据用 `"NA"`、`"—"`、`"999"` 等表示缺失，需要告诉 R 将其识别为缺失值。
+
+```{r}
+#| eval: false
+
+mydata <- read_excel("data.xlsx", na = c("", "NA", "—", "999"))
+```
+
+::: {.callout-note}
+**查看工作表名称**
+
+不确定 Excel 文件有哪些工作表时，可以先用 `excel_sheets()` 查看：
+
+```{r}
+#| eval: false
+excel_sheets("data.xlsx")
+```
+:::
+
+---
+
+## 导入 CSV 文件
+
+CSV（Comma-Separated Values）是最常见的数据交换格式。
+
+### 基本用法
+
+```{r}
+#| eval: false
+
+# read_csv() 来自 readr 包（tidyverse 已包含）
+mydata <- read_csv("data.csv")
+```
+
+`read_csv()` 读取完成后会在控制台打印每列的变量名和数据类型，方便核查。
+
+### 处理中文乱码
+
+如果 CSV 文件来自中文 Windows 系统（编码为 GBK），读取后可能出现乱码，需要指定编码：
+
+```{r}
+#| eval: false
+
+mydata <- read_csv("data.csv", locale = locale(encoding = "GBK"))
+```
+
+### 指定缺失值标记
+
+```{r}
+#| eval: false
+
+mydata <- read_csv("data.csv", na = c("", "NA", "N/A", "999"))
+```
+
+### 手动指定列的数据类型
+
+`read_csv()` 会自动猜测每列的数据类型，但有时猜错（例如把编码为数字的分类变量识别成数值型）。可以用 `col_types` 手动指定：
+
+```{r}
+#| eval: false
+
+mydata <- read_csv("data.csv",
+  col_types = cols(
+    id     = col_character(),   # 字符型
+    age    = col_double(),      # 数值型
+    gender = col_factor(),      # 因子型
+    date   = col_date()         # 日期型
+  )
+)
+```
+
+::: {.callout-tip}
+**read_csv() vs read.csv()**
+
+| 函数 | 来自 | 输出 | 推荐 |
+|------|------|------|------|
+| `read_csv()` | readr（tidyverse） | tibble | ✅ 推荐 |
+| `read.csv()` | base R | data.frame | 可用 |
+
+推荐使用 `read_csv()`：速度更快，不会自动把字符串转换为因子，列名保持原样。
+:::
+
+---
+
+## 导入 txt 文件
+
+txt 文件通常是以特定符号分隔的纯文本数据。
+
+### 制表符分隔（最常见）
+
+```{r}
+#| eval: false
+
+# 制表符（\t）分隔
+mydata <- read_tsv("data.txt")
+```
+
+### 自定义分隔符
+
+```{r}
+#| eval: false
+
+# 分号分隔
+mydata <- read_delim("data.txt", delim = ";")
+
+# 空格分隔
+mydata <- read_delim("data.txt", delim = " ")
+```
+
+### 处理中文乱码
+
+与 CSV 相同，若 txt 文件来自中文 Windows，需指定编码：
+
+```{r}
+#| eval: false
+
+mydata <- read_tsv("data.txt", locale = locale(encoding = "GBK"))
+```
+
+---
+
+## 从剪贴板导入数据
+
+从网页、Word 或 Excel 中复制了一段表格数据，可以直接从剪贴板读取，无需保存为文件。
+
+```{r}
+#| eval: false
+
+# 将数据复制到剪贴板后执行
+mydata <- read_delim(clipboard(), delim = "\t")
+```
+
+---
+
+## 导入后的基本核查
+
+数据导入后，第一步应该核查数据是否正确读取。
+
+```{r}
+#| eval: false
+
+# 查看数据维度：行数和列数
+dim(mydata)
+
+# 查看变量名、数据类型和前几行
+str(mydata)
+
+# 查看前 6 行
+head(mydata)
+
+# 查看后 6 行
+tail(mydata)
+
+# 快速浏览数据（RStudio 中）
+View(mydata)
+
+# 各变量的描述性统计
+summary(mydata)
+```
+
+---
+
+## 典型报错及处理
+
+### 报错：找不到文件
+
+```
+Error in file(file, "rt") : cannot open the connection
+```
+
+**原因：** 文件路径不对，或文件不在工作目录中。
+
+**解决方法：**
+
+```{r}
+#| eval: false
+
+# 第一步：确认工作目录
+getwd()
+
+# 第二步：查看工作目录下有哪些文件
+list.files()
+
+# 第三步：如果文件在子文件夹中，加上子文件夹名
+mydata <- read_csv("data/data.csv")
+```
+
+---
+
+### 报错：列数不匹配
+
+```
+Error: 5 columns expected but found 6
+```
+
+**原因：** CSV 文件某些行的分隔符数量不一致（常见于数据中含有逗号）。
+
+**解决方法：** 打开原始文件检查问题行；或对有文本内容的列加引号包裹。
+
+---
+
+### 报错：中文列名变乱码
+
+**原因：** 文件编码与 R 读取时使用的编码不一致。
+
+**解决方法：**
+
+```{r}
+#| eval: false
+
+# 尝试 GBK 编码（中文 Windows 常用）
+mydata <- read_csv("data.csv", locale = locale(encoding = "GBK"))
+
+# 或尝试 UTF-8-BOM（带 BOM 头的 UTF-8）
+mydata <- read_csv("data.csv", locale = locale(encoding = "UTF-8-BOM"))
+```
+
+---
+
+### 数字列被识别为字符型
+
+**现象：** 某列本应是数值，但 `str()` 显示为 `chr`，无法计算均值。
+
+**原因：** 该列中混入了非数字字符（如单位 `"cm"`、空格、或缺失值标记 `"—"`）。
+
+**解决方法：**
+
+```{r}
+#| eval: false
+
+# 先查找问题：哪些值无法转换为数字
+mydata %>%
+  filter(is.na(as.numeric(height))) %>%
+  count(height)
+
+# 清理后转换类型
+mydata <- mydata %>%
+  mutate(height = as.numeric(height))
+```
+
+---
+
+### 日期列被识别为字符型
+
+**原因：** 日期格式不是标准格式（如 `"2023/10/14"` 而非 `"2023-10-14"`）。
+
+**解决方法：**
+
+```{r}
+#| eval: false
+
+library(lubridate)
+
+# 根据实际格式选择解析函数
+mydata <- mydata %>%
+  mutate(date = ymd(date))       # 2023-10-14 或 20231014
+  # mutate(date = ymd(date))     # 2023/10/14
+  # mutate(date = dmy(date))     # 14/10/2023
+  # mutate(date = mdy(date))     # 10/14/2023
+```
+
+---
+
+## 常用函数速查
+
+| 文件类型 | 函数 | 所属包 |
+|----------|------|--------|
+| Excel（.xlsx / .xls） | `read_excel()` | readxl |
+| CSV（逗号分隔） | `read_csv()` | readr |
+| txt（制表符分隔） | `read_tsv()` | readr |
+| txt（自定义分隔符） | `read_delim()` | readr |
+| 剪贴板 | `read_delim(clipboard(), delim = "\t")` | readr |

@@ -1,0 +1,116 @@
+---
+title: L4 全局选项设置
+date: today
+author: 
+  name: "顶刊研习社"
+  #url: https://space.bilibili.com/590872906/
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## 1 编码正义：告别中文乱码
+
+- **乱码的本质**
+    - Windows 默认使用 GBK 编码，而 macOS 和 Linux 默认使用 UTF-8。
+    - 当你在不同系统间交换代码或读取带中文的数据时，这种“方言差异”会导致字符显示异常。
+
+- **架构师的底线：全平台统一 UTF-8**
+    - 路径：`Tools` -> `Global Options` -> `Code` -> `Saving`
+    - 在 **Default text encoding** 中点击 `Change...`，选择 **UTF-8**。
+
+::: {.callout-important title="核心准则"}
+设置 UTF-8 是 R 语言国际化的第一步。一旦设定，未来无论是处理网页抓取还是导出出版级图表，都能最大限度避免字符冲突。
+:::
+
+---
+
+## 2 环境净化：为什么要关闭工作空间保存？
+
+- **小白的习惯 vs 架构师的准则**
+    - **小白**：希望下次打开 RStudio 时，上次定义的变量还在。
+    - **架构师**：追求“可重复性（Reproducibility）”。每次启动都应该是**干净的空白状态**。
+
+- **自动保存的危害**
+    - 隐藏的错误：你可能会无意中使用了一个月前定义的旧变量，导致现在的分析逻辑产生不可察觉的偏差。
+    - 启动缓慢：如果内存中存了大型数据集，自动加载会让 RStudio 变得极度臃肿。
+
+---
+
+## 3 实战操作：彻底关闭保存提示
+
+- **配置路径**
+    - 路径：`Tools` -> `Global Options` -> `General` -> `Basic`
+
+- **关键选项修改**
+    1. 取消勾选：**Restore .RData into workspace at startup**（启动时不恢复旧数据）。
+    2. 设置选项：**Save workspace to .RData on exit** 改为 **Never**（退出时绝不保存）。
+    3. 取消勾选：**Always save history**（防止历史命令干扰）。
+
+::: {.callout-tip title="职业素养"}
+“代码即一切”。只要你有脚本，数据可以随时重新生成。依赖保存的工作空间是业余选手的表现。
+:::
+
+---
+
+## 4 自动化设置：告别冗长的控制台
+
+- **软排版优化**
+    - 路径：`Tools` -> `Global Options` -> `Code` -> `Display`
+    - 勾选：**Show margin (80)**。
+    - **原理**：在编辑器中显示一条 80 字符的纵向虚线。这提醒你：一行代码不宜过长，方便他人阅读与后期打印。
+
+- **自动保存配置**
+    - 勾选：**Auto-save idle editors**。
+    - 确保在软件意外崩溃时，你的代码修改不会付诸东流。
+
+---
+
+## 5 项目启动的丝滑感
+
+- **软链接：一键直达工作目录**
+    - 路径：`Tools` -> `Global Options` -> `General` -> `Basic`
+    - 在 **Default working directory** 中设置一个你专门存放科研项目的总文件夹。
+
+- **UI 缩放：适配各种显示屏**
+    - 如果你觉得字体太小或界面太挤，可以在 `Appearance` 中调节 **Zoom** 比例（推荐 125% 或 150% 用于教学展示）。
+
+---
+
+## 6 结语：工欲善其事，必先利其器
+
+- **本讲核心闭环**：
+    1. **统一编码 (UTF-8)**：消除跨平台交流障碍；
+    2. **净化环境 (Never Save)**：确保研究的可重复性；
+    3. **视觉微调**：营造舒适的编码长跑环境。
+
+::: {.callout-tip title="本讲作业"}
+1. 检查并确认你的 Default text encoding 是否已改为 UTF-8。
+2. 尝试关闭 RStudio，确认它不再弹出“是否保存工作空间”的烦人对话框。
+:::

@@ -1,25 +1,19 @@
 ---
-title: "模块1 R环境搭建"
+title: "模块1 准备"
 ---
 
-## L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机
+## L1 重塑AI时代的R学习观
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
   [L1 讲义](https://lizongzhang.github.io/r2hours/L1slide.html)
 </div>
 
-## L2 R与RStudio安装演示：关键避坑指南
-
-## L3 RStudio界面深度解析：四个象限功能
-
-## L4 全局选项设置：避免代码乱码与关闭工作空间保存提示
-
-## L5 R Project项目管理：R工作流的核心实践，告别setwd()依赖
-
-## L6 R包管理法则：安装、加载及常见“包未找到”错误处理
-
-## L7 R代码初体验：别让这5个“低级坑”劝退你
+## L2 R与RStudio的安装与配置
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [L1 讲义](https://lizongzhang.github.io/r2hours/L2slide.html)
+</div>
 
 
 ::: {.callout-tip}

@@ -1,48 +1,63 @@
 ---
 title: ""
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ## 核心教学模块
 
-本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：
+本课程旨在通过 2 小时的高强度实战，带您跨越 R
+语言的初学者门槛。请点击下方链接开始学习：
 
-<div style="font-size: 20px; line-height: 2.5; margin-bottom: 2rem;">
-  <p>
-    📘 **[模块1：R环境搭建与配置](m1.qmd)**
-  </p>
-  <p>
-    📁 **[模块2：数据导入与对象类型](m2.qmd)**
-  </p>
-  <p>
-    ⚙️ **[模块3：对象操作基础](m3.qmd)**
-  </p>
-  <p>
-    🤖 **[模块4：AI 辅助 R 编程与调试](m4.qmd)**
-  </p>
-</div>
+::: {style="font-size: 20px; line-height: 2.5; margin-bottom: 2rem;"}
+<p>🛠️ [**模块1 准备工作**](m1.qmd)</p>
 
-::: {.callout-note}
-### 课件与数据下载
-本课程配套演示数据：[点击下载 stroke.xlsx](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="stroke.xlsx"}
+<p>🚀 [**模块2 快速起步**](m2.qmd)</p>
+
+<p>🧭 [**模块3 构建R语言底层逻辑**](m3.qmd)</p>
+
+<p>💹️ [**模块4 数据分析实战**](m4.qmd)</p>
+
+<p>🌀 [**模块5 AI赋能**](m5.qmd)</p>
+
 :::
 
----
 
-<div style="text-align: center; margin-top: 2em;">
-  <p style="font-size: 22px; color: #044875; font-weight: bold;">
-    欢迎关注微信公众号
-  </p>
-  <p style="font-size: 18px; color: #666;">
-    “顶刊研习社”、“医课佳”
-  </p>
-  <img src="img/wechat.png" alt="微信二维码" width="200" style="margin-top: 10px; border: 1px solid #eee;">
-</div>
 
----
+::: callout-note
+本课程配套演示数据：[点击下载
+stroke.xlsx](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="stroke.xlsx"}
+:::
 
-<div style="text-align: center; margin-top: 1.5em; opacity: 0.8;">
-  <p style="font-size: 14px; color: #999; margin-bottom: 10px;">视频教程同步更新中</p>
-  <a href="https://space.bilibili.com/590872906" target="_blank">
-    <img src="img/bili_up.jpg" alt="B站头像" width="60" style="border-radius: 50%;">
-  </a>
-</div>
+------------------------------------------------------------------------
+
+::: {style="text-align: center; margin-top: 2em;"}
+<p style="font-size: 22px; color: #044875; font-weight: bold;">
+
+欢迎关注微信公众号
+
+</p>
+
+<p style="font-size: 18px; color: #666;">
+
+“顶刊研习社”、“医课佳”
+
+</p>
+
+<img src="img/wechat.png" alt="微信二维码" width="200" style="margin-top: 10px; border: 1px solid #eee;"/>
+:::
+
+------------------------------------------------------------------------
+
+::: {style="text-align: center; margin-top: 1.5em; opacity: 0.8;"}
+<p style="font-size: 14px; color: #999; margin-bottom: 10px;">
+
+视频教程同步更新中
+
+</p>
+
+<a href="https://space.bilibili.com/590872906" target="_blank">
+<img src="img/bili_up.jpg" alt="B站头像" width="60" style="border-radius: 50%;"/>
+</a>
+:::

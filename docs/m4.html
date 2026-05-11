@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>模块4 AI辅助R编程 – 2小时入门R语言</title>
+<title>模块4 数据分析实战 – 2小时入门R语言</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -94,19 +94,23 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m1.html"> 
-<span class="menu-text">模块1 R环境搭建</span></a>
+<span class="menu-text">模块1 准备</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m2.html"> 
-<span class="menu-text">模块2 数据导入与对象类型</span></a>
+<span class="menu-text">模块2 快速起步</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./m3.html"> 
-<span class="menu-text">模块3 对象操作基础</span></a>
+<span class="menu-text">模块3 构建R语言底层逻辑</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./m4.html" aria-current="page"> 
-<span class="menu-text">模块4 AI辅助R编程</span></a>
+<span class="menu-text">模块4 数据分析实战</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./m5.html"> 
+<span class="menu-text">模块5 AI赋能</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -125,7 +129,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" id="toc-l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="nav-link active" data-scroll-target="#l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</a></li>
+  <li><a href="#l13-外部数据文件的导入" id="toc-l13-外部数据文件的导入" class="nav-link active" data-scroll-target="#l13-外部数据文件的导入">L13 外部数据文件的导入</a></li>
+  <li><a href="#l14-数据可视化" id="toc-l14-数据可视化" class="nav-link" data-scroll-target="#l14-数据可视化">L14 数据可视化</a></li>
+  <li><a href="#l15-ggstatsplot-统计检验的可视化" id="toc-l15-ggstatsplot-统计检验的可视化" class="nav-link" data-scroll-target="#l15-ggstatsplot-统计检验的可视化">L15 <code>ggstatsplot</code><br>统计检验的可视化</a></li>
+  <li><a href="#l16-保存输出结果" id="toc-l16-保存输出结果" class="nav-link" data-scroll-target="#l16-保存输出结果">L16 保存输出结果</a></li>
+  <li><a href="#l17-初学者最容易犯的5个低级错误" id="toc-l17-初学者最容易犯的5个低级错误" class="nav-link" data-scroll-target="#l17-初学者最容易犯的5个低级错误">L17 初学者最容易犯的5个低级错误</a></li>
   </ul>
 </nav>
     </div>
@@ -134,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">模块4 AI辅助R编程</h1>
+<h1 class="title">模块4 数据分析实战</h1>
 </div>
 
 
@@ -151,13 +159,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="l1-ai时代的r学习观为什么现在是小白学习r的最佳时机" class="level2">
-<h2 class="anchored" data-anchor-id="l1-ai时代的r学习观为什么现在是小白学习r的最佳时机">L1 AI时代的R学习观：为什么现在是小白学习R的最佳时机</h2>
+<section id="l13-外部数据文件的导入" class="level2">
+<h2 class="anchored" data-anchor-id="l13-外部数据文件的导入">L13 外部数据文件的导入</h2>
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L1slide.html">L2 讲义</a></p>
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L12slide.html" target="_blank">L12 讲义</a></p>
 </div>
-<p>Prompt工程在R中的应用：向AI提供数据结构信息，生成符合需求的R代码</p>
-<p>报错信息分析：利用AI解读与定位R错误根源的有效方法</p>
+</section>
+<section id="l14-数据可视化" class="level2">
+<h2 class="anchored" data-anchor-id="l14-数据可视化">L14 数据可视化</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L14slide.html" target="_blank">L14 讲义</a></p>
+</div>
+</section>
+<section id="l15-ggstatsplot-统计检验的可视化" class="level2">
+<h2 class="anchored" data-anchor-id="l15-ggstatsplot-统计检验的可视化">L15 <code>ggstatsplot</code><br>统计检验的可视化</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L16slide.html" target="_blank">L16 讲义</a></p>
+</div>
+</section>
+<section id="l16-保存输出结果" class="level2">
+<h2 class="anchored" data-anchor-id="l16-保存输出结果">L16 保存输出结果</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L17slide.html" target="_blank">L17 讲义</a></p>
+</div>
+</section>
+<section id="l17-初学者最容易犯的5个低级错误" class="level2">
+<h2 class="anchored" data-anchor-id="l17-初学者最容易犯的5个低级错误">L17 初学者最容易犯的5个低级错误</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+<p><img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://lizongzhang.github.io/r2hours/L11slide.html" target="_blank">L17 讲义</a></p>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

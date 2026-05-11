@@ -1,0 +1,420 @@
+---
+title: "L15<br>`ggstatsplot`<br>统计检验的可视化"
+date: today
+author: 
+  name: "顶刊研习社"
+format: 
+  revealjs:
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
+    code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
+    chalkboard: 
+      buttons: true
+      board-canvas-background: "#f0f0f0"
+    preview-links: auto
+    toc-title: "大纲"
+    css: style.css
+    footer: |
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+    include-before-body: 
+      - header.html
+      - fonts.html
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
+    plugins: [highlight, zoom, notes]
+
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(modelsummary)
+library(flextable)
+library(officer)
+library(showtext)
+showtext_auto()
+```
+
+
+
+在开始本节之前，请确保您已安装并加载以下的包：
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| message: false
+#| code-fold: false
+#| code-summary: 点击查看安装与加载代码
+
+# 批量安装缺失的包（如果已经安装过，此步可跳过）
+install.packages(c("tidyverse", "ggstatsplot"))
+
+# 加载包
+library(tidyverse)
+library(ggstatsplot)
+```
+
+
+
+## 1 `ggstatsplot`优势
+
+| 传统做法 | ggstatsplot |
+|---|---|
+| 画图和检验分开写 | 一个函数同时完成 |
+| 需要手动选择检验方法 | 根据数据自动选择 |
+| 效应量需要另外计算 | 图上直接显示 |
+| 结果整合费时费力 | 图形即报告 |
+
+---
+
+一行代码：箱线图 + 统计检验 + 效应量，全部自动完成
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+library(ggstatsplot)
+ggbetweenstats(data = iris,
+               x = Species, y = Sepal.Length)
+```
+
+---
+
+## 2 分组比较：`ggbetweenstats()`
+
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 三种鸢尾花的花萼长度比较
+ggbetweenstats(
+  data  = iris,
+  x     = Species,
+  y     = Sepal.Length,
+  title = "三种鸢尾花的花萼长度比较"
+)
+```
+
+---
+
+:::{.callout-tip}
+比较**不同组别**之间某个连续变量的差异, 自动选择 t 检验（2组）或 ANOVA（3组以上）。
+:::
+
+---
+
+
+### 读懂图上的统计信息
+
+图的顶部会显示：
+
+- **检验方法**：Welch's ANOVA / t-test 等
+- **F 值或 t 值**：检验统计量
+- **p 值**：显著性
+- **效应量**$\omega^2$（ANOVA）或 Cohen's d（t检验）
+
+:::{.callout-tip}
+不需要记住这些符号的计算方法，只需要关注 **p 值**和**效应量**的大小。p < 0.05 表示组间差异显著。
+:::
+
+
+---
+
+### 两组比较（自动切换为 t 检验）
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 手动挡 vs 自动挡的油耗比较
+mtcars$am_label <- factor(mtcars$am,
+                          levels = c(0, 1),
+                          labels = c("自动挡", "手动挡"))
+
+ggbetweenstats(
+  data  = mtcars,
+  x     = am_label,
+  y     = mpg,
+  title = "自动挡与手动挡的油耗比较"
+)
+```
+
+---
+
+### 常用参数
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+ggbetweenstats(
+  data        = iris,
+  x           = Species,
+  y           = Petal.Length,
+  title       = "三种鸢尾花的花瓣长度",
+  xlab        = "品种",
+  ylab        = "花瓣长度（cm）",
+  point.args  = list(alpha = 0.3, size = 2),  # 调整数据点
+  centrality.plotting = TRUE   # 显示均值/中位数
+)
+```
+
+---
+
+## 3 相关分析：`ggscatterstats()`
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 花瓣长度与花瓣宽度的相关关系
+ggscatterstats(
+  data  = iris,
+  x     = Petal.Length,
+  y     = Petal.Width,
+  title = "花瓣长度与花瓣宽度的相关关系"
+)
+```
+
+---
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 车重与油耗的相关关系
+ggscatterstats(
+  data  = mtcars,
+  x     = wt,
+  y     = mpg,
+  xlab  = "车重（千磅）",
+  ylab  = "油耗（mpg）",
+  title = "车重与油耗的相关关系"
+)
+```
+
+---
+
+:::{.callout-tip}
+图上会显示 **Pearson r**（或 Spearman ρ）、**p 值**、**置信区间**, 边缘还会自动画出两个变量各自的分布直方图。
+:::
+
+
+
+
+---
+
+## 4 单变量分布：`gghistostats()`
+
+:::{.callout-tip}
+查看**单个连续变量**的分布，并检验它是否与某个假设值存在显著差异（单样本 t 检验）。
+:::
+
+
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 鸢尾花花萼长度的分布
+gghistostats(
+  data     = iris,
+  x        = Sepal.Length,
+  color   = "steelblue",
+  title    = "花萼长度的分布",
+  xlab     = "花萼长度（cm）",
+  test.value = 5.8   # 检验均值是否显著不同于 5.8
+)
+```
+
+---
+
+
+
+## 5 分类变量：`ggbarstats()`
+
+:::{.callout-tip}
+展示**两个分类变量**之间的关系，自动进行卡方检验（χ²检验）。
+:::
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+library(tidyverse)
+mtcars <- mtcars |> 
+  mutate(am = factor(am, 
+                     levels = c(0, 1), 
+                     labels = c("自动", "手动")))
+
+# 气缸数与变速箱类型的关系
+ggbarstats(
+  data  = mtcars,
+  x     = cyl,
+  y     = am,
+  title = "气缸数和变速箱类型分布",
+  xlab  = "气缸数",
+  legend.title = "变速箱"
+) 
+```
+
+---
+
+## 6 相关系数矩阵：`ggcorrmat()`
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# mtcars 主要性能指标的相关矩阵
+ggcorrmat(
+  data     = mtcars,
+  cor.vars = c(mpg, hp, wt, disp, qsec),
+  title    = "汽车主要性能指标的相关矩阵"
+)
+```
+
+:::{.callout-tip}
+颜色越深表示相关系数绝对值越大，打叉（×）的格子表示相关不显著（p ≥ 0.05）。
+:::
+
+---
+
+## 7 分面组合：`grouped_` 系列函数
+
+:::{.callout-tip}
+按某个分组变量，**自动拆分**成多个子图，每个子图独立做统计检验。
+:::
+
+
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# 按变速箱类型分组，分别比较不同气缸数的油耗
+grouped_ggscatterstats(
+  data         = mtcars,
+  x            = wt,
+  y            = mpg,
+  grouping.var = am,
+  title.prefix = "变速箱："
+)
+```
+
+---
+
+## 8 常见问题
+
+### 问题1：看不懂图上的统计符号
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| message: false
+#| warning: false
+ggbetweenstats(data = iris, x = Species, y = Sepal.Width)
+```
+
+---
+
+:::{.callout-tip}
+- F     → ANOVA 的 F 统计量
+- t     → t 检验的 t 统计量
+- p     → p 值（< 0.05 表示显著）
+- ω²   → ANOVA 的效应量（Omega squared）
+- d     → t 检验的效应量（Cohen's d）
+- r     → 相关系数
+- CI    → 置信区间（95% Confidence Interval）
+
+- 只需要关注 p 值和效应量。p < 0.05 → 差异显著。效应量越大 → 实际差异越有意义
+:::
+
+---
+
+### 问题2：如何修改图形的外观
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# ggstatsplot 的结果是一个 ggplot 对象，可以继续用 + 添加图层
+p <- ggbetweenstats(
+  data  = iris,
+  x     = Species,
+  y     = Sepal.Length,
+  title = "三种鸢尾花的花萼长度"
+)
+
+# 在 ggstatsplot 的图基础上继续修改
+p +
+  scale_color_manual(values = c("#8DA0CB","#FC8D62","#66C2A5")) +
+  theme(plot.title = element_text(size = 16, face = "bold"))
+```
+
+---
+
+### 问题3：如何关闭统计信息只看图形
+
+```{r}
+#| echo: true
+#| message: false
+#| warning: false
+
+# results.subtitle = FALSE：不显示统计检验结果
+ggbetweenstats(
+  data             = iris,
+  x                = Species,
+  y                = Sepal.Length,
+  results.subtitle = FALSE,   # 关闭统计信息
+)
+```
+
+---
+
+## 9 小结
+
+| 函数 | 用途 | 自动检验 |
+|---|---|---|
+| `ggbetweenstats()` | 分组比较（连续变量）| t 检验 / ANOVA |
+| `ggscatterstats()` | 两变量相关 | 相关系数检验 |
+| `gghistostats()` | 单变量分布 | 单样本 t 检验 |
+| `ggbarstats()` | 分类变量关联 | 卡方检验 |
+| `ggcorrmat()` | 多变量相关矩阵 | 相关显著性 |
+| `grouped_ggbetweenstats()` | 分组后各自比较 | 同上，按组 |
+| `grouped_ggscatterstats()` | 分组后各自相关 | 同上，按组 |
+
+---
+
+::: {.callout-tip}
+**先跑起来再说**：把数据名、x、y 填进去，其他参数保持默认，先看图再慢慢调整。
+
+**图是 ggplot 对象**：跑通之后，可以继续用 `+` 添加 ggplot2 的图层修改外观。
+
+**不懂统计符号没关系**：先关注 **p 值**，p < 0.05 就说明有统计意义，其他细节需要了解时再搜索。
+
+**`grouped_` 系列是加分项**：一行代码按分组出多张图，  
+   是 ggstatsplot 最省力的功能之一。
+:::
