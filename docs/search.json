@@ -753,14 +753,14 @@
     "href": "m4.html",
     "title": "模块4 数据分析实战",
     "section": "",
-    "text": "L13 讲义"
+    "text": "Tip\n\n\n\n下载模块4代码文件：m4.R"
   },
   {
     "objectID": "m4.html#l13-外部数据文件的导入",
     "href": "m4.html#l13-外部数据文件的导入",
     "title": "模块4 数据分析实战",
-    "section": "",
-    "text": "L13 讲义"
+    "section": "L13 外部数据文件的导入",
+    "text": "L13 外部数据文件的导入\n\n L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n下载L13数据文件：stroke.xlsx\n下载L13数据文件：stroke.csv\n下载L13数据文件：stroke.txt"
   },
   {
     "objectID": "m4.html#l14-数据可视化",
@@ -788,7 +788,7 @@
     "href": "m4.html#l17-初学者最容易犯的5个低级错误",
     "title": "模块4 数据分析实战",
     "section": "L17 初学者最容易犯的5个低级错误",
-    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义"
   },
   {
     "objectID": "m5.html",
@@ -1104,5 +1104,47 @@
     "title": "L18用AI辅助R学习与代码生成",
     "section": "6 小结：R小白进阶建议",
     "text": "6 小结：R小白进阶建议\nAI辅助学习R的工作流：\n\n用清晰提示让AI生成代码\n复制到 RStudio 运行\n报错 → 贴给AI修复\n最重要：让AI逐行解释代码 → 自己把注释写进脚本\n重复此过程，建立个人代码库"
+  },
+  {
+    "objectID": "L13slide.html#学习思路",
+    "href": "L13slide.html#学习思路",
+    "title": "L13数据文件的导入",
+    "section": "1 学习思路",
+    "text": "1 学习思路\n先用Import Dataset按钮导入导入 → 再学习history生成的代码"
+  },
+  {
+    "objectID": "L13slide.html#使用import-dataset按钮导入",
+    "href": "L13slide.html#使用import-dataset按钮导入",
+    "title": "L13数据文件的导入",
+    "section": "2 使用Import Dataset按钮导入",
+    "text": "2 使用Import Dataset按钮导入\n\n创建项目\n将要导入的数据文件放在当前工作目录下，点击Import Dataset按钮，选择文件类型（如 Excel、CSV、txt）。\n在弹出的界面中选择文件并设置相关选项，最后点击Import完成导入。"
+  },
+  {
+    "objectID": "L13slide.html#直接用-r-代码导入数据",
+    "href": "L13slide.html#直接用-r-代码导入数据",
+    "title": "L13数据文件的导入",
+    "section": "3 直接用 R 代码导入数据",
+    "text": "3 直接用 R 代码导入数据\n导入Excel文件\n\nlibrary(readxl)\n\ndf &lt;- read_xlsx(\"stroke.xlsx\")\n\ndf &lt;- read_xlsx(\"stroke.xlsx\",\n                 sheet = 1,           # 导入第几个工作表\n                 skip = 0,            # 跳过前几行\n                 col_names = TRUE)    # 第一行作为变量名"
+  },
+  {
+    "objectID": "L13slide.html#导入思路",
+    "href": "L13slide.html#导入思路",
+    "title": "L13数据文件的导入",
+    "section": "1 导入思路",
+    "text": "1 导入思路\n\n先用Import Dataset按钮导入导入\n再将history生成的代码发送到代码文件中\n避免文件路径输入错误导致代码报错（如C:/Users/xxx/Desktop/stroke.xlsx）"
+  },
+  {
+    "objectID": "L13slide.html#常见报错",
+    "href": "L13slide.html#常见报错",
+    "title": "L13数据文件的导入",
+    "section": "4常见报错",
+    "text": "4常见报错\n如果您遇到以下情况，很可能就是中文路径/文件名的问题：\n\nError: ... does not exist in current working directory.\nError in gzfile(file, \"rb\") : cannot open the connection"
+  },
+  {
+    "objectID": "m4.html#l15-ggstatsplot实现统计检验可视化",
+    "href": "m4.html#l15-ggstatsplot实现统计检验可视化",
+    "title": "模块4 数据分析实战",
+    "section": "L15 ggstatsplot实现统计检验可视化",
+    "text": "L15 ggstatsplot实现统计检验可视化\n\n L15 讲义"
   }
 ]

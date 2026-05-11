@@ -2,12 +2,25 @@
 title: "模块4 数据分析实战"
 ---
 
+::: {.callout-tip}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块4代码文件：m4.R](https://github.com/lizongzhang/r2hours/raw/main/stroke.xlsx){download="m4.R"}
+:::
+
 ## L13 外部数据文件的导入
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
   [L13 讲义](https://lizongzhang.github.io/r2hours/L13slide.html){target="_blank"}
 </div>
+
+::: {.callout-tip}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.xlsx](https://github.com/lizongzhang/r2hours/raw/main/stroke.xlsx){download="stroke.xlsx"}
+
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.csv](https://github.com/lizongzhang/r2hours/raw/main/stroke.csv){download="stroke.csv"}
+
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.txt](https://github.com/lizongzhang/r2hours/raw/main/stroke.csv){download="stroke.csv"}
+
+:::
 
 ## L14 数据可视化
 
@@ -17,7 +30,7 @@ title: "模块4 数据分析实战"
 </div>
 
 
-## L15 `ggstatsplot`<br>统计检验的可视化
+## L15 `ggstatsplot`实现统计检验可视化
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
@@ -42,10 +55,7 @@ title: "模块4 数据分析实战"
 
 
 
-::: {.callout-tip}
-## 资源下载
-[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
-:::
+
 
 
 
