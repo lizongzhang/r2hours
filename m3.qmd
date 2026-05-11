@@ -2,6 +2,10 @@
 title: "模块3 构建R语言底层逻辑"
 ---
 
+::: {.callout-tip}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块3代码文件：m3.R](https://github.com/lizongzhang/r2hours/raw/main/m3.R){download="m3.R"}
+:::
+
 ## L8 R中的向量思维彻底搞懂`c()`函数
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
@@ -43,16 +47,6 @@ title: "模块3 构建R语言底层逻辑"
 
 
 
-
-
-
-
-
-
-::: {.callout-tip}
-## 资源下载
-[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="m3.R"}
-:::
 
 
 

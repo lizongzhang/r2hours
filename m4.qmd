@@ -30,7 +30,7 @@ title: "模块4 数据分析实战"
 </div>
 
 
-## L15 `ggstatsplot`实现统计检验可视化
+## L15 `ggstatsplot`统计检验可视化
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">

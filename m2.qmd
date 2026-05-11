@@ -2,6 +2,10 @@
 title: "模块2 快速起步"
 ---
 
+::: {.callout-tip}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块2代码文件：m2.R](https://github.com/lizongzhang/r2hours/raw/main/m2.R){download="m2.R"}
+:::
+
 ## L3 RStudio界面与基础绘图
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">

@@ -361,14 +361,14 @@
     "href": "m3.html",
     "title": "模块3 构建R语言底层逻辑",
     "section": "",
-    "text": "L8 讲义"
+    "text": "Tip\n\n\n\n下载模块3代码文件：m3.R"
   },
   {
     "objectID": "m3.html#l8-r中的向量思维彻底搞懂c函数",
     "href": "m3.html#l8-r中的向量思维彻底搞懂c函数",
     "title": "模块3 构建R语言底层逻辑",
-    "section": "",
-    "text": "L8 讲义"
+    "section": "L8 R中的向量思维彻底搞懂c()函数",
+    "text": "L8 R中的向量思维彻底搞懂c()函数\n\n L8 讲义"
   },
   {
     "objectID": "m3.html#l9-数据框常用操作",
@@ -396,7 +396,7 @@
     "href": "m3.html#l12-管道符数据管理的高效工具",
     "title": "模块3 构建R语言底层逻辑",
     "section": "L12 管道符：数据管理的高效工具",
-    "text": "L12 管道符：数据管理的高效工具\n\n L12 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L12 管道符：数据管理的高效工具\n\n L12 讲义"
   },
   {
     "objectID": "L17slide.html#代码不执行只按了-enter",
@@ -445,21 +445,21 @@
     "href": "m1.html",
     "title": "模块1 准备",
     "section": "",
-    "text": "L1 讲义"
+    "text": "Tip\n\n\n\n下载模块1代码文件：m1.R"
   },
   {
     "objectID": "m1.html#l1-重塑ai时代的r学习观",
     "href": "m1.html#l1-重塑ai时代的r学习观",
     "title": "模块1 准备",
-    "section": "",
-    "text": "L1 讲义"
+    "section": "L1 重塑AI时代的R学习观",
+    "text": "L1 重塑AI时代的R学习观\n\n L1 讲义"
   },
   {
     "objectID": "m1.html#l2-r与rstudio的安装与配置",
     "href": "m1.html#l2-r与rstudio的安装与配置",
     "title": "模块1 准备",
     "section": "L2 R与RStudio的安装与配置",
-    "text": "L2 R与RStudio的安装与配置\n\n L2 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L2 R与RStudio的安装与配置\n\n L2 讲义"
   },
   {
     "objectID": "L11slide.html#字符串-vs-因子",
@@ -641,14 +641,14 @@
     "href": "m2.html",
     "title": "模块2 快速起步",
     "section": "",
-    "text": "L3 讲义"
+    "text": "Tip\n\n\n\n下载模块2代码文件：m2.R"
   },
   {
     "objectID": "m2.html#l3-rstudio界面与基础绘图",
     "href": "m2.html#l3-rstudio界面与基础绘图",
     "title": "模块2 快速起步",
-    "section": "",
-    "text": "L3 讲义"
+    "section": "L3 RStudio界面与基础绘图",
+    "text": "L3 RStudio界面与基础绘图\n\n L3 讲义"
   },
   {
     "objectID": "m2.html#l4-6分钟完成全链路统计分析",
@@ -753,14 +753,14 @@
     "href": "m4.html",
     "title": "模块4 数据分析实战",
     "section": "",
-    "text": "Tip\n\n\n\n下载模块4代码文件：m4.R"
+    "text": "L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n文件下载\n点击下载L13数据文件stroke.xlsx\n点击下载L13数据文件stroke.csv\n点击下载L13数据文件stroke.txt"
   },
   {
     "objectID": "m4.html#l13-外部数据文件的导入",
     "href": "m4.html#l13-外部数据文件的导入",
     "title": "模块4 数据分析实战",
-    "section": "L13 外部数据文件的导入",
-    "text": "L13 外部数据文件的导入\n\n L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n下载L13数据文件：stroke.xlsx\n下载L13数据文件：stroke.csv\n下载L13数据文件：stroke.txt"
+    "section": "",
+    "text": "L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n文件下载\n点击下载L13数据文件stroke.xlsx\n点击下载L13数据文件stroke.csv\n点击下载L13数据文件stroke.txt"
   },
   {
     "objectID": "m4.html#l14-数据可视化",
@@ -788,21 +788,21 @@
     "href": "m4.html#l17-初学者最容易犯的5个低级错误",
     "title": "模块4 数据分析实战",
     "section": "L17 初学者最容易犯的5个低级错误",
-    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义"
+    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n点击下载模块4代码文件m4.R"
   },
   {
     "objectID": "m5.html",
     "href": "m5.html",
     "title": "模块5 AI赋能",
     "section": "",
-    "text": "L18 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块5代码文件 :m5.R"
+    "text": "L18 讲义"
   },
   {
     "objectID": "m5.html#l18-ai辅助r学习和编程",
     "href": "m5.html#l18-ai辅助r学习和编程",
     "title": "模块5 AI赋能",
     "section": "",
-    "text": "L18 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块5代码文件 :m5.R"
+    "text": "L18 讲义"
   },
   {
     "objectID": "L12slide.html#什么是管道符",

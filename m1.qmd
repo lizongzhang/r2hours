@@ -2,6 +2,10 @@
 title: "模块1 准备"
 ---
 
+::: {.callout-tip}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块1代码文件：m1.R](https://github.com/lizongzhang/r2hours/raw/main/m1.R){download="m1.R"}
+:::
+
 ## L1 重塑AI时代的R学习观
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
@@ -16,10 +20,6 @@ title: "模块1 准备"
 </div>
 
 
-::: {.callout-tip}
-## 资源下载
-[点击下载模块1代码文件 :m1.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="L1.R"}
-:::
 
 
 

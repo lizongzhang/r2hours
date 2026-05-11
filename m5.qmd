@@ -11,11 +11,6 @@ title: "模块5 AI赋能"
 
 
 
-::: {.callout-tip}
-## 资源下载
-[点击下载模块5代码文件 :m5.R](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="m5.R"}
-:::
-
 
 
 
