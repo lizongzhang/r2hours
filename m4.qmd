@@ -3,7 +3,7 @@ title: "模块4 数据分析实战"
 ---
 
 ::: {.callout-tip}
-<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块4代码文件：m4.R](https://github.com/lizongzhang/r2hours/raw/main/stroke.xlsx){download="m4.R"}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块4代码文件：m4.R](https://github.com/lizongzhang/r2hours/raw/main/m4.R){download="m4.R"}
 :::
 
 ## L13 外部数据文件的导入
@@ -18,7 +18,7 @@ title: "模块4 数据分析实战"
 
 <img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.csv](https://github.com/lizongzhang/r2hours/raw/main/stroke.csv){download="stroke.csv"}
 
-<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.txt](https://github.com/lizongzhang/r2hours/raw/main/stroke.csv){download="stroke.csv"}
+<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.txt](https://github.com/lizongzhang/r2hours/raw/main/stroke.txt){download="stroke.txt"}
 
 :::
 

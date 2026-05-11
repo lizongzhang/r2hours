@@ -319,7 +319,7 @@
     "href": "index.html",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
+    "text": "全课涵盖 5 大模块、18 节精讲，通过模块化实战教学，助您 2 小时高效掌握 R 语言核心技能。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
   },
   {
     "objectID": "index.html#核心教学模块",
@@ -753,14 +753,14 @@
     "href": "m4.html",
     "title": "模块4 数据分析实战",
     "section": "",
-    "text": "L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n文件下载\n点击下载L13数据文件stroke.xlsx\n点击下载L13数据文件stroke.csv\n点击下载L13数据文件stroke.txt"
+    "text": "Tip\n\n\n\n下载模块4代码文件：m4.R"
   },
   {
     "objectID": "m4.html#l13-外部数据文件的导入",
     "href": "m4.html#l13-外部数据文件的导入",
     "title": "模块4 数据分析实战",
-    "section": "",
-    "text": "L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n文件下载\n点击下载L13数据文件stroke.xlsx\n点击下载L13数据文件stroke.csv\n点击下载L13数据文件stroke.txt"
+    "section": "L13 外部数据文件的导入",
+    "text": "L13 外部数据文件的导入\n\n L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n下载L13数据文件：stroke.xlsx\n下载L13数据文件：stroke.csv\n下载L13数据文件：stroke.txt"
   },
   {
     "objectID": "m4.html#l14-数据可视化",
@@ -788,7 +788,7 @@
     "href": "m4.html#l17-初学者最容易犯的5个低级错误",
     "title": "模块4 数据分析实战",
     "section": "L17 初学者最容易犯的5个低级错误",
-    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n点击下载模块4代码文件m4.R"
+    "text": "L17 初学者最容易犯的5个低级错误\n\n L17 讲义"
   },
   {
     "objectID": "m5.html",
@@ -809,49 +809,49 @@
     "href": "L12slide.html#什么是管道符",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "1 什么是管道符？",
-    "text": "1 什么是管道符？\n\n管道符 pipe operator: |&gt;把左边的结果自动传递给右边函数的第一个参数。\n管道符快捷键\n\nWin: shift + control + M\nmacOS: Cmd + Shift + M"
+    "text": "1 什么是管道符？\n\n管道符 pipe operator: |&gt;把左边的结果自动传递给右边函数的第一个参数。\n管道符快捷键\n\nWin: shift + control + M\nmacOS: Cmd + Shift + M\n\n\n\n\n# 没有管道符：从内到外嵌套，要从右往左读\nround(mean(sqrt(mtcars$hp)), 2)\n\n[1] 11.8\n\n# 有管道符：从左到右，像在读一个步骤清单\nmtcars$hp |&gt; sqrt() |&gt; mean() |&gt; round(2)\n\n[1] 11.8\n\n\n\nx |&gt; f() 等价于 f(x)\nx |&gt; f() |&gt; g() 等价于 g(f(x))"
   },
   {
     "objectID": "L12slide.html#为什么用管道符",
     "href": "L12slide.html#为什么用管道符",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "2 为什么用管道符？",
-    "text": "2 为什么用管道符？\n不用管道符，多步操作只能靠嵌套或中间变量：\n\n# 嵌套写法：层层包裹，阅读困难\nresult1 &lt;- round(mean(mtcars$hp), 1)\n# 中间变量写法：代码冗长\nhp_mean  &lt;- mean(mtcars$hp)\nresult2  &lt;- round(hp_mean, 1)\nresult1\n\n[1] 146.7\n\nresult2\n\n[1] 146.7"
+    "text": "2 为什么用管道符？\n不用管道符，多步操作只能靠嵌套或中间变量：\n\n# 嵌套写法：层层包裹，阅读困难\nresult1 &lt;- round(mean(mtcars$hp), 1)\n# 中间变量写法：代码冗长\nhp_mean  &lt;- mean(mtcars$hp)\nresult2  &lt;- round(hp_mean, 1)\nresult1\n\n[1] 146.7\n\nresult2\n\n[1] 146.7\n\n\n\n用管道符，步骤清晰，从上到下、从左到右地读：\n\n# 管道符写法：每一步做什么，一目了然\nresult &lt;- mtcars$hp |&gt; mean() |&gt; round(1)\nresult\n\n[1] 146.7\n\n\n\n\n\n\n\n\nTip\n\n\n\n代码要让人读懂，不只是让机器执行。\n管道符让代码的逻辑顺序与书写顺序保持一致。"
   },
   {
     "objectID": "L12slide.html#和-的区别",
     "href": "L12slide.html#和-的区别",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "3 |> 和 %>% 的区别",
-    "text": "3 |&gt; 和 %&gt;% 的区别\n\n# |&gt;  是 R 4.1+ 内置的原生管道符，无需加载任何包\nmtcars$hp |&gt; mean() |&gt; round(1)\n\n[1] 146.7\n\n# %&gt;% 来自 magrittr 包，加载 dplyr 或 tidyverse 后可用\n# 两者在绝大多数场景下效果完全相同\nmtcars$hp %&gt;% mean() %&gt;% round(1)\n\n[1] 146.7\n\n\n\n\n\n\n\n\nTip\n\n\n\n💡 推荐初学者统一使用 |&gt;，不需要额外加载包。"
+    "text": "3 |&gt; 和 %&gt;% 的区别\n\n# |&gt;  是 R 4.1+ 内置的原生管道符，无需加载任何包\nmtcars$hp |&gt; mean() |&gt; round(1)\n\n[1] 146.7\n\n# %&gt;% 来自 magrittr 包，加载 dplyr 或 tidyverse 后可用\n# 两者在绝大多数场景下效果完全相同\nmtcars$hp %&gt;% mean() %&gt;% round(1)\n\n[1] 146.7\n\n\n\n\n\n\n\n\nTip\n\n\n\n\n💡 推荐初学者统一使用 |&gt;，不需要额外加载包。\n\n\n\n\n\n默认情况下，RStudio中的管道符对应的是 %&gt;%。\n如果你想使用 R 4.1+ 的原生管道符 |&gt;，需要按以下步骤设置：\n\n点击菜单栏的 Tools -&gt; Global Options…\n在左侧选择 Code。\n在 Editing 选项卡中，找到并勾选：\n\n“Use native pipe operator, |&gt; (requires R 4.1+)”\n点击 OK。\n设置完成后，再次按下 Ctrl/Cmd + Shift + M，就会自动输入 |&gt; 了"
   },
   {
     "objectID": "L12slide.html#数据管理常用操作",
     "href": "L12slide.html#数据管理常用操作",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "4 数据管理常用操作",
-    "text": "4 数据管理常用操作\n筛选行：filter()\n\n# 筛选出 4 缸的车\nmtcars |&gt;\n  filter(cyl == 4)\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nDatsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nMerc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2"
+    "text": "4 数据管理常用操作\n\n筛选行：filter()\n\n# 筛选出 4 缸的车\nmtcars |&gt;\n  filter(cyl == 4)\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nDatsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nMerc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n\n\n\n# 多条件筛选：4 缸且手动挡\nmtcars |&gt;\n  filter(cyl == 4, am == 1)\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nDatsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2\n\n\n\n\n# 油耗大于 25 或马力大于 200\nmtcars |&gt;\n  filter(mpg &gt; 25 | hp &gt; 200)\n\n                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nDuster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nCadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4\nLincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4\nChrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4\nFiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nCamaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4\nFiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nFord Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4\nMaserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8\n\n\n\n\n\n选择列：select()\n\n# 只保留需要的列\nmtcars |&gt;\n  select(mpg, cyl, hp, wt, am) |&gt;\n  head(5)\n\n                   mpg cyl  hp    wt am\nMazda RX4         21.0   6 110 2.620  1\nMazda RX4 Wag     21.0   6 110 2.875  1\nDatsun 710        22.8   4  93 2.320  1\nHornet 4 Drive    21.4   6 110 3.215  0\nHornet Sportabout 18.7   8 175 3.440  0\n\n\n\n\n# 去掉不需要的列（在列名前加 -）\nmtcars |&gt;\n  select(-qsec, -vs, -gear, -carb) |&gt;\n  head(5)\n\n                   mpg cyl disp  hp drat    wt am\nMazda RX4         21.0   6  160 110 3.90 2.620  1\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875  1\nDatsun 710        22.8   4  108  93 3.85 2.320  1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215  0\nHornet Sportabout 18.7   8  360 175 3.15 3.440  0\n\n\n\n\n\n追加变量：mutate()\n\n# 追加一列：将油耗从 mpg 换算为 km/L\nmtcars |&gt;\n  mutate(kpl = mpg * 0.425) |&gt;\n  select(mpg, kpl) |&gt;\n  head(5)\n\n                   mpg    kpl\nMazda RX4         21.0 8.9250\nMazda RX4 Wag     21.0 8.9250\nDatsun 710        22.8 9.6900\nHornet 4 Drive    21.4 9.0950\nHornet Sportabout 18.7 7.9475\n\n\n\n\n# 同时追加多列\nmtcars |&gt;\n  mutate(\n    kpl    = mpg * 0.425,          # 油耗换算\n    wt_kg  = wt * 453.6            # 车重换算为千克\n  ) |&gt;\n  select(mpg, kpl, wt, wt_kg) |&gt;\n  head(5)\n\n                   mpg    kpl    wt    wt_kg\nMazda RX4         21.0 8.9250 2.620 1188.432\nMazda RX4 Wag     21.0 8.9250 2.875 1304.100\nDatsun 710        22.8 9.6900 2.320 1052.352\nHornet 4 Drive    21.4 9.0950 3.215 1458.324\nHornet Sportabout 18.7 7.9475 3.440 1560.384\n\n\n\n\n\n重新编码：mutate() + case_when()\ncase_when() 是 ifelse() 的升级版，可以处理多个条件。\n\n# 将连续的 mpg 重新编码为\"低/中/高\"油耗分组\nmtcars |&gt;\n  mutate(\n    mpg_group = case_when(\n      mpg &lt; 18             ~ \"低油耗\",\n      mpg &gt;= 18 & mpg &lt; 25 ~ \"中油耗\",\n      mpg &gt;= 25            ~ \"高油耗\"\n    )\n  ) |&gt;\n  select(mpg, mpg_group) |&gt;\n  head(8)\n\n                   mpg mpg_group\nMazda RX4         21.0    中油耗\nMazda RX4 Wag     21.0    中油耗\nDatsun 710        22.8    中油耗\nHornet 4 Drive    21.4    中油耗\nHornet Sportabout 18.7    中油耗\nValiant           18.1    中油耗\nDuster 360        14.3    低油耗\nMerc 240D         24.4    中油耗\n\n\n\n\n# 将 am（0/1）重新编码为有意义的标签\nmtcars |&gt;\n  mutate(\n    am_label = case_when(\n      am == 0 ~ \"自动挡\",\n      am == 1 ~ \"手动挡\"\n    )\n  ) |&gt;\n  select(am, am_label) |&gt;\n  head(8)\n\n                  am am_label\nMazda RX4          1   手动挡\nMazda RX4 Wag      1   手动挡\nDatsun 710         1   手动挡\nHornet 4 Drive     0   自动挡\nHornet Sportabout  0   自动挡\nValiant            0   自动挡\nDuster 360         0   自动挡\nMerc 240D          0   自动挡\n\n\n\ncase_when() 的语法：条件 ~ \"赋值\"，从上到下逐条匹配，匹配到第一个成立的条件就停止。\n\n\n\n\n排序：arrange()\n\n# 按油耗从低到高排列\nmtcars |&gt;\n  select(mpg, cyl, hp) |&gt;\n  arrange(mpg) |&gt;\n  head(5)\n\n                     mpg cyl  hp\nCadillac Fleetwood  10.4   8 205\nLincoln Continental 10.4   8 215\nCamaro Z28          13.3   8 245\nDuster 360          14.3   8 245\nChrysler Imperial   14.7   8 230\n\n\n\n\n# 按油耗从高到低排列（加 desc()）\nmtcars |&gt;\n  select(mpg, cyl, hp) |&gt;\n  arrange(desc(mpg)) |&gt;\n  head(5)\n\n                mpg cyl  hp\nToyota Corolla 33.9   4  65\nFiat 128       32.4   4  66\nHonda Civic    30.4   4  52\nLotus Europa   30.4   4 113\nFiat X1-9      27.3   4  66\n\n\n\n\n\n分组汇总：group_by() + summarise()\n\n# 按气缸数分组，计算各组的平均油耗和平均马力\nmtcars |&gt;\n  group_by(cyl) |&gt;\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg)  |&gt; round(1),\n    hp_mean  = mean(hp)   |&gt; round(1)\n  )\n\n# A tibble: 3 × 4\n    cyl     n mpg_mean hp_mean\n  &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n1     4    11     26.7    82.6\n2     6     7     19.7   122. \n3     8    14     15.1   209. \n\n\n\n\n# 按气缸数和变速箱类型双重分组\nmtcars |&gt;\n  mutate(am_label = ifelse(am == 0, \"自动挡\", \"手动挡\")) |&gt;\n  group_by(cyl, am_label) |&gt;\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg) |&gt; round(1),\n    .groups  = \"drop\"\n  )\n\n# A tibble: 6 × 4\n    cyl am_label     n mpg_mean\n  &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;    &lt;dbl&gt;\n1     4 手动挡       8     28.1\n2     4 自动挡       3     22.9\n3     6 手动挡       3     20.6\n4     6 自动挡       4     19.1\n5     8 手动挡       2     15.4\n6     8 自动挡      12     15.1"
   },
   {
     "objectID": "L12slide.html#串联所有的步骤",
     "href": "L12slide.html#串联所有的步骤",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "5 串联所有的步骤",
-    "text": "5 串联所有的步骤\n管道符真正的价值在于把多个步骤一气呵成地串联：\n\n# 目标：找出手动挡车中，各气缸数的平均油耗（从高到低排列）\nmtcars |&gt;\n  filter(am == 1) |&gt;                          # 第1步：只保留手动挡\n  mutate(cyl = factor(cyl)) |&gt;               # 第2步：气缸数转为因子\n  group_by(cyl) |&gt;                           # 第3步：按气缸数分组\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg) |&gt; round(1)         # 第4步：计算平均油耗\n  ) |&gt;\n  arrange(desc(mpg_mean))                    # 第5步：从高到低排列\n\n# A tibble: 3 × 3\n  cyl       n mpg_mean\n  &lt;fct&gt; &lt;int&gt;    &lt;dbl&gt;\n1 4         8     28.1\n2 6         3     20.6\n3 8         2     15.4"
+    "text": "5 串联所有的步骤\n管道符真正的价值在于把多个步骤一气呵成地串联：\n\n# 目标：找出手动挡车中，各气缸数的平均油耗（从高到低排列）\nmtcars |&gt;\n  filter(am == 1) |&gt;                          # 第1步：只保留手动挡\n  mutate(cyl = factor(cyl)) |&gt;               # 第2步：气缸数转为因子\n  group_by(cyl) |&gt;                           # 第3步：按气缸数分组\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg) |&gt; round(1)         # 第4步：计算平均油耗\n  ) |&gt;\n  arrange(desc(mpg_mean))                    # 第5步：从高到低排列\n\n# A tibble: 3 × 3\n  cyl       n mpg_mean\n  &lt;fct&gt; &lt;int&gt;    &lt;dbl&gt;\n1 4         8     28.1\n2 6         3     20.6\n3 8         2     15.4\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n如何写好管道符代码\n\n每个 |&gt; 后换行，保持一步一行的格式\n用缩进对齐，让结构清晰\n每一行加注释说明这一步做什么\n中间可以随时插入 head() 或 str() 检查结果"
   },
   {
     "objectID": "L12slide.html#常见报错",
     "href": "L12slide.html#常见报错",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "常见报错",
-    "text": "常见报错\n报错1：管道符后忘记写函数\n\n# 管道符后面必须接一个函数，不能接数据框\nmtcars |&gt; cyl\n\nError in cyl: The pipe operator requires a function call as RHS (&lt;input&gt;:2:11)"
+    "text": "常见报错\n\n报错1：管道符后忘记写函数\n\n# 管道符后面必须接一个函数，不能接数据框\nmtcars |&gt; cyl\n\nError in cyl: The pipe operator requires a function call as RHS (&lt;input&gt;:2:11)\n\n\n\n\n\n报错2：|&gt; 写成了 &gt;\n\n# 少写了一个 |，变成了比较运算符\n# mtcars &gt; head()   # 完全不同的含义\n\n# 正确\nmtcars |&gt; head()\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n\n\n\n\n\n报错3：group_by() 后忘记 summarise()\n\n# group_by() 本身不改变数据，只是\"打了标记\"\n# 忘记接 summarise()，数据看起来没有变化\nmtcars |&gt;\n  group_by(cyl) |&gt;\n  head(3)         # 看起来正常，但其实还带着分组标记\n\n# A tibble: 3 × 11\n# Groups:   cyl [2]\n    mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1  21       6   160   110  3.9   2.62  16.5     0     1     4     4\n2  21       6   160   110  3.9   2.88  17.0     0     1     4     4\n3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1\n\n\n\n\n# 不需要分组时，记得用 ungroup() 清除分组标记\nmtcars |&gt;\n  group_by(cyl) |&gt;\n  mutate(mpg_centered = mpg - mean(mpg)) |&gt;\n  ungroup() |&gt;\n  select(cyl, mpg, mpg_centered) |&gt;\n  head(5)\n\n# A tibble: 5 × 3\n    cyl   mpg mpg_centered\n  &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;\n1     6  21           1.26\n2     6  21           1.26\n3     4  22.8        -3.86\n4     6  21.4         1.66\n5     8  18.7         3.6"
   },
   {
     "objectID": "L12slide.html#小结",
     "href": "L12slide.html#小结",
     "title": "L12掌握管道符实现高效数据管理",
     "section": "6 小结",
-    "text": "6 小结\n\n\n\n函数\n用途\n\n\n\n\nfilter()\n按条件筛选行\n\n\nselect()\n选择保留的列\n\n\nmutate()\n追加新列或修改已有列\n\n\ncase_when()\n多条件重新编码（配合 mutate() 使用）\n\n\narrange()\n按某列排序（desc() 降序）\n\n\ngroup_by()\n按变量分组\n\n\nsummarise()\n对每组计算汇总统计量\n\n\nungroup()\n清除分组标记"
+    "text": "6 小结\n\n\n\n函数\n用途\n\n\n\n\nfilter()\n按条件筛选行\n\n\nselect()\n选择保留的列\n\n\nmutate()\n追加新列或修改已有列\n\n\ncase_when()\n多条件重新编码（配合 mutate() 使用）\n\n\narrange()\n按某列排序（desc() 降序）\n\n\ngroup_by()\n按变量分组\n\n\nsummarise()\n对每组计算汇总统计量\n\n\nungroup()\n清除分组标记\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\n\n|&gt; 后面必须接函数，每步换行，保持代码可读性\ncase_when() 从上到下逐条匹配，\n条件之间有重叠时，顺序很重要\ngroup_by() 之后记得 summarise() 或 ungroup()，\n否则分组标记会悄悄影响后续所有操作"
   },
   {
     "objectID": "L8slide.html#c函数的作用",
@@ -1054,7 +1054,7 @@
     "href": "index.html#课程大纲",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
+    "text": "全课涵盖 5 大模块、18 节精讲，通过模块化实战教学，助您 2 小时高效掌握 R 语言核心技能。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
   },
   {
     "objectID": "L18slide.html#ai是r学习的超级加速器",
@@ -1146,5 +1146,19 @@
     "title": "模块4 数据分析实战",
     "section": "L15 ggstatsplot实现统计检验可视化",
     "text": "L15 ggstatsplot实现统计检验可视化\n\n L15 讲义"
+  },
+  {
+    "objectID": "L12slide.html",
+    "href": "L12slide.html",
+    "title": "L12掌握管道符实现高效数据管理",
+    "section": "",
+    "text": "请务必先运行下方代码\n\n\n\n在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n本节使用R自带的数据集：mtcars\nlibrary(tidyverse)\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\n\nWarning: package 'tidyr' was built under R version 4.5.2\n\n\nWarning: package 'purrr' was built under R version 4.5.2\n\n\nWarning: package 'dplyr' was built under R version 4.5.2\n\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n本节重点关注以下几列："
+  },
+  {
+    "objectID": "m4.html#l15-ggstatsplot统计检验可视化",
+    "href": "m4.html#l15-ggstatsplot统计检验可视化",
+    "title": "模块4 数据分析实战",
+    "section": "L15 ggstatsplot统计检验可视化",
+    "text": "L15 ggstatsplot统计检验可视化\n\n L15 讲义"
   }
 ]
