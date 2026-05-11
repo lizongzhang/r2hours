@@ -235,7 +235,7 @@
     "href": "L18slide.html#提示词模板",
     "title": "L18用AI辅助R学习与代码生成",
     "section": "4 提示词模板",
-    "text": "4 提示词模板\n初学者可以套用以下模板，快速得到高质量的回答：\n\n\n模板1：生成代码\n我在用 R 做数据分析，请帮我写代码。\n\n数据：[数据集名称或数据结构描述]\n目标：[我想做什么，越具体越好]\n要求：[使用哪些包？输出什么格式？]\n\n请给出完整可运行的代码，并加上中文注释。\n\n\n\n模板2：解释报错\n我运行下面的 R 代码时报错了，请帮我找出原因并修复。\n\n【我的代码】\n[粘贴代码]\n\n【报错信息】\n[粘贴完整报错]\n\n【我想实现的目标】\n[描述你想做什么]\n\n\n\n模板3：解释代码\n请逐行解释下面这段 R 代码的含义，\n用初学者能理解的语言，可以加中文注释：\n\n[粘贴代码]\n\n\n\n模板4：追问优化\n上面的代码可以正常运行，请帮我做以下修改：\n1. [修改1]\n2. [修改2]\n3. [修改3]\n\n保持其他部分不变。\n\n\n\n\n\n\n\nWarning\n\n\n\n\nAI 生成的代码不总是正确的，有时会用不存在的函数，\n或者给出语法错误的代码。\n必须自己运行验证，不能无脑复制粘贴。\n如果代码跑不通，把报错再次告诉 AI，\n通常 2～3 轮对话就能解决问题。\n\n\n\n\n\n\nAI 是”副驾驶”，不是”司机”\n\n# AI 给了你这段代码，你需要能看懂它在做什么\nmtcars |&gt;\n  mutate(efficiency = ifelse(mpg &gt; 20, \"高效\", \"低效\")) |&gt;\n  group_by(efficiency) |&gt;\n  summarise(\n    n       = n(),\n    hp_avg  = mean(hp) |&gt; round(1)\n  )\n\n# A tibble: 2 × 3\n  efficiency     n hp_avg\n  &lt;chr&gt;      &lt;int&gt;  &lt;dbl&gt;\n1 低效          18  192. \n2 高效          14   88.5\n\n\n\n\n\n\n\n\nTip\n\n\n\n能看懂 &gt; 能写出。先让 AI 帮你生成代码，再逐行理解它在做什么，这是 R 小白进步最快的学习路径。"
+    "text": "4 提示词模板\n初学者可以套用以下模板，快速得到高质量的回答："
   },
   {
     "objectID": "L18slide.html#正确使用-ai-的姿势",
@@ -249,14 +249,14 @@
     "href": "L18slide.html#在-rstudio-中直接使用-ai",
     "title": "L18用AI辅助R学习与代码生成",
     "section": "6 在 RStudio 中直接使用 AI",
-    "text": "6 在 RStudio 中直接使用 AI\n\nGitHub Copilot（需订阅）\n\n在 RStudio 中安装 GitHub Copilot 插件\n写代码时 AI 自动提示下一行（按 Tab 接受建议）\n适合有一定基础、希望提速的用户\n\n\n\n\n直接在网页 AI 中写代码\n最简单的工作流：\n\n1. 在 ChatGPT / DeepSeek 中描述需求\n2. 复制 AI 给出的代码\n3. 粘贴到 RStudio 中运行\n4. 报错了？把错误贴回去问 AI\n5. 重复直到代码跑通"
+    "text": "6 在 RStudio 中直接使用 AI\nGitHub Copilot（需订阅）\n\n在 RStudio 中安装 GitHub Copilot 插件\n写代码时 AI 自动提示下一行（按 Tab 接受建议）\n适合有一定基础、希望提速的用户"
   },
   {
     "objectID": "L18slide.html#小结",
     "href": "L18slide.html#小结",
     "title": "L18用AI辅助R学习与代码生成",
     "section": "7 小结",
-    "text": "7 小结\n\nAI 辅助 R 学习的工作流\n描述需求（具体！）\n    ↓\nAI 生成代码\n    ↓\n复制到 RStudio 运行\n    ↓\n报错了？→ 把报错贴给 AI → 修复 → 再运行\n    ↓\n代码跑通 → 逐行理解代码含义\n    ↓\n需要修改？→ 追问 AI → 继续迭代\n\n\n\n提问质量决定答案质量\n\n\n\n提问要素\n示例\n\n\n\n\n✅ 说明数据\n“mtcars 数据集，有 mpg 和 cyl 两列”\n\n\n✅ 说明目标\n“画箱线图，x 轴气缸数，y 轴油耗”\n\n\n✅ 说明格式\n“用 ggplot2，theme_minimal，中文标签”\n\n\n✅ 贴完整报错\n把 Console 里的红色文字全部复制\n\n\n❌ 避免模糊\n“帮我分析一下数据”\n\n\n\n\n\n\n\n\n\n\n给 R 小白的建议\n\n\n\n\n不要害怕问 AI，描述需求用中文就行，不需要会英文\n每次只问一件事，问题越聚焦，答案越准确\n跑通之后一定要读懂，否则下次遇到类似问题还是不会\n把 AI 的解释写成注释，保存在自己的代码文件里，\n这是建立个人代码库最快的方式"
+    "text": "7 小结\nAI 辅助 R 学习的工作流\n描述需求（具体！）\n    ↓\nAI 生成代码\n    ↓\n复制到 RStudio 运行\n    ↓\n报错了？→ 把报错贴给 AI → 修复 → 再运行\n    ↓\n代码跑通 → 逐行理解代码含义\n    ↓\n需要修改？→ 追问 AI → 继续迭代"
   },
   {
     "objectID": "L13slide.html#准备工作",
@@ -459,7 +459,7 @@
     "href": "m1.html#l2-r与rstudio的安装与配置",
     "title": "模块1 准备",
     "section": "L2 R与RStudio的安装与配置",
-    "text": "L2 R与RStudio的安装与配置\n\n L1 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
+    "text": "L2 R与RStudio的安装与配置\n\n L2 讲义\n\n\n\n\n\n\n\n资源下载\n\n\n\n点击下载模块1代码文件 :m1.R"
   },
   {
     "objectID": "L11slide.html#字符串-vs-因子",
@@ -1005,14 +1005,14 @@
     "href": "L18slide.html#让ai生成解释修改代码",
     "title": "L18用AI辅助R学习与代码生成",
     "section": "2 让AI生成、解释、修改代码",
-    "text": "2 让AI生成、解释、修改代码\n\n基本原则：描述要具体\n\n\n\n\n\n\nTip\n\n\n\n好的提问 = 数据描述 + 想要的结果 + 格式要求\n“我有一个数据框，有 mpg（油耗）和 cyl（气缸数）两列，\n请用 ggplot2 画一个箱线图，x 轴是气缸数，y 轴是油耗，\n不同气缸数用不同颜色填充，用 theme_minimal() 主题。”\n\n\n\n\n\n模糊提问 vs 具体提问\n❌ 模糊提问（AI 给出的代码往往不是你想要的）：\n\n“帮我画个图”\n\n✅ 具体提问（AI 能直接给出可运行的代码）：\n\n“用 R 的 ggplot2 包，以 mtcars 数据集为例， 画一个散点图，x 轴是车重（wt），y 轴是油耗（mpg）, 按气缸数（cyl）用不同颜色区分，加上线性趋势线，用 theme_classic() 主题，中文坐标轴标签。\n\n\n\n\n实际演示：把需求告诉 AI\n你的提问：\n用 R 的 ggplot2，以 mtcars 数据为例，\n画一个散点图：x 轴是车重(wt)，y 轴是油耗(mpg)，\n按气缸数(cyl)分组用不同颜色，加线性趋势线，\ntheme_classic() 主题，中文标签。\n\nAI 给出的代码：\n\nlibrary(ggplot2)\n\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3, alpha = 0.8) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  scale_color_manual(values = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\")) +\n  labs(title  = \"车重与油耗的关系\",\n       x      = \"车重（千磅）\",\n       y      = \"油耗（英里/加仑）\",\n       color  = \"气缸数\") +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n\n让 AI 解释代码\n看到别人的代码看不懂？直接让 AI 逐行解释。\n你的提问：\n请逐行解释下面这段 R 代码的含义：\n\nmtcars |&gt;\n  filter(cyl == 4) |&gt;\n  mutate(kpl = mpg * 0.425) |&gt;\n  group_by(am) |&gt;\n  summarise(\n    n        = n(),\n    kpl_mean = mean(kpl) |&gt; round(2)\n  )\n\nAI 的解释：\n\nlibrary(tidyverse)\nmtcars |&gt;\n  filter(cyl == 4) |&gt;          # 只保留 4 缸的车\n  mutate(kpl = mpg * 0.425) |&gt; # 新增一列：将油耗换算为 km/L\n  group_by(am) |&gt;              # 按变速箱类型（0自动/1手动）分组\n  summarise(\n    n        = n(),            # 计算每组的样本量\n    kpl_mean = mean(kpl) |&gt; round(2)  # 每组的平均油耗（km/L）\n  )\n\n# A tibble: 2 × 3\n     am     n kpl_mean\n  &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1     0     3     9.73\n2     1     8    11.9 \n\n\n\n💡 把 AI 的解释写成注释加在代码里，\n这是提升 R 代码阅读能力最快的方法。\n\n\n\n\n让AI 修改和优化代码\n有了能跑的代码之后，可以继续让 AI 帮你改。\n常见的追问方式：\n上面的代码能正常运行，请帮我：\n1. 把图的主题改为 theme_minimal()\n2. 把图例放到图的底部\n3. x 轴的文字旋转 45 度\n\n\n# AI 根据追问修改后的代码\nggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +\n  geom_boxplot() +\n  scale_fill_manual(values = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\")) +\n  labs(x = \"气缸数\", y = \"油耗（mpg）\", fill = \"气缸数\") +\n  theme_minimal() +\n  theme(\n    legend.position  = \"bottom\",               # 图例放底部\n    axis.text.x      = element_text(angle = 45, hjust = 1)  # x轴旋转\n  )"
+    "text": "2 让AI生成、解释、修改代码\n基本原则：描述要具体\n\n\n\n\n\n\nTip\n\n\n好的提问 = 数据描述 + 想要的结果 + 格式要求\n“我有一个数据框，有 mpg（油耗）和 cyl（气缸数）两列，\n请用 ggplot2 画一个箱线图，x 轴是气缸数，y 轴是油耗，\n不同气缸数用不同颜色填充，用 theme_minimal() 主题。”"
   },
   {
     "objectID": "L18slide.html#让ai-解释报错",
     "href": "L18slide.html#让ai-解释报错",
     "title": "L18用AI辅助R学习与代码生成",
     "section": "3 让AI 解释报错",
-    "text": "3 让AI 解释报错\n报错是学 R 最令人沮丧的时刻，AI 可以成为你的”随身翻译”。\n\n如何把报错告诉 AI？\n\n\n\n\n\n\nTip\n\n\n\n\n把完整的报错信息粘贴给 AI\n把出错的代码也一并贴上\n说明你想做什么\n\n\n\n\n\n\n示例：把报错交给 AI 处理\n\n你告诉 AI：\n我运行下面的代码报错了，请帮我解释原因并修复：\n\n代码：\nselect(mtcars, mpg, cyl)\n\n报错信息：\nError in select(mtcars, mpg, cyl) : \n  could not find function \"select\"\n\n我想做的是：从 mtcars 里选出 mpg 和 cyl 两列。\n\nAI 的回答\n\nselect() 函数来自 dplyr 包，你还没有加载这个包。\n在代码前加上 library(dplyr) 即可。\n\n\nlibrary(dplyr)\nselect(mtcars, mpg, cyl) |&gt; head(3)\n\n               mpg cyl\nMazda RX4     21.0   6\nMazda RX4 Wag 21.0   6\nDatsun 710    22.8   4"
+    "text": "3 让AI 解释报错\n报错是学 R 最令人沮丧的时刻，AI 可以成为你的”随身翻译”。\n如何把报错告诉 AI？\n\n\n\n\n\n\nTip\n\n\n\n把完整的报错信息粘贴给 AI\n把出错的代码也一并贴上\n说明你想做什么"
   },
   {
     "objectID": "课程大纲_Version2.html",
@@ -1055,5 +1055,54 @@
     "title": "2小时入门R语言",
     "section": "",
     "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
+  },
+  {
+    "objectID": "L18slide.html#ai是r学习的超级加速器",
+    "href": "L18slide.html#ai是r学习的超级加速器",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "1 AI是R学习的“超级加速器”",
+    "text": "1 AI是R学习的“超级加速器”\n学 R 最大的瓶颈不是“不会统计”，而是“我知道我想做什么，但不知道 R 该怎么实现”。\n好的 AI 能让你：\n\n从想法直接到可运行代码（节省 70% 时间）\n快速理解底层逻辑而非死记硬背\n养成专业级的编码习惯\n逐步建立自己的 R 知识体系"
+  },
+  {
+    "objectID": "L18slide.html#顶级提示词框架r-专用",
+    "href": "L18slide.html#顶级提示词框架r-专用",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "2 顶级提示词框架（R 专用）",
+    "text": "2 顶级提示词框架（R 专用）\n最有效的结构：RCTSE 框架（强烈推荐）\n\nRole（角色）\nContext（上下文）\nTask（具体任务）\nStandard（标准要求）\nExample（示例，可选）"
+  },
+  {
+    "objectID": "L18slide.html#提示词框架",
+    "href": "L18slide.html#提示词框架",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "2 提示词框架",
+    "text": "2 提示词框架\n\nRole（角色）\nContext（上下文）\nTask（具体任务）\nStandard（标准要求）\nExample（示例，可选）"
+  },
+  {
+    "objectID": "L18slide.html#解释报错",
+    "href": "L18slide.html#解释报错",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "3 解释报错",
+    "text": "3 解释报错\n代码和报错都要贴给 AI，才能得到准确的解释和修复方案。\n\n\n\n\n\n\nTip\n\n\n我运行了以下代码，出现了报错。 [粘贴代码] [完整粘贴Console红色报错]\n我想实现的是……\n请： 1. 解释错误根本原因\n\n给出修复后的代码\n告诉我以后如何避免同类错误"
+  },
+  {
+    "objectID": "L18slide.html#ai最不可靠的地方",
+    "href": "L18slide.html#ai最不可靠的地方",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "4 AI最不可靠的地方",
+    "text": "4 AI最不可靠的地方\n虽然 AI 非常强大，但它不是万能的，以下是它最容易出错的几个方面，初学者一定要提高警惕：\n① 幻觉（Hallucination）\nAI 有时会非常自信地编造不存在的信息，包括函数、参数、包的用法等。\n即使它说得头头是道，也可能完全错误。"
+  },
+  {
+    "objectID": "L18slide.html#在-rstudio-中高效使用-ai",
+    "href": "L18slide.html#在-rstudio-中高效使用-ai",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "5 在 RStudio 中高效使用 AI",
+    "text": "5 在 RStudio 中高效使用 AI\nGitHub Copilot：适合边写边补全\nClaude / DeepSeek：适合复杂任务和深度思考（推荐网页版）\n最佳组合：Copilot 写代码 + Claude 做架构和审查"
+  },
+  {
+    "objectID": "L18slide.html#小结r小白进阶建议",
+    "href": "L18slide.html#小结r小白进阶建议",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "6 小结：R小白进阶建议",
+    "text": "6 小结：R小白进阶建议\nAI辅助学习R的工作流：\n\n用清晰提示让AI生成代码\n复制到 RStudio 运行\n报错 → 贴给AI修复\n最重要：让AI逐行解释代码 → 自己把注释写进脚本\n重复此过程，建立个人代码库"
   }
 ]
