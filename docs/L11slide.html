@@ -267,6 +267,7 @@ z-index: 1000;">
 
 
 
+
 <li><a href="#/小结" id="/toc-小结">7 小结</a></li>
 </ul>
 </nav>
@@ -295,10 +296,7 @@ z-index: 1000;">
 </section>
 <section class="slide level2">
 
-<p>本节使用的数据集：mpg</p>
-<blockquote>
-<p><code>mpg</code> 来自 <code>ggplot2</code> 包，记录了 234 款汽车的燃油效率数据。</p>
-</blockquote>
+<p>本节使用的数据: ggplot2::mpg</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">data</span>(mpg)</span>
 <span id="cb2-2"><a></a><span class="fu">str</span>(mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -464,7 +462,7 @@ drvr         1.825243  0.9134093  1.998275  4.685929e-02</code></pre>
 </div>
 </div>
 <div class="{callout-note}">
-<p>字符串的levels的排序是由字母顺序决定的，参照组是<strong>不可控的</strong></p>
+<p>字符串的levels的排序是由字母顺序决定的，参照组是<strong>不可控的</strong>。</p>
 </div>
 </section>
 <section class="slide level2">
@@ -481,7 +479,8 @@ drv_f4-wheel -8.985620  0.5668272 -15.852486  8.578919e-39</code></pre>
 </div>
 </div>
 <div class="{callout-note}">
-<p>因子的levels可以自定义参照组。 系数: <strong>后驱</strong> / <strong>四驱</strong> 相对于<strong>前驱</strong>的高速油耗差异（mpg）。</p>
+<p>因子的levels可以自定义参照组。</p>
+<p>系数: <strong>后驱</strong> / <strong>四驱</strong> 相对于<strong>前驱</strong>的高速油耗差异（mpg）。</p>
 </div>
 </section>
 <section id="forcats-包" class="slide level2">
@@ -512,31 +511,54 @@ drv_f4-wheel -8.985620  0.5668272 -15.852486  8.578919e-39</code></pre>
 </section>
 <section class="slide level2">
 
+<p>字符串 class：x 轴按字母顺序</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># 排序后绘图，类别顺序直接反映油耗高低，一目了然</span></span>
-<span id="cb27-2"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb27-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> class)) <span class="sc">+</span></span>
-<span id="cb27-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>查看R代码</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># 字符串 class：x 轴按字母顺序</span></span>
+<span id="cb27-2"><a></a><span class="fu">boxplot</span>(hwy <span class="sc">~</span> class, <span class="at">data =</span> mpg,</span>
+<span id="cb27-3"><a></a>        <span class="at">main =</span> <span class="st">"字符串 class：字母顺序"</span>,</span>
+<span id="cb27-4"><a></a>        <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">"高速油耗 (mpg)"</span>,</span>
+<span id="cb27-5"><a></a>        <span class="at">col  =</span> <span class="fu">rainbow</span>(<span class="dv">7</span>),</span>
+<span id="cb27-6"><a></a>        <span class="at">las  =</span> <span class="dv">2</span>)        <span class="co"># x 轴标签竖排，防止重叠</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
 <img data-src="L11slide_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 
+<p>因子 class_f：x 轴按油耗中位数从低到高排列</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># 排序后绘图，类别顺序直接反映油耗高低，一目了然</span></span>
-<span id="cb28-2"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class_f, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb28-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> class_f)) <span class="sc">+</span></span>
-<span id="cb28-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>查看R代码</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>mpg<span class="sc">$</span>class_f <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(mpg<span class="sc">$</span>class_f, mpg<span class="sc">$</span>hwy, median)</span>
+<span id="cb28-2"><a></a><span class="co"># 因子 class_f：x 轴按油耗中位数从低到高排列</span></span>
+<span id="cb28-3"><a></a><span class="fu">boxplot</span>(hwy <span class="sc">~</span> class_f, <span class="at">data =</span> mpg,</span>
+<span id="cb28-4"><a></a>        <span class="at">main =</span> <span class="st">"因子 class_f：按油耗中位数排列"</span>,</span>
+<span id="cb28-5"><a></a>        <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">"高速油耗 (mpg)"</span>,</span>
+<span id="cb28-6"><a></a>        <span class="at">col  =</span> <span class="fu">rainbow</span>(<span class="dv">7</span>),</span>
+<span id="cb28-7"><a></a>        <span class="at">las  =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
 <img data-src="L11slide_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># 排序后绘图，类别顺序直接反映油耗高低，一目了然</span></span>
+<span id="cb29-2"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class_f, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb29-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> class_f)) <span class="sc">+</span></span>
+<span id="cb29-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="L11slide_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
 <h3 id="fct_rev-反转类别顺序"><code>fct_rev()</code> — 反转类别顺序</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># 反转顺序（从高到低）</span></span>
-<span id="cb29-2"><a></a>mpg<span class="sc">$</span>class_f_rev <span class="ot">&lt;-</span> <span class="fu">fct_rev</span>(mpg<span class="sc">$</span>class_f)</span>
-<span id="cb29-3"><a></a><span class="fu">levels</span>(mpg<span class="sc">$</span>class_f_rev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># 反转顺序（从高到低）</span></span>
+<span id="cb30-2"><a></a>mpg<span class="sc">$</span>class_f_rev <span class="ot">&lt;-</span> <span class="fu">fct_rev</span>(mpg<span class="sc">$</span>class_f)</span>
+<span id="cb30-3"><a></a><span class="fu">levels</span>(mpg<span class="sc">$</span>class_f_rev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "midsize"    "compact"    "subcompact" "2seater"    "minivan"   
 [6] "suv"        "pickup"    </code></pre>
@@ -546,20 +568,27 @@ drv_f4-wheel -8.985620  0.5668272 -15.852486  8.578919e-39</code></pre>
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># 水平翻转后，最高油耗的车型显示在最上方，便于阅读</span></span>
-<span id="cb31-2"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_rev</span>(class_f), <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb31-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> class_f)) <span class="sc">+</span></span>
-<span id="cb31-4"><a></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb31-5"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>查看R代码</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="co"># 水平翻转后，最高油耗的车型显示在最右侧，便于阅读</span></span>
+<span id="cb32-2"><a></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">1</span>))          <span class="co"># 扩大左边距，避免标签被截断</span></span>
+<span id="cb32-3"><a></a><span class="fu">boxplot</span>(hwy <span class="sc">~</span> class_f_rev, <span class="at">data =</span> mpg,</span>
+<span id="cb32-4"><a></a>        <span class="at">main   =</span> <span class="st">"fct_rev()：反转后高油耗排最右"</span>,</span>
+<span id="cb32-5"><a></a>        <span class="at">xlab   =</span> <span class="st">"高速油耗 (mpg)"</span>,</span>
+<span id="cb32-6"><a></a>        <span class="at">ylab   =</span> <span class="st">""</span>,</span>
+<span id="cb32-7"><a></a>        <span class="at">col    =</span> <span class="fu">rainbow</span>(<span class="dv">7</span>),</span>
+<span id="cb32-8"><a></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,         <span class="co"># 水平翻转，等价于 coord_flip()</span></span>
+<span id="cb32-9"><a></a>        <span class="at">las    =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
-<img data-src="L11slide_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<img data-src="L11slide_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 
 <h3 id="fct_lump_n-合并低频类别"><code>fct_lump_n()</code> — 合并低频类别</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="co"># manufacturer 有 15 个品牌，太多了</span></span>
-<span id="cb32-2"><a></a><span class="fu">table</span>(mpg<span class="sc">$</span>manufacturer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># manufacturer 有 15 个品牌，太多了</span></span>
+<span id="cb33-2"><a></a><span class="fu">table</span>(mpg<span class="sc">$</span>manufacturer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
       audi  chevrolet      dodge       ford      honda    hyundai       jeep 
@@ -574,9 +603,9 @@ volkswagen
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="co"># 只保留频次最多的5个品牌，其余合并为 "Other"</span></span>
-<span id="cb34-2"><a></a>mpg<span class="sc">$</span>mfr_lumped <span class="ot">&lt;-</span> <span class="fu">fct_lump_n</span>(mpg<span class="sc">$</span>manufacturer, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb34-3"><a></a><span class="fu">table</span>(mpg<span class="sc">$</span>mfr_lumped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="co"># 只保留频次最多的5个品牌，其余合并为 "Other"</span></span>
+<span id="cb35-2"><a></a>mpg<span class="sc">$</span>mfr_lumped <span class="ot">&lt;-</span> <span class="fu">fct_lump_n</span>(mpg<span class="sc">$</span>manufacturer, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb35-3"><a></a><span class="fu">table</span>(mpg<span class="sc">$</span>mfr_lumped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  chevrolet      dodge       ford     toyota volkswagen      Other 
@@ -587,13 +616,24 @@ volkswagen
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(mfr_lumped, hwy, median),</span>
-<span id="cb36-2"><a></a>                <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb36-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> mfr_lumped)) <span class="sc">+</span></span>
-<span id="cb36-4"><a></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>查看R代码</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># 按油耗中位数排序后绘图</span></span>
+<span id="cb37-2"><a></a>mpg<span class="sc">$</span>mfr_lumped <span class="ot">&lt;-</span> <span class="fu">fct_reorder</span>(mpg<span class="sc">$</span>mfr_lumped, mpg<span class="sc">$</span>hwy, median)</span>
+<span id="cb37-3"><a></a></span>
+<span id="cb37-4"><a></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb37-5"><a></a><span class="fu">boxplot</span>(hwy <span class="sc">~</span> mfr_lumped, <span class="at">data =</span> mpg,</span>
+<span id="cb37-6"><a></a>        <span class="at">main       =</span> <span class="st">"fct_lump_n()：保留前 5 个品牌"</span>,</span>
+<span id="cb37-7"><a></a>        <span class="at">xlab       =</span> <span class="st">"高速油耗 (mpg)"</span>,</span>
+<span id="cb37-8"><a></a>        <span class="at">ylab       =</span> <span class="st">""</span>,</span>
+<span id="cb37-9"><a></a>        <span class="at">col        =</span> <span class="fu">c</span>(<span class="st">"#8DA0CB"</span>,<span class="st">"#FC8D62"</span>,<span class="st">"#66C2A5"</span>,</span>
+<span id="cb37-10"><a></a>                       <span class="st">"#E78AC3"</span>,<span class="st">"#A6D854"</span>,<span class="st">"#FFD92F"</span>),</span>
+<span id="cb37-11"><a></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb37-12"><a></a>        <span class="at">las        =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
-<img data-src="L11slide_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<img data-src="L11slide_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
 <section id="小结" class="slide level2">
 <h2>7 小结</h2>
 <table class="caption-top">

@@ -6,7 +6,7 @@ title: "模块4 数据分析实战"
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L12 讲义](https://lizongzhang.github.io/r2hours/L12slide.html){target="_blank"}
+  [L13 讲义](https://lizongzhang.github.io/r2hours/L13slide.html){target="_blank"}
 </div>
 
 ## L14 数据可视化
@@ -21,21 +21,21 @@ title: "模块4 数据分析实战"
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L16 讲义](https://lizongzhang.github.io/r2hours/L16slide.html){target="_blank"}
+  [L15 讲义](https://lizongzhang.github.io/r2hours/L15slide.html){target="_blank"}
 </div>
 
 ## L16 保存输出结果
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L17 讲义](https://lizongzhang.github.io/r2hours/L17slide.html){target="_blank"}
+  [L16 讲义](https://lizongzhang.github.io/r2hours/L16slide.html){target="_blank"}
 </div>
 
 ## L17 初学者最容易犯的5个低级错误
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
-  [L17 讲义](https://lizongzhang.github.io/r2hours/L11slide.html){target="_blank"}
+  [L17 讲义](https://lizongzhang.github.io/r2hours/L17slide.html){target="_blank"}
 </div>
 
 

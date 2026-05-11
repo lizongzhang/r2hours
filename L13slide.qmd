@@ -35,6 +35,23 @@ editor:
     wrap: 72
 ---
 
+::: {.callout-important title="请务必先运行下方代码"}
+
+在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。
+
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-fold: false
+
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+---
+
 ## 准备工作
 
 ### 加载包

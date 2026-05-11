@@ -5,25 +5,51 @@ editor:
     wrap: 72
 ---
 
-## 核心教学模块
+## 课程大纲
 
-本课程旨在通过 2 小时的高强度实战，带您跨越 R
-语言的初学者门槛。请点击下方链接开始学习：
+本课程共分为 5 大模块，18 节核心内容，采用**模块化 + 实战驱动**的设计，帮助你快速掌握 R 语言。
 
-::: {style="font-size: 20px; line-height: 2.5; margin-bottom: 2rem;"}
-<p>🛠️ [**模块1 准备工作**](m1.qmd)</p>
+::: {.grid}
 
-<p>🚀 [**模块2 快速起步**](m2.qmd)</p>
-
-<p>🧭 [**模块3 构建R语言底层逻辑**](m3.qmd)</p>
-
-<p>💹️ [**模块4 数据分析实战**](m4.qmd)</p>
-
-<p>🌀 [**模块5 AI赋能**](m5.qmd)</p>
-
+::: {.g-col-12 .g-col-md-6}
+### [**模块1 准备工作 🛠️**](m1.qmd)
+- L1 重塑AI时代的R学习观
+- L2 R与RStudio的安装与配置
 :::
 
+::: {.g-col-12 .g-col-md-6}
+### [**模块2 快速起步 🚀**](m2.qmd)
+- L3 RStudio界面与基础绘图
+- L4 6分钟完成全链路统计分析
+- L5 R包的安装和加载
+- L6 R语言自学力: 高效查阅帮助文档
+- L7 项目的创建和管理
+:::
 
+::: {.g-col-12 .g-col-md-6}
+### [**模块3 构建R语言底层逻辑 🧭**](m3.qmd)
+- L8 R中的向量思维彻底搞懂 `c()` 函数
+- L9 数据框常用操作
+- L10 缺失值 `NA` 的处理
+- L11 因子 `Factor` 的底层逻辑: 掌控分类变量的秩序
+- L12 管道符：数据管理的高效工具
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### [**模块4 数据分析实战 💹**](m4.qmd)
+- L13 外部数据文件的导入
+- L14 数据可视化
+- L15 `ggstatsplot` 统计检验的可视化
+- L16 保存输出结果
+- L17 初学者最容易犯的5个低级错误
+:::
+
+::: {.g-col-12}
+### [**模块5 AI赋能 🌀**](m5.qmd)
+- L18 AI辅助R学习和编程
+:::
+
+:::
 
 ::: callout-note
 本课程配套演示数据：[点击下载
@@ -35,13 +61,7 @@ stroke.xlsx](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){d
 ::: {style="text-align: center; margin-top: 2em;"}
 <p style="font-size: 22px; color: #044875; font-weight: bold;">
 
-欢迎关注微信公众号
-
-</p>
-
-<p style="font-size: 18px; color: #666;">
-
-“顶刊研习社”、“医课佳”
+欢迎关注微信公众号“顶刊研习社”、“医课佳”
 
 </p>
 
@@ -51,11 +71,6 @@ stroke.xlsx](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){d
 ------------------------------------------------------------------------
 
 ::: {style="text-align: center; margin-top: 1.5em; opacity: 0.8;"}
-<p style="font-size: 14px; color: #999; margin-bottom: 10px;">
-
-视频教程同步更新中
-
-</p>
 
 <a href="https://space.bilibili.com/590872906" target="_blank">
 <img src="img/bili_up.jpg" alt="B站头像" width="60" style="border-radius: 50%;"/>

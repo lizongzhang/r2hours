@@ -9,7 +9,7 @@ format:
     theme: [sky]
     slide-number: c/t
     show-slide-number: all
-    #code-fold: true
+    code-fold: true
     code-copy: true
     code-summary: "查看R代码"
     chalkboard: 
@@ -41,6 +41,8 @@ editor:
 #| include: false
 
 library(tidyverse)
+library(showtext)
+showtext_auto()
 
 ```
 
@@ -61,9 +63,7 @@ library(tidyverse)
 
 ---
 
-本节使用的数据集：mpg
-
-> `mpg` 来自 `ggplot2` 包，记录了 234 款汽车的燃油效率数据。
+本节使用的数据: ggplot2::mpg
 
 ```{r}
 #| echo: true
@@ -169,7 +169,7 @@ model1 <- lm(hwy ~ drv, data = mpg)
 summary(model1)$coefficients
 ```
 :::{callout-note}
-字符串的levels的排序是由字母顺序决定的，参照组是**不可控的**
+字符串的levels的排序是由字母顺序决定的，参照组是**不可控的**。
 :::
 
 ---
@@ -184,6 +184,7 @@ summary(model2)$coefficients
 
 :::{callout-note}
 因子的levels可以自定义参照组。
+
 系数: **后驱** / **四驱** 相对于**前驱**的高速油耗差异（mpg）。  
 :::
 
@@ -210,13 +211,32 @@ table(mpg$class_f)
 
 ---
 
+字符串 class：x 轴按字母顺序
+
 ```{r}
 #| echo: true
-#| code-fold: false
-# 排序后绘图，类别顺序直接反映油耗高低，一目了然
-ggplot(mpg, aes(x = class, y = hwy)) +
-  geom_boxplot(aes(fill = class)) +
-  theme_minimal()
+# 字符串 class：x 轴按字母顺序
+boxplot(hwy ~ class, data = mpg,
+        main = "字符串 class：字母顺序",
+        xlab = "", ylab = "高速油耗 (mpg)",
+        col  = rainbow(7),
+        las  = 2)        # x 轴标签竖排，防止重叠
+
+```
+
+---
+
+因子 class_f：x 轴按油耗中位数从低到高排列
+
+```{r}
+#| echo: true
+mpg$class_f <- fct_reorder(mpg$class_f, mpg$hwy, median)
+# 因子 class_f：x 轴按油耗中位数从低到高排列
+boxplot(hwy ~ class_f, data = mpg,
+        main = "因子 class_f：按油耗中位数排列",
+        xlab = "", ylab = "高速油耗 (mpg)",
+        col  = rainbow(7),
+        las  = 2)
 ```
 
 
@@ -247,12 +267,15 @@ levels(mpg$class_f_rev)
 
 ```{r}
 #| echo: true
-#| code-fold: false
-# 水平翻转后，最高油耗的车型显示在最上方，便于阅读
-ggplot(mpg, aes(x = fct_rev(class_f), y = hwy)) +
-  geom_boxplot(aes(fill = class_f)) +
-  coord_flip() +
-  theme_minimal()
+# 水平翻转后，最高油耗的车型显示在最右侧，便于阅读
+par(mar = c(4, 7, 3, 1))          # 扩大左边距，避免标签被截断
+boxplot(hwy ~ class_f_rev, data = mpg,
+        main   = "fct_rev()：反转后高油耗排最右",
+        xlab   = "高速油耗 (mpg)",
+        ylab   = "",
+        col    = rainbow(7),
+        horizontal = TRUE,         # 水平翻转，等价于 coord_flip()
+        las    = 1)
 ```
 
 ---
@@ -280,11 +303,19 @@ table(mpg$mfr_lumped)
 
 ```{r}
 #| echo: true
-#| code-fold: false
-ggplot(mpg, aes(x = fct_reorder(mfr_lumped, hwy, median),
-                y = hwy)) +
-  geom_boxplot(aes(fill = mfr_lumped)) +
-  theme_minimal()
+#| warning: false
+# 按油耗中位数排序后绘图
+mpg$mfr_lumped <- fct_reorder(mpg$mfr_lumped, mpg$hwy, median)
+
+par(mar = c(4, 7, 3, 1))
+boxplot(hwy ~ mfr_lumped, data = mpg,
+        main       = "fct_lump_n()：保留前 5 个品牌",
+        xlab       = "高速油耗 (mpg)",
+        ylab       = "",
+        col        = c("#8DA0CB","#FC8D62","#66C2A5",
+                       "#E78AC3","#A6D854","#FFD92F"),
+        horizontal = TRUE,
+        las        = 1)
 ```
 
 ---

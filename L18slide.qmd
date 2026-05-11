@@ -1,11 +1,8 @@
 ---
-title: L15 用 AI 辅助 R 学习与代码生成
-
+title: L18<br>用AI辅助R学习与代码生成
 date: today
-
 author: 
   name: "顶刊研习社"
-
 format: 
   revealjs:
     incremental: false
@@ -32,17 +29,42 @@ format:
     toc: true
     toc-depth: 2
     plugins: [highlight, zoom, notes]
-
 editor: 
   markdown: 
     wrap: 72
 ---
 
-## AI 能帮你做什么？
+```{r}
+#| message: false
+#| warning: false
+#| include: false
 
-学 R 最大的门槛不是统计知识，而是：
+library(tidyverse)
+library(showtext)
+showtext_auto()
 
-> *"我知道我想做什么，但不知道怎么用 R 写出来。"*
+```
+
+::: {.callout-important title="请务必先运行下方代码"}
+
+在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。
+
+:::
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-fold: false
+
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+---
+
+## 1 AI能帮你做什么？
+
+学 R 最大的门槛不是统计知识，而是 *"我知道我想做什么，但不知道怎么用 R 写出来"*。
 
 AI 恰好可以填补这个空缺：
 
@@ -56,7 +78,7 @@ AI 恰好可以填补这个空缺：
 
 ---
 
-## 常用的 AI 工具
+### 常用的 AI 工具
 
 | 工具 | 地址 | 特点 |
 |---|---|---|
@@ -64,20 +86,16 @@ AI 恰好可以填补这个空缺：
 | **Claude** | claude.ai | 代码能力强，解释清晰 |
 | **Gemini** | gemini.google.com | 与 Google 生态整合 |
 | **GitHub Copilot** | 集成在 RStudio 中 | 边写边自动补全代码 |
-| **通义千问** | tongyi.aliyun.com | 中文友好，免费 |
 | **DeepSeek** | chat.deepseek.com | 中文友好，代码能力强 |
-
-> 💡 对于 R 学习者，推荐优先使用 **ChatGPT** 或 **DeepSeek**，  
-> 两者对 R 代码的理解都非常准确，且支持中文提问。
 
 ---
 
-## 1 让 AI 生成代码
+## 2 让AI生成、解释、修改代码
 
 ### 基本原则：描述要具体
 
 ::: {.callout-tip}
-## 好的提问 = 数据描述 + 想要的结果 + 格式要求
+好的提问 = 数据描述 + 想要的结果 + 格式要求
 
 "我有一个数据框，有 `mpg`（油耗）和 `cyl`（气缸数）两列，  
 请用 ggplot2 画一个箱线图，x 轴是气缸数，y 轴是油耗，  
@@ -94,10 +112,7 @@ AI 恰好可以填补这个空缺：
 
 ✅ **具体提问**（AI 能直接给出可运行的代码）：
 
-> "用 R 的 ggplot2 包，以 mtcars 数据集为例，  
-> 画一个散点图，x 轴是车重（wt），y 轴是油耗（mpg），  
-> 按气缸数（cyl）用不同颜色区分，加上线性趋势线，  
-> 用 theme_classic() 主题，中文坐标轴标签。"
+> "用 R 的 ggplot2 包，以 mtcars 数据集为例，  画一个散点图，x 轴是车重（wt），y 轴是油耗（mpg）, 按气缸数（cyl）用不同颜色区分，加上线性趋势线，用 theme_classic() 主题，中文坐标轴标签。
 
 ---
 
@@ -111,6 +126,8 @@ AI 恰好可以填补这个空缺：
 按气缸数(cyl)分组用不同颜色，加线性趋势线，
 theme_classic() 主题，中文标签。
 ```
+
+---
 
 **AI 给出的代码：**
 
@@ -134,69 +151,7 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
 
 ---
 
-## 2 让 AI 解释报错
-
-报错是学 R 最令人沮丧的时刻，AI 可以成为你的"随身翻译"。
-
-### 如何把报错告诉 AI？
-
-::: {.callout-tip}
-## 三步提问法
-
-1. 把**完整的报错信息**粘贴给 AI
-2. 把**出错的代码**也一并贴上
-3. 说明你**想做��么**
-:::
-
----
-
-### 示例：把报错交给 AI 处理
-
-**你遇到的错误：**
-
-```{r}
-#| echo: true
-#| code-fold: false
-#| error: true
-
-# 忘记加载包就直接使用
-select(mtcars, mpg, cyl)
-```
-
----
-
-**你告诉 AI：**
-
-```
-我运行下面的代码报错了，请帮我解释原因并修复：
-
-代码：
-select(mtcars, mpg, cyl)
-
-报错信息：
-Error in select(mtcars, mpg, cyl) : 
-  could not find function "select"
-
-我想做的是：从 mtcars 里选出 mpg 和 cyl 两列。
-```
-
-**AI 的回答（要点）：**
-
-> `select()` 函数来自 `dplyr` 包，你还没有加载这个包。  
-> 在代码前加上 `library(dplyr)` 即可。
-
-```{r}
-#| echo: true
-#| code-fold: false
-#| message: false
-
-library(dplyr)
-select(mtcars, mpg, cyl) |> head(3)
-```
-
----
-
-## 3 让 AI 解释代码
+### 让 AI 解释代码
 
 看到别人的代码看不懂？直接让 AI 逐行解释。
 
@@ -223,7 +178,7 @@ mtcars |>
 #| echo: true
 #| code-fold: false
 #| message: false
-
+library(tidyverse)
 mtcars |>
   filter(cyl == 4) |>          # 只保留 4 缸的车
   mutate(kpl = mpg * 0.425) |> # 新增一列：将油耗换算为 km/L
@@ -239,7 +194,7 @@ mtcars |>
 
 ---
 
-## 4 让 AI 修改和优化代码
+### 让AI 修改和优化代码
 
 有了能跑的代码之后，可以继续让 AI 帮你改。
 
@@ -252,9 +207,10 @@ mtcars |>
 3. x 轴的文字旋转 45 度
 ```
 
+---
+
 ```{r}
 #| echo: true
-#| code-fold: false
 
 # AI 根据追问修改后的代码
 ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
@@ -270,7 +226,69 @@ ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
 
 ---
 
-## 5 提示词模板
+## 3 让AI 解释报错
+
+报错是学 R 最令人沮丧的时刻，AI 可以成为你的"随身翻译"。
+
+### 如何把报错告诉 AI？
+
+::: {.callout-tip}
+
+1. 把**完整的报错信息**粘贴给 AI
+2. 把**出错的代码**也一并贴上
+3. 说明你**想做什么**
+:::
+
+---
+
+### 示例：把报错交给 AI 处理
+
+```{r}
+#| eval: false
+#| error: true
+#| code-fold: false
+#| include: false
+
+# 忘记加载包就直接使用
+select(mtcars, mpg, cyl)
+```
+
+---
+
+**你告诉 AI：**
+
+```
+我运行下面的代码报错了，请帮我解释原因并修复：
+
+代码：
+select(mtcars, mpg, cyl)
+
+报错信息：
+Error in select(mtcars, mpg, cyl) : 
+  could not find function "select"
+
+我想做的是：从 mtcars 里选出 mpg 和 cyl 两列。
+```
+
+---
+
+**AI 的回答**
+
+> `select()` 函数来自 `dplyr` 包，你还没有加载这个包。  
+> 在代码前加上 `library(dplyr)` 即可。
+
+```{r}
+#| echo: true
+#| code-fold: false
+#| message: false
+
+library(dplyr)
+select(mtcars, mpg, cyl) |> head(3)
+```
+
+---
+
+## 4 提示词模板
 
 初学者可以套用以下模板，快速得到高质量的回答：
 
@@ -331,11 +349,7 @@ ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
 
 ---
 
-## 6 正确使用 AI 的姿势
-
 ::: {.callout-warning}
-## AI 也会犯错！
-
 - AI 生成的代码**不总是正确的**，有时会用不存在的函数，  
   或者给出语法错误的代码。
 - **必须自己运行验证**，不能无脑复制粘贴。
@@ -361,19 +375,24 @@ mtcars |>
   )
 ```
 
-> 💡 **能看懂 > 能写出**。  
-> 先让 AI 帮你生成代码，再逐行理解它在做什么，  
-> 这是 R 小白进步最快的学习路径。
+
+:::{.callout-tip}
+**能看懂 > 能写出**。先让 AI 帮你生成代码，再逐行理解它在做什么，这是 R 小白进步最快的学习路径。
+:::
 
 ---
 
-## 7 在 RStudio 中直接使用 AI
+## 6 在 RStudio 中直接使用 AI
 
 ### GitHub Copilot（需订阅）
 
 - 在 RStudio 中安装 **GitHub Copilot** 插件
+
 - 写代码时 AI 自动提示下一行（按 Tab 接受建议）
+
 - 适合有一定基础、希望提速的用户
+
+---
 
 ### 直接在网页 AI 中写代码
 
@@ -389,7 +408,7 @@ mtcars |>
 
 ---
 
-## 小结
+## 7 小结
 
 ### AI 辅助 R 学习的工作流
 
@@ -426,7 +445,7 @@ AI 生成代码
 
 1. **不要害怕问 AI**，描述需求用中文就行，不需要会英文
 2. **每次只问一件事**，问题越聚焦，答案越准确
-3. **跑通之后一定要读懂**，否则下次遇到类似���题还是不会
+3. **跑通之后一定要读懂**，否则下次遇到类似问题还是不会
 4. **把 AI 的解释写成注释**，保存在自己的代码文件里，  
    这是建立个人代码库最快的方式
 :::

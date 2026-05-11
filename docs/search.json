@@ -233,9 +233,9 @@
   {
     "objectID": "L18slide.html#提示词模板",
     "href": "L18slide.html#提示词模板",
-    "title": "L15 用 AI 辅助 R 学习与代码生成",
-    "section": "5 提示词模板",
-    "text": "5 提示词模板\n初学者可以套用以下模板，快速得到高质量的回答："
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "4 提示词模板",
+    "text": "4 提示词模板\n初学者可以套用以下模板，快速得到高质量的回答：\n\n\n模板1：生成代码\n我在用 R 做数据分析，请帮我写代码。\n\n数据：[数据集名称或数据结构描述]\n目标：[我想做什么，越具体越好]\n要求：[使用哪些包？输出什么格式？]\n\n请给出完整可运行的代码，并加上中文注释。\n\n\n\n模板2：解释报错\n我运行下面的 R 代码时报错了，请帮我找出原因并修复。\n\n【我的代码】\n[粘贴代码]\n\n【报错信息】\n[粘贴完整报错]\n\n【我想实现的目标】\n[描述你想做什么]\n\n\n\n模板3：解释代码\n请逐行解释下面这段 R 代码的含义，\n用初学者能理解的语言，可以加中文注释：\n\n[粘贴代码]\n\n\n\n模板4：追问优化\n上面的代码可以正常运行，请帮我做以下修改：\n1. [修改1]\n2. [修改2]\n3. [修改3]\n\n保持其他部分不变。\n\n\n\n\n\n\n\nWarning\n\n\n\n\nAI 生成的代码不总是正确的，有时会用不存在的函数，\n或者给出语法错误的代码。\n必须自己运行验证，不能无脑复制粘贴。\n如果代码跑不通，把报错再次告诉 AI，\n通常 2～3 轮对话就能解决问题。\n\n\n\n\n\n\nAI 是”副驾驶”，不是”司机”\n\n# AI 给了你这段代码，你需要能看懂它在做什么\nmtcars |&gt;\n  mutate(efficiency = ifelse(mpg &gt; 20, \"高效\", \"低效\")) |&gt;\n  group_by(efficiency) |&gt;\n  summarise(\n    n       = n(),\n    hp_avg  = mean(hp) |&gt; round(1)\n  )\n\n# A tibble: 2 × 3\n  efficiency     n hp_avg\n  &lt;chr&gt;      &lt;int&gt;  &lt;dbl&gt;\n1 低效          18  192. \n2 高效          14   88.5\n\n\n\n\n\n\n\n\nTip\n\n\n\n能看懂 &gt; 能写出。先让 AI 帮你生成代码，再逐行理解它在做什么，这是 R 小白进步最快的学习路径。"
   },
   {
     "objectID": "L18slide.html#正确使用-ai-的姿势",
@@ -247,65 +247,65 @@
   {
     "objectID": "L18slide.html#在-rstudio-中直接使用-ai",
     "href": "L18slide.html#在-rstudio-中直接使用-ai",
-    "title": "L15 用 AI 辅助 R 学习与代码生成",
-    "section": "7 在 RStudio 中直接使用 AI",
-    "text": "7 在 RStudio 中直接使用 AI\nGitHub Copilot（需订阅）\n\n在 RStudio 中安装 GitHub Copilot 插件\n写代码时 AI 自动提示下一行（按 Tab 接受建议）\n适合有一定基础、希望提速的用户\n\n直接在网页 AI 中写代码\n最简单的工作流：\n\n1. 在 ChatGPT / DeepSeek 中描述需求\n2. 复制 AI 给出的代码\n3. 粘贴到 RStudio 中运行\n4. 报错了？把错误贴回去问 AI\n5. 重复直到代码跑通"
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "6 在 RStudio 中直接使用 AI",
+    "text": "6 在 RStudio 中直接使用 AI\n\nGitHub Copilot（需订阅）\n\n在 RStudio 中安装 GitHub Copilot 插件\n写代码时 AI 自动提示下一行（按 Tab 接受建议）\n适合有一定基础、希望提速的用户\n\n\n\n\n直接在网页 AI 中写代码\n最简单的工作流：\n\n1. 在 ChatGPT / DeepSeek 中描述需求\n2. 复制 AI 给出的代码\n3. 粘贴到 RStudio 中运行\n4. 报错了？把错误贴回去问 AI\n5. 重复直到代码跑通"
   },
   {
     "objectID": "L18slide.html#小结",
     "href": "L18slide.html#小结",
-    "title": "L15 用 AI 辅助 R 学习与代码生成",
-    "section": "小结",
-    "text": "小结\nAI 辅助 R 学习的工作流\n描述需求（具体！）\n    ↓\nAI 生成代码\n    ↓\n复制到 RStudio 运行\n    ↓\n报错了？→ 把报错贴给 AI → 修复 → 再运行\n    ↓\n代码跑通 → 逐行理解代码含义\n    ↓\n需要修改？→ 追问 AI → 继续迭代"
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "7 小结",
+    "text": "7 小结\n\nAI 辅助 R 学习的工作流\n描述需求（具体！）\n    ↓\nAI 生成代码\n    ↓\n复制到 RStudio 运行\n    ↓\n报错了？→ 把报错贴给 AI → 修复 → 再运行\n    ↓\n代码跑通 → 逐行理解代码含义\n    ↓\n需要修改？→ 追问 AI → 继续迭代\n\n\n\n提问质量决定答案质量\n\n\n\n提问要素\n示例\n\n\n\n\n✅ 说明数据\n“mtcars 数据集，有 mpg 和 cyl 两列”\n\n\n✅ 说明目标\n“画箱线图，x 轴气缸数，y 轴油耗”\n\n\n✅ 说明格式\n“用 ggplot2，theme_minimal，中文标签”\n\n\n✅ 贴完整报错\n把 Console 里的红色文字全部复制\n\n\n❌ 避免模糊\n“帮我分析一下数据”\n\n\n\n\n\n\n\n\n\n\n给 R 小白的建议\n\n\n\n\n不要害怕问 AI，描述需求用中文就行，不需要会英文\n每次只问一件事，问题越聚焦，答案越准确\n跑通之后一定要读懂，否则下次遇到类似问题还是不会\n把 AI 的解释写成注释，保存在自己的代码文件里，\n这是建立个人代码库最快的方式"
   },
   {
     "objectID": "L13slide.html#准备工作",
     "href": "L13slide.html#准备工作",
     "title": "L13外部数据文件的导入",
     "section": "准备工作",
-    "text": "准备工作\n加载包\n设置工作目录\n导入数据前，首先要确认工作目录（Working Directory）。工作目录是 R 查找文件的默认位置。\n\n\n[1] \"/Users/lzz/github_teaching/r2hours\"\n\n\n\n\n\n\n\n\nTip\n\n\n推荐做法：使用 RStudio Project（项目）\n在 RStudio 中新建项目（File → New Project），项目所在文件夹会自动成为工作目录。将数据文件放在项目文件夹内，之后读取文件只需写文件名，无需写完整路径。"
+    "text": "准备工作\n\n加载包\n\nlibrary(tidyverse)  # 包含 readr（读取 CSV/txt）\n\nWarning: package 'ggplot2' was built under R version 4.5.2\n\n\nWarning: package 'tidyr' was built under R version 4.5.2\n\n\nWarning: package 'purrr' was built under R version 4.5.2\n\n\nWarning: package 'dplyr' was built under R version 4.5.2\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.1.5\n✔ forcats   1.0.1     ✔ stringr   1.5.2\n✔ ggplot2   4.0.3     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(readxl)     # 读取 Excel 文件\n\n\n\n设置工作目录\n导入数据前，首先要确认工作目录（Working Directory）。工作目录是 R 查找文件的默认位置。\n\n# 查看当前工作目录\ngetwd()\n\n[1] \"/Users/lzz/github_teaching/r2hours\"\n\n\n\n# 修改工作目录（将路径替换为你自己的路径）\nsetwd(\"C:/Users/yourname/Documents/myproject\")\n\n\n\n\n\n\n\nTip\n\n\n\n推荐做法：使用 RStudio Project（项目）\n在 RStudio 中新建项目（File → New Project），项目所在文件夹会自动成为工作目录。将数据文件放在项目文件夹内，之后读取文件只需写文件名，无需写完整路径。"
   },
   {
     "objectID": "L13slide.html#导入-excel-文件",
     "href": "L13slide.html#导入-excel-文件",
     "title": "L13外部数据文件的导入",
     "section": "导入 Excel 文件",
-    "text": "导入 Excel 文件\n读取第一张工作表\n指定工作表\n跳过表头行\n有些 Excel 文件顶部有标题说明行，不是真正的变量名行，需要跳过。\n指定读取行数\n指定缺失值的标记符号\n有些数据用 \"NA\"、\"—\"、\"999\" 等表示缺失，需要告诉 R 将其识别为缺失值。\n\n\n\n\n\n\nNote\n\n\n查看工作表名称\n不确定 Excel 文件有哪些工作表时，可以先用 excel_sheets() 查看："
+    "text": "导入 Excel 文件\n\n读取第一张工作表\n\nlibrary(readxl)\n\nmydata &lt;- read_excel(\"data.xlsx\")\n\n\n\n指定工作表\n\n# 用工作表名称指定\nmydata &lt;- read_excel(\"data.xlsx\", sheet = \"Sheet2\")\n\n# 用工作表序号指定（第2张）\nmydata &lt;- read_excel(\"data.xlsx\", sheet = 2)\n\n\n\n跳过表头行\n有些 Excel 文件顶部有标题说明行，不是真正的变量名行，需要跳过。\n\n# 跳过前 2 行，从第 3 行开始读取\nmydata &lt;- read_excel(\"data.xlsx\", skip = 2)\n\n\n\n指定读取行数\n\n# 只读取前 100 行数据\nmydata &lt;- read_excel(\"data.xlsx\", n_max = 100)\n\n\n\n指定缺失值的标记符号\n有些数据用 \"NA\"、\"—\"、\"999\" 等表示缺失，需要告诉 R 将其识别为缺失值。\n\nmydata &lt;- read_excel(\"data.xlsx\", na = c(\"\", \"NA\", \"—\", \"999\"))\n\n\n\n\n\n\n\nNote\n\n\n\n查看工作表名称\n不确定 Excel 文件有哪些工作表时，可以先用 excel_sheets() 查看：\n\nexcel_sheets(\"data.xlsx\")"
   },
   {
     "objectID": "L13slide.html#导入-csv-文件",
     "href": "L13slide.html#导入-csv-文件",
     "title": "L13外部数据文件的导入",
     "section": "导入 CSV 文件",
-    "text": "导入 CSV 文件\nCSV（Comma-Separated Values）是最常见的数据交换格式。\n基本用法\nread_csv() 读取完成后会在控制台打印每列的变量名和数据类型，方便核查。\n处理中文乱码\n如果 CSV 文件来自中文 Windows 系统（编码为 GBK），读取后可能出现乱码，需要指定编码：\n指定缺失值标记\n手动指定列的数据类型\nread_csv() 会自动猜测每列的数据类型，但有时猜错（例如把编码为数字的分类变量识别成数值型）。可以用 col_types 手动指定：\n\n\n\n\n\n\nTip\n\n\nread_csv() vs read.csv()\n\n\n\n函数\n来自\n输出\n推荐\n\n\n\n\nread_csv()\nreadr（tidyverse）\ntibble\n✅ 推荐\n\n\nread.csv()\nbase R\ndata.frame\n可用\n\n\n\n推荐使用 read_csv()：速度更快，不会自动把字符串转换为因子，列名保持原样。"
+    "text": "导入 CSV 文件\nCSV（Comma-Separated Values）是最常见的数据交换格式。\n\n基本用法\n\n# read_csv() 来自 readr 包（tidyverse 已包含）\nmydata &lt;- read_csv(\"data.csv\")\n\nread_csv() 读取完成后会在控制台打印每列的变量名和数据类型，方便核查。\n\n\n处理中文乱码\n如果 CSV 文件来自中文 Windows 系统（编码为 GBK），读取后可能出现乱码，需要指定编码：\n\nmydata &lt;- read_csv(\"data.csv\", locale = locale(encoding = \"GBK\"))\n\n\n\n指定缺失值标记\n\nmydata &lt;- read_csv(\"data.csv\", na = c(\"\", \"NA\", \"N/A\", \"999\"))\n\n\n\n手动指定列的数据类型\nread_csv() 会自动猜测每列的数据类型，但有时猜错（例如把编码为数字的分类变量识别成数值型）。可以用 col_types 手动指定：\n\nmydata &lt;- read_csv(\"data.csv\",\n  col_types = cols(\n    id     = col_character(),   # 字符型\n    age    = col_double(),      # 数值型\n    gender = col_factor(),      # 因子型\n    date   = col_date()         # 日期型\n  )\n)\n\n\n\n\n\n\n\nTip\n\n\n\nread_csv() vs read.csv()\n\n\n\n函数\n来自\n输出\n推荐\n\n\n\n\nread_csv()\nreadr（tidyverse）\ntibble\n✅ 推荐\n\n\nread.csv()\nbase R\ndata.frame\n可用\n\n\n\n推荐使用 read_csv()：速度更快，不会自动把字符串转换为因子，列名保持原样。"
   },
   {
     "objectID": "L13slide.html#导入-txt-文件",
     "href": "L13slide.html#导入-txt-文件",
     "title": "L13外部数据文件的导入",
     "section": "导入 txt 文件",
-    "text": "导入 txt 文件\ntxt 文件通常是以特定符号分隔的纯文本数据。\n制表符分隔（最常见）\n自定义分隔符\n处理中文乱码\n与 CSV 相同，若 txt 文件来自中文 Windows，需指定编码："
+    "text": "导入 txt 文件\ntxt 文件通常是以特定符号分隔的纯文本数据。\n\n制表符分隔（最常见）\n\n# 制表符（\\t）分隔\nmydata &lt;- read_tsv(\"data.txt\")\n\n\n\n自定义分隔符\n\n# 分号分隔\nmydata &lt;- read_delim(\"data.txt\", delim = \";\")\n\n# 空格分隔\nmydata &lt;- read_delim(\"data.txt\", delim = \" \")\n\n\n\n处理中文乱码\n与 CSV 相同，若 txt 文件来自中文 Windows，需指定编码：\n\nmydata &lt;- read_tsv(\"data.txt\", locale = locale(encoding = \"GBK\"))"
   },
   {
     "objectID": "L13slide.html#从剪贴板导入数据",
     "href": "L13slide.html#从剪贴板导入数据",
     "title": "L13外部数据文件的导入",
     "section": "从剪贴板导入数据",
-    "text": "从剪贴板导入数据\n从网页、Word 或 Excel 中复制了一段表格数据，可以直接从剪贴板读取，无需保存为文件。"
+    "text": "从剪贴板导入数据\n从网页、Word 或 Excel 中复制了一段表格数据，可以直接从剪贴板读取，无需保存为文件。\n\n# 将数据复制到剪贴板后执行\nmydata &lt;- read_delim(clipboard(), delim = \"\\t\")"
   },
   {
     "objectID": "L13slide.html#导入后的基本核查",
     "href": "L13slide.html#导入后的基本核查",
     "title": "L13外部数据文件的导入",
     "section": "导入后的基本核查",
-    "text": "导入后的基本核查\n数据导入后，第一步应该核查数据是否正确读取。"
+    "text": "导入后的基本核查\n数据导入后，第一步应该核查数据是否正确读取。\n\n# 查看数据维度：行数和列数\ndim(mydata)\n\n# 查看变量名、数据类型和前几行\nstr(mydata)\n\n# 查看前 6 行\nhead(mydata)\n\n# 查看后 6 行\ntail(mydata)\n\n# 快速浏览数据（RStudio 中）\nView(mydata)\n\n# 各变量的描述性统计\nsummary(mydata)"
   },
   {
     "objectID": "L13slide.html#典型报错及处理",
     "href": "L13slide.html#典型报错及处理",
     "title": "L13外部数据文件的导入",
     "section": "典型报错及处理",
-    "text": "典型报错及处理\n报错：找不到文件\nError in file(file, \"rt\") : cannot open the connection\n原因： 文件路径不对，或文件不在工作目录中。\n解决方法："
+    "text": "典型报错及处理\n\n报错：找不到文件\nError in file(file, \"rt\") : cannot open the connection\n原因： 文件路径不对，或文件不在工作目录中。\n解决方法：\n\n# 第一步：确认工作目录\ngetwd()\n\n# 第二步：查看工作目录下有哪些文件\nlist.files()\n\n# 第三步：如果文件在子文件夹中，加上子文件夹名\nmydata &lt;- read_csv(\"data/data.csv\")\n\n\n\n\n报错：列数不匹配\nError: 5 columns expected but found 6\n原因： CSV 文件某些行的分隔符数量不一致（常见于数据中含有逗号）。\n解决方法： 打开原始文件检查问题行；或对有文本内容的列加引号包裹。\n\n\n\n报错：中文列名变乱码\n原因： 文件编码与 R 读取时使用的编码不一致。\n解决方法：\n\n# 尝试 GBK 编码（中文 Windows 常用）\nmydata &lt;- read_csv(\"data.csv\", locale = locale(encoding = \"GBK\"))\n\n# 或尝试 UTF-8-BOM（带 BOM 头的 UTF-8）\nmydata &lt;- read_csv(\"data.csv\", locale = locale(encoding = \"UTF-8-BOM\"))\n\n\n\n\n数字列被识别为字符型\n现象： 某列本应是数值，但 str() 显示为 chr，无法计算均值。\n原因： 该列中混入了非数字字符（如单位 \"cm\"、空格、或缺失值标记 \"—\"）。\n解决方法：\n\n# 先查找问题：哪些值无法转换为数字\nmydata %&gt;%\n  filter(is.na(as.numeric(height))) %&gt;%\n  count(height)\n\n# 清理后转换类型\nmydata &lt;- mydata %&gt;%\n  mutate(height = as.numeric(height))\n\n\n\n\n日期列被识别为字符型\n原因： 日期格式不是标准格式（如 \"2023/10/14\" 而非 \"2023-10-14\"）。\n解决方法：\n\nlibrary(lubridate)\n\n# 根据实际格式选择解析函数\nmydata &lt;- mydata %&gt;%\n  mutate(date = ymd(date))       # 2023-10-14 或 20231014\n  # mutate(date = ymd(date))     # 2023/10/14\n  # mutate(date = dmy(date))     # 14/10/2023\n  # mutate(date = mdy(date))     # 10/14/2023"
   },
   {
     "objectID": "L13slide.html#常用函数速查",
@@ -319,7 +319,7 @@
     "href": "index.html",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "本课程旨在通过 2 小时的高强度实战，带您跨越 R 语言的初学者门槛。请点击下方链接开始学习：\n\n\n🛠️ 模块1 准备工作\n\n\n🚀 模块2 快速起步\n\n\n🧭 模块3 构建R语言底层逻辑\n\n\n💹️ 模块4 数据分析实战\n\n\n🌀 模块5 AI赋能\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号\n\n\n“顶刊研习社”、“医课佳”\n\n\n\n\n\n\n视频教程同步更新中"
+    "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
   },
   {
     "objectID": "index.html#核心教学模块",
@@ -403,35 +403,35 @@
     "href": "L17slide.html#代码不执行只按了-enter",
     "title": "L17初学者最容易犯的5个低级错误",
     "section": "1 代码不执行——只按了 Enter",
-    "text": "1 代码不执行——只按了 Enter\n赋值符号 &lt;-\n在 R 中，给对象赋值使用 &lt;-，而不是 =。\n&lt;- 由”小于号”和”减号”组成，推荐用快捷键一次打出：\n\n\n\n操作系统\n赋值符号快捷键\n\n\n\n\nWindows\nAlt + -\n\n\nMac\nOption + -\n\n\n\n执行后，右上角 Environment 面板会出现 apple = 5 和 banana = 10，说明赋值成功。"
+    "text": "1 代码不执行——只按了 Enter\n\n赋值符号 &lt;-\n在 R 中，给对象赋值使用 &lt;-，而不是 =。\n&lt;- 由”小于号”和”减号”组成，推荐用快捷键一次打出：\n\n\n\n操作系统\n赋值符号快捷键\n\n\n\n\nWindows\nAlt + -\n\n\nMac\nOption + -\n\n\n\n\napple &lt;- 5\nbanana &lt;- 10\n\n执行后，右上角 Environment 面板会出现 apple = 5 和 banana = 10，说明赋值成功。\n\n\n\n计算与保存结果\n\n# 直接计算，结果只显示在Console，不会被保存\napple + banana\n\n[1] 15\n\n# 保存结果，需要赋值给一个新对象\ntotal &lt;- apple + banana\ntotal\n\n[1] 15\n\n\n\n\n\n\n\n\nTip\n\n\n\n判断代码有没有执行成功：\n查看 Environment 面板，赋值语句执行后对象会出现在列表中。\n若只是计算（没有赋值），结果仅显示在 Console，不会保存。\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n写完代码直接按 Enter，代码不会执行，光标只是跳到下一行。 正确做法**：必须按 Ctrl + Enter（Mac：Command + Enter）才能执行当前行。\n\n\n\n\n\n操作系统\n执行代码快捷键\n\n\n\n\nWindows\nCtrl + Enter\n\n\nMac\nCommand + Enter\n\n\n\n执行成功后，Console制台会以蓝色字体再显示一次刚才执行的代码，并输出结果。\n\n\n# 将光标放在这行，按 Ctrl+Enter 执行\nbanana &lt;- 10"
   },
   {
     "objectID": "L17slide.html#报错找不到对象代码顺序错了",
     "href": "L17slide.html#报错找不到对象代码顺序错了",
     "title": "L17初学者最容易犯的5个低级错误",
     "section": "2 报错”找不到对象”——代码顺序错了",
-    "text": "2 报错”找不到对象”——代码顺序错了\nError: object 'price' not found\n原因：调用了一个还没有赋值的对象。R 按顺序执行代码，必须先赋值，才能使用。\n\n\n[1] 80\n\n\n\n\n\n\n\n\nTip\n\n\n排查”找不到对象”的方法：\n查看 Environment 面板，如果该对象不在列表中，说明赋值代码还没有被执行。\n需要先运行赋值语句，再运行使用该对象的代码。"
+    "text": "2 报错”找不到对象”——代码顺序错了\nError: object 'price' not found\n原因：调用了一个还没有赋值的对象。R 按顺序执行代码，必须先赋值，才能使用。\n\n# ❌ 错误示范：price 还没赋值，直接使用\n# price * 0.8\n\n\n# ✅ 正确：先赋值，再使用\nprice &lt;- 100    # 第12行：先执行这行\nprice * 0.8     # 第14行：再执行这行\n\n[1] 80\n\n\n\n\n\n\n\n\nTip\n\n\n\n排查”找不到对象”的方法：\n查看 Environment 面板，如果该对象不在列表中，说明赋值代码还没有被执行。\n需要先运行赋值语句，再运行使用该对象的代码。"
   },
   {
     "objectID": "L17slide.html#大小写不通用",
     "href": "L17slide.html#大小写不通用",
     "title": "L17初学者最容易犯的5个低级错误",
     "section": "3 大小写不通用",
-    "text": "3 大小写不通用\nR 严格区分大小写，price 和 Price 是两个完全不同的对象。\n\n\n[1] 80\n\n\n\n\n\n\n\n\nWarning\n\n\n变量名、函数名，一个字母的大小写差别就会报错。养成习惯，命名时保持一致。"
+    "text": "3 大小写不通用\nR 严格区分大小写，price 和 Price 是两个完全不同的对象。\n\nprice &lt;- 100\n\n# ✅ 正确：小写 price\nprice * 0.8      # 输出 80\n\n[1] 80\n\n# ❌ 错误：Price 首字母大写，找不到\n# Price * 0.8      # Error: object 'Price' not found\n\n\n\n\n\n\n\nWarning\n\n\n\n变量名、函数名，一个字母的大小写差别就会报错。养成习惯，命名时保持一致。"
   },
   {
     "objectID": "L17slide.html#输入法陷阱中文标点",
     "href": "L17slide.html#输入法陷阱中文标点",
     "title": "L17初学者最容易犯的5个低级错误",
     "section": "4 输入法陷阱——中文标点",
-    "text": "4 输入法陷阱——中文标点\n\nR 中所有标点符号（括号、逗号、引号等）必须在英文输入法状态下输入。\n中文标点和英文标点外形相似，但 R 无法识别中文标点。\n\n\n\n[1] 3.14159"
+    "text": "4 输入法陷阱——中文标点\n\nR 中所有标点符号（括号、逗号、引号等）必须在英文输入法状态下输入。\n中文标点和英文标点外形相似，但 R 无法识别中文标点。\n\n\n# ✅ 正确：英文逗号\nround(pi, 5)     # 输出 3.14159\n\n[1] 3.14159\n\n# ❌ 错误：中文逗号（，）\n# round(pi，5)   # Error: unexpected input in \"round(pi，\"\n\n\n\n\n\n\n\n\nTip\n\n\n\n中英文标点对比：\n\n\n\n标点\n英文（✅）\n中文（❌）\n\n\n\n\n逗号\n,\n，\n\n\n括号\n()\n（）\n\n\n引号\n\"\"\n\"\"\n\n\n\n建议写代码时全程保持英文输入法。\n\n\n报错信息：\nError: unexpected input in \"round(pi, \""
   },
   {
     "objectID": "L17slide.html#控制台出现-号代码没写完",
     "href": "L17slide.html#控制台出现-号代码没写完",
     "title": "L17初学者最容易犯的5个低级错误",
     "section": "5 控制台出现 + 号——代码没写完",
-    "text": "5 控制台出现 + 号——代码没写完\n什么情况会出现 +？\n当你在 Source 窗口写了一行未完成的代码（例如只写了 8 + 10 +，后面的数字还没有输入），就按了 Ctrl + Enter，Console 的提示符会从 &gt; 变成 +：\n&gt; 8 + 10 +\n+\n这个 + 表示 R 认为你的代码还没有结束，正在等待后续输入。"
+    "text": "5 控制台出现 + 号——代码没写完\n\n什么情况会出现 +？\n当你在 Source 窗口写了一行未完成的代码（例如只写了 8 + 10 +，后面的数字还没有输入），就按了 Ctrl + Enter，Console 的提示符会从 &gt; 变成 +：\n&gt; 8 + 10 +\n+\n这个 + 表示 R 认为你的代码还没有结束，正在等待后续输入。\n\n\n\n+ 状态的危险\n如果这时继续运行其他代码，新代码会被当作前面未完成代码的延续，产生意外结果：\n&gt; 8 + 10 +\n+ round(pi, 3)   # 这里的结果会被拼接进去\n[1] 21.142       # 不是你想要的结果\n\n\n\n解决方法\n\n\n\n\n\n\nTip\n\n\n\nConsole 出现 + 时，按 Esc 键退出等待状态，提示符恢复为 &gt;，再重新输入完整的代码。\n\n\n&gt; 8 + 10 +\n+              ← 按 Esc\n&gt;              ← 恢复正常，可以重新输入\n\n\n\nSource 窗口 vs Console 控制台\nRStudio 有两个地方可以输入代码，用途完全不同：\n\n\n\n\nSource 窗口（左上）\nConsole 控制台（左下）\n\n\n\n\n执行方式\nCtrl + Enter\n直接按 Enter\n\n\n代码能否保存\n✅ 保存为 .R 文件\n❌ 关闭后消失\n\n\n推荐用途\n✅ 正式写代码\n临时测试、快速计算\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n所有正式代码都应写在 Source 窗口。\nConsole 只用于临时尝试，关闭 RStudio 后 Console 中的内容无法恢复。\n\n\n\n\n\n本节完整代码\n\n# ── 赋值符号快捷键 ──────────────────────────\n# Win: Alt + -\n# Mac: Option + -\n\n# ── 执行代码快捷键 ──────────────────────────\n# Win: Ctrl + Enter\n# Mac: Command + Enter\n\n# ── 赋值示例 ───────────────────────\napple  &lt;- 5\nbanana &lt;- 10\n\n# ── 计算：结果不保存 ─────────────────────────\napple + banana         # 输出 15，但未保存\n\n# ── 计算：结果保存 ──────────────────────────\ntotal &lt;- apple + banana\ntotal                  # 输出 15\n\n# ── 坑2：先赋值，再使用 ──────────────────────\nprice &lt;- 100           # 第一步：赋值\nprice * 0.8            # 第二步：使用，输出 80\n\n# ── 坑3：大小写区分 ──────────────────────────\nprice * 0.8            # ✅ 正确\n# Price * 0.8          # ❌ 报错：object 'Price' not found\n\n# ── 坑4：英文标点 ────────────────────────────\nround(pi, 5)           # ✅ 英文逗号，输出 3.14159\n# round(pi，5)         # ❌ 中文逗号，报错\n\n# ── 坑5：未完成代码导致Console出现\"+\" ──────────\n# 8 + 10 +             # ← 写了这行就 Ctrl+Enter，Console 会出现 +\n#                        按 Esc 键退出，再重新写完整的代码\n8 + 10 + 5             # ✅ 写完整再执行\n## [1] 15\n## [1] 15\n## [1] 80\n## [1] 80\n## [1] 3.14159\n## [1] 23"
   },
   {
     "objectID": "L17slide.html#总结",
@@ -494,7 +494,7 @@
     "href": "L11slide.html#因子用于回归控制参照组",
     "title": "L11因子Factor的底层逻辑掌控分类变量的秩序",
     "section": "5 因子用于回归：控制参照组",
-    "text": "5 因子用于回归：控制参照组\n\n# drv 为字符串时：参照组由字母顺序决定\n# \"4\" 字母排最前，自动成为参照组\nmodel1 &lt;- lm(hwy ~ drv, data = mpg)\nsummary(model1)$coefficients\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 19.174757  0.4036737 47.500634 3.396345e-121\ndrvf         8.985620  0.5668272 15.852486  8.578919e-39\ndrvr         1.825243  0.9134093  1.998275  4.685929e-02\n\n\n\n字符串的levels的排序是由字母顺序决定的，参照组是不可控的"
+    "text": "5 因子用于回归：控制参照组\n\n# drv 为字符串时：参照组由字母顺序决定\n# \"4\" 字母排最前，自动成为参照组\nmodel1 &lt;- lm(hwy ~ drv, data = mpg)\nsummary(model1)$coefficients\n\n             Estimate Std. Error   t value      Pr(&gt;|t|)\n(Intercept) 19.174757  0.4036737 47.500634 3.396345e-121\ndrvf         8.985620  0.5668272 15.852486  8.578919e-39\ndrvr         1.825243  0.9134093  1.998275  4.685929e-02\n\n\n\n字符串的levels的排序是由字母顺序决定的，参照组是不可控的。"
   },
   {
     "objectID": "L11slide.html#forcats-包",
@@ -753,14 +753,14 @@
     "href": "m4.html",
     "title": "模块4 数据分析实战",
     "section": "",
-    "text": "L12 讲义"
+    "text": "L13 讲义"
   },
   {
     "objectID": "m4.html#l13-外部数据文件的导入",
     "href": "m4.html#l13-外部数据文件的导入",
     "title": "模块4 数据分析实战",
     "section": "",
-    "text": "L12 讲义"
+    "text": "L13 讲义"
   },
   {
     "objectID": "m4.html#l14-数据可视化",
@@ -774,14 +774,14 @@
     "href": "m4.html#l15-ggstatsplot-统计检验的可视化",
     "title": "模块4 数据分析实战",
     "section": "L15 ggstatsplot统计检验的可视化",
-    "text": "L15 ggstatsplot统计检验的可视化\n\n L16 讲义"
+    "text": "L15 ggstatsplot统计检验的可视化\n\n L15 讲义"
   },
   {
     "objectID": "m4.html#l16-保存输出结果",
     "href": "m4.html#l16-保存输出结果",
     "title": "模块4 数据分析实战",
     "section": "L16 保存输出结果",
-    "text": "L16 保存输出结果\n\n L17 讲义"
+    "text": "L16 保存输出结果\n\n L16 讲义"
   },
   {
     "objectID": "m4.html#l17-初学者最容易犯的5个低级错误",
@@ -992,5 +992,68 @@
     "title": "L14数据可视化",
     "section": "7 小结",
     "text": "7 小结\nggplot2 核心结构\nggplot(数据, aes(x = ..., y = ..., color = ...)) +\n  geom_图形类型() +\n  labs(title = ..., x = ..., y = ...) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "L18slide.html#ai能帮你做什么",
+    "href": "L18slide.html#ai能帮你做什么",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "1 AI能帮你做什么？",
+    "text": "1 AI能帮你做什么？\n学 R 最大的门槛不是统计知识，而是 “我知道我想做什么，但不知道怎么用 R 写出来”。\nAI 恰好可以填补这个空缺：\n\n\n\n你的需求\nAI 能做的\n\n\n\n\n不会写代码\n根据描述直接生成代码\n\n\n代码报错了\n解释错误原因并修复\n\n\n看不懂别人的代码\n逐行解释代码含义\n\n\n想换一种写法\n提供替代方案\n\n\n不知道用哪个函数\n推荐合适的函数和包\n\n\n\n\n\n常用的 AI 工具\n\n\n\n工具\n地址\n特点\n\n\n\n\nChatGPT\nchat.openai.com\n最流行，中英文均可\n\n\nClaude\nclaude.ai\n代码能力强，解释清晰\n\n\nGemini\ngemini.google.com\n与 Google 生态整合\n\n\nGitHub Copilot\n集成在 RStudio 中\n边写边自动补全代码\n\n\nDeepSeek\nchat.deepseek.com\n中文友好，代码能力强"
+  },
+  {
+    "objectID": "L18slide.html#让ai生成解释修改代码",
+    "href": "L18slide.html#让ai生成解释修改代码",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "2 让AI生成、解释、修改代码",
+    "text": "2 让AI生成、解释、修改代码\n\n基本原则：描述要具体\n\n\n\n\n\n\nTip\n\n\n\n好的提问 = 数据描述 + 想要的结果 + 格式要求\n“我有一个数据框，有 mpg（油耗）和 cyl（气缸数）两列，\n请用 ggplot2 画一个箱线图，x 轴是气缸数，y 轴是油耗，\n不同气缸数用不同颜色填充，用 theme_minimal() 主题。”\n\n\n\n\n\n模糊提问 vs 具体提问\n❌ 模糊提问（AI 给出的代码往往不是你想要的）：\n\n“帮我画个图”\n\n✅ 具体提问（AI 能直接给出可运行的代码）：\n\n“用 R 的 ggplot2 包，以 mtcars 数据集为例， 画一个散点图，x 轴是车重（wt），y 轴是油耗（mpg）, 按气缸数（cyl）用不同颜色区分，加上线性趋势线，用 theme_classic() 主题，中文坐标轴标签。\n\n\n\n\n实际演示：把需求告诉 AI\n你的提问：\n用 R 的 ggplot2，以 mtcars 数据为例，\n画一个散点图：x 轴是车重(wt)，y 轴是油耗(mpg)，\n按气缸数(cyl)分组用不同颜色，加线性趋势线，\ntheme_classic() 主题，中文标签。\n\nAI 给出的代码：\n\nlibrary(ggplot2)\n\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3, alpha = 0.8) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  scale_color_manual(values = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\")) +\n  labs(title  = \"车重与油耗的关系\",\n       x      = \"车重（千磅）\",\n       y      = \"油耗（英里/加仑）\",\n       color  = \"气缸数\") +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n\n让 AI 解释代码\n看到别人的代码看不懂？直接让 AI 逐行解释。\n你的提问：\n请逐行解释下面这段 R 代码的含义：\n\nmtcars |&gt;\n  filter(cyl == 4) |&gt;\n  mutate(kpl = mpg * 0.425) |&gt;\n  group_by(am) |&gt;\n  summarise(\n    n        = n(),\n    kpl_mean = mean(kpl) |&gt; round(2)\n  )\n\nAI 的解释：\n\nlibrary(tidyverse)\nmtcars |&gt;\n  filter(cyl == 4) |&gt;          # 只保留 4 缸的车\n  mutate(kpl = mpg * 0.425) |&gt; # 新增一列：将油耗换算为 km/L\n  group_by(am) |&gt;              # 按变速箱类型（0自动/1手动）分组\n  summarise(\n    n        = n(),            # 计算每组的样本量\n    kpl_mean = mean(kpl) |&gt; round(2)  # 每组的平均油耗（km/L）\n  )\n\n# A tibble: 2 × 3\n     am     n kpl_mean\n  &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt;\n1     0     3     9.73\n2     1     8    11.9 \n\n\n\n💡 把 AI 的解释写成注释加在代码里，\n这是提升 R 代码阅读能力最快的方法。\n\n\n\n\n让AI 修改和优化代码\n有了能跑的代码之后，可以继续让 AI 帮你改。\n常见的追问方式：\n上面的代码能正常运行，请帮我：\n1. 把图的主题改为 theme_minimal()\n2. 把图例放到图的底部\n3. x 轴的文字旋转 45 度\n\n\n# AI 根据追问修改后的代码\nggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +\n  geom_boxplot() +\n  scale_fill_manual(values = c(\"#8DA0CB\", \"#FC8D62\", \"#66C2A5\")) +\n  labs(x = \"气缸数\", y = \"油耗（mpg）\", fill = \"气缸数\") +\n  theme_minimal() +\n  theme(\n    legend.position  = \"bottom\",               # 图例放底部\n    axis.text.x      = element_text(angle = 45, hjust = 1)  # x轴旋转\n  )"
+  },
+  {
+    "objectID": "L18slide.html#让ai-解释报错",
+    "href": "L18slide.html#让ai-解释报错",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "3 让AI 解释报错",
+    "text": "3 让AI 解释报错\n报错是学 R 最令人沮丧的时刻，AI 可以成为你的”随身翻译”。\n\n如何把报错告诉 AI？\n\n\n\n\n\n\nTip\n\n\n\n\n把完整的报错信息粘贴给 AI\n把出错的代码也一并贴上\n说明你想做什么\n\n\n\n\n\n\n示例：把报错交给 AI 处理\n\n你告诉 AI：\n我运行下面的代码报错了，请帮我解释原因并修复：\n\n代码：\nselect(mtcars, mpg, cyl)\n\n报错信息：\nError in select(mtcars, mpg, cyl) : \n  could not find function \"select\"\n\n我想做的是：从 mtcars 里选出 mpg 和 cyl 两列。\n\nAI 的回答\n\nselect() 函数来自 dplyr 包，你还没有加载这个包。\n在代码前加上 library(dplyr) 即可。\n\n\nlibrary(dplyr)\nselect(mtcars, mpg, cyl) |&gt; head(3)\n\n               mpg cyl\nMazda RX4     21.0   6\nMazda RX4 Wag 21.0   6\nDatsun 710    22.8   4"
+  },
+  {
+    "objectID": "课程大纲_Version2.html",
+    "href": "课程大纲_Version2.html",
+    "title": "2小时入门R语言",
+    "section": "",
+    "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程"
+  },
+  {
+    "objectID": "L18slide.html",
+    "href": "L18slide.html",
+    "title": "L18用AI辅助R学习与代码生成",
+    "section": "",
+    "text": "请务必先运行下方代码\n\n\n\n在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "L17slide.html",
+    "href": "L17slide.html",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "",
+    "text": ":: {.callout-important title=“请务必先运行下方代码”}\n在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。\n:::\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "L13slide.html",
+    "href": "L13slide.html",
+    "title": "L13外部数据文件的导入",
+    "section": "",
+    "text": "请务必先运行下方代码\n\n\n\n在尝试后续页面的任何示例代码之前，请确保您已经在自己的电脑上运行了这段安装R包的代码。\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "课程大纲_Version2.html#课程大纲",
+    "href": "课程大纲_Version2.html#课程大纲",
+    "title": "2小时入门R语言",
+    "section": "",
+    "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程"
+  },
+  {
+    "objectID": "index.html#课程大纲",
+    "href": "index.html#课程大纲",
+    "title": "2小时入门R语言",
+    "section": "",
+    "text": "本课程共分为 5 大模块，18 节核心内容，采用模块化 + 实战驱动的设计，帮助你快速掌握 R 语言。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
   }
 ]
