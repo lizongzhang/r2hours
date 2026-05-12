@@ -6,7 +6,7 @@ title: "模块1 准备"
 <img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块1代码文件：m1.R](https://github.com/lizongzhang/r2hours/raw/main/m1.R){download="m1.R"}
 :::
 
-## L1 重塑AI时代的R学习观
+## L1 重构AI时代R学习观
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">

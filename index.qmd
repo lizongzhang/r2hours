@@ -13,7 +13,7 @@ editor:
 
 ::: {.g-col-12 .g-col-md-6}
 ### [**模块1 准备工作 🛠️**](m1.qmd)
-- L1 重塑AI时代的R学习观
+- L1 重构AI时代R学习观
 - L2 R与RStudio的安装与配置
 :::
 

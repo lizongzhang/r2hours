@@ -1,5 +1,5 @@
 ---
-title: 重构AI时代的R学习观
+title: 重构AI时代R学习观
 date: today
 author: 
   name: "顶刊研习社"
