@@ -1,5 +1,5 @@
 ---
-title: "L4<br>6分钟完成全链路统计分析"
+title: "L4<br>只用5分钟<br>Base R跑通完整统计分析"
 date: today
 author: 
   name: "顶刊研习社"

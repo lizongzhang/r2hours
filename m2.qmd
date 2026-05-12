@@ -13,7 +13,7 @@ title: "模块2 快速起步"
   [L3 讲义](https://lizongzhang.github.io/r2hours/L3slide.html){target="_blank"}
 </div>
 
-## L4 6分钟完成全链路统计分析
+## L4 只用5分钟<br>Base R跑通完整统计分析
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
   [L4 讲义](https://lizongzhang.github.io/r2hours/L4slide.html){target="_blank"}
