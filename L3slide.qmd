@@ -1,5 +1,5 @@
 ---
-title: RStudio窗口与基础绘图
+title: RStudio 新手入门<br>界面窗口与绘图初体验
 date: today
 author: 
   name: "顶刊研习社"

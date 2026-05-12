@@ -19,7 +19,7 @@ editor:
 
 ::: {.g-col-12 .g-col-md-6}
 ### [**模块2 快速起步 🚀**](m2.qmd)
-- L3 RStudio界面与基础绘图
+- L3 RStudio 新手入门：界面窗口与绘图初体验
 - L4 6分钟完成全链路统计分析
 - L5 R包的安装和加载
 - L6 R语言自学力: 高效查阅帮助文档
@@ -51,10 +51,6 @@ editor:
 
 :::
 
-::: callout-note
-本课程配套演示数据：[点击下载
-stroke.xlsx](https://github.com/lizongzhang/deepseekcamp/raw/main/stroke.xlsx){download="stroke.xlsx"}
-:::
 
 ------------------------------------------------------------------------
 

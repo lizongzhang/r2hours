@@ -93,42 +93,42 @@
   {
     "objectID": "L3slide.html#rstudio主界面",
     "href": "L3slide.html#rstudio主界面",
-    "title": "RStudio窗口与基础绘图",
+    "title": "RStudio 新手入门界面窗口与绘图初体验",
     "section": "1 RStudio主界面",
     "text": "1 RStudio主界面"
   },
   {
     "objectID": "L3slide.html#source-脚本代码窗口",
     "href": "L3slide.html#source-脚本代码窗口",
-    "title": "RStudio窗口与基础绘图",
+    "title": "RStudio 新手入门界面窗口与绘图初体验",
     "section": "2 Source 脚本/代码窗口",
     "text": "2 Source 脚本/代码窗口\n执行代码\n\nWindows: Ctrl + Enter\nMac: Command + Enter\n\n\n\n\n\n\n\n\n注意\n\n\n直接按下 Enter 键只会将光标移至下一行，而不会运行当前命令。"
   },
   {
     "objectID": "L3slide.html#console控制台",
     "href": "L3slide.html#console控制台",
-    "title": "RStudio窗口与基础绘图",
+    "title": "RStudio 新手入门界面窗口与绘图初体验",
     "section": "3 Console控制台",
     "text": "3 Console控制台\n\n\n\n\n\n\n\n\n注意\n\n\n在控制台直接修改代码无法保存至脚本文件。"
   },
   {
     "objectID": "L3slide.html#environment-history-环境与历史",
     "href": "L3slide.html#environment-history-环境与历史",
-    "title": "RStudio窗口与基础绘图",
+    "title": "RStudio 新手入门界面窗口与绘图初体验",
     "section": "4 Environment & History 环境与历史",
     "text": "4 Environment & History 环境与历史"
   },
   {
     "objectID": "L3slide.html#filesplotspackagehelp",
     "href": "L3slide.html#filesplotspackagehelp",
-    "title": "RStudio窗口与基础绘图",
+    "title": "RStudio 新手入门界面窗口与绘图初体验",
     "section": "5 Files/Plots/Package/Help",
     "text": "5 Files/Plots/Package/Help\nFiles"
   },
   {
     "objectID": "L3slide.html#基础绘图plot",
     "href": "L3slide.html#基础绘图plot",
-    "title": "RStudio窗口与基础绘图",
+    "title": "RStudio 新手入门界面窗口与绘图初体验",
     "section": "6 基础绘图:plot()",
     "text": "6 基础绘图:plot()\n矩阵散点图\n\n\n查看R代码\ndata(mtcars)\nplot(mtcars)"
   },
@@ -319,7 +319,7 @@
     "href": "index.html",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "全课涵盖 5 大模块、18 节精讲，通过模块化实战教学，助您 2 小时高效掌握 R 语言核心技能。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
+    "text": "全课涵盖 5 大模块、18 节精讲，通过模块化实战教学，助您 2 小时高效掌握 R 语言核心技能。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio 新手入门：界面窗口与绘图初体验\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
   },
   {
     "objectID": "index.html#核心教学模块",
@@ -893,14 +893,14 @@
     "href": "L2slide.html#安装前最致命的排雷",
     "title": "R与RStudio的安装与配置",
     "section": "2 安装前最致命的“排雷”",
-    "text": "2 安装前最致命的“排雷”\n\n\n\n\n\n\n\nWindows 用户的头号杀手：中文路径\n\n\n绝对不要把 R 或 RStudio 安装在包含中文的文件夹下！ 如果您的 Windows 电脑用户名是中文（如 C:\\Users\\张三），日后在安装高阶 R 包时，极易遭遇无法解析的乱码报错。\n\n\n\n\n\n防御策略（Windows）\n\n保持默认安装路径（通常是 C:\\Program Files\\R）。\n确保系统用户名纯英文。如果已经是中文，建议更改环境变量或新建英文账户。"
+    "text": "2 安装前最致命的“排雷”\n\n\n\n\n\n\n\nWindows 用户的头号杀手：中文路径\n\n\n绝对不要把 R 或 RStudio 安装在包含中文的文件夹下！ 如果您的 Windows 电脑用户名是中文（如 C:\\Users\\张三），日后在安装高阶 R 包时，极易遭遇无法解析的乱码报错。\n\n\n\n\n\n解决方案（Windows）\n\n保持默认安装路径（通常是 C:\\Program Files\\R）。\n确保系统用户名纯英文。如果已经是中文，建议更改环境变量或新建英文账户。"
   },
   {
     "objectID": "L2slide.html#系统的编译环境",
     "href": "L2slide.html#系统的编译环境",
     "title": "R与RStudio的安装与配置",
     "section": "3 系统的编译环境",
-    "text": "3 系统的编译环境\n\n为什么别人的代码能跑，我的会报错？\n\n许多出版级的高级 R 包（如涉及复杂统计模型的包）底层是由 C++ 编写的，需要您电脑里有“翻译官”才能安装。\n\nWindows 用户必备：Rtools\n\n它不是 R 包，而是一个独立的软件，必须去 CRAN 官网额外下载安装。\nhttps://cran.r-project.org/bin/windows/Rtools/\n注意：安装过程中建议保持默认路径，且不要在路径中使用空格或中文字符。"
+    "text": "3 系统的编译环境\n\n为什么别人的代码能跑，我的会报错？\n\n许多高级 R 包（如涉及复杂统计模型的包）包含由 C++ 或 Fortran 编写的底层源代码，需要您的电脑具备编译环境才能进行构建与安装。"
   },
   {
     "objectID": "L2slide.html#全局设置",
@@ -1054,7 +1054,7 @@
     "href": "index.html#课程大纲",
     "title": "2小时入门R语言",
     "section": "",
-    "text": "全课涵盖 5 大模块、18 节精讲，通过模块化实战教学，助您 2 小时高效掌握 R 语言核心技能。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio界面与基础绘图\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n\n\n\nNote\n\n\n\n本课程配套演示数据：点击下载 stroke.xlsx\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
+    "text": "全课涵盖 5 大模块、18 节精讲，通过模块化实战教学，助您 2 小时高效掌握 R 语言核心技能。\n\n\n\n\nL1 重塑AI时代的R学习观\nL2 R与RStudio的安装与配置\n\n\n\n\n\nL3 RStudio 新手入门：界面窗口与绘图初体验\nL4 6分钟完成全链路统计分析\nL5 R包的安装和加载\nL6 R语言自学力: 高效查阅帮助文档\nL7 项目的创建和管理\n\n\n\n\n\nL8 R中的向量思维彻底搞懂 c() 函数\nL9 数据框常用操作\nL10 缺失值 NA 的处理\nL11 因子 Factor 的底层逻辑: 掌控分类变量的秩序\nL12 管道符：数据管理的高效工具\n\n\n\n\n\nL13 外部数据文件的导入\nL14 数据可视化\nL15 ggstatsplot 统计检验的可视化\nL16 保存输出结果\nL17 初学者最容易犯的5个低级错误\n\n\n\n\n\nL18 AI辅助R学习和编程\n\n\n\n\n\n\n欢迎关注微信公众号“顶刊研习社”、“医课佳”"
   },
   {
     "objectID": "L18slide.html#ai是r学习的超级加速器",
@@ -1160,5 +1160,19 @@
     "title": "模块4 数据分析实战",
     "section": "L15 ggstatsplot统计检验可视化",
     "text": "L15 ggstatsplot统计检验可视化\n\n L15 讲义"
+  },
+  {
+    "objectID": "L2slide.html#r与rstudio-的关系",
+    "href": "L2slide.html#r与rstudio-的关系",
+    "title": "R与RStudio的安装与配置",
+    "section": "1 R与RStudio 的关系",
+    "text": "1 R与RStudio 的关系\n\nR：底层的计算引擎\n\n负责所有数据处理、统计分析和图形绘制的核心计算。\n界面简陋（纯命令行），对人类极其不友好。\n\nRStudio：豪华的仪表盘 (IDE)\n\n它是 R 的集成开发环境 (Integrated Development Environment)。\n提供代码高亮、对象查看、图形预览、一键导出等可视化操作。"
+  },
+  {
+    "objectID": "m2.html#l3-rstudio-新手入门界面窗口与绘图初体验",
+    "href": "m2.html#l3-rstudio-新手入门界面窗口与绘图初体验",
+    "title": "模块2 快速起步",
+    "section": "L3 RStudio 新手入门：界面窗口与绘图初体验",
+    "text": "L3 RStudio 新手入门：界面窗口与绘图初体验\n\n L3 讲义"
   }
 ]

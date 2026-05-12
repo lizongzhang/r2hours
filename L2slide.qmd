@@ -45,7 +45,7 @@ library(tidyverse)
 ```
 
 
-## 1 核心认知：引擎与仪表盘
+## 1 R与RStudio 的关系
 
 - **R：底层的计算引擎**
 
@@ -61,11 +61,23 @@ library(tidyverse)
 
 ---
 
-- **黄金法则**
+### 下载安装文件
 
-    - **先装 R，后装 RStudio**，不可颠倒。
+- R安装文件
+    -  <img src="img/link.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [https://cran.r-project.org/](https://cran.r-project.org/){target="_blank"}
+
+- RStudio 安装文件
+    -  <img src="img/link.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [https://posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop){target="_blank"}
+
+---
+
+### 安装顺序
+
+- **先装 R，后装 RStudio**，不可颠倒。
     
-    - 日常写代码，**永远只打开 RStudio**，让底层的 R 默默工作即可。
+- 日常写代码，**只需要打开 RStudio**，让底层的 R 默默工作即可。
 
 
 ## 2 安装前最致命的“排雷”
@@ -75,14 +87,14 @@ library(tidyverse)
 如果您的 Windows 电脑用户名是中文（如 `C:\Users\张三`），日后在安装高阶 R 包时，极易遭遇无法解析的乱码报错。
 :::
 
-- **防御策略（Windows）**
+- **解决方案（Windows）**
     - 保持默认安装路径（通常是 `C:\Program Files\R`）。
     
     - 确保系统用户名纯英文。如果已经是中文，建议更改环境变量或新建英文账户。
 
 ---
 
-- **防御策略（macOS）**
+- **解决方案（macOS）**
 
     - 无中文路径困扰，直接一路“继续”即可。
     
@@ -91,15 +103,21 @@ library(tidyverse)
 
 - **为什么别人的代码能跑，我的会报错？**
 
-    - 许多出版级的高级 R 包（如涉及复杂统计模型的包）底层是由 C++ 编写的，需要您电脑里有“翻译官”才能安装。
-
-- **Windows 用户必备：Rtools**
-
-    - 它不是 R 包，而是一个独立的软件，必须去 CRAN 官网额外下载安装。
+    - 许多高级 R 包（如涉及复杂统计模型的包）包含由 C++ 或 Fortran 编写的底层源代码，需要您的电脑具备编译环境才能进行构建与安装。
     
-    - https://cran.r-project.org/bin/windows/Rtools/
+---    
+
+- **Windows 用户需要安装：Rtools**
+
+    - Rtools不是 R 包，而是一个专门为 Windows 打造的开发工具链（Toolchain）。
+    
+    - Rtools一个独立的软件，必须前往 CRAN 官网单独下载并安装，否则无法编译含有底层代码的 R 包
+    
+    -  <img src="img/link.png" style="width: 24px; height: 24px; margin-right: 10px">
+  [https://cran.r-project.org/bin/windows/Rtools/](https://cran.r-project.org/bin/windows/Rtools/){target="_blank"}
     
     - 注意：安装过程中建议保持默认路径，且不要在路径中使用空格或中文字符。
+    
 ---
 
 - **macOS 用户必备：Xcode Command Line Tools**
@@ -127,8 +145,10 @@ Error: download of package 'ggplot2' failed
 
 ---
 
-- **RStudio 中的可视化配置**
+- **RStudio 中的全局设置**
+
     - 路径：`Tools` -> `Global Options` -> `Packages`
+    
     - 点击 `Change...`，选择离你最近的 `China` 节点，点击 `Apply`。
 
 
@@ -138,11 +158,13 @@ Error: download of package 'ggplot2' failed
     - 路径：`Tools` -> `Global Options` -> `General` -> `Basic`
 
 - **关键选项修改**
-    1. 取消勾选：**Restore .RData into workspace at startup**（启动时不恢复旧数据）。
-    2. 设置选项：**Save workspace to .RData on exit** 改为 **Never**（退出时绝不保存）。
+
+    - 取消勾选：**Restore .RData into workspace at startup**（启动时不恢复旧数据）。
     
-::: {.callout-tip title="职业素养"}
-“代码即一切”。只要你有脚本，数据可以随时重新生成。依赖保存的工作空间是业余选手的表
+    - 设置选项：**Save workspace to .RData on exit** 改为 **Never**（退出时绝不保存）。
+    
+::: {.callout-tip title="写代码的正确姿势"}
+“代码即一切”。只要你有代码，数据可以随时重新生成。
 :::
 
-----
+

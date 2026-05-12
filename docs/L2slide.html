@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="顶刊研习社">
-  <meta name="dcterms.date" content="2026-05-11">
+  <meta name="dcterms.date" content="2026-05-12">
   <title>2小时入门R语言 – R与RStudio的安装与配置</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -243,26 +243,27 @@ z-index: 1000;">
 </div>
 </div>
 
-  <p class="date">2026-05-11</p>
+  <p class="date">2026-05-12</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">大纲</h2>
 <ul>
-<li><a href="#/核心认知引擎与仪表盘" id="/toc-核心认知引擎与仪表盘">1 核心认知：引擎与仪表盘</a></li>
+<li><a href="#/r与rstudio-的关系" id="/toc-r与rstudio-的关系">1 R与RStudio 的关系</a></li>
+
 
 <li><a href="#/安装前最致命的排雷" id="/toc-安装前最致命的排雷">2 安装前最致命的“排雷”</a></li>
 
 <li><a href="#/系统的编译环境" id="/toc-系统的编译环境">3 系统的编译环境</a></li>
 
-<li><a href="#/全局设置" id="/toc-全局设置">4 全局设置</a></li>
 
+<li><a href="#/全局设置" id="/toc-全局设置">4 全局设置</a></li>
 
 
 </ul>
 </nav>
 </section>
-<section id="核心认知引擎与仪表盘" class="slide level2">
-<h2>1 核心认知：引擎与仪表盘</h2>
+<section id="r与rstudio-的关系" class="slide level2">
+<h2>1 R与RStudio 的关系</h2>
 <ul>
 <li><p><strong>R：底层的计算引擎</strong></p>
 <ul>
@@ -278,12 +279,24 @@ z-index: 1000;">
 </section>
 <section class="slide level2">
 
+<h3 id="下载安装文件">下载安装文件</h3>
 <ul>
-<li><p><strong>黄金法则</strong></p>
+<li>R安装文件
+<ul>
+<li><img src="img/link.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://cran.r-project.org/" target="_blank">https://cran.r-project.org/</a></li>
+</ul></li>
+<li>RStudio 安装文件
+<ul>
+<li><img src="img/link.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://posit.co/download/rstudio-desktop" target="_blank">https://posit.co/download/rstudio-desktop</a></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="安装顺序">安装顺序</h3>
 <ul>
 <li><p><strong>先装 R，后装 RStudio</strong>，不可颠倒。</p></li>
-<li><p>日常写代码，<strong>永远只打开 RStudio</strong>，让底层的 R 默默工作即可。</p></li>
-</ul></li>
+<li><p>日常写代码，<strong>只需要打开 RStudio</strong>，让底层的 R 默默工作即可。</p></li>
 </ul>
 </section>
 <section id="安装前最致命的排雷" class="slide level2">
@@ -304,7 +317,7 @@ z-index: 1000;">
 </div>
 </div>
 <ul>
-<li><strong>防御策略（Windows）</strong>
+<li><strong>解决方案（Windows）</strong>
 <ul>
 <li><p>保持默认安装路径（通常是 <code>C:\Program Files\R</code>）。</p></li>
 <li><p>确保系统用户名纯英文。如果已经是中文，建议更改环境变量或新建英文账户。</p></li>
@@ -314,7 +327,7 @@ z-index: 1000;">
 <section class="slide level2">
 
 <ul>
-<li><p><strong>防御策略（macOS）</strong></p>
+<li><p><strong>解决方案（macOS）</strong></p>
 <ul>
 <li>无中文路径困扰，直接一路“继续”即可。</li>
 </ul></li>
@@ -325,12 +338,18 @@ z-index: 1000;">
 <ul>
 <li><p><strong>为什么别人的代码能跑，我的会报错？</strong></p>
 <ul>
-<li>许多出版级的高级 R 包（如涉及复杂统计模型的包）底层是由 C++ 编写的，需要您电脑里有“翻译官”才能安装。</li>
+<li>许多高级 R 包（如涉及复杂统计模型的包）包含由 C++ 或 Fortran 编写的底层源代码，需要您的电脑具备编译环境才能进行构建与安装。</li>
 </ul></li>
-<li><p><strong>Windows 用户必备：Rtools</strong></p>
+</ul>
+</section>
+<section class="slide level2">
+
 <ul>
-<li><p>它不是 R 包，而是一个独立的软件，必须去 CRAN 官网额外下载安装。</p></li>
-<li><p>https://cran.r-project.org/bin/windows/Rtools/</p></li>
+<li><p><strong>Windows 用户需要安装：Rtools</strong></p>
+<ul>
+<li><p>Rtools不是 R 包，而是一个专门为 Windows 打造的开发工具链（Toolchain）。</p></li>
+<li><p>Rtools一个独立的软件，必须前往 CRAN 官网单独下载并安装，否则无法编译含有底层代码的 R 包</p></li>
+<li><p><img src="img/link.png" style="width: 24px; height: 24px; margin-right: 10px"> <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">https://cran.r-project.org/bin/windows/Rtools/</a></p></li>
 <li><p>注意：安装过程中建议保持默认路径，且不要在路径中使用空格或中文字符。</p></li>
 </ul></li>
 </ul>
@@ -361,44 +380,41 @@ z-index: 1000;">
 <section class="slide level2">
 
 <ul>
-<li><strong>RStudio 中的可视化配置</strong>
+<li><p><strong>RStudio 中的全局设置</strong></p>
 <ul>
-<li>路径：<code>Tools</code> -&gt; <code>Global Options</code> -&gt; <code>Packages</code></li>
-<li>点击 <code>Change...</code>，选择离你最近的 <code>China</code> 节点，点击 <code>Apply</code>。</li>
+<li><p>路径：<code>Tools</code> -&gt; <code>Global Options</code> -&gt; <code>Packages</code></p></li>
+<li><p>点击 <code>Change...</code>，选择离你最近的 <code>China</code> 节点，点击 <code>Apply</code>。</p></li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li><strong>配置路径</strong>
+<li><p><strong>配置路径</strong></p>
 <ul>
 <li>路径：<code>Tools</code> -&gt; <code>Global Options</code> -&gt; <code>General</code> -&gt; <code>Basic</code></li>
 </ul></li>
-<li><strong>关键选项修改</strong>
-<ol type="1">
-<li>取消勾选：<strong>Restore .RData into workspace at startup</strong>（启动时不恢复旧数据）。</li>
-<li>设置选项：<strong>Save workspace to .RData on exit</strong> 改为 <strong>Never</strong>（退出时绝不保存）。</li>
-</ol></li>
+<li><p><strong>关键选项修改</strong></p>
+<ul>
+<li><p>取消勾选：<strong>Restore .RData into workspace at startup</strong>（启动时不恢复旧数据）。</p></li>
+<li><p>设置选项：<strong>Save workspace to .RData on exit</strong> 改为 <strong>Never</strong>（退出时绝不保存）。</p></li>
+</ul></li>
 </ul>
-<div title="职业素养">
+<div title="写代码的正确姿势">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>职业素养</strong></p>
+<p><strong>写代码的正确姿势</strong></p>
 </div>
 <div class="callout-content">
-<p>“代码即一切”。只要你有脚本，数据可以随时重新生成。依赖保存的工作空间是业余选手的表</p>
+<p>“代码即一切”。只要你有代码，数据可以随时重新生成。</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 
 
 </section>
