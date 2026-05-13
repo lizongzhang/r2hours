@@ -1,28 +1,34 @@
 ---
-title: "L7 项目的创建和管理"
+title: "L7<br>项目的创建和管理"
 date: today
 author: 
   name: "顶刊研习社"
   #url: https://space.bilibili.com/590872906/
 format: 
   revealjs:
-    incremental: FALSE
-    theme: sky
-    slide-number: true
+    incremental: false
+    theme: [sky]
+    slide-number: c/t
+    show-slide-number: all
     code-fold: true
+    code-copy: true
+    code-summary: "查看R代码"
     chalkboard: 
       buttons: true
+      board-canvas-background: "#f0f0f0"
     preview-links: auto
-    css: styles.css
+    toc-title: "大纲"
+    css: style.css
     footer: |
-      <https://lizongzhang.github.io/r2hours><br>© 2026顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
+      [2小时R入门](https://lizongzhang.github.io/r2hours) | © 2026 顶刊研习社, [Li Zongzhang](https://space.bilibili.com/590872906/)
     include-before-body: 
       - header.html
       - fonts.html
-    # title-slide-attributes: 
-    #   data-background-image: "img/top_en.JPG"  
-    #   data-background-size: "100px"        
-    #   data-background-position: "center bottom 200px"  
+    menu: 
+      side: left
+      width: wide
+    toc: true
+    toc-depth: 2
     plugins: [highlight, zoom, notes]
 editor: 
   markdown: 
@@ -39,12 +45,14 @@ library(tidyverse)
 ```
 
 
-## 1 痛点剖析：绝对路径的“死亡陷阱”
+## 1 绝对路径的困扰
 
 - **新手的“常规操作”**
     - 新手通常会使用绝对路径设置工作目录：
     - Windows系统桌面路径`setwd("C:/Users/Administrator/Desktop/Paper2026/Data")`
     - Mac系统桌面路径`setwd("/Users/您的Mac用户名/Desktop/Paper2026/Data")`
+
+---
 
 - **为什么这是灾难？**
     - **协作崩溃**：当您将代码发给合作者，他们的电脑里根本没有这个特定用户名的文件夹，代码直接报错运行中断。
@@ -65,10 +73,10 @@ library(tidyverse)
 
 library(tidyverse)
 
-# 业余写法（绝对路径）：
+# 绝对路径：
 # df <- read_csv("D:/MyFiles/My_Paper_2026/data/raw_data.csv")
 
-# 架构师写法（相对路径）：直接从 data 文件夹中拿取
+# 相对路径：直接从 data 文件夹中拿取
 df <- read_csv("data/raw_data.csv")
 ```
 
@@ -78,11 +86,7 @@ df <- read_csv("data/raw_data.csv")
 
 ---
 
-
-
-
-
-## 2 降维打击：Project 的生态思维
+## 2 Project 的生态思维
 
 - **什么是 RStudio Project (`.Rproj`)？**
 
@@ -92,14 +96,13 @@ df <- read_csv("data/raw_data.csv")
 
 - **核心优势**
 
-    - **锚点效应**：双击 `.Rproj`文件启动RStudio，它会自动将该文件夹设定为工作目录。
+    - 双击`.Rproj`文件启动RStudio，它会自动将该文件夹设定为工作目录。
     
-    - **隔离污染**：每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。
+    - 每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。
 
 ---
 
 ## 3 实战部署：创建与文件管理
-
 
 ---
 
@@ -119,7 +122,7 @@ my_paper/                   [项目所在的文件夹]
 ```
 ---
 
-### 3.2 顶刊级别的命名艺术
+### 3.2 命名艺术
 
 - **流水线命名法 (Pipeline Naming)**
     - 脚本命名通过“序号 + 动作”命名，展示严密的逻辑链条。
@@ -130,6 +133,8 @@ my_paper/                   [项目所在的文件夹]
     - `03_main_models.R`：运行核心回归或统计模型
     - `04_figures.R`：生成正文所需的出版级高维图表
     - `05_robustness_checks.R`：稳健性检验（附录材料）
+    
+---    
 
 ::: {.callout-important title="架构师命名铁律"}
 1. **纯英文与全小写**：跨平台无障碍识别。
@@ -138,7 +143,7 @@ my_paper/                   [项目所在的文件夹]
 
 ---
 
-### 零填充命名法：对抗排序乱象
+### 零填充命名法
 
 - **操作系统的“文盲”逻辑**
     - 资源管理器默认按**字符**（字典顺序）而非**数值**排序。
@@ -172,6 +177,8 @@ my_paper/                   [项目所在的文件夹]
 :::
 :::
 
+---
+
 ::: {.callout-important title="架构师准则"}
 **零填充 (Zero-padding)**：通过将序号对齐为两位数（01-99），强制系统遵循您的分析流水线，确保代码执行顺序的可视化与逻辑统一。
 :::
@@ -183,6 +190,7 @@ my_paper/                   [项目所在的文件夹]
 
 - 初学者做法：把所有代码（从导入数据、清洗、建模到画图）全部放入一个长达几百上千行的 *.R脚本文件中。
 
+---
 
 - **专业做法**
 
@@ -196,10 +204,12 @@ my_paper/                   [项目所在的文件夹]
 
 ---
 
-### 核心技术：RDS 格式的无损接力
+### RDS 格式
 
 - **痛点**：使用 CSV 传递中间数据，会导致 Factor（因子）和 Date（日期）等数据类型全部丢失，下游需要重复定义。
 - **解法**：使用 R 原生专属的 `.rds` 格式，对数据对象进行“100% 无损快照”与高比率压缩。
+
+---
 
 **实操演示：流水线的完美衔接**
 
@@ -214,6 +224,8 @@ saveRDS(df_clean, "data/clean_data.rds")
 # 启动新脚本，直接解冻并赋值给新变量，立即开始分析
 df <- readRDS("data/clean_data.rds")
 ```
+
+---
 
 ::: {.callout-note title="架构师底线"}
 **原始数据 (Raw Data) 用 CSV 读取，中间清洗好的数据 (Clean Data) 永远用 RDS 传递。**这是确保数据分析链条绝对安全、高效的技术枢纽。
@@ -230,9 +242,11 @@ df <- readRDS("data/clean_data.rds")
 
 - **为什么是 SVG？**
     
-    - 常见的 PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。
+    - 常见的PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。
     
     - SVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。
+
+---    
 
 - **使用 `ggsave()` 自动化导出**
 

@@ -354,7 +354,7 @@
     "href": "L7slide.html#高保真-svg-矢量图导出",
     "title": "L7 项目的创建和管理",
     "section": "4 高保真 SVG 矢量图导出",
-    "text": "4 高保真 SVG 矢量图导出\n\n为什么是 SVG？\n\n常见的 PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。\nSVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。\n\n使用 ggsave() 自动化导出\n\n\n# install.packages(\"svglite\")\nlibrary(tidyverse)\nlibrary(svglite)\n\npic1 &lt;- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, \n                      color = Species)) +\n  geom_point(size = 3, alpha = 0.8) +\n  theme_minimal()\n\nggsave(filename = \"output/fig1_sepal_scatter.svg\", \n       plot = pic1,  width = 8,  height = 6)"
+    "text": "4 高保真 SVG 矢量图导出\n\n为什么是 SVG？\n\n常见的PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。\nSVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。"
   },
   {
     "objectID": "m3.html",
@@ -1195,5 +1195,19 @@
     "title": "模块2 快速起步",
     "section": "L4 只用5分钟!Base R跑通完整统计分析",
     "text": "L4 只用5分钟!Base R跑通完整统计分析\n\n L4 讲义"
+  },
+  {
+    "objectID": "L7slide.html#绝对路径的困扰",
+    "href": "L7slide.html#绝对路径的困扰",
+    "title": "L7 项目的创建和管理",
+    "section": "1 绝对路径的困扰",
+    "text": "1 绝对路径的困扰\n\n新手的“常规操作”\n\n新手通常会使用绝对路径设置工作目录：\nWindows系统桌面路径setwd(\"C:/Users/Administrator/Desktop/Paper2026/Data\")\nMac系统桌面路径setwd(\"/Users/您的Mac用户名/Desktop/Paper2026/Data\")"
+  },
+  {
+    "objectID": "L7slide.html#project-的生态思维",
+    "href": "L7slide.html#project-的生态思维",
+    "title": "L7 项目的创建和管理",
+    "section": "2 Project 的生态思维",
+    "text": "2 Project 的生态思维\n\n什么是 RStudio Project (.Rproj)？\n\n它就像一个标准化的“集装箱”。\n无论这个集装箱被扔到C盘、U 盘还是合作者的电脑，或Mac电脑上，集装箱内部的相对位置永远保持不变。\n\n核心优势\n\n双击.Rproj文件启动RStudio，它会自动将该文件夹设定为工作目录。\n每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。"
   }
 ]

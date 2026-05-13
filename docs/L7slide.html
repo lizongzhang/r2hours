@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="顶刊研习社">
-  <meta name="dcterms.date" content="2026-05-11">
+  <meta name="dcterms.date" content="2026-05-14">
   <title>2小时入门R语言 – L7 项目的创建和管理</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -95,8 +95,8 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0c22b6e252e162282a19289aa8a4686d.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-3b23134f08a4276564e1247b4ea610ff.css">
+  <link rel="stylesheet" href="style.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -243,10 +243,33 @@ z-index: 1000;">
 </div>
 </div>
 
-  <p class="date">2026-05-11</p>
+  <p class="date">2026-05-14</p>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">大纲</h2>
+<ul>
+<li><a href="#/绝对路径的困扰" id="/toc-绝对路径的困扰">1 绝对路径的困扰</a></li>
+
+
+<li><a href="#/project-的生态思维" id="/toc-project-的生态思维">2 Project 的生态思维</a></li>
+<li><a href="#/实战部署创建与文件管理" id="/toc-实战部署创建与文件管理">3 实战部署：创建与文件管理</a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="#/高保真-svg-矢量图导出" id="/toc-高保真-svg-矢量图导出">4 高保真 SVG 矢量图导出</a></li>
+
+</ul>
+</nav>
 </section>
-<section id="痛点剖析绝对路径的死亡陷阱" class="slide level2">
-<h2>1 痛点剖析：绝对路径的“死亡陷阱”</h2>
+<section id="绝对路径的困扰" class="slide level2">
+<h2>1 绝对路径的困扰</h2>
 <ul>
 <li><strong>新手的“常规操作”</strong>
 <ul>
@@ -254,6 +277,11 @@ z-index: 1000;">
 <li>Windows系统桌面路径<code>setwd("C:/Users/Administrator/Desktop/Paper2026/Data")</code></li>
 <li>Mac系统桌面路径<code>setwd("/Users/您的Mac用户名/Desktop/Paper2026/Data")</code></li>
 </ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><strong>为什么这是灾难？</strong>
 <ul>
 <li><strong>协作崩溃</strong>：当您将代码发给合作者，他们的电脑里根本没有这个特定用户名的文件夹，代码直接报错运行中断。</li>
@@ -274,10 +302,10 @@ z-index: 1000;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="co"># 业余写法（绝对路径）：</span></span>
+<span id="cb1-3"><a></a><span class="co"># 绝对路径：</span></span>
 <span id="cb1-4"><a></a><span class="co"># df &lt;- read_csv("D:/MyFiles/My_Paper_2026/data/raw_data.csv")</span></span>
 <span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a><span class="co"># 架构师写法（相对路径）：直接从 data 文件夹中拿取</span></span>
+<span id="cb1-6"><a></a><span class="co"># 相对路径：直接从 data 文件夹中拿取</span></span>
 <span id="cb1-7"><a></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div title="极简之美">
@@ -296,8 +324,8 @@ z-index: 1000;">
 </div>
 </div>
 </section>
-<section id="降维打击project-的生态思维" class="slide level2">
-<h2>2 降维打击：Project 的生态思维</h2>
+<section id="project-的生态思维" class="slide level2">
+<h2>2 Project 的生态思维</h2>
 <ul>
 <li><p><strong>什么是 RStudio Project (<code>.Rproj</code>)？</strong></p>
 <ul>
@@ -306,8 +334,8 @@ z-index: 1000;">
 </ul></li>
 <li><p><strong>核心优势</strong></p>
 <ul>
-<li><p><strong>锚点效应</strong>：双击 <code>.Rproj</code>文件启动RStudio，它会自动将该文件夹设定为工作目录。</p></li>
-<li><p><strong>隔离污染</strong>：每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。</p></li>
+<li><p>双击<code>.Rproj</code>文件启动RStudio，它会自动将该文件夹设定为工作目录。</p></li>
+<li><p>每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。</p></li>
 </ul></li>
 </ul>
 </section>
@@ -332,7 +360,7 @@ z-index: 1000;">
 </section>
 <section class="slide level2">
 
-<h3 id="顶刊级别的命名艺术">3.2 顶刊级别的命名艺术</h3>
+<h3 id="命名艺术">3.2 命名艺术</h3>
 <ul>
 <li><strong>流水线命名法 (Pipeline Naming)</strong>
 <ul>
@@ -347,6 +375,9 @@ z-index: 1000;">
 <li><code>05_robustness_checks.R</code>：稳健性检验（附录材料）</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div title="架构师命名铁律">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -368,7 +399,7 @@ z-index: 1000;">
 </section>
 <section class="slide level2">
 
-<h3 id="零填充命名法对抗排序乱象">零填充命名法：对抗排序乱象</h3>
+<h3 id="零填充命名法">零填充命名法</h3>
 <ul>
 <li><strong>操作系统的“文盲”逻辑</strong>
 <ul>
@@ -395,6 +426,9 @@ z-index: 1000;">
 <span id="cb4-5"><a></a>10_final_model.R [对齐!]</span>
 <span id="cb4-6"><a></a>11_appendix.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+</section>
+<section class="slide level2">
+
 <div title="架构师准则">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -415,7 +449,12 @@ z-index: 1000;">
 
 <h3 id="模块化脚本从手工作坊到流水线">模块化脚本：从“手工作坊”到“流水线”</h3>
 <ul>
-<li><p>初学者做法：把所有代码（从导入数据、清洗、建模到画图）全部放入一个长达几百上千行的 *.R脚本文件中。</p></li>
+<li>初学者做法：把所有代码（从导入数据、清洗、建模到画图）全部放入一个长达几百上千行的 *.R脚本文件中。</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li><p><strong>专业做法</strong></p>
 <ul>
 <li><p><strong>断点存档</strong>：保存中间结果（RDS），微调绘图无需重跑耗时模型。</p></li>
@@ -427,11 +466,14 @@ z-index: 1000;">
 </section>
 <section class="slide level2">
 
-<h3 id="核心技术rds-格式的无损接力">核心技术：RDS 格式的无损接力</h3>
+<h3 id="rds-格式">RDS 格式</h3>
 <ul>
 <li><strong>痛点</strong>：使用 CSV 传递中间数据，会导致 Factor（因子）和 Date（日期）等数据类型全部丢失，下游需要重复定义。</li>
 <li><strong>解法</strong>：使用 R 原生专属的 <code>.rds</code> 格式，对数据对象进行“100% 无损快照”与高比率压缩。</li>
 </ul>
+</section>
+<section class="slide level2">
+
 <p><strong>实操演示：流水线的完美衔接</strong></p>
 <ul>
 <li><strong>上游脚本 (<code>01_cleaning.R</code>)：交棒</strong></li>
@@ -443,6 +485,9 @@ z-index: 1000;">
 </ul>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># 启动新脚本，直接解冻并赋值给新变量，立即开始分析</span></span>
 <span id="cb6-2"><a></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/clean_data.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2">
+
 <div title="架构师底线">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -479,10 +524,15 @@ z-index: 1000;">
 <ul>
 <li><p><strong>为什么是 SVG？</strong></p>
 <ul>
-<li><p>常见的 PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。</p></li>
+<li><p>常见的PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。</p></li>
 <li><p>SVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。</p></li>
 </ul></li>
-<li><p><strong>使用 <code>ggsave()</code> 自动化导出</strong></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><strong>使用 <code>ggsave()</code> 自动化导出</strong></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># install.packages("svglite")</span></span>
@@ -503,7 +553,7 @@ z-index: 1000;">
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://lizongzhang.github.io/r2hours" class="uri">https://lizongzhang.github.io/r2hours</a><br>© 2026顶刊研习社, <a href="https://space.bilibili.com/590872906/">Li Zongzhang</a></p>
+<p><a href="https://lizongzhang.github.io/r2hours">2小时R入门</a> | © 2026 顶刊研习社, <a href="https://space.bilibili.com/590872906/">Li Zongzhang</a></p>
 </div>
 </div></div>
 
@@ -536,8 +586,8 @@ z-index: 1000;">
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide"},
+'chalkboard': {"buttons":true,"board-canvas-background":"#f0f0f0"},
 'smaller': false,
  
         // Display controls in the bottom right corner
