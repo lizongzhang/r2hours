@@ -550,14 +550,14 @@
     "href": "L10slide.html#什么是-na",
     "title": "L10缺失值NA的处理",
     "section": "1 什么是 NA？",
-    "text": "1 什么是 NA？\n\nNA（Not Available）是 R 中表示缺失值的专用符号。\n它不是数字 0，不是空字符串 \"\"，也不是 NULL，它代表”这个值本来应该有，但我们不知道它是什么”。\n现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误……\n\n\n# NA 有不同的\"类型\"，但通常统一写作 NA\nNA          # 逻辑型 NA（默认）\n\n[1] NA\n\nNA_real_    # 数值型 NA\n\n[1] NA\n\nNA_integer_ # 整数型 NA\n\n[1] NA\n\nNA_character_ # 字符型 NA\n\n[1] NA\n\n# NA 的类型判断\nis.na(NA)\n\n[1] TRUE"
+    "text": "1 什么是 NA？\n\nNA（Not Available）是 R 中表示缺失值的专用符号。\n它不是数字 0，不是空字符串 \"\"，也不是 NULL，它代表”这个值本来应该有，但我们不知道它是什么”。\n现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误"
   },
   {
     "objectID": "L10slide.html#构造含-na-的演示数据框",
     "href": "L10slide.html#构造含-na-的演示数据框",
     "title": "L10缺失值NA的处理",
     "section": "2 构造含 NA 的演示数据框",
-    "text": "2 构造含 NA 的演示数据框\n\n💡 本节使用一个手动构造的小数据框演示，方便观察 NA 的行为。\n\n\ndf &lt;- data.frame(\n  name   = c(\"张三\", \"李四\", \"王五\", \"赵六\", \"钱七\", \"周九\", \"吴十\"),\n  age    = c(22, NA, 25, 21, NA, 28, 24),\n  score  = c(88.5, 92.0, NA, 55.5, 85.0, 91.0, 78.5),\n  passed = c(TRUE, TRUE, NA, FALSE, TRUE, TRUE, TRUE)\n)\n\ndf\n\n  name age score passed\n1 张三  22  88.5   TRUE\n2 李四  NA  92.0   TRUE\n3 王五  25    NA     NA\n4 赵六  21  55.5  FALSE\n5 钱七  NA  85.0   TRUE\n6 周九  28  91.0   TRUE\n7 吴十  24  78.5   TRUE"
+    "text": "2 构造含 NA 的演示数据框\n\n\n查看R代码\ndf &lt;- data.frame(\n  name   = c(\"张三\", \"李四\", \"王五\", \"赵六\", \"钱七\", \"周九\", \"吴十\"),\n  age    = c(22, NA, 25, 21, NA, 28, 24),\n  score  = c(88.5, 92.0, NA, 55.5, 85.0, 91.0, 78.5),\n  passed = c(TRUE, TRUE, NA, FALSE, TRUE, TRUE, TRUE)\n)\n\ndf\n\n\n  name age score passed\n1 张三  22  88.5   TRUE\n2 李四  NA  92.0   TRUE\n3 王五  25    NA     NA\n4 赵六  21  55.5  FALSE\n5 钱七  NA  85.0   TRUE\n6 周九  28  91.0   TRUE\n7 吴十  24  78.5   TRUE"
   },
   {
     "objectID": "L10slide.html#检测-na",
@@ -571,7 +571,7 @@
     "href": "L10slide.html#na让计算结果报错",
     "title": "L10缺失值NA的处理",
     "section": "4 NA让计算结果报错",
-    "text": "4 NA让计算结果报错\n均值、求和等聚合函数返回 NA\n\n# age 列含有 NA，mean() 直接返回 NA\nmean(df$age)\n\n[1] NA\n\nsum(df$age)\n\n[1] NA\n\nmax(df$age)\n\n[1] NA\n\nmin(df$age)\n\n[1] NA\n\n\n\n⚠️ 这不是报错，R 正常运行了，但结果是 NA。\n初学者常以为代码写错了，其实是数据中存在缺失值。"
+    "text": "4 NA让计算结果报错\n均值、求和等聚合函数返回 NA\n\n# age 列含有 NA，mean() 直接返回 NA\nmean(df$age)\n\n[1] NA\n\nsum(df$age)\n\n[1] NA\n\nmax(df$age)\n\n[1] NA\n\nmin(df$age)\n\n[1] NA\n\n\n\n\n\n\n\n\nTip\n\n\n这不是报错，R 正常运行了，但结果是 NA初学者常以为代码写错了，其实是数据中存在缺失值。"
   },
   {
     "objectID": "L10slide.html#处理-na-的常用方法",

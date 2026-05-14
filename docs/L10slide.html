@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="顶刊研习社">
-  <meta name="dcterms.date" content="2026-05-11">
+  <meta name="dcterms.date" content="2026-05-14">
   <title>2小时入门R语言 – L10 缺失值NA的处理</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -243,17 +243,21 @@ z-index: 1000;">
 </div>
 </div>
 
-  <p class="date">2026-05-11</p>
+  <p class="date">2026-05-14</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">大纲</h2>
 <ul>
 <li><a href="#/什么是-na" id="/toc-什么是-na">1 什么是 NA？</a></li>
+
 <li><a href="#/构造含-na-的演示数据框" id="/toc-构造含-na-的演示数据框">2 构造含 NA 的演示数据框</a></li>
 <li><a href="#/检测-na" id="/toc-检测-na">3 检测 NA</a></li>
 
 
 <li><a href="#/na让计算结果报错" id="/toc-na让计算结果报错">4 NA让计算结果报错</a></li>
+
+
+
 
 
 
@@ -269,6 +273,7 @@ z-index: 1000;">
 <li><a href="#/实战用真实数据集检查-na" id="/toc-实战用真实数据集检查-na">5 实战：用真实数据集检查 NA</a></li>
 
 
+
 <li><a href="#/小结" id="/toc-小结">6 小结</a></li>
 </ul>
 </nav>
@@ -278,8 +283,11 @@ z-index: 1000;">
 <ul>
 <li><p><code>NA</code>（Not Available）是 R 中表示<strong>缺失值</strong>的专用符号。</p></li>
 <li><p>它不是数字 <code>0</code>，不是空字符串 <code>""</code>，也不是 <code>NULL</code>，它代表”<strong>这个值本来应该有，但我们不知道它是什么</strong>”。</p></li>
-<li><p>现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误……</p></li>
+<li><p>现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误</p></li>
 </ul>
+</section>
+<section class="slide level2">
+
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># NA 有不同的"类型"，但通常统一写作 NA</span></span>
 <span id="cb1-2"><a></a><span class="cn">NA</span>          <span class="co"># 逻辑型 NA（默认）</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -307,10 +315,9 @@ z-index: 1000;">
 </section>
 <section id="构造含-na-的演示数据框" class="slide level2">
 <h2>2 构造含 NA 的演示数据框</h2>
-<blockquote>
-<p>💡 本节使用一个手动构造的小数据框演示，方便观察 NA 的行为。</p>
-</blockquote>
 <div class="cell">
+<details class="code-fold">
+<summary>查看R代码</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb11-2"><a></a>  <span class="at">name   =</span> <span class="fu">c</span>(<span class="st">"张三"</span>, <span class="st">"李四"</span>, <span class="st">"王五"</span>, <span class="st">"赵六"</span>, <span class="st">"钱七"</span>, <span class="st">"周九"</span>, <span class="st">"吴十"</span>),</span>
 <span id="cb11-3"><a></a>  <span class="at">age    =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="cn">NA</span>, <span class="dv">25</span>, <span class="dv">21</span>, <span class="cn">NA</span>, <span class="dv">28</span>, <span class="dv">24</span>),</span>
@@ -319,6 +326,7 @@ z-index: 1000;">
 <span id="cb11-6"><a></a>)</span>
 <span id="cb11-7"><a></a></span>
 <span id="cb11-8"><a></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed
 1 张三  22  88.5   TRUE
@@ -384,9 +392,19 @@ z-index: 1000;">
 0.0000000 0.2857143 0.1428571 0.1428571 </code></pre>
 </div>
 </div>
-<blockquote>
-<p>💡 <code>colMeans(is.na(df))</code> 是一行代码摸清每列缺失率的常用技巧。</p>
-</blockquote>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>colMeans(is.na(df))</code>是一行代码摸清每列缺失率的常用技巧。</p>
+</div>
+</div>
+</div>
 </section>
 <section id="na让计算结果报错" class="slide level2">
 <h2>4 NA让计算结果报错</h2>
@@ -410,10 +428,19 @@ z-index: 1000;">
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
-<blockquote>
-<p>⚠️ 这<strong>不是报错</strong>，R 正常运行了，但结果是 <code>NA</code>。<br>
-初学者常以为代码写错了，其实是数据中存在缺失值。</p>
-</blockquote>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>这<strong>不是报错</strong>，R 正常运行了，但结果是 <code>NA</code>初学者常以为代码写错了，其实是数据中存在缺失值。</p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -432,28 +459,46 @@ z-index: 1000;">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 28</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">min</span>(df<span class="sc">$</span>age,   <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 21</code></pre>
 </div>
-</div>
-<blockquote>
-<p>💡 <code>na.rm</code> 是 <strong>NA remove</strong> 的缩写，几乎所有数值聚合函数都支持这个参数： <code>mean()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sd()</code> <code>var()</code> <code>median()</code> <code>range()</code> ……</p>
-</blockquote>
 </section>
 <section class="slide level2">
 
-<blockquote>
-<p>⚠️ 永远不能用 <code>x == NA</code> 判断某个值是否缺失，必须用 <code>is.na(x)</code>！</p>
-</blockquote>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>na.rm</code> 是 <strong>NA remove</strong>的缩写，几乎所有数值聚合函数都支持这个参数：<code>mean()</code> <code>sum()</code> <code>max()</code> <code>min()</code> <code>sd()</code> <code>var()</code> <code>median()</code> <code>range()</code> ……</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>永远不能用 <code>x == NA</code> 判断某个值是否缺失，必须用 <code>is.na(x)</code>！</p>
+</div>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>x <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb39-2"><a></a></span>
-<span id="cb39-3"><a></a>x <span class="sc">==</span> <span class="cn">NA</span>    <span class="co"># 错误：返回 NA，不是 TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>x <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb37-2"><a></a>x <span class="sc">==</span> <span class="cn">NA</span>    <span class="co"># 错误：返回 NA，不是 TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">is.na</span>(x)   <span class="co"># 正确：返回 TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">is.na</span>(x)   <span class="co"># 正确：返回 TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -463,30 +508,43 @@ z-index: 1000;">
 
 <h3 id="cor-相关系数矩阵报错"><code>cor()</code> 相关系数矩阵报错</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># 含 NA 的列直接计算相关系数，返回 NA</span></span>
-<span id="cb43-2"><a></a><span class="fu">cor</span>(df<span class="sc">$</span>age, df<span class="sc">$</span>score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="co"># 含 NA 的列直接计算相关系数，返回 NA</span></span>
+<span id="cb41-2"><a></a><span class="fu">cor</span>(df<span class="sc">$</span>age, df<span class="sc">$</span>score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="co"># 解决方法：指定 use 参数</span></span>
-<span id="cb45-2"><a></a><span class="fu">cor</span>(df<span class="sc">$</span>age, df<span class="sc">$</span>score, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># 解决方法：指定 use 参数</span></span>
+<span id="cb43-2"><a></a><span class="fu">cor</span>(df<span class="sc">$</span>age, df<span class="sc">$</span>score, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6580833</code></pre>
 </div>
 </div>
-<blockquote>
-<p>💡 <code>use = "complete.obs"</code> 表示只用两列都不缺失的行来计算。</p>
-</blockquote>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>use = "complete.obs"</code>表示只用两列都不缺失的行来计算。</p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 <h3 id="线性回归-lm-默认删除含-na-的行">线性回归 <code>lm()</code> 默认删除含 NA 的行</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="co"># lm() 不报错，但会自动删掉含 NA 的行</span></span>
-<span id="cb47-2"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(score <span class="sc">~</span> age, <span class="at">data =</span> df)</span>
-<span id="cb47-3"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="co"># lm() 不报错，但会自动删掉含 NA 的行</span></span>
+<span id="cb45-2"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(score <span class="sc">~</span> age, <span class="at">data =</span> df)</span>
+<span id="cb45-3"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -507,27 +565,40 @@ Multiple R-squared:  0.4331,    Adjusted R-squared:  0.1496
 F-statistic: 1.528 on 1 and 2 DF,  p-value: 0.3419</code></pre>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="co"># 查看实际参与建模的观测数</span></span>
-<span id="cb49-2"><a></a><span class="fu">nobs</span>(model)        <span class="co"># 实际使用的行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="co"># 查看实际参与建模的观测数</span></span>
+<span id="cb47-2"><a></a><span class="fu">nobs</span>(model)        <span class="co"># 实际使用的行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">nrow</span>(df)           <span class="co"># 原始数据行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">nrow</span>(df)           <span class="co"># 原始数据行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
 </div>
-<blockquote>
-<p>⚠️ <code>lm()</code> 悄悄删了含 NA 的行，<strong>不报错不提醒</strong>，样本量可能已经大幅缩水！ 建模前务必先检查缺失情况。</p>
-</blockquote>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><code>lm()</code> 悄悄删了含NA的行，<strong>不报错不提醒</strong>，样本量可能已经大幅缩水，建模前务先检查缺失情况。</p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 <h3 id="table-默认不统计-na"><code>table()</code> 默认不统计 NA</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="co"># 默认不显示 NA 的频次</span></span>
-<span id="cb53-2"><a></a><span class="fu">table</span>(df<span class="sc">$</span>passed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="co"># 默认不显示 NA 的频次</span></span>
+<span id="cb51-2"><a></a><span class="fu">table</span>(df<span class="sc">$</span>passed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE  TRUE 
@@ -535,15 +606,15 @@ FALSE  TRUE
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="co"># 加上 useNA = "ifany" 才会显示 NA 的数量</span></span>
-<span id="cb55-2"><a></a><span class="fu">table</span>(df<span class="sc">$</span>passed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="co"># 加上 useNA = "ifany" 才会显示 NA 的数量</span></span>
+<span id="cb53-2"><a></a><span class="fu">table</span>(df<span class="sc">$</span>passed, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE  TRUE  &lt;NA&gt; 
     1     5     1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="co"># useNA = "always" 无论有没有 NA 都显示</span></span>
-<span id="cb57-2"><a></a><span class="fu">table</span>(df<span class="sc">$</span>passed, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="co"># useNA = "always" 无论有没有 NA 都显示</span></span>
+<span id="cb55-2"><a></a><span class="fu">table</span>(df<span class="sc">$</span>passed, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE  TRUE  &lt;NA&gt; 
@@ -555,14 +626,14 @@ FALSE  TRUE  &lt;NA&gt;
 
 <h3 id="which-与-na-的陷阱"><code>which()</code> 与 NA 的陷阱</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="co"># 想找 age &gt; 21 的行号</span></span>
-<span id="cb59-2"><a></a><span class="fu">which</span>(df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="co"># 想找 age &gt; 21 的行号</span></span>
+<span id="cb57-2"><a></a><span class="fu">which</span>(df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">21</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 3 6 7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="co"># which() 会自动忽略 NA，不报错</span></span>
-<span id="cb61-2"><a></a><span class="co"># 但筛选时如果直接用逻辑向量，NA 会被保留为"不确定行"</span></span>
-<span id="cb61-3"><a></a>df[df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">21</span>, ]       <span class="co"># 含 NA 行也会出现（以 NA 行形式）</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="co"># which() 会自动忽略 NA，不报错</span></span>
+<span id="cb59-2"><a></a><span class="co"># 但筛选时如果直接用逻辑向量，NA 会被保留为"不确定行"</span></span>
+<span id="cb59-3"><a></a>df[df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">21</span>, ]       <span class="co"># 含 NA 行也会出现（以 NA 行形式）</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     name age score passed
 1    张三  22  88.5   TRUE
@@ -578,8 +649,8 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 
 <p>用 which() 避免 NA 行混入结果</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="co"># 正确写法：用 which() 避免 NA 行混入结果</span></span>
-<span id="cb63-2"><a></a>df[<span class="fu">which</span>(df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">21</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="co"># 正确写法：用 which() 避免 NA 行混入结果</span></span>
+<span id="cb61-2"><a></a>df[<span class="fu">which</span>(df<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">21</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed
 1 张三  22  88.5   TRUE
@@ -593,9 +664,9 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 <h2>4 处理 NA 的常用方法</h2>
 <h3 id="方法1删除含-na-的行-na.omit">方法1：删除含 NA 的行 — <code>na.omit()</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a><span class="co"># 删除任意列含 NA 的行</span></span>
-<span id="cb65-2"><a></a>df_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
-<span id="cb65-3"><a></a>df_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="co"># 删除任意列含 NA 的行</span></span>
+<span id="cb63-2"><a></a>df_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
+<span id="cb63-3"><a></a>df_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed
 1 张三  22  88.5   TRUE
@@ -613,9 +684,9 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 
 <h3 id="方法2只删除特定列含-na-的行">方法2：只删除特定列含 NA 的行</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="co"># 只删除 age 列为 NA 的行</span></span>
-<span id="cb67-2"><a></a>df_age_clean <span class="ot">&lt;-</span> df[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>age), ]</span>
-<span id="cb67-3"><a></a>df_age_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a><span class="co"># 只删除 age 列为 NA 的行</span></span>
+<span id="cb65-2"><a></a>df_age_clean <span class="ot">&lt;-</span> df[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>age), ]</span>
+<span id="cb65-3"><a></a>df_age_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed
 1 张三  22  88.5   TRUE
@@ -626,9 +697,9 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="co"># 同时要求 age 和 score 都不缺失</span></span>
-<span id="cb69-2"><a></a>df_both_clean <span class="ot">&lt;-</span> df[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>age) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>score), ]</span>
-<span id="cb69-3"><a></a>df_both_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="co"># 同时要求 age 和 score 都不缺失</span></span>
+<span id="cb67-2"><a></a>df_both_clean <span class="ot">&lt;-</span> df[<span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>age) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>score), ]</span>
+<span id="cb67-3"><a></a>df_both_clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed
 1 张三  22  88.5   TRUE
@@ -642,12 +713,12 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 
 <h3 id="方法3用指定值填补-na-replace">方法3：用指定值填补 NA — <code>replace()</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a><span class="co"># 用均值填补 age 列的 NA（均值插补）</span></span>
-<span id="cb71-2"><a></a>age_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb71-3"><a></a></span>
-<span id="cb71-4"><a></a>df<span class="sc">$</span>age_filled <span class="ot">&lt;-</span> <span class="fu">replace</span>(df<span class="sc">$</span>age, <span class="fu">is.na</span>(df<span class="sc">$</span>age), age_mean)</span>
-<span id="cb71-5"><a></a></span>
-<span id="cb71-6"><a></a>df[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"age_filled"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a><span class="co"># 用均值填补 age 列的 NA（均值插补）</span></span>
+<span id="cb69-2"><a></a>age_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb69-3"><a></a></span>
+<span id="cb69-4"><a></a>df<span class="sc">$</span>age_filled <span class="ot">&lt;-</span> <span class="fu">replace</span>(df<span class="sc">$</span>age, <span class="fu">is.na</span>(df<span class="sc">$</span>age), age_mean)</span>
+<span id="cb69-5"><a></a></span>
+<span id="cb69-6"><a></a>df[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"age_filled"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  age age_filled
 1  22         22
@@ -664,10 +735,10 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 
 <h3 id="方法4用-ifelse-填补">方法4：用 <code>ifelse()</code> 填补</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a></a><span class="co"># 将 score 列的 NA 填补为 0</span></span>
-<span id="cb73-2"><a></a>df<span class="sc">$</span>score_filled <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(df<span class="sc">$</span>score), <span class="dv">0</span>, df<span class="sc">$</span>score)</span>
-<span id="cb73-3"><a></a></span>
-<span id="cb73-4"><a></a>df[, <span class="fu">c</span>(<span class="st">"score"</span>, <span class="st">"score_filled"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a><span class="co"># 将 score 列的 NA 填补为 0</span></span>
+<span id="cb71-2"><a></a>df<span class="sc">$</span>score_filled <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(df<span class="sc">$</span>score), <span class="dv">0</span>, df<span class="sc">$</span>score)</span>
+<span id="cb71-3"><a></a></span>
+<span id="cb71-4"><a></a>df[, <span class="fu">c</span>(<span class="st">"score"</span>, <span class="st">"score_filled"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  score score_filled
 1  88.5         88.5
@@ -684,13 +755,13 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 
 <h3 id="方法5complete.cases-筛选完整行">方法5：<code>complete.cases()</code> — 筛选完整行</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a></a><span class="co"># 返回每行是否"完整"（无任何 NA）的逻辑向量</span></span>
-<span id="cb75-2"><a></a><span class="fu">complete.cases</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a></a><span class="co"># 返回每行是否"完整"（无任何 NA）的逻辑向量</span></span>
+<span id="cb73-2"><a></a><span class="fu">complete.cases</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a></a><span class="co"># 用于筛选完整行（等价于 na.omit，但更灵活）</span></span>
-<span id="cb77-2"><a></a>df[<span class="fu">complete.cases</span>(df), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a></a><span class="co"># 用于筛选完整行（等价于 na.omit，但更灵活）</span></span>
+<span id="cb75-2"><a></a>df[<span class="fu">complete.cases</span>(df), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed age_filled score_filled
 1 张三  22  88.5   TRUE         22         88.5
@@ -700,8 +771,8 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a></a><span class="co"># 也可以只针对某几列判断完整性</span></span>
-<span id="cb79-2"><a></a>df[<span class="fu">complete.cases</span>(df[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"score"</span>)]), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a></a><span class="co"># 也可以只针对某几列判断完整性</span></span>
+<span id="cb77-2"><a></a>df[<span class="fu">complete.cases</span>(df[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"score"</span>)]), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  name age score passed age_filled score_filled
 1 张三  22  88.5   TRUE         22         88.5
@@ -714,11 +785,11 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 <section id="实战用真实数据集检查-na" class="slide level2">
 <h2>5 实战：用真实数据集检查 NA</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a></a><span class="co"># R 内置的 airquality 数据集含有缺失值</span></span>
-<span id="cb81-2"><a></a><span class="fu">data</span>(airquality)</span>
-<span id="cb81-3"><a></a></span>
-<span id="cb81-4"><a></a><span class="co"># 第一步：str() 了解结构</span></span>
-<span id="cb81-5"><a></a><span class="fu">str</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a></a><span class="co"># R 内置的 airquality 数据集含有缺失值</span></span>
+<span id="cb79-2"><a></a><span class="fu">data</span>(airquality)</span>
+<span id="cb79-3"><a></a></span>
+<span id="cb79-4"><a></a><span class="co"># 第一步：str() 了解结构</span></span>
+<span id="cb79-5"><a></a><span class="fu">str</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   153 obs. of  6 variables:
  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
@@ -733,16 +804,16 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a></a><span class="co"># 第二步：检查缺失情况</span></span>
-<span id="cb83-2"><a></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(airquality))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a></a><span class="co"># 第二步：检查缺失情况</span></span>
+<span id="cb81-2"><a></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(airquality))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Ozone Solar.R    Wind    Temp   Month     Day 
      37       7       0       0       0       0 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a></a><span class="co"># 第三步：描述统计（summary 会自动显示 NA 的数量）</span></span>
-<span id="cb85-2"><a></a><span class="fu">summary</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a></a><span class="co"># 第三步：描述统计（summary 会自动显示 NA 的数量）</span></span>
+<span id="cb83-2"><a></a><span class="fu">summary</span>(airquality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Ozone           Solar.R           Wind             Temp      
  Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  
@@ -766,29 +837,32 @@ NA.1 &lt;NA&gt;  NA    NA     NA
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a></a><span class="co"># 第四步：计算含 NA 列的均值，记得加 na.rm = TRUE</span></span>
-<span id="cb87-2"><a></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a></a><span class="co"># 第四步：计算含 NA 列的均值，记得加 na.rm = TRUE</span></span>
+<span id="cb85-2"><a></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Ozone, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 42.12931</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Solar.R, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a></a><span class="fu">mean</span>(airquality<span class="sc">$</span>Solar.R, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 185.9315</code></pre>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a></a><span class="co"># 第五步：删除含 NA 的行后再建模</span></span>
-<span id="cb91-2"><a></a>air_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(airquality)</span>
-<span id="cb91-3"><a></a><span class="fu">nrow</span>(airquality)    <span class="co"># 原始行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a></a><span class="co"># 第五步：删除含 NA 的行后再建模</span></span>
+<span id="cb89-2"><a></a>air_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(airquality)</span>
+<span id="cb89-3"><a></a><span class="fu">nrow</span>(airquality)    <span class="co"># 原始行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 153</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a></a><span class="fu">nrow</span>(air_clean)     <span class="co"># 清洗后行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a></a><span class="fu">nrow</span>(air_clean)     <span class="co"># 清洗后行数</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 111</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ozone <span class="sc">~</span> Solar.R <span class="sc">+</span> Wind <span class="sc">+</span> Temp, <span class="at">data =</span> air_clean)</span>
-<span id="cb95-2"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Ozone <span class="sc">~</span> Solar.R <span class="sc">+</span> Wind <span class="sc">+</span> Temp, <span class="at">data =</span> air_clean)</span>
+<span id="cb93-2"><a></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:

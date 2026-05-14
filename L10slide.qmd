@@ -41,7 +41,9 @@ editor:
 
 - 它不是数字 `0`，不是空字符串 `""`，也不是 `NULL`，它代表"**这个值本来应该有，但我们不知道它是什么**"。
 
-- 现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误……
+- 现实数据中，NA 几乎无处不在：问卷漏填、仪器故障、数据录入错误
+
+---
 
 ```{r}
 #| echo: true
@@ -61,12 +63,8 @@ is.na(NA)
 
 ## 2 构造含 NA 的演示数据框
 
-> 💡 本节使用一个手动构造的小数据框演示，方便观察 NA 的行为。
-
 ```{r}
 #| echo: true
-#| code-fold: false
-
 df <- data.frame(
   name   = c("张三", "李四", "王五", "赵六", "钱七", "周九", "吴十"),
   age    = c(22, NA, 25, 21, NA, 28, 24),
@@ -127,7 +125,9 @@ sum(is.na(df))
 colMeans(is.na(df))
 ```
 
-> 💡 `colMeans(is.na(df))` 是一行代码摸清每列缺失率的常用技巧。
+:::{.callout-tip}
+`colMeans(is.na(df))`是一行代码摸清每列缺失率的常用技巧。
+:::
 
 ---
 
@@ -138,7 +138,6 @@ colMeans(is.na(df))
 ```{r}
 #| echo: true
 #| code-fold: false
-
 # age 列含有 NA，mean() 直接返回 NA
 mean(df$age)
 sum(df$age)
@@ -146,8 +145,9 @@ max(df$age)
 min(df$age)
 ```
 
-> ⚠️ 这**不是报错**，R 正常运行了，但结果是 `NA`。  
-> 初学者常以为代码写错了，其实是数据中存在缺失值。
+:::{.callout-tip}
+这**不是报错**，R 正常运行了，但结果是 `NA`初学者常以为代码写错了，其实是数据中存在缺失值。
+:::
 
 ---
 
@@ -156,27 +156,31 @@ min(df$age)
 ```{r}
 #| echo: true
 #| code-fold: false
-
 # na.rm = TRUE 表示"计算前先忽略 NA"
 mean(df$age,  na.rm = TRUE)
 sum(df$age,   na.rm = TRUE)
 max(df$age,   na.rm = TRUE)
-min(df$age,   na.rm = TRUE)
 ```
 
-> 💡 `na.rm` 是 **NA remove** 的缩写，几乎所有数值聚合函数都支持这个参数：
-> `mean()` `sum()` `max()` `min()` `sd()` `var()` `median()` `range()` ……
 
 ---
 
-> ⚠️ 永远不能用 `x == NA` 判断某个值是否缺失，必须用 `is.na(x)`！
+:::{.callout-tip}
+`na.rm` 是 **NA remove**的缩写，几乎所有数值聚合函数都支持这个参数：`mean()` `sum()` `max()` `min()` `sd()` `var()` `median()` `range()` ……
+:::
+
+
+---
+
+:::{.callout-tip}
+永远不能用 `x == NA` 判断某个值是否缺失，必须用 `is.na(x)`！
+:::
+
 
 ```{r}
 #| echo: true
 #| code-fold: false
-
 x <- NA
-
 x == NA    # 错误：返回 NA，不是 TRUE
 is.na(x)   # 正确：返回 TRUE
 ```
@@ -189,10 +193,11 @@ is.na(x)   # 正确：返回 TRUE
 #| echo: true
 #| code-fold: false
 #| error: true
-
 # 含 NA 的列直接计算相关系数，返回 NA
 cor(df$age, df$score)
 ```
+
+---
 
 ```{r}
 #| echo: true
@@ -202,7 +207,10 @@ cor(df$age, df$score)
 cor(df$age, df$score, use = "complete.obs")
 ```
 
-> 💡 `use = "complete.obs"` 表示只用两列都不缺失的行来计算。
+
+:::{.callout-tip}
+`use = "complete.obs"`表示只用两列都不缺失的行来计算。
+:::
 
 ---
 
@@ -211,11 +219,12 @@ cor(df$age, df$score, use = "complete.obs")
 ```{r}
 #| echo: true
 #| code-fold: false
-
 # lm() 不报错，但会自动删掉含 NA 的行
 model <- lm(score ~ age, data = df)
 summary(model)
 ```
+
+---
 
 ```{r}
 #| echo: true
@@ -226,8 +235,10 @@ nobs(model)        # 实际使用的行数
 nrow(df)           # 原始数据行数
 ```
 
-> ⚠️ `lm()` 悄悄删了含 NA 的行，**不报错不提醒**，样本量可能已经大幅缩水！
-> 建模前务必先检查缺失情况。
+
+:::{.callout-tip}
+`lm()` 悄悄删了含NA的行，**不报错不提醒**，样本量可能已经大幅缩水，建模前务先检查缺失情况。
+:::
 
 ---
 
@@ -244,7 +255,6 @@ table(df$passed)
 ```{r}
 #| echo: true
 #| code-fold: false
-
 # 加上 useNA = "ifany" 才会显示 NA 的数量
 table(df$passed, useNA = "ifany")
 
@@ -417,10 +427,11 @@ mean(airquality$Ozone, na.rm = TRUE)
 mean(airquality$Solar.R, na.rm = TRUE)
 ```
 
+---
+
 ```{r}
 #| echo: true
 #| code-fold: false
-
 # 第五步：删除含 NA 的行后再建模
 air_clean <- na.omit(airquality)
 nrow(airquality)    # 原始行数

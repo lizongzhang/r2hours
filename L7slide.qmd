@@ -80,6 +80,8 @@ library(tidyverse)
 df <- read_csv("data/raw_data.csv")
 ```
 
+---
+
 ::: {.callout-note title="极简之美"}
 这段代码无论发给谁，只要对方双击打开了 Project，就一定能丝滑运行，绝无报错。
 :::
