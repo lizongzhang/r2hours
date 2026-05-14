@@ -27,7 +27,7 @@ title: "模块3 构建R语言底层逻辑"
   [L10 讲义](https://lizongzhang.github.io/r2hours/L10slide.html){target="_blank"}
 </div>
 
-## L11 因子`Factor`的底层逻辑:掌控分类变量的秩序
+## L11 因子`Factor`:掌控分类变量的秩序
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">

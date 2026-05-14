@@ -1,5 +1,5 @@
 ---
-title: L18<br>用AI辅助R<br>学习与代码生成
+title: L18<br>AI辅助R<br>学习与代码生成
 date: today
 author: 
   name: "顶刊研习社"

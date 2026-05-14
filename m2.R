@@ -152,7 +152,7 @@ psych::describe(mtcars)
 # 函数名冲突示例（eval: false）
 library(dplyr)
 library(MASS)        # 后加载的 MASS 遮盖了 dplyr 的 select
-select(mtcars, mpg, wt)        # 可能报错
+# select(mtcars, mpg, wt)        # 可能报错
 dplyr::select(mtcars, mpg, wt) # 明确使用 dplyr::select
 
 # 查看当前冲突的函数
@@ -171,7 +171,7 @@ pacman::p_load(tidyverse, ggplot2, psych, corrplot)
 help(hist)  # 函数式调用
 
 # 官方示例演示（eval: false）
-example(boxplot)
+# example(boxplot)
 
 # 理解函数输入与输出
 mpg_hist <- hist(mtcars$mpg,

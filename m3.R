@@ -141,11 +141,6 @@ mtcars[, 1:3] |> head(3)  # 正确：取前 3 列
 
 # ---- L10: 缺失值 NA 的处理 ----
 
-# NA 的类型
-NA            # 逻辑型 NA（默认）
-NA_real_      # 数值型 NA
-NA_integer_   # 整数型 NA
-NA_character_ # 字符型 NA
 
 is.na(NA)
 
@@ -250,12 +245,12 @@ summary(model)
 
 # ---- L11: 因子 Factor 的底层逻辑 ----
 
+install.packages(c("tidyverse", "showtext")) 
+
 library(tidyverse)
 library(showtext)
 showtext_auto()
 
-# install.packages("tidyverse")  # （eval: false）
-# library(tidyverse)
 
 # 本节使用的数据：ggplot2::mpg
 data(mpg)

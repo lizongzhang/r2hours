@@ -40,7 +40,10 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
 # 第3层：再加一条趋势线
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point() +
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(
+              method = "lm",  #ctrl + shift  + c
+              se = FALSE
+              )
 
 # aes() 内：颜色随 drv 变量变化，自动生成图例
 ggplot(mpg, aes(x = displ, y = hwy, color = drv)) +
@@ -82,7 +85,7 @@ ggplot(mpg, aes(x = fct_reorder(class, hwy, median),
   geom_boxplot() +
   labs(title = "车型按油耗中位数排列",
        x = "车型", y = "高速油耗（mpg）") +
-  theme_minimal() +
+  theme_grey() +
   theme(legend.position = "none")
 
 # 柱状图：geom_bar() 自动统计频次
@@ -201,11 +204,16 @@ ggplot(df, aes(x = class, y = n, fill = class)) +
 # ---- L15: ggstatsplot 统计检验的可视化 ----
 
 # 安装与加载（eval: false）
-# install.packages(c("tidyverse", "ggstatsplot"))
+# install.packages(c("tidyverse", "ggstatsplot","showtext"))
 # library(tidyverse)
 # library(ggstatsplot)
 
 library(ggstatsplot)
+library(showtext)
+library(showtext)
+showtext_auto()
+
+data(iris)
 
 # 一行代码：箱线图 + 统计检验 + 效应量
 ggbetweenstats(data = iris,
@@ -219,6 +227,7 @@ ggbetweenstats(
   title = "三种鸢尾花的花萼长度比较"
 )
 
+data(mtcars)
 # 两组比较：手动挡 vs 自动挡的油耗
 mtcars$am_label <- factor(mtcars$am,
                           levels = c(0, 1),
@@ -238,7 +247,7 @@ ggbetweenstats(
   title       = "三种鸢尾花的花瓣长度",
   xlab        = "品种",
   ylab        = "花瓣长度（cm）",
-  point.args  = list(alpha = 0.3, size = 2),
+  point.args  = list(alpha = 0.3, size = 1),
   centrality.plotting = TRUE
 )
 
@@ -264,26 +273,26 @@ ggscatterstats(
 gghistostats(
   data       = iris,
   x          = Sepal.Length,
-  color      = "steelblue",
   title      = "花萼长度的分布",
   xlab       = "花萼长度（cm）",
-  test.value = 5.8
+  test.value = 5.8,
+  bin.args = list(color = "white",
+                  fill = "lightblue"),
 )
 
 # 分类变量：气缸数与变速箱类型的关系（卡方检验）
-library(tidyverse)
-mtcars <- mtcars |>
-  mutate(am = factor(am,
-                     levels = c(0, 1),
-                     labels = c("自动", "手动")))
 
+# 气缸数与变速箱类型的关系
 ggbarstats(
-  data  = mtcars,
-  x     = cyl,
-  y     = am,
+  data = mtcars,
+  x = cyl,
+  y = am,
   title = "气缸数和变速箱类型分布",
-  xlab  = "气缸数",
-  legend.title = "变速箱"
+  xlab = "气缸数",
+  ylab = "数量",
+  legend.title = "变速箱类型",
+  ggtheme = theme_minimal(),
+  palette = "Set2"          # 或 "Blues", "Paired" 等
 )
 
 # 相关系数矩阵
@@ -305,7 +314,7 @@ grouped_ggscatterstats(
 # 查看统计符号（问题1演示）
 ggbetweenstats(data = iris, x = Species, y = Sepal.Width)
 
-# 修改��形外观：ggstatsplot 返回 ggplot 对象，可继续用 + 修改
+# 修改图形外观：ggstatsplot 返回 ggplot 对象，可继续用 + 修改
 p <- ggbetweenstats(
   data  = iris,
   x     = Species,
@@ -328,7 +337,7 @@ ggbetweenstats(
 # ---- L16: 保存输出结果 ----
 
 # 安装与加载（eval: false）
-# install.packages(c("tidyverse", "modelsummary", "flextable", "officer", "openxlsx"))
+# install.packages(c("tidyverse", "modelsummary", "flextable", "officer", "openxlsx","showtext"))
 # library(tidyverse)
 # library(modelsummary)
 # library(flextable)
@@ -339,6 +348,8 @@ library(tidyverse)
 library(modelsummary)
 library(flextable)
 library(officer)
+library(showtext)
+showtext_auto()
 
 # 查看当前工作目录（eval: false）
 # getwd()

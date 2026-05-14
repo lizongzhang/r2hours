@@ -1,5 +1,5 @@
 ---
-title: L11<br>因子`Factor`的底层逻辑<br>掌控分类变量的秩序
+title: L11<br>因子`Factor`<br>掌控分类变量的秩序
 date: today
 author: 
   name: "顶刊研习社"

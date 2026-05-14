@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="顶刊研习社">
-  <meta name="dcterms.date" content="2026-05-11">
+  <meta name="dcterms.date" content="2026-05-14">
   <title>2小时入门R语言 – L15 ggstatsplot 统计检验的可视化</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -243,7 +243,7 @@ z-index: 1000;">
 </div>
 </div>
 
-  <p class="date">2026-05-11</p>
+  <p class="date">2026-05-14</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">大纲</h2>
@@ -260,6 +260,7 @@ z-index: 1000;">
 
 
 <li><a href="#/单变量分布gghistostats" id="/toc-单变量分布gghistostats">4 单变量分布：<code>gghistostats()</code></a></li>
+
 <li><a href="#/分类变量ggbarstats" id="/toc-分类变量ggbarstats">5 分类变量：<code>ggbarstats()</code></a></li>
 <li><a href="#/相关系数矩阵ggcorrmat" id="/toc-相关系数矩阵ggcorrmat">6 相关系数矩阵：<code>ggcorrmat()</code></a></li>
 <li><a href="#/分面组合grouped_-系列函数" id="/toc-分面组合grouped_-系列函数">7 分面组合：<code>grouped_</code> 系列函数</a></li>
@@ -488,17 +489,20 @@ z-index: 1000;">
 </div>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
 <div class="cell">
 <details class="code-fold">
 <summary>查看R代码</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># 鸢尾花花萼长度的分布</span></span>
-<span id="cb8-2"><a></a><span class="fu">gghistostats</span>(</span>
-<span id="cb8-3"><a></a>  <span class="at">data     =</span> iris,</span>
-<span id="cb8-4"><a></a>  <span class="at">x        =</span> Sepal.Length,</span>
-<span id="cb8-5"><a></a>  <span class="at">color   =</span> <span class="st">"steelblue"</span>,</span>
-<span id="cb8-6"><a></a>  <span class="at">title    =</span> <span class="st">"花萼长度的分布"</span>,</span>
-<span id="cb8-7"><a></a>  <span class="at">xlab     =</span> <span class="st">"花萼长度（cm）"</span>,</span>
-<span id="cb8-8"><a></a>  <span class="at">test.value =</span> <span class="fl">5.8</span>   <span class="co"># 检验均值是否显著不同于 5.8</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">gghistostats</span>(</span>
+<span id="cb8-2"><a></a>  <span class="at">data       =</span> iris,</span>
+<span id="cb8-3"><a></a>  <span class="at">x          =</span> Sepal.Length,</span>
+<span id="cb8-4"><a></a>  <span class="at">title      =</span> <span class="st">"花萼长度的分布"</span>,</span>
+<span id="cb8-5"><a></a>  <span class="at">xlab       =</span> <span class="st">"花萼长度（cm）"</span>,</span>
+<span id="cb8-6"><a></a>  <span class="at">test.value =</span> <span class="fl">5.8</span>,</span>
+<span id="cb8-7"><a></a>  <span class="at">bin.args =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"white"</span>, </span>
+<span id="cb8-8"><a></a>                  <span class="at">fill =</span> <span class="st">"lightblue"</span>),</span>
 <span id="cb8-9"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
@@ -522,21 +526,15 @@ z-index: 1000;">
 <div class="cell">
 <details class="code-fold">
 <summary>查看R代码</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-2"><a></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a></a>  <span class="fu">mutate</span>(<span class="at">am =</span> <span class="fu">factor</span>(am, </span>
-<span id="cb9-4"><a></a>                     <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), </span>
-<span id="cb9-5"><a></a>                     <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"自动"</span>, <span class="st">"手动"</span>)))</span>
-<span id="cb9-6"><a></a></span>
-<span id="cb9-7"><a></a><span class="co"># 气缸数与变速箱类型的关系</span></span>
-<span id="cb9-8"><a></a><span class="fu">ggbarstats</span>(</span>
-<span id="cb9-9"><a></a>  <span class="at">data  =</span> mtcars,</span>
-<span id="cb9-10"><a></a>  <span class="at">x     =</span> cyl,</span>
-<span id="cb9-11"><a></a>  <span class="at">y     =</span> am,</span>
-<span id="cb9-12"><a></a>  <span class="at">title =</span> <span class="st">"气缸数和变速箱类型分布"</span>,</span>
-<span id="cb9-13"><a></a>  <span class="at">xlab  =</span> <span class="st">"气缸数"</span>,</span>
-<span id="cb9-14"><a></a>  <span class="at">legend.title =</span> <span class="st">"变速箱"</span></span>
-<span id="cb9-15"><a></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># 气缸数与变速箱类型的关系</span></span>
+<span id="cb9-2"><a></a><span class="fu">ggbarstats</span>(</span>
+<span id="cb9-3"><a></a>  <span class="at">data  =</span> mtcars,</span>
+<span id="cb9-4"><a></a>  <span class="at">x     =</span> cyl,</span>
+<span id="cb9-5"><a></a>  <span class="at">y     =</span> am,</span>
+<span id="cb9-6"><a></a>  <span class="at">title =</span> <span class="st">"气缸数和变速箱类型分布"</span>,</span>
+<span id="cb9-7"><a></a>  <span class="at">xlab  =</span> <span class="st">"气缸数"</span>,</span>
+<span id="cb9-8"><a></a>  <span class="at">legend.title =</span> <span class="st">"变速箱"</span></span>
+<span id="cb9-9"><a></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>

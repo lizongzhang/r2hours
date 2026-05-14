@@ -40,6 +40,7 @@ editor:
 library(tidyverse)
 library(modelsummary)
 library(flextable)
+library(ggstatsplot)
 library(officer)
 library(showtext)
 showtext_auto()
@@ -217,9 +218,6 @@ ggscatterstats(
 图上会显示 **Pearson r**（或 Spearman ρ）、**p 值**、**置信区间**, 边缘还会自动画出两个变量各自的分布直方图。
 :::
 
-
-
-
 ---
 
 ## 4 单变量分布：`gghistostats()`
@@ -228,21 +226,20 @@ ggscatterstats(
 查看**单个连续变量**的分布，并检验它是否与某个假设值存在显著差异（单样本 t 检验）。
 :::
 
-
+---
 
 ```{r}
 #| echo: true
 #| message: false
 #| warning: false
-
-# 鸢尾花花萼长度的分布
 gghistostats(
-  data     = iris,
-  x        = Sepal.Length,
-  color   = "steelblue",
-  title    = "花萼长度的分布",
-  xlab     = "花萼长度（cm）",
-  test.value = 5.8   # 检验均值是否显著不同于 5.8
+  data       = iris,
+  x          = Sepal.Length,
+  title      = "花萼长度的分布",
+  xlab       = "花萼长度（cm）",
+  test.value = 5.8,
+  bin.args = list(color = "white", 
+                  fill = "lightblue"),
 )
 ```
 
@@ -260,12 +257,6 @@ gghistostats(
 #| echo: true
 #| message: false
 #| warning: false
-library(tidyverse)
-mtcars <- mtcars |> 
-  mutate(am = factor(am, 
-                     levels = c(0, 1), 
-                     labels = c("自动", "手动")))
-
 # 气缸数与变速箱类型的关系
 ggbarstats(
   data  = mtcars,

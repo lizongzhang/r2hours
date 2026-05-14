@@ -1,5 +1,5 @@
 ---
-title: "L6<br>R语言自学力<br>高效查阅帮助文档"
+title: "L6<br>R自学力<br>高效查阅帮助文档"
 date: today
 author: 
   name: "顶刊研习社"

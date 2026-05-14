@@ -6,7 +6,7 @@ title: "模块2 快速起步"
 <img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载模块2代码文件：m2.R](https://github.com/lizongzhang/r2hours/raw/main/m2.R){download="m2.R"}
 :::
 
-## L3 RStudio 新手入门：界面窗口与绘图初体验
+## L3 RStudio界面窗口与绘图初体验
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
@@ -25,7 +25,7 @@ title: "模块2 快速起步"
   [L5 讲义](https://lizongzhang.github.io/r2hours/L5slide.html){target="_blank"}
 </div>
 
-## L6 R语言自学力: 高效查阅帮助文档
+## L6 R自学力: 高效查阅帮助文档
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
   <img src="img/teacher.png" style="width: 24px; height: 24px; margin-right: 10px">
   [L6 讲义](https://lizongzhang.github.io/r2hours/L6slide.html){target="_blank"}
