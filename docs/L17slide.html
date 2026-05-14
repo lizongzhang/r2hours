@@ -241,15 +241,15 @@ z-index: 1000;">
 <h2 id="toc-title">大纲</h2>
 <ul>
 
-<li><a href="#/代码不执行只按了-enter" id="/toc-代码不执行只按了-enter">1 代码不执行——只按了 Enter</a></li>
+<li><a href="#/代码不执行-只按了-enter" id="/toc-代码不执行-只按了-enter">1 代码不执行: 只按了 Enter</a></li>
 
 
 
-<li><a href="#/报错找不到对象代码顺序错了" id="/toc-报错找不到对象代码顺序错了">2 报错”找不到对象”——代码顺序错了</a></li>
+<li><a href="#/报错找不到对象-代码顺序错了" id="/toc-报错找不到对象-代码顺序错了">2 报错”找不到对象”: 代码顺序错了</a></li>
 <li><a href="#/大小写不通用" id="/toc-大小写不通用">3 大小写不通用</a></li>
-<li><a href="#/输入法陷阱中文标点" id="/toc-输入法陷阱中文标点">4 输入法陷阱——中文标点</a></li>
+<li><a href="#/输入法陷阱-中文标点" id="/toc-输入法陷阱-中文标点">4 输入法陷阱: 中文标点</a></li>
 
-<li><a href="#/控制台出现-号代码没写完" id="/toc-控制台出现-号代码没写完">5 控制台出现 <code>+</code> 号——代码没写完</a></li>
+<li><a href="#/控制台出现-号-代码没写完" id="/toc-控制台出现-号-代码没写完">5 控制台出现 <code>+</code> 号: 代码没写完</a></li>
 
 
 
@@ -268,8 +268,8 @@ z-index: 1000;">
 <span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="代码不执行只按了-enter" class="slide level2">
-<h2>1 代码不执行——只按了 Enter</h2>
+<section id="代码不执行-只按了-enter" class="slide level2">
+<h2>1 代码不执行: 只按了 Enter</h2>
 <h3 id="赋值符号--">赋值符号 <code>&lt;-</code></h3>
 <p>在 R 中，给对象赋值使用 <code>&lt;-</code>，而不是 <code>=</code>。<br>
 <code>&lt;-</code> 由”小于号”和”减号”组成，推荐用快捷键一次打出：</p>
@@ -365,8 +365,8 @@ z-index: 1000;">
 </details>
 </div>
 </section>
-<section id="报错找不到对象代码顺序错了" class="slide level2">
-<h2>2 报错”找不到对象”——代码顺序错了</h2>
+<section id="报错找不到对象-代码顺序错了" class="slide level2">
+<h2>2 报错”找不到对象”: 代码顺序错了</h2>
 <pre><code>Error: object 'price' not found</code></pre>
 <p><strong>原因</strong>：调用了一个<strong>还没有赋值的对象</strong>。R 按顺序执行代码，必须先赋值，才能使用。</p>
 <div class="cell">
@@ -412,8 +412,8 @@ z-index: 1000;">
 </div>
 </div>
 </section>
-<section id="输入法陷阱中文标点" class="slide level2">
-<h2>4 输入法陷阱——中文标点</h2>
+<section id="输入法陷阱-中文标点" class="slide level2">
+<h2>4 输入法陷阱: 中文标点</h2>
 <ul>
 <li><p>R 中所有标点符号（括号、逗号、引号等）<strong>必须在英文输入法状态下输入</strong>。</p></li>
 <li><p>中文标点和英文标点外形相似，但 R 无法识别中文标点。</p></li>
@@ -469,8 +469,8 @@ z-index: 1000;">
 <p>报错信息：</p>
 <pre><code>Error: unexpected input in "round(pi, "</code></pre>
 </section>
-<section id="控制台出现-号代码没写完" class="slide level2">
-<h2>5 控制台出现 <code>+</code> 号——代码没写完</h2>
+<section id="控制台出现-号-代码没写完" class="slide level2">
+<h2>5 控制台出现 <code>+</code> 号: 代码没写完</h2>
 <h3 id="什么情况会出现">什么情况会出现 <code>+</code>？</h3>
 <p>当你在 Source 窗口写了一行<strong>未完成的代码</strong>（例如只写了 <code>8 + 10 +</code>，后面的数字还没有输入），就按了 <code>Ctrl + Enter</code>，Console 的提示符会从 <code>&gt;</code> 变成 <code>+</code>：</p>
 <pre><code>&gt; 8 + 10 +

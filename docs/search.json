@@ -950,5 +950,33 @@
     "title": "模块3 构建R语言底层逻辑",
     "section": "L11 因子Factor:掌控分类变量的秩序",
     "text": "L11 因子Factor:掌控分类变量的秩序\n\n L11 讲义"
+  },
+  {
+    "objectID": "L17slide.html#代码不执行-只按了-enter",
+    "href": "L17slide.html#代码不执行-只按了-enter",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "1 代码不执行: 只按了 Enter",
+    "text": "1 代码不执行: 只按了 Enter\n赋值符号 &lt;-\n在 R 中，给对象赋值使用 &lt;-，而不是 =。\n&lt;- 由”小于号”和”减号”组成，推荐用快捷键一次打出：\n\n\n\n操作系统\n赋值符号快捷键\n\n\n\n\nWindows\nAlt + -\n\n\nMac\nOption + -\n\n\n\n执行后，右上角 Environment 面板会出现 apple = 5 和 banana = 10，说明赋值成功。"
+  },
+  {
+    "objectID": "L17slide.html#报错找不到对象-代码顺序错了",
+    "href": "L17slide.html#报错找不到对象-代码顺序错了",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "2 报错”找不到对象”: 代码顺序错了",
+    "text": "2 报错”找不到对象”: 代码顺序错了\nError: object 'price' not found\n原因：调用了一个还没有赋值的对象。R 按顺序执行代码，必须先赋值，才能使用。\n\n\n[1] 80\n\n\n\n\n\n\n\n\nTip\n\n\n排查”找不到对象”的方法：\n查看 Environment 面板，如果该对象不在列表中，说明赋值代码还没有被执行。\n需要先运行赋值语句，再运行使用该对象的代码。"
+  },
+  {
+    "objectID": "L17slide.html#输入法陷阱-中文标点",
+    "href": "L17slide.html#输入法陷阱-中文标点",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "4 输入法陷阱: 中文标点",
+    "text": "4 输入法陷阱: 中文标点\n\nR 中所有标点符号（括号、逗号、引号等）必须在英文输入法状态下输入。\n中文标点和英文标点外形相似，但 R 无法识别中文标点。\n\n\n\n[1] 3.14159"
+  },
+  {
+    "objectID": "L17slide.html#控制台出现-号-代码没写完",
+    "href": "L17slide.html#控制台出现-号-代码没写完",
+    "title": "L17初学者最容易犯的5个低级错误",
+    "section": "5 控制台出现 + 号: 代码没写完",
+    "text": "5 控制台出现 + 号: 代码没写完\n什么情况会出现 +？\n当你在 Source 窗口写了一行未完成的代码（例如只写了 8 + 10 +，后面的数字还没有输入），就按了 Ctrl + Enter，Console 的提示符会从 &gt; 变成 +：\n&gt; 8 + 10 +\n+\n这个 + 表示 R 认为你的代码还没有结束，正在等待后续输入。"
   }
 ]
