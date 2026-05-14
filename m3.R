@@ -271,12 +271,16 @@ unique(mpg$drv)
 mpg$class_f <- factor(mpg$class)
 levels(mpg$class_f)   # 默认按字母顺序
 
+factor(mpg$drv)
+
 # 手动指定 levels 和 labels
 mpg$drv_f <- factor(mpg$drv,
                     levels = c("f", "r", "4"),
                     labels = c("front", "rear", "4-wheel"))
+
 levels(mpg$drv_f)
 table(mpg$drv_f)
+table(mpg$drv)
 
 # 因子用于绘图：控制类别顺序
 boxplot(hwy ~ drv, data = mpg,
@@ -337,6 +341,7 @@ mpg$mfr_lumped <- fct_lump_n(mpg$manufacturer, n = 5)
 table(mpg$mfr_lumped)
 
 mpg$mfr_lumped <- fct_reorder(mpg$mfr_lumped, mpg$hwy, median)
+
 par(mar = c(4, 7, 3, 1))
 boxplot(hwy ~ mfr_lumped, data = mpg,
         main       = "fct_lump_n()：保留前 5 个品牌",
@@ -351,11 +356,17 @@ boxplot(hwy ~ mfr_lumped, data = mpg,
 # ---- L12: 掌握管道符实现高效数据管理 ----
 
 library(tidyverse)
+data(mtcars)
 head(mtcars)
 
 # 管道符 vs 嵌套写法
 round(mean(sqrt(mtcars$hp)), 2)          # 嵌套写法
 mtcars$hp |> sqrt() |> mean() |> round(2)  # 管道符写法
+
+mtcars$hp |> 
+  sqrt() |> 
+  mean() |> 
+  round(2)
 
 # 嵌套 vs 中间变量 vs 管道符
 result1 <- round(mean(mtcars$hp), 1)
@@ -408,9 +419,9 @@ mtcars |>
 mtcars |>
   mutate(
     mpg_group = case_when(
-      mpg < 18             ~ "低油耗",
+      mpg < 18             ~ "高油耗",
       mpg >= 18 & mpg < 25 ~ "中油耗",
-      mpg >= 25            ~ "高油耗"
+      mpg >= 25            ~ "低油耗"
     )
   ) |>
   select(mpg, mpg_group) |>

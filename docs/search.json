@@ -345,16 +345,16 @@
   {
     "objectID": "L7slide.html#实战部署创建与文件管理",
     "href": "L7slide.html#实战部署创建与文件管理",
-    "title": "L7 项目的创建和管理",
+    "title": "L7项目的创建和管理",
     "section": "3 实战部署：创建与文件管理",
-    "text": "3 实战部署：创建与文件管理"
+    "text": "3 实战部署：创建与文件管理\n\n\n3.1 项目的创建\n\n创建流程\n\nFile -&gt; New Project... -&gt; New Directory -&gt; New Project。\n命名您的项目（例如 my_paper），存放在纯英文路径下。\n\n\nmy_paper/                   [项目所在的文件夹]\n├── my_paper.Rproj          [每次写代码前双击*.Rproj启动RStudio]\n├── data/                   [存放导入或者导出的数据文件]\n├── code/                   [存放*.R代码文件]\n└── output/                 [存生成的最终统计表与矢量图]\n\n\n\n3.2 命名艺术\n\n流水线命名法 (Pipeline Naming)\n\n脚本命名通过“序号 + 动作”命名，展示严密的逻辑链条。\n\n标准的实证研究脚本序列\n\n01_data_cleaning.R：清洗数据与变量重构\n02_descriptive_stats.R：生成描述性统计与相关系数矩阵\n03_main_models.R：运行核心回归或统计模型\n04_figures.R：生成正文所需的出版级高维图表\n05_robustness_checks.R：稳健性检验（附录材料）\n\n\n\n\n\n\n\n\n\n架构师命名铁律\n\n\n\n\n纯英文与全小写：跨平台无障碍识别。\n拒绝空格：用下划线（Snake Case）连接单词，如 data_cleaning.R。\n\n\n\n\n\n\n零填充命名法\n\n操作系统的“文盲”逻辑\n\n资源管理器默认按字符（字典顺序）而非数值排序。\n在字符比较中，10 的首位是 1，因此会被强行插在 1 与 2 之间。\n\n排序对比：从混乱到秩序\n\n\n\n❌ 混乱的文件排序 (1, 2, 3…)\n1_data_cleaning.R\n10_final_model.R [错位!]\n11_appendix.R\n2_descriptive.R\n...\n9_robustness.R\n\n✅ 推荐写法 (01, 02, 03…)\n01_data_cleaning.R\n02_descriptive.R\n...\n09_robustness.R\n10_final_model.R [对齐!]\n11_appendix.R\n\n\n\n\n\n\n\n\n\n架构师准则\n\n\n\n零填充 (Zero-padding)：通过将序号对齐为两位数（01-99），强制系统遵循您的分析流水线，确保代码执行顺序的可视化与逻辑统一。\n\n\n\n\n\n模块化脚本：从“手工作坊”到“流水线”\n\n初学者做法：把所有代码（从导入数据、清洗、建模到画图）全部放入一个长达几百上千行的 *.R脚本文件中。\n\n\n\n专业做法\n\n断点存档：保存中间结果（RDS），微调绘图无需重跑耗时模型。\n错误隔离：锁定报错范围，后端崩溃绝不污染前端原始数据。\n内存净化：及时清理冗余变量，预防 R 会话因内存溢出而卡死。\n并行协作：文件完全独立，多人同步开发彻底告别合并冲突。\n\n\n\n\n\nRDS 格式\n\n痛点：使用 CSV 传递中间数据，会导致 Factor（因子）和 Date（日期）等数据类型全部丢失，下游需要重复定义。\n解法：使用 R 原生专属的 .rds 格式，对数据对象进行“100% 无损快照”与高比率压缩。\n\n\n实操演示：流水线的完美衔接\n\n上游脚本 (01_cleaning.R)：交棒\n\n# 清洗完成后，将其冻结保存到硬盘\nsaveRDS(df_clean, \"data/clean_data.rds\")\n\n下游脚本 (02_analysis.R)：接棒\n\n# 启动新脚本，直接解冻并赋值给新变量，立即开始分析\ndf &lt;- readRDS(\"data/clean_data.rds\")\n\n\n\n\n\n\n\n架构师底线\n\n\n\n原始数据 (Raw Data) 用 CSV 读取，中间清洗好的数据 (Clean Data) 永远用 RDS 传递。这是确保数据分析链条绝对安全、高效的技术枢纽。\n\n\n\n\n\n\n\n\n核心技术纽带\n\n\n\n下游脚本通过 readRDS() 直接调用上游生成的 saveRDS() 结果，实现分析链条的无缝衔接。"
   },
   {
     "objectID": "L7slide.html#高保真-svg-矢量图导出",
     "href": "L7slide.html#高保真-svg-矢量图导出",
-    "title": "L7 项目的创建和管理",
+    "title": "L7项目的创建和管理",
     "section": "4 高保真 SVG 矢量图导出",
-    "text": "4 高保真 SVG 矢量图导出\n\n为什么是 SVG？\n\n常见的PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。\nSVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。"
+    "text": "4 高保真 SVG 矢量图导出\n\n为什么是 SVG？\n\n常见的PNG/JPG是位图，放大后会模糊（出现马赛克），无法满足顶级期刊出版要求。\nSVG 是无损矢量图，无论放大多少倍，线条与文字依然极其锐利，且支持后期导入 Adobe Illustrator (AI) 进行二次精修。\n\n\n\n\n使用 ggsave() 自动化导出\n\n\n# install.packages(\"svglite\")\nlibrary(tidyverse)\nlibrary(svglite)\n\npic1 &lt;- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, \n                      color = Species)) +\n  geom_point(size = 3, alpha = 0.8) +\n  theme_minimal()\n\nggsave(filename = \"output/fig1_sepal_scatter.svg\", \n       plot = pic1,  width = 8,  height = 6)"
   },
   {
     "objectID": "m3.html",
@@ -760,7 +760,7 @@
     "href": "m4.html#l13-外部数据文件的导入",
     "title": "模块4 数据分析实战",
     "section": "L13 外部数据文件的导入",
-    "text": "L13 外部数据文件的导入\n\n L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n下载L13数据文件：stroke.xlsx\n下载L13数据文件：stroke.csv\n下载L13数据文件：stroke.txt"
+    "text": "L13 外部数据文件的导入\n\n L13 讲义\n\n\n\n\n\n\n\nTip\n\n\n\n下载L13数据文件：stroke.xlsx\n下载L13数据文件：stroke.txt"
   },
   {
     "objectID": "m4.html#l14-数据可视化",
@@ -1199,15 +1199,22 @@
   {
     "objectID": "L7slide.html#绝对路径的困扰",
     "href": "L7slide.html#绝对路径的困扰",
-    "title": "L7 项目的创建和管理",
-    "section": "1 绝对路径的困扰",
-    "text": "1 绝对路径的困扰\n\n新手的“常规操作”\n\n新手通常会使用绝对路径设置工作目录：\nWindows系统桌面路径setwd(\"C:/Users/Administrator/Desktop/Paper2026/Data\")\nMac系统桌面路径setwd(\"/Users/您的Mac用户名/Desktop/Paper2026/Data\")"
+    "title": "L7项目的创建和管理",
+    "section": "",
+    "text": "新手的“常规操作”\n\n新手通常会使用绝对路径设置工作目录：\nWindows系统桌面路径setwd(\"C:/Users/Administrator/Desktop/Paper2026/Data\")\nMac系统桌面路径setwd(\"/Users/您的Mac用户名/Desktop/Paper2026/Data\")\n\n\n\n\n为什么这是灾难？\n\n协作崩溃：当您将代码发给合作者，他们的电脑里根本没有这个特定用户名的文件夹，代码直接报错运行中断。\n跨平台失效：Mac 系统根本没有 C:/ 盘的概念。\n换电脑失效：半年后您自己换了新电脑，原来所有的代码路径都需要逐一手动修改。\n\n\n\n\n\n\n什么是相对路径？\n\n既然 .Rproj 已经锚定了工作文件路径，我们只需要告诉 R 数据在项目文件夹中的路径即可。\n\n\n\nlibrary(tidyverse)\n\n# 绝对路径：\n# df &lt;- read_csv(\"D:/MyFiles/My_Paper_2026/data/raw_data.csv\")\n\n# 相对路径：直接从 data 文件夹中拿取\ndf &lt;- read_csv(\"data/raw_data.csv\")\n\n\n\n\n\n\n\n\n极简之美\n\n\n\n这段代码无论发给谁，只要对方双击打开了 Project，就一定能丝滑运行，绝无报错。"
   },
   {
     "objectID": "L7slide.html#project-的生态思维",
     "href": "L7slide.html#project-的生态思维",
-    "title": "L7 项目的创建和管理",
+    "title": "L7项目的创建和管理",
     "section": "2 Project 的生态思维",
     "text": "2 Project 的生态思维\n\n什么是 RStudio Project (.Rproj)？\n\n它就像一个标准化的“集装箱”。\n无论这个集装箱被扔到C盘、U 盘还是合作者的电脑，或Mac电脑上，集装箱内部的相对位置永远保持不变。\n\n核心优势\n\n双击.Rproj文件启动RStudio，它会自动将该文件夹设定为工作目录。\n每个 Project 拥有独立的运行环境与历史记录，多个项目互不干扰。"
+  },
+  {
+    "objectID": "L7slide.html",
+    "href": "L7slide.html",
+    "title": "L7项目的创建和管理",
+    "section": "",
+    "text": "新手的“常规操作”\n\n新手通常会使用绝对路径设置工作目录：\nWindows系统桌面路径setwd(\"C:/Users/Administrator/Desktop/Paper2026/Data\")\nMac系统桌面路径setwd(\"/Users/您的Mac用户名/Desktop/Paper2026/Data\")\n\n\n\n\n为什么这是灾难？\n\n协作崩溃：当您将代码发给合作者，他们的电脑里根本没有这个特定用户名的文件夹，代码直接报错运行中断。\n跨平台失效：Mac 系统根本没有 C:/ 盘的概念。\n换电脑失效：半年后您自己换了新电脑，原来所有的代码路径都需要逐一手动修改。\n\n\n\n\n\n\n什么是相对路径？\n\n既然 .Rproj 已经锚定了工作文件路径，我们只需要告诉 R 数据在项目文件夹中的路径即可。\n\n\n\nlibrary(tidyverse)\n\n# 绝对路径：\n# df &lt;- read_csv(\"D:/MyFiles/My_Paper_2026/data/raw_data.csv\")\n\n# 相对路径：直接从 data 文件夹中拿取\ndf &lt;- read_csv(\"data/raw_data.csv\")\n\n\n\n\n\n\n\n\n极简之美\n\n\n\n这段代码无论发给谁，只要对方双击打开了 Project，就一定能丝滑运行，绝无报错。"
   }
 ]

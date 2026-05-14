@@ -16,8 +16,6 @@ title: "模块4 数据分析实战"
 ::: {.callout-tip}
 <img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.xlsx](https://github.com/lizongzhang/r2hours/raw/main/stroke.xlsx){download="stroke.xlsx"}
 
-<img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.csv](https://github.com/lizongzhang/r2hours/raw/main/stroke.csv){download="stroke.csv"}
-
 <img src="img/download.png" style="width: 24px; height: 24px; margin-right: 10px">[下载L13数据文件：stroke.txt](https://github.com/lizongzhang/r2hours/raw/main/stroke.txt){download="stroke.txt"}
 
 :::
