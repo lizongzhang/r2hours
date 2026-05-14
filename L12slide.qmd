@@ -1,5 +1,5 @@
 ---
-title: "L12<br>掌握管道符实现高效数据管理"
+title: "L12<br>掌握管道符<br>实现高效数据管理"
 date: today
 author: 
   name: "顶刊研习社"
