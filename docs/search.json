@@ -807,49 +807,49 @@
   {
     "objectID": "L12slide.html#什么是管道符",
     "href": "L12slide.html#什么是管道符",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "1 什么是管道符？",
     "text": "1 什么是管道符？\n\n管道符 pipe operator: |&gt;把左边的结果自动传递给右边函数的第一个参数。\n管道符快捷键\n\nWin: shift + control + M\nmacOS: Cmd + Shift + M"
   },
   {
     "objectID": "L12slide.html#为什么用管道符",
     "href": "L12slide.html#为什么用管道符",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "2 为什么用管道符？",
     "text": "2 为什么用管道符？\n不用管道符，多步操作只能靠嵌套或中间变量：\n\n# 嵌套写法：层层包裹，阅读困难\nresult1 &lt;- round(mean(mtcars$hp), 1)\n# 中间变量写法：代码冗长\nhp_mean  &lt;- mean(mtcars$hp)\nresult2  &lt;- round(hp_mean, 1)\nresult1\n\n[1] 146.7\n\nresult2\n\n[1] 146.7"
   },
   {
     "objectID": "L12slide.html#和-的区别",
     "href": "L12slide.html#和-的区别",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "3 |> 和 %>% 的区别",
     "text": "3 |&gt; 和 %&gt;% 的区别\n\n# |&gt;  是 R 4.1+ 内置的原生管道符，无需加载任何包\nmtcars$hp |&gt; mean() |&gt; round(1)\n\n[1] 146.7\n\n# %&gt;% 来自 magrittr 包，加载 dplyr 或 tidyverse 后可用\n# 两者在绝大多数场景下效果完全相同\nmtcars$hp %&gt;% mean() %&gt;% round(1)\n\n[1] 146.7\n\n\n\n\n\n\n\n\nTip\n\n\n\n💡 推荐初学者统一使用 |&gt;，不需要额外加载包。"
   },
   {
     "objectID": "L12slide.html#数据管理常用操作",
     "href": "L12slide.html#数据管理常用操作",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "4 数据管理常用操作",
     "text": "4 数据管理常用操作\n筛选行：filter()\n\n# 筛选出 4 缸的车\nmtcars |&gt;\n  filter(cyl == 4)\n\n                mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nDatsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nMerc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nFiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1\nHonda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2\nToyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1\nToyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1\nFiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2"
   },
   {
     "objectID": "L12slide.html#串联所有的步骤",
     "href": "L12slide.html#串联所有的步骤",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "5 串联所有的步骤",
     "text": "5 串联所有的步骤\n管道符真正的价值在于把多个步骤一气呵成地串联：\n\n# 目标：找出手动挡车中，各气缸数的平均油耗（从高到低排列）\nmtcars |&gt;\n  filter(am == 1) |&gt;                          # 第1步：只保留手动挡\n  mutate(cyl = factor(cyl)) |&gt;               # 第2步：气缸数转为因子\n  group_by(cyl) |&gt;                           # 第3步：按气缸数分组\n  summarise(\n    n        = n(),\n    mpg_mean = mean(mpg) |&gt; round(1)         # 第4步：计算平均油耗\n  ) |&gt;\n  arrange(desc(mpg_mean))                    # 第5步：从高到低排列\n\n# A tibble: 3 × 3\n  cyl       n mpg_mean\n  &lt;fct&gt; &lt;int&gt;    &lt;dbl&gt;\n1 4         8     28.1\n2 6         3     20.6\n3 8         2     15.4"
   },
   {
     "objectID": "L12slide.html#常见报错",
     "href": "L12slide.html#常见报错",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "常见报错",
     "text": "常见报错\n报错1：管道符后忘记写函数\n\n# 管道符后面必须接一个函数，不能接数据框\nmtcars |&gt; cyl\n\nError in cyl: The pipe operator requires a function call as RHS (&lt;input&gt;:2:11)"
   },
   {
     "objectID": "L12slide.html#小结",
     "href": "L12slide.html#小结",
-    "title": "L12掌握管道符实现高效数据管理",
+    "title": "L12管道符数据管理的高效工具",
     "section": "6 小结",
     "text": "6 小结\n\n\n\n函数\n用途\n\n\n\n\nfilter()\n按条件筛选行\n\n\nselect()\n选择保留的列\n\n\nmutate()\n追加新列或修改已有列\n\n\ncase_when()\n多条件重新编码（配合 mutate() 使用）\n\n\narrange()\n按某列排序（desc() 降序）\n\n\ngroup_by()\n按变量分组\n\n\nsummarise()\n对每组计算汇总统计量\n\n\nungroup()\n清除分组标记"
   },
